@@ -1,0 +1,10 @@
+.help-container {
+  display: flex;
+  flex-direction: column;
+  margin: 2% 0;
+  justify-content: space-evenly;
+}
+
+.help-container span{
+  padding: 10px 0;
+}

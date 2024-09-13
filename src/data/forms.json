@@ -1,0 +1,377 @@
+{
+    "forms": [
+        {
+            "id": 1,
+            "title": "FORMULARIO DE POSTULACIÓN - ECTP 2024",
+            "form-intro": "¡Bienvenido/a!\nPara poder postular, debe completar el siguiente formulario.\nComo primer paso, ingrese su RUT para poder continuar",
+            "form-groups": [
+                {
+                    "component": "form-structure",
+                    "label": "Datos Personales",
+                    "content": [
+                        {
+                            "component": "form-row",
+                            "content": [
+                                {
+                                    "component": "checkbox",
+                                    "id": "cargo-postulacion",
+                                    "label": "Cargo(s) a postular",
+                                    "items": [
+                                        {
+                                            "label": "Examinador",
+                                            "value": "examinador"
+                                        },
+                                        {
+                                            "label": "Apoyo técnico",
+                                            "value": "apoyo-tecnico"
+                                        },
+                                        {
+                                            "label": "Supervisor",
+                                            "value": "supervisor"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "component": "text",
+                            "id": "nombres",
+                            "label": "Nombres",
+                            "validators": [
+                                "letter",
+                                "completion"
+                            ]
+                        },
+                        {
+                            "component": "text",
+                            "id": "nombre-social",
+                            "label": "Nombre Social",
+                            "info": "(Opcional) Corresponde a nombre utilizado por una persona en razón de su expresión de género y que difiere de su nombre legal."
+                        },
+                        {
+                            "component": "text",
+                            "id": "primer-apellido",
+                            "label": "Primer Apellido",
+                            "validators": [
+                                "letter",
+                                "completion"
+                            ]
+                        },
+                        {
+                            "component": "text",
+                            "id": "segundo-apellido",
+                            "label": "Segundo Apellido",
+                            "validators": [
+                                "letter",
+                                "completion"
+                            ]
+                        },
+                        {
+                            "component": "combobox",
+                            "id": "estado-civil",
+                            "label": "Estado Civil",
+                            "placeholder": "su estado civil",
+                            "items": [
+                                {
+                                    "label": "Soltero/a",
+                                    "value": "soltero"
+                                },
+                                {
+                                    "label": "Casado/a",
+                                    "value": "casado"
+                                },
+                                {
+                                    "label": "Divorciado/a",
+                                    "value": "divorciado"
+                                },
+                                {
+                                    "label": "Viudo/a",
+                                    "value": "viudo"
+                                }
+                            ]
+                        },
+                        {
+                            "component": "text",
+                            "id": "fecha-nacimiento",
+                            "label": "Fecha Nacimiento",
+                            "type": "date",
+                            "validators": [
+                                "completion"
+                            ]
+                        },
+                        {
+                            "component": "combobox",
+                            "id": "pertenencia-pueblos",
+                            "label": "Pertenencia Pueblos",
+                            "placeholder": "pertenencia pueblos",
+                            "items": [
+                                {
+                                    "label": "No pertenece",
+                                    "value": "no-pertenece"
+                                },
+                                {
+                                    "label": "Alcalufe (Kawashkar)",
+                                    "value": "alcalufe"
+                                },
+                                {
+                                    "label": "Atacameño",
+                                    "value": "atacameno"
+                                }
+                            ]
+                        },
+                        {
+                            "component": "combobox",
+                            "id": "situacion-discapacidad",
+                            "label": "Situación Discapacidad",
+                            "placeholder": "situación discapacidad",
+                            "items": [
+                                {
+                                    "label": "Ninguna",
+                                    "value": "ninguna"
+                                },
+                                {
+                                    "label": "Orgánica/Visceral",
+                                    "value": "organica"
+                                },
+                                {
+                                    "label": "Física Motora",
+                                    "value": "motora"
+                                }
+                            ]
+                        },
+                        {
+                            "component": "text",
+                            "id": "email",
+                            "label": "Correo Electrónico",
+                            "validators": [
+                                "email",
+                                "completion"
+                            ]
+                        },
+                        {
+                            "component": "text",
+                            "id": "telefono",
+                            "label": "Celular (8 dígitos)",
+                            "type": "tel",
+                            "validators": [
+                                "number",
+                                "completion"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "component": "form-structure",
+                    "label": "Datos cuenta bancaria",
+                    "content": [
+                        {
+                            "component": "combobox",
+                            "id": "banco",
+                            "label": "Banco",
+                            "placeholder": "banco",
+                            "items": [
+                                {
+                                    "label": "Banco Santander",
+                                    "value": "santander"
+                                },
+                                {
+                                    "label": "Scottiabank",
+                                    "value": "scottiabank"
+                                }
+                            ]
+                        },
+                        {
+                            "component": "combobox",
+                            "id": "tipo-cuenta",
+                            "label": "Tipo de Cuenta",
+                            "placeholder": "tipo de cuenta",
+                            "items": [
+                                {
+                                    "label": "Cuenta Corriente",
+                                    "value": "cuenta-corriente"
+                                },
+                                {
+                                    "label": "Visa/RUT",
+                                    "value": "visa"
+                                }
+                            ]
+                        },
+                        {
+                            "component": "form-row",
+                            "content": [
+                                {
+                                    "component": "text",
+                                    "id": "numero-cuenta",
+                                    "label": "Número de cuenta",
+                                    "validators": [
+                                        "number",
+                                        "completion"
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "component": "form-structure",
+                    "label": "Documentos",
+                    "indication": "( Formatos soportados: doc, docx, pdf, png, jpg, zip o rar )",
+                    "content": [
+                        {
+                            "component": "document-manager",
+                            "content": [
+                                {
+                                    "component": "document-row",
+                                    "id": "cedula-identidad",
+                                    "label": "Cédula de identidad vigente y por ambos lados"
+                                },
+                                {
+                                    "component": "document-row",
+                                    "id": "cv",
+                                    "label": "Currículum Vitae (Actualizado a la fecha)"
+                                },
+                                {
+                                    "component": "document-row",
+                                    "id": "titulo",
+                                    "label": "Certificado de Título"
+                                },
+                                {
+                                    "component": "document-row",
+                                    "id": "certificado-inhabilidad",
+                                    "label": "Certificado de Inhabilidad (El certificado es gratuito y se puede obtener a través del enlace inhabilidades.srcei.cl)",
+                                    "info": "El certificado de inhabilidades debe ser del mes de agosto."
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "component": "form-structure",
+                    "label": "Area Instituciones",
+                    "content": [
+                        {
+                            "component": "nested-combobox",
+                            "id": "institutions-comboboxes",
+                            "content": [
+                                {
+                                    "id": "institucion-combobox",
+                                    "placeholder": "institución",
+                                    "label": "Institución",
+                                    "items": [
+                                        {
+                                            "id": "escuela",
+                                            "label": "Escuela",
+                                            "value": "escuela",
+                                            "events": [
+                                                {
+                                                    "target": "escuelas-combobox",
+                                                    "payload": "get-escuelas"
+                                                },
+                                                {
+                                                    "target": "grado-escuela-combobox",
+                                                    "payload": [
+                                                        {
+                                                            "id": "primaria",
+                                                            "label": "Primaria",
+                                                            "value": "primaria",
+                                                            "events": []
+                                                        },
+                                                        {
+                                                            "id": "secundaria",
+                                                            "label": "Secundaria",
+                                                            "value": "secundaria",
+                                                            "events": []
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": "universidad",
+                                            "label": "Universidad",
+                                            "value": "universidad",
+                                            "events": [
+                                                {
+                                                    "target": "universidades-combobox",
+                                                    "payload": "get-universidades"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "escuelas-combobox",
+                                    "label": "Escuela",
+                                    "placeholder": "escuela",
+                                    "items": []
+                                },
+                                {
+                                    "id": "grado-escuela-combobox",
+                                    "label": "Grado",
+                                    "placeholder": "grado",
+                                    "items": []
+                                },
+                                {
+                                    "id": "universidades-combobox",
+                                    "label": "Universidad",
+                                    "placeholder": "universidad",
+                                    "items": [],
+                                    "events":[
+                                        {
+                                            "target": "region-universidad-combobox",
+                                            "payload": "get-ubicacion-universidad"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "region-universidad-combobox",
+                                    "label": "Región especial",
+                                    "placeholder": "región",
+                                    "items": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "title": "FORMULARIO DE POSTULACIÓN - ECTP 2025",
+            "form-intro": "Ingresa tu RUT para continuar",
+            "form-groups": [
+                {
+                    "component": "form-structure",
+                    "id": "datos-personales",
+                    "label": "Datos Personales",
+                    "content": [
+                        {
+                            "id": "datos-personales",
+                            "component": "nested-component",
+                            "content": [
+                                {
+                                    "component": "text-field",
+                                    "id": "nombres",
+                                    "label": "Nombres",
+                                    "validators": [
+                                        "letter",
+                                        "completion"
+                                    ]
+                                },
+                                {
+                                    "component": "text-field",
+                                    "id": "apellidos",
+                                    "label": "Apellidos",
+                                    "validators": [
+                                        "letter",
+                                        "completion"
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+.info-icon {
+  display: flex;
+  color: white;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  min-height: 18px;
+  min-width: 18px;
+  background-color: var(--black);
+  border-radius: 999px;
+  cursor: default;
+  user-select: none;
+  transition: background-color ease-in-out 200ms;
+}
+
+.info-icon:hover {
+  background-color: var(--primary-100);
+}
+
+.field-info {
+  position: absolute;
+  min-width: 500px;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--tertiary-75);
+  padding: 10px 20px;
+  z-index: 100;
+  border-radius: 40px;
+  box-shadow: 0px 0px 5px var(--black);
+}
