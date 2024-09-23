@@ -6,12 +6,14 @@ import { FieldAccessProvider } from "../../context/FieldAccessContext";
 import { FormHandlerProvider } from "../../context/FormHandlerContext";
 import { Layout } from "../../layout";
 import { RUTField } from "../../components/RUTField";
-import { FormStructure } from "../../components/FormStructure"
-import { ComponentGenerator } from "./utils/ComponentGenerator";
+import { EventManagerProvider } from "../../context/EventManagerContext";
+import { ComponentGenerator } from "./components/ComponentGenerator";
+import { FormSchemaInit } from "../../utils/mappings/FormSchemaInit";
 
 export function FormRenderer() {
   const { formId } = useParams();
   const form = formBrowser(formId);
+
   if (form === null || form === undefined) {
     return <NotFoundPage message="No se encontró el formulario" />;
   }
@@ -20,20 +22,13 @@ export function FormRenderer() {
     <LoadingProvider>
       <FieldAccessProvider>
         <FormHandlerProvider>
-          <Layout title={form.title} helpText={form["form-intro"]}>
-            <RUTField />
-            {form["form-groups"].map((structure) => {
-              return (
-                <FormStructure
-                  key={structure.id}
-                  title={structure.label}
-                  indication={structure.indication}
-                >
-                  {ComponentGenerator(structure)}
-                </FormStructure>
-              );
-            })}
-          </Layout>
+          <EventManagerProvider>
+            <FormSchemaInit schema={form["form-groups"]} />
+            <Layout title={form.title} helpText={form["form-intro"]}>
+              <RUTField />
+              <ComponentGenerator schema={form["form-groups"]} />
+            </Layout>
+          </EventManagerProvider>
         </FormHandlerProvider>
       </FieldAccessProvider>
     </LoadingProvider>

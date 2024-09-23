@@ -11,6 +11,11 @@ export const FormHandlerProvider = ({ children }) => {
     }));
   };
 
+  const getFieldValue = (key) =>{
+    const value = form[key]; 
+    return value !== undefined ? value : "";
+  }
+
   useEffect(() => {
     console.log(form);
   }, [form]);
@@ -23,7 +28,7 @@ export const FormHandlerProvider = ({ children }) => {
     console.log("Pre envio: ", form);
   };
 
-  return <FormHandlerContext.Provider value={{updateForm, sendForm}}>
+  return <FormHandlerContext.Provider value={{updateForm, sendForm, getFieldValue}}>
     {children}
   </FormHandlerContext.Provider>
 };

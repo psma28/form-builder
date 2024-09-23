@@ -18,7 +18,7 @@ export function validatorMapper(validators){
         case "email":
           return emailValidator;
         default:
-          return <></>;
+          return;
       }
     });
     return mappedValidators;

@@ -316,7 +316,7 @@
                                     "label": "Universidad",
                                     "placeholder": "universidad",
                                     "items": [],
-                                    "events":[
+                                    "events": [
                                         {
                                             "target": "region-universidad-combobox",
                                             "payload": "get-ubicacion-universidad"
@@ -346,27 +346,41 @@
                     "label": "Datos Personales",
                     "content": [
                         {
-                            "id": "datos-personales",
-                            "component": "nested-component",
-                            "content": [
-                                {
-                                    "component": "text-field",
-                                    "id": "nombres",
-                                    "label": "Nombres",
-                                    "validators": [
-                                        "letter",
-                                        "completion"
-                                    ]
-                                },
-                                {
-                                    "component": "text-field",
-                                    "id": "apellidos",
-                                    "label": "Apellidos",
-                                    "validators": [
-                                        "letter",
-                                        "completion"
-                                    ]
-                                }
+                            "component": "combobox",
+                            "id": "supervisor",
+                            "label": "¿Está interesado/a en que su postulación sea considerada para el rol de Supervisor/a?",
+                            "placeholder": "Seleccione una opçión",
+                            "items": [
+                                {"label": "Si", "value": true},
+                                {"label": "No", "value": false}
+                            ]
+                        },
+                        {
+                            "component": "text-field",
+                            "id": "nombres",
+                            "label": "Nombres",
+                            "validators": [
+                                "letter",
+                                "completion"
+                            ]
+                        },
+                        {
+                            "component": "text-field",
+                            "id": "apellidos",
+                            "label": "Apellidos",
+                            "validators": [
+                                "letter",
+                                "completion"
+                            ]
+                        },
+                        {
+                            "component": "text-field",
+                            "id": "celular",
+                            "label": "Celular",
+                            "type": "tel",
+                            "validators": [
+                                "number",
+                                "completion"
                             ]
                         }
                     ]
