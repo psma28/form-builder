@@ -1,13 +1,14 @@
+import { getComunas, getRegiones } from "../../services/api/regionSeeder";
 import { getColegios } from "../../services/api/schoolSeeder";
-import {
-  getUbicacionUniversidad,
-  getUniversidades,
-} from "../../services/api/universitySeeder";
+import { getUniversidades } from "../../services/api/universitySeeder";
+import { getYears } from "../../services/api/yearSeeder";
 
 const APIFunctionsMap = {
   "get-escuelas": { function: getColegios, args: 0 },
   "get-universidades": { function: getUniversidades, args: 0 },
-  "get-ubicacion-universidad": { function: getUbicacionUniversidad, args: 1 },
+  "get-regiones": { function: getRegiones, args: 0 },
+  "get-comunas": { function: getComunas, args: 1 },
+  "get-anios": { function: getYears, args:0 }
 };
 
 function searchFunction(functionName) {
@@ -15,16 +16,14 @@ function searchFunction(functionName) {
   return foundFunction;
 }
 
-export function functionExecutor(functionName, args) {
+export async function functionExecutor(functionName, args) {
   const functionInfo = searchFunction(functionName);
-
-  if (functionInfo.args === 0) {
+  if (functionInfo.args === 0)
     return functionInfo.function().then((res) => {
       return res;
     });
-  }
-
   return functionInfo.function(args).then((res) => {
     return res;
   });
 }
+

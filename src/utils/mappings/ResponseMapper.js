@@ -1,7 +1,10 @@
 import { toNormalText, toSnakeCase } from "../stringTools";
 
 export function comboboxResponseMapper(data) {
-    return data.map((item) => ({
+    return data.map((item) => {
+      let events = item.events;
+      if(!events) events = [];
+      return{
       id:
         item.id ||
         toSnakeCase(item.name) ||
@@ -14,6 +17,6 @@ export function comboboxResponseMapper(data) {
         toNormalText(this.value) ||
         toNormalText(this.id),
       value: item.value || toSnakeCase(item.name) || toSnakeCase(item.label),
-      events: [],
-    }));
-  }
+      events: events
+    }});
+}

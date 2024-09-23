@@ -6,10 +6,12 @@ import { FormHandlerContext } from "../../../context/FormHandlerContext";
 export function ComponentGenerator({ schema }) {
   const { pushComponent, getComponent, updateComponent } =
     useContext(EventManagerContext);
-    const { updateForm } = useContext(FormHandlerContext);
+  const { updateForm } = useContext(FormHandlerContext);
 
   const handleUpdate = () => {
-    updateForm("nombres","PabloSaul")
+    updateComponent("institucion-text", {
+      visible: false
+    });
   };
   return (
     <>

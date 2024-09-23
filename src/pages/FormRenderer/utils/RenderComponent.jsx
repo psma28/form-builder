@@ -29,7 +29,7 @@ export function RenderComponent(content) {
           </FormStructure>
         );
       default:
-        return <BlankComponent />;
+        return <BlankComponent key={Math.random()}/>;
     }
   });
 }

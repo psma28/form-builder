@@ -41,7 +41,7 @@ export function TextField({ id }) {
       return validator;
     });
     setErrors(messages);
-    if (!validation) updateForm(id, null);
+    if (!validation) updateForm(id, "");
   };
 
   return (

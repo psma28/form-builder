@@ -2,342 +2,7 @@
     "forms": [
         {
             "id": 1,
-            "title": "FORMULARIO DE POSTULACIÓN - ECTP 2024",
-            "form-intro": "¡Bienvenido/a!\nPara poder postular, debe completar el siguiente formulario.\nComo primer paso, ingrese su RUT para poder continuar",
-            "form-groups": [
-                {
-                    "component": "form-structure",
-                    "label": "Datos Personales",
-                    "content": [
-                        {
-                            "component": "form-row",
-                            "content": [
-                                {
-                                    "component": "checkbox",
-                                    "id": "cargo-postulacion",
-                                    "label": "Cargo(s) a postular",
-                                    "items": [
-                                        {
-                                            "label": "Examinador",
-                                            "value": "examinador"
-                                        },
-                                        {
-                                            "label": "Apoyo técnico",
-                                            "value": "apoyo-tecnico"
-                                        },
-                                        {
-                                            "label": "Supervisor",
-                                            "value": "supervisor"
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "component": "text",
-                            "id": "nombres",
-                            "label": "Nombres",
-                            "validators": [
-                                "letter",
-                                "completion"
-                            ]
-                        },
-                        {
-                            "component": "text",
-                            "id": "nombre-social",
-                            "label": "Nombre Social",
-                            "info": "(Opcional) Corresponde a nombre utilizado por una persona en razón de su expresión de género y que difiere de su nombre legal."
-                        },
-                        {
-                            "component": "text",
-                            "id": "primer-apellido",
-                            "label": "Primer Apellido",
-                            "validators": [
-                                "letter",
-                                "completion"
-                            ]
-                        },
-                        {
-                            "component": "text",
-                            "id": "segundo-apellido",
-                            "label": "Segundo Apellido",
-                            "validators": [
-                                "letter",
-                                "completion"
-                            ]
-                        },
-                        {
-                            "component": "combobox",
-                            "id": "estado-civil",
-                            "label": "Estado Civil",
-                            "placeholder": "su estado civil",
-                            "items": [
-                                {
-                                    "label": "Soltero/a",
-                                    "value": "soltero"
-                                },
-                                {
-                                    "label": "Casado/a",
-                                    "value": "casado"
-                                },
-                                {
-                                    "label": "Divorciado/a",
-                                    "value": "divorciado"
-                                },
-                                {
-                                    "label": "Viudo/a",
-                                    "value": "viudo"
-                                }
-                            ]
-                        },
-                        {
-                            "component": "text",
-                            "id": "fecha-nacimiento",
-                            "label": "Fecha Nacimiento",
-                            "type": "date",
-                            "validators": [
-                                "completion"
-                            ]
-                        },
-                        {
-                            "component": "combobox",
-                            "id": "pertenencia-pueblos",
-                            "label": "Pertenencia Pueblos",
-                            "placeholder": "pertenencia pueblos",
-                            "items": [
-                                {
-                                    "label": "No pertenece",
-                                    "value": "no-pertenece"
-                                },
-                                {
-                                    "label": "Alcalufe (Kawashkar)",
-                                    "value": "alcalufe"
-                                },
-                                {
-                                    "label": "Atacameño",
-                                    "value": "atacameno"
-                                }
-                            ]
-                        },
-                        {
-                            "component": "combobox",
-                            "id": "situacion-discapacidad",
-                            "label": "Situación Discapacidad",
-                            "placeholder": "situación discapacidad",
-                            "items": [
-                                {
-                                    "label": "Ninguna",
-                                    "value": "ninguna"
-                                },
-                                {
-                                    "label": "Orgánica/Visceral",
-                                    "value": "organica"
-                                },
-                                {
-                                    "label": "Física Motora",
-                                    "value": "motora"
-                                }
-                            ]
-                        },
-                        {
-                            "component": "text",
-                            "id": "email",
-                            "label": "Correo Electrónico",
-                            "validators": [
-                                "email",
-                                "completion"
-                            ]
-                        },
-                        {
-                            "component": "text",
-                            "id": "telefono",
-                            "label": "Celular (8 dígitos)",
-                            "type": "tel",
-                            "validators": [
-                                "number",
-                                "completion"
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "component": "form-structure",
-                    "label": "Datos cuenta bancaria",
-                    "content": [
-                        {
-                            "component": "combobox",
-                            "id": "banco",
-                            "label": "Banco",
-                            "placeholder": "banco",
-                            "items": [
-                                {
-                                    "label": "Banco Santander",
-                                    "value": "santander"
-                                },
-                                {
-                                    "label": "Scottiabank",
-                                    "value": "scottiabank"
-                                }
-                            ]
-                        },
-                        {
-                            "component": "combobox",
-                            "id": "tipo-cuenta",
-                            "label": "Tipo de Cuenta",
-                            "placeholder": "tipo de cuenta",
-                            "items": [
-                                {
-                                    "label": "Cuenta Corriente",
-                                    "value": "cuenta-corriente"
-                                },
-                                {
-                                    "label": "Visa/RUT",
-                                    "value": "visa"
-                                }
-                            ]
-                        },
-                        {
-                            "component": "form-row",
-                            "content": [
-                                {
-                                    "component": "text",
-                                    "id": "numero-cuenta",
-                                    "label": "Número de cuenta",
-                                    "validators": [
-                                        "number",
-                                        "completion"
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "component": "form-structure",
-                    "label": "Documentos",
-                    "indication": "( Formatos soportados: doc, docx, pdf, png, jpg, zip o rar )",
-                    "content": [
-                        {
-                            "component": "document-manager",
-                            "content": [
-                                {
-                                    "component": "document-row",
-                                    "id": "cedula-identidad",
-                                    "label": "Cédula de identidad vigente y por ambos lados"
-                                },
-                                {
-                                    "component": "document-row",
-                                    "id": "cv",
-                                    "label": "Currículum Vitae (Actualizado a la fecha)"
-                                },
-                                {
-                                    "component": "document-row",
-                                    "id": "titulo",
-                                    "label": "Certificado de Título"
-                                },
-                                {
-                                    "component": "document-row",
-                                    "id": "certificado-inhabilidad",
-                                    "label": "Certificado de Inhabilidad (El certificado es gratuito y se puede obtener a través del enlace inhabilidades.srcei.cl)",
-                                    "info": "El certificado de inhabilidades debe ser del mes de agosto."
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "component": "form-structure",
-                    "label": "Area Instituciones",
-                    "content": [
-                        {
-                            "component": "nested-combobox",
-                            "id": "institutions-comboboxes",
-                            "content": [
-                                {
-                                    "id": "institucion-combobox",
-                                    "placeholder": "institución",
-                                    "label": "Institución",
-                                    "items": [
-                                        {
-                                            "id": "escuela",
-                                            "label": "Escuela",
-                                            "value": "escuela",
-                                            "events": [
-                                                {
-                                                    "target": "escuelas-combobox",
-                                                    "payload": "get-escuelas"
-                                                },
-                                                {
-                                                    "target": "grado-escuela-combobox",
-                                                    "payload": [
-                                                        {
-                                                            "id": "primaria",
-                                                            "label": "Primaria",
-                                                            "value": "primaria",
-                                                            "events": []
-                                                        },
-                                                        {
-                                                            "id": "secundaria",
-                                                            "label": "Secundaria",
-                                                            "value": "secundaria",
-                                                            "events": []
-                                                        }
-                                                    ]
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "id": "universidad",
-                                            "label": "Universidad",
-                                            "value": "universidad",
-                                            "events": [
-                                                {
-                                                    "target": "universidades-combobox",
-                                                    "payload": "get-universidades"
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                },
-                                {
-                                    "id": "escuelas-combobox",
-                                    "label": "Escuela",
-                                    "placeholder": "escuela",
-                                    "items": []
-                                },
-                                {
-                                    "id": "grado-escuela-combobox",
-                                    "label": "Grado",
-                                    "placeholder": "grado",
-                                    "items": []
-                                },
-                                {
-                                    "id": "universidades-combobox",
-                                    "label": "Universidad",
-                                    "placeholder": "universidad",
-                                    "items": [],
-                                    "events": [
-                                        {
-                                            "target": "region-universidad-combobox",
-                                            "payload": "get-ubicacion-universidad"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "id": "region-universidad-combobox",
-                                    "label": "Región especial",
-                                    "placeholder": "región",
-                                    "items": []
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "id": 2,
-            "title": "FORMULARIO DE POSTULACIÓN - ECTP 2025",
+            "title": "Corrector EDD",
             "form-intro": "Ingresa tu RUT para continuar",
             "form-groups": [
                 {
@@ -346,13 +11,22 @@
                     "label": "Datos Personales",
                     "content": [
                         {
+                            "component": "blank"
+                        },
+                        {
                             "component": "combobox",
                             "id": "supervisor",
                             "label": "¿Está interesado/a en que su postulación sea considerada para el rol de Supervisor/a?",
-                            "placeholder": "Seleccione una opçión",
+                            "placeholder": "Seleccione una opción",
                             "items": [
-                                {"label": "Si", "value": true},
-                                {"label": "No", "value": false}
+                                {
+                                    "label": "Si",
+                                    "value": true
+                                },
+                                {
+                                    "label": "No",
+                                    "value": false
+                                }
                             ]
                         },
                         {
@@ -366,8 +40,8 @@
                         },
                         {
                             "component": "text-field",
-                            "id": "apellidos",
-                            "label": "Apellidos",
+                            "id": "nombre-social",
+                            "label": "Nombre Social",
                             "validators": [
                                 "letter",
                                 "completion"
@@ -375,13 +49,492 @@
                         },
                         {
                             "component": "text-field",
-                            "id": "celular",
-                            "label": "Celular",
-                            "type": "tel",
+                            "id": "apellido-paterno",
+                            "label": "Apellido Paterno",
                             "validators": [
-                                "number",
+                                "letter",
                                 "completion"
                             ]
+                        },
+                        {
+                            "component": "text-field",
+                            "id": "apellido-materno",
+                            "label": "Apellido Materno",
+                            "validators": [
+                                "letter",
+                                "completion"
+                            ]
+                        },
+                        {
+                            "component": "combobox",
+                            "id": "nacionalidad",
+                            "label": "Nacionalidad",
+                            "placeholder": "Seleccione nacionalidad",
+                            "items": [
+                                {
+                                    "label": "Chilena",
+                                    "value": "chilena"
+                                },
+                                {
+                                    "label": "Otra",
+                                    "value": "otra"
+                                }
+                            ]
+                        },
+                        {
+                            "component": "text-field",
+                            "id": "fecha-nacimiento",
+                            "label": "Fecha de Nacimiento",
+                            "type": "date",
+                            "validators": [
+                                "completion"
+                            ]
+                        },
+                        {
+                            "component": "combobox",
+                            "id": "region-nacimiento",
+                            "label": "Región de Nacimiento",
+                            "placeholder": "Seleccione región",
+                            "items": "get-regiones",
+                            "events": [
+                                {
+                                    "target": "comuna-nacimiento",
+                                    "payload": {
+                                        "seeder": "get-comunas"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "component": "combobox",
+                            "id": "comuna-nacimiento",
+                            "label": "Comuna de Nacimiento",
+                            "placeholder": "Seleccione comuna",
+                            "items": [],
+                            "events": []
+                        },
+                        {
+                            "component": "combobox",
+                            "id": "region-residencia",
+                            "label": "Región de Residencia",
+                            "placeholder": "Seleccione región",
+                            "items": "get-regiones",
+                            "events": [
+                                {
+                                    "target": "comuna-residencia",
+                                    "payload": {
+                                        "seeder": "get-comunas"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "component": "combobox",
+                            "id": "comuna-residencia",
+                            "label": "Comuna de Residencia",
+                            "placeholder": "Seleccione comuna",
+                            "items": [],
+                            "events": []
+                        },
+                        {
+                            "component": "text-field",
+                            "id": "ciudad",
+                            "label": "Ciudad",
+                            "validators": [
+                                "completion"
+                            ]
+                        },
+                        {
+                            "component": "text-field",
+                            "id": "direccion-residencia",
+                            "label": "Dirección de Residencia",
+                            "validators": [
+                                "letter",
+                                "completion"
+                            ]
+                        },
+                        {
+                            "component": "text-field",
+                            "id": "sector",
+                            "label": "Sector/Villa/Población",
+                            "validators": [
+                                "completion"
+                            ]
+                        },
+                        {
+                            "component": "blank"
+                        },
+                        {
+                            "component": "combobox",
+                            "id": "sexo-registral",
+                            "label": "Sexo Registral",
+                            "placeholder": "Seleccione Sexo Registral",
+                            "items": [
+                                {
+                                    "id": 1,
+                                    "value": "hombre",
+                                    "label": "Hombre"
+                                },
+                                {
+                                    "id": 2,
+                                    "value": "mujer",
+                                    "label": "Mujer"
+                                }
+                            ]
+                        },
+                        {
+                            "component": "combobox",
+                            "id": "estado-civil",
+                            "placeholder": "Seleccione Estado Civil",
+                            "label": "Estado Civil",
+                            "items": [
+                                {
+                                    "id": 1,
+                                    "value": "soltero",
+                                    "label": "Soltero(a)"
+                                },
+                                {
+                                    "id": 2,
+                                    "value": "casado",
+                                    "label": "Casado(a)"
+                                },
+                                {
+                                    "id": 3,
+                                    "value": "separado",
+                                    "label": "Separado(a)"
+                                },
+                                {
+                                    "id": 4,
+                                    "value": "separado-hecho",
+                                    "label": "Separado(a) de hecho"
+                                },
+                                {
+                                    "id": 5,
+                                    "value": "viudo",
+                                    "label": "Viudo(a)"
+                                },
+                                {
+                                    "id": 6,
+                                    "value": "divorciado",
+                                    "label": "Divorciado(a)"
+                                },
+                                {
+                                    "id": 7,
+                                    "value": "conviviente",
+                                    "label": "Conviviente Civil"
+                                }
+                            ]
+                        },
+                        {
+                            "component": "combobox",
+                            "id": "identidad-genero",
+                            "label": "Identidad de Género",
+                            "placeholder": "Seleccione su Identidad de Género",
+                            "items": [
+                                {
+                                    "id": 1,
+                                    "value": "masculino",
+                                    "label": "Masculino"
+                                },
+                                {
+                                    "id": 2,
+                                    "value": "femenino",
+                                    "label": "Femenino"
+                                },
+                                {
+                                    "id": 3,
+                                    "value": "otro",
+                                    "label": "Otro"
+                                }
+                            ]
+                        },
+                        {
+                            "component": "combobox",
+                            "id": "situacion-discapacidad",
+                            "label": "Situación Discapacidad",
+                            "placeholder": "Seleccione Situación de Discapacidad",
+                            "items": [
+                                {
+                                    "id": 1,
+                                    "label": "Ninguna",
+                                    "value": "ninguna"
+                                },
+                                {
+                                    "id": 2,
+                                    "label": "Orgánica/Visceral",
+                                    "value": "organica"
+                                },
+                                {
+                                    "id": 3,
+                                    "label": "Física Motora",
+                                    "value": "motora"
+                                }
+                            ]
+                        },
+                        {
+                            "component": "combobox",
+                            "id": "pertenencia-pueblos",
+                            "label": "Pertenencia Pueblos",
+                            "placeholder": "Seleccione Pertenencia Pueblos",
+                            "items": [
+                                {
+                                    "id": 1,
+                                    "label": "No pertenece",
+                                    "value": "no-pertenece"
+                                },
+                                {
+                                    "id": 2,
+                                    "label": "Alcalufe (Kawashkar)",
+                                    "value": "alcalufe"
+                                },
+                                {
+                                    "id": 3,
+                                    "label": "Atacameño",
+                                    "value": "atacameno"
+                                }
+                            ]
+                        },
+                        {
+                            "component": "blank"
+                        },
+                        {
+                            "component": "text-field",
+                            "id": "correo-electronico",
+                            "label": "Correo Electrónico",
+                            "validators": [
+                                "completion",
+                                "email"
+                            ]
+                        },
+                        {
+                            "component": "text-field",
+                            "id": "telefono",
+                            "label": "Teléfono",
+                            "type": "tel",
+                            "validators": [
+                                "completion",
+                                "number"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "component": "form-structure",
+                    "id": "info-profesional",
+                    "label": "Información Profesional",
+                    "content": [
+                        {
+                            "component": "combobox",
+                            "id": "nivel-estudios",
+                            "label": "Nivel de Estudios",
+                            "placeholder": "Seleccione su Nivel de Estudios",
+                            "items": [
+                                {
+                                    "id": "media-completa",
+                                    "label": "Educación media completa",
+                                    "value": "media-completa"
+                                },
+                                {
+                                    "id": "tecnico-medio-incompleta",
+                                    "label": "Educación técnico nivel medio incompleta",
+                                    "value": "tecnico-medio-incompleta",
+                                    "events": [
+                                        {
+                                            "target": "institucion-text",
+                                            "payload": {
+                                                "visible": true
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "tecnico-medio-completa",
+                                    "label": "Educación técnico nivel medio completa",
+                                    "value": "tecnico-medio-completa",
+                                    "events": [
+                                        {
+                                            "target": "institucion-text",
+                                            "payload": {
+                                                "visible": true
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "superior-incompleta",
+                                    "label": "Educación Superior Incompleta",
+                                    "value": "superior-incompleta",
+                                    "events": [
+                                        {
+                                            "target": "instituciones",
+                                            "payload": {
+                                                "visible": true
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "superior-completa",
+                                    "label": "Educación Superior Completa",
+                                    "value": "superior-completa",
+                                    "events": [
+                                        {
+                                            "target": "instituciones",
+                                            "payload": {
+                                                "visible": true
+                                            }
+                                        },
+                                        {
+                                            "target": "titulo-profesional",
+                                            "payload": {
+                                                "visible": true
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "component": "text-field",
+                            "label": "Indique institución",
+                            "id": "institucion-text",
+                            "visible": false,
+                            "validators": [
+                                "letter",
+                                "completion"
+                            ]
+                        },
+                        {
+                            "component": "combobox",
+                            "label": "Institución",
+                            "placeholder": "Seleccione Instituto",
+                            "id": "instituciones",
+                            "visible": false,
+                            "items": "get-universidades"
+                        },
+                        {
+                            "component": "combobox",
+                            "label": "Título Profesional",
+                            "placeholder": "Seleccione Título Profesional",
+                            "id": "titulo-profesional",
+                            "visible": false,
+                            "items": [
+                                {
+                                    "id": 1,
+                                    "label": "Educador(a) de Parvulos",
+                                    "value": "educador-parvulos"
+                                },
+                                {
+                                    "id": 2,
+                                    "label": "Profesor(a) de Educación Especial/Diferencial",
+                                    "value": "profesor-especial"
+                                },
+                                {
+                                    "id": 3,
+                                    "label": "Profesor(a) de Educación Básica",
+                                    "value": "profesor-basica"
+                                },
+                                {
+                                    "id": 4,
+                                    "label": "Profesor(a) de Educación Media",
+                                    "value": "profesor-media"
+                                },
+                                {
+                                    "id": 5,
+                                    "label": "Profesor(a) para la Educación Técnico Profesional",
+                                    "value": "profesor-tecnico"
+                                },
+                                {
+                                    "id":6,
+                                    "label": "Otro Título Profesional",
+                                    "value": "otro",
+                                    "events":[
+                                        {
+                                            "target": "titulo-text",
+                                            "payload":{
+                                                "visible": true
+                                            }
+                                        }
+                                    ]
+                                }
+                                
+                            ]
+                        },
+                        {
+                            "component": "text-field",
+                            "label": "Indique otro título",
+                            "id": "titulo-text",
+                            "visible": false,
+                            "validators": [
+                                "letter",
+                                "completion"
+                            ]
+                        },
+                        {
+                            "component": "combobox",
+                            "id": "semestres",
+                            "placeholder": "Seleccione cantidad de semestres",
+                            "label": "Semestres",
+                            "info": "¿Cuántos semestres de duración tuvo su carrera?",
+                            "items":[
+                                {"id":1, "label": "4 a 6 semestres", "value": "4-6"},
+                                {"id":1, "label": "8 a 10 semestres", "value": "8-10"},
+                                {"id":1, "label": "Más de 10 semestres", "value": "+10"}
+                            ]
+                        },
+                        {
+                            "component": "combobox",
+                            "id": "area",
+                            "label": "Área o Asignatura",
+                            "placeholder": "Seleccionar área o asignatura",
+                            "info": "Indique el área o asignatura a la que postula",
+                            "items":[
+                                {
+                                    "id":1,
+                                    "label": "Educación Parvularia",
+                                    "value": "educacion-parvularia"
+                                },
+                                {
+                                    "id":2,
+                                    "label": "Ciencias Naturales Básicas",
+                                    "value": "ciencias-naturales-basicas",
+                                    "events":[
+                                        {
+                                            "target": "nivel-postulacion",
+                                            "payload": {
+                                                "visible": true
+                                            } 
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "component": "combobox",
+                            "id": "nivel-postulacion",
+                            "label": "Nivel de Postulación",
+                            "visible": false,
+                            "info": "Indique el nivel al que quiere postular",
+                            "placeholder": "Seleccionar nivel de postulación",
+                            "items":[
+                                {
+                                    "id": 1,
+                                    "label": "Educación Básica 1° a 6° y adultos",
+                                    "value": "basica-adultos"
+                                },
+                                {
+                                    "id": 2,
+                                    "label": "7° a 8°, Educación Media y Adultos",
+                                    "value": "media-adultos"
+                                }
+                            ]
+                        },
+                        {
+                            "component": "combobox",
+                            "id": "anio-titulo",
+                            "label": "Año título",
+                            "placeholder": "Seleccione un año",
+                            "items": "get-anios"
                         }
                     ]
                 }
