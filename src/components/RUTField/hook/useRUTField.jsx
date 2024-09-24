@@ -3,7 +3,7 @@ import { RUTIndicators } from "../data/RUTIndicators";
 import { getValue } from "../../../utils/RUTFormatter";
 import { validateRUT } from "../../../utils/validators/RUTValidator";
 
-export const useRUTField = (fieldHandler) => {
+export function useRUTField(fieldHandler) {
   const [rutValue, setRutValue] = useState("");
   const [indicator, setIndicator] = useState(RUTIndicators.waiting);
 
@@ -25,4 +25,4 @@ export const useRUTField = (fieldHandler) => {
   };
 
   return { inputChangeHandler, verificateRUT, indicator, rutValue };
-};
+}

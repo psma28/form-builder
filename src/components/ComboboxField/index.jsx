@@ -5,7 +5,6 @@ import { FormHandlerContext } from "../../context/FormHandlerContext";
 import { useSelection } from "./hooks/useSelection";
 import { EventManagerContext } from "../../context/EventManagerContext";
 import { InfoPopup } from "../InfoPin";
-import { BlankComponent } from "../BlankComponent"
 
 export function ComboboxField({ id }) {
   const { getFieldStatus } = useContext(FieldAccessContext);
@@ -18,14 +17,21 @@ export function ComboboxField({ id }) {
   );
   const value = getFieldValue(id);
 
-  useEffect(()=>{
-    if(!value) clearSelection()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[value])
+  useEffect(() => {
+    if (!value) clearSelection();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [value]);
 
-  if (!getComponent(id)) return <BlankComponent />;
-  const { label, placeholder, items = [] , visible = true, info} = getComponent(id);
-  return visible && (
+  if (!getComponent(id)) return <></>;
+  const {
+    label,
+    placeholder,
+    items = [],
+    visible = true,
+    info,
+  } = getComponent(id);
+  return (
+    visible &&
     items.length > 0 &&
     Array.isArray(items) && (
       <div className="field-container">

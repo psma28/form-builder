@@ -9,9 +9,7 @@ export function ComponentGenerator({ schema }) {
   const { updateForm } = useContext(FormHandlerContext);
 
   const handleUpdate = () => {
-    updateComponent("institucion-text", {
-      visible: false
-    });
+    updateForm("tipo-evidencia", "");
   };
   return (
     <>

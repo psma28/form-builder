@@ -37,7 +37,7 @@ export function rollbackPayloadMapper(payload) {
   let mappedPayload = {};
   if ("visible" in payload)
     mappedPayload = { ...mappedPayload, visible: !payload.visible };
-  if("items" in payload || "seeder" in payload)
-    mappedPayload = { ...mappedPayload, items: []}
+  if ("items" in payload || "seeder" in payload)
+    mappedPayload = { ...mappedPayload, items: [] };
   return mappedPayload;
 }

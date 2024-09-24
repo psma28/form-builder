@@ -13,9 +13,9 @@ export function Layout({ title, helpText, children }) {
       {isLoading === true ? <LoadingScreen /> : <></>}
       <FormHeader title={title} />
       <div className="container-fluid">
-        <FormHelpText text={helpText}/>
+        <FormHelpText text={helpText} />
         {children}
-        </div>
+      </div>
     </div>
   );
 }

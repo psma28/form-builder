@@ -2,7 +2,7 @@ import { createContext, useEffect, useState } from "react";
 
 export const FormHandlerContext = createContext();
 
-export const FormHandlerProvider = ({ children }) => {
+export function FormHandlerProvider({ children }) {
   const [form, setForm] = useState({});
 
   const updateForm = (key, value) => {
@@ -12,14 +12,14 @@ export const FormHandlerProvider = ({ children }) => {
     }));
   };
 
-  const deleteFormField = (key)=>{
+  const deleteFormField = (key) => {
     delete form[key];
-  }
+  };
 
-  const getFieldValue = (key) =>{
-    const value = form[key]; 
+  const getFieldValue = (key) => {
+    const value = form[key];
     return value !== undefined ? value : "";
-  }
+  };
 
   useEffect(() => {
     console.log("formulario", form);
@@ -33,7 +33,11 @@ export const FormHandlerProvider = ({ children }) => {
     console.log("Pre envio: ", form);
   };
 
-  return <FormHandlerContext.Provider value={{updateForm, sendForm, getFieldValue, deleteFormField}}>
-    {children}
-  </FormHandlerContext.Provider>
-};
+  return (
+    <FormHandlerContext.Provider
+      value={{ updateForm, sendForm, getFieldValue, deleteFormField }}
+    >
+      {children}
+    </FormHandlerContext.Provider>
+  );
+}

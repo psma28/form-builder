@@ -1,4 +1,4 @@
-.text-field-container{
+.text-field-container {
   width: 100%;
   box-sizing: border-box;
   padding: 0 15px;
@@ -56,17 +56,17 @@
   padding-left: 50px;
 }
 
-.text-field-messages{
+.text-field-messages {
   display: flex;
   flex-direction: column;
   align-items: center;
   color: var(--error-100);
 }
 
-.text-field-messages ul{
-  margin: 0;  
+.text-field-messages ul {
+  margin: 0;
 }
 
-.text-field-error{
+.text-field-error {
   background-color: var(--error-75);
 }

@@ -2,7 +2,7 @@ import { createContext, useState } from "react";
 
 export const LoadingContext = createContext();
 
-export const LoadingProvider = ({ children }) => {
+export function LoadingProvider({ children }) {
   const [isLoading, setIsLoading] = useState(false);
 
   const setLoading = (value) => {
@@ -14,4 +14,4 @@ export const LoadingProvider = ({ children }) => {
       {children}
     </LoadingContext.Provider>
   );
-};
+}

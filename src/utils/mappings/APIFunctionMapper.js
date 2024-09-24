@@ -8,7 +8,7 @@ const APIFunctionsMap = {
   "get-universidades": { function: getUniversidades, args: 0 },
   "get-regiones": { function: getRegiones, args: 0 },
   "get-comunas": { function: getComunas, args: 1 },
-  "get-anios": { function: getYears, args:0 }
+  "get-anios": { function: getYears, args: 0 },
 };
 
 function searchFunction(functionName) {
@@ -26,4 +26,3 @@ export async function functionExecutor(functionName, args) {
     return res;
   });
 }
-

@@ -1,4 +1,4 @@
-export function dumbValidator(){
-    console.log("Hello, im dumb");
-    return true;
+export function dumbValidator() {
+  console.log("Hello, im dumb");
+  return true;
 }

@@ -1,7 +1,14 @@
 import { useState } from "react";
 
-export function useSelection(stateHandler, getComponent, eventHandler) {
-  const [selected, setSelected] = useState("");
+export function useSelection(
+  initialValue,
+  stateHandler,
+  getComponent,
+  eventHandler,
+) {
+  if (!initialValue) initialValue = "";
+  const [selected, setSelected] = useState(initialValue);
+
   const handleSelection = (id, value) => {
     const componentSchema = getComponent(id);
     let componentEvents = componentSchema.events;
@@ -15,7 +22,6 @@ export function useSelection(stateHandler, getComponent, eventHandler) {
     eventHandler(id, value, incomingEvents);
     stateHandler(id, value);
   };
-
   const clearSelection = () => {
     if (selected !== "") setSelected("");
   };

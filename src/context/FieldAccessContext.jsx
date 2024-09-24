@@ -2,7 +2,7 @@ import { createContext, useState } from "react";
 
 export const FieldAccessContext = createContext();
 
-export const FieldAccessProvider = ({ children }) => {
+export function FieldAccessProvider({ children }) {
   const [enabled, setEnabled] = useState(false);
 
   const toggleFieldAccess = () => {
@@ -24,4 +24,4 @@ export const FieldAccessProvider = ({ children }) => {
       {children}
     </FieldAccessContext.Provider>
   );
-};
+}

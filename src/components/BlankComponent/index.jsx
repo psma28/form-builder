@@ -1,3 +1,3 @@
-export const BlankComponent = () => {
+export function BlankComponent() {
   return <div></div>;
-};
+}

@@ -1,4 +1,6 @@
 import { BlankComponent } from "../../../components/BlankComponent";
+import { CheckAndFillField } from "../../../components/CheckAndFillField";
+import { CheckboxField } from "../../../components/CheckboxField";
 import { ComboboxField } from "../../../components/ComboboxField";
 import { FormStructure } from "../../../components/FormStructure";
 import { RadioButtonField } from "../../../components/RadioButtonField";
@@ -13,14 +15,18 @@ import { TextField } from "../../../components/TextField";
 export function RenderComponent(content) {
   return content.map((element) => {
     const componentName = element.component;
-    
+
     switch (componentName) {
       case "text-field":
-        return <TextField id={element.id} key={element.id}/>
+        return <TextField id={element.id} key={element.id} />;
       case "combobox":
-        return <ComboboxField id={element.id} key={element.id}/>
+        return <ComboboxField id={element.id} key={element.id} />;
       case "radio-field":
-        return <RadioButtonField id={element.id} key={element.id}/>
+        return <RadioButtonField id={element.id} key={element.id} />;
+      case "checkbox":
+        return <CheckboxField id={element.id} key={element.id} />;
+      case "checkandfill":
+        return <CheckAndFillField id={element.id} key={element.id}/>;
       case "form-structure":
         return (
           <FormStructure
@@ -32,7 +38,7 @@ export function RenderComponent(content) {
           </FormStructure>
         );
       default:
-        return <BlankComponent key={Math.random()}/>;
+        return <BlankComponent key={Math.random()} />;
     }
   });
 }

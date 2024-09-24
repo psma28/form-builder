@@ -4,7 +4,7 @@ import { FieldAccessContext } from "../../context/FieldAccessContext";
 import { RUTFormatter } from "../../utils/RUTFormatter";
 import { useRUTField } from "./hook/useRUTField.jsx";
 
-export const RUTField = () => {
+export function RUTField() {
   const { setFieldAccess } = useContext(FieldAccessContext);
   const { inputChangeHandler, verificateRUT, indicator, rutValue } =
     useRUTField(setFieldAccess);
@@ -38,4 +38,4 @@ export const RUTField = () => {
       </div>
     </div>
   );
-};
+}

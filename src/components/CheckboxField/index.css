@@ -1,9 +1,9 @@
-.radio-container {
+.checkbox-container {
   grid-column: span 2;
   padding: 0px 15px;
 }
 
-.radio-label {
+.checkbox-label {
   display: flex;
   position: relative;
   gap: 5px;
@@ -14,7 +14,7 @@
   padding: 10px 10px;
 }
 
-.radio-options {
+.checkbox-options {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -22,11 +22,11 @@
   border-bottom: 1px solid var(--primary-100);
 }
 
-.disabled-radio {
+.disabled-checkbox {
   background-color: var(--secondary-80);
 }
 
-.radio-item {
+.checkbox-item {
   padding: 10px;
   position: relative;
   display: flex;
@@ -34,7 +34,7 @@
   justify-content: space-evenly;
 }
 
-.radio-item label {
+.checkbox-item label {
   display: flex;
   width: 100%;
   gap: 5px;
@@ -44,67 +44,72 @@
   user-select: none;
 }
 
-.radio-item input {
+.checkbox-item input {
   position: absolute;
   opacity: 0;
   height: 0;
   width: 0;
 }
 
-.radio-item label:not(:enabled) {
+.checkbox-item label:not(:enabled) {
   cursor: default;
 }
 
-.radio-checkmark {
+.checkbox-checkmark {
   border: 1px solid var(--black);
   top: 50%;
   position: relative;
   left: 0;
   height: 15px;
   width: 15px;
-  border-radius: 100%;
   background-color: var(--primary-75);
 }
 
-.radio-item:hover input:enabled:not(:checked) ~ .radio-checkmark {
+.checkbox-item:hover input:enabled:not(:checked) ~ .checkbox-checkmark {
   background-color: var(--secondary-100);
 }
 
-.radio-item input:checked ~ .radio-checkmark {
+.checkbox-item input:checked ~ .checkbox-checkmark {
   background-color: var(--primary-100);
   border: 2px solid var(--primary-100);
 }
 
-.radio-checkmark {
+.checkbox-checkmark {
   transition-duration: 150ms;
 }
 
-.radio-checkmark:after {
+.checkbox-checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
 
-.radio-item input:checked ~ .radio-checkmark:after {
+.checkbox-item input:checked ~ .checkbox-checkmark:after {
   display: block;
 }
 
-.radio-item .radio-checkmark:after {
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--white);
+.checkbox-item .checkbox-checkmark:after {
+  left: 4.5px;
+  top: 0px;
+  width: 5px;
+  height: 10px;
+  border: solid var(--white);
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 @media (max-width: 1000px) {
-  .radio-container {
+  .checkbox-container {
     grid-column: span 1;
   }
 
-  .radio-item {
+  .checkbox-item {
     width: 50%;
+  }
+
+  .checkbox-item label {
+    justify-content: start;
   }
 }

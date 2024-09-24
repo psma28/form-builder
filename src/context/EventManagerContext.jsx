@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { LoadingContext } from "./LoadingContext";
 import {
   payloadMapper,
@@ -24,7 +24,7 @@ export function EventManagerProvider({ children }) {
   const eventHandler = (actorId, value, events) => {
     collapseEvents(actorId);
     if (events.length === 0) return;
-    events.forEach((event) => {      
+    events.forEach((event) => {
       const targetId = event.target;
       payloadMapper(
         event.payload,
@@ -33,18 +33,17 @@ export function EventManagerProvider({ children }) {
         updateComponent,
         targetId
       );
+      
       pushEvent(actorId, targetId, event.payload);
     });
-
-    
   };
 
-  const  pushComponent = async (component) => {
+  const pushComponent = async (component) => {
     const { id } = component;
     if (components[id]) return;
     if ("items" in component && typeof component.items === "string") {
       setLoading(true);
-      await functionExecutor(component.items, "").then((res) => {        
+      await functionExecutor(component.items, "").then((res) => {
         component.items = comboboxResponseMapper(res);
         setComponents((prev) => ({ ...prev, [id]: component }));
         setLoading(false);
@@ -65,11 +64,10 @@ export function EventManagerProvider({ children }) {
     return components[id];
   };
 
-
-  /*useEffect(() => {
+  useEffect(() => {
     console.log("arbol de eventos actualizandose", events);
   }, [events]);
- */
+ 
 
   /**
    * This method returns the current event list
@@ -79,15 +77,22 @@ export function EventManagerProvider({ children }) {
     return events;
   };
 
+  const hasEvent = (id)=>{
+    const check = events.find((event) => event.actorId === id)
+    return check !== undefined
+  }
+
   /**
    * This method pushes a new event to the list
    * Requires an actor ID, targetID and payload.
    * @param {string} actorId
    * @param {string} targetId
-   * @param {Object} payload 
+   * @param {Object} payload
    */
   const pushEvent = (actorId, target, payload) => {
-    setEvents(prev=>[...prev, {actorId, target, payload}]);
+    console.log("pushing event", actorId, target, payload);
+
+    setEvents((prev) => [...prev, { actorId, target, payload }]);
   };
 
   /**
@@ -96,24 +101,25 @@ export function EventManagerProvider({ children }) {
    * @returns {Array}
    */
   const collapseEvents = (actorId) => {
+    console.log("collapsing event with id ", actorId , "from", events);
+    
     const rollbackedEvents = [];
     const aux = [...events];
-    const collapseChain = (actorId)=>{
-      aux.forEach(event => {
-        if(event.actorId === actorId) {
+    const collapseChain = (actorId) => {
+      aux.forEach((event) => {
+        if (event.actorId === actorId) {
           rollbackedEvents.push(event);
-          delete aux[aux.indexOf(event)]
+          delete aux[aux.indexOf(event)];
           const targetId = event.target;
           const rollbackedPayload = rollbackPayloadMapper(event.payload);
           deleteFormField(targetId);
-          updateComponent(targetId, rollbackedPayload)
-          collapseChain(targetId)
+          updateComponent(targetId, rollbackedPayload);
+          collapseChain(targetId);
         }
-      })
-      
-    }  
-    collapseChain(actorId, aux)    
-    setEvents(aux.filter(e => e));
+      });
+    };
+    collapseChain(actorId, aux);
+    setEvents(aux.filter((e) => e));
   };
 
   return (
@@ -126,6 +132,7 @@ export function EventManagerProvider({ children }) {
         pushEvent,
         collapseEvents,
         eventHandler,
+        hasEvent
       }}
     >
       {children}

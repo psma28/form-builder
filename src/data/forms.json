@@ -445,19 +445,18 @@
                                     "value": "profesor-tecnico"
                                 },
                                 {
-                                    "id":6,
+                                    "id": 6,
                                     "label": "Otro Título Profesional",
                                     "value": "otro",
-                                    "events":[
+                                    "events": [
                                         {
                                             "target": "titulo-text",
-                                            "payload":{
+                                            "payload": {
                                                 "visible": true
                                             }
                                         }
                                     ]
                                 }
-                                
                             ]
                         },
                         {
@@ -476,10 +475,22 @@
                             "placeholder": "Seleccione cantidad de semestres",
                             "label": "Semestres",
                             "info": "¿Cuántos semestres de duración tuvo su carrera?",
-                            "items":[
-                                {"id":1, "label": "4 a 6 semestres", "value": "4-6"},
-                                {"id":1, "label": "8 a 10 semestres", "value": "8-10"},
-                                {"id":1, "label": "Más de 10 semestres", "value": "+10"}
+                            "items": [
+                                {
+                                    "id": 1,
+                                    "label": "4 a 6 semestres",
+                                    "value": "4-6"
+                                },
+                                {
+                                    "id": 1,
+                                    "label": "8 a 10 semestres",
+                                    "value": "8-10"
+                                },
+                                {
+                                    "id": 1,
+                                    "label": "Más de 10 semestres",
+                                    "value": "+10"
+                                }
                             ]
                         },
                         {
@@ -488,22 +499,130 @@
                             "label": "Área o Asignatura",
                             "placeholder": "Seleccionar área o asignatura",
                             "info": "Indique el área o asignatura a la que postula",
-                            "items":[
+                            "items": [
                                 {
-                                    "id":1,
+                                    "id": 1,
                                     "label": "Educación Parvularia",
-                                    "value": "educacion-parvularia"
+                                    "value": "educacion-parvularia",
+                                    "events": [
+                                        {
+                                            "target": "centro-postulacion",
+                                            "payload": {
+                                                "items": [
+                                                    {
+                                                        "id": 1,
+                                                        "value": "uct",
+                                                        "label": "UCT"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
                                 },
                                 {
-                                    "id":2,
-                                    "label": "Ciencias Naturales Básicas",
-                                    "value": "ciencias-naturales-basicas",
+                                    "id": 2,
+                                    "label": "Ciencias Naturales",
+                                    "value": "ciencias-naturales",
+                                    "events": [
+                                        {
+                                            "target": "nivel-postulacion",
+                                            "payload": {
+                                                "items": [
+                                                    {
+                                                        "id": "basica-adultos",
+                                                        "label": "Educación Básica 1° a 6° y adultos",
+                                                        "value": "basica-adultos"
+                                                    },
+                                                    {
+                                                        "id": "media-adultos",
+                                                        "label": "7° a 8°, Educación Media y Adultos",
+                                                        "value": "media-adultos",
+                                                        "events":[
+                                                            {
+                                                                "target": "asignatura-clases",
+                                                                "payload": {
+                                                                    "items": [
+                                                                        {
+                                                                            "id":1,
+                                                                            "label": "Ciencias para la ciudadanía",
+                                                                            "value": "ciencias-para-ciudadania"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "target": "centro-postulacion",
+                                            "payload": {
+                                                "items": [
+                                                    {
+                                                        "id": 1,
+                                                        "value": "pucv",
+                                                        "label": "PUCV"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "historia-geografia-ciencias-sociales",
+                                    "value": "historia-geografia-ciencias-sociales",
+                                    "label": "Historia, Geografía y Ciencias Sociales",
                                     "events":[
                                         {
                                             "target": "nivel-postulacion",
                                             "payload": {
+                                                "items": [
+                                                    {
+                                                        "id": "basica-adultos",
+                                                        "label": "Educación Básica 1° a 6° y adultos",
+                                                        "value": "basica-adultos"
+                                                    },
+                                                    {
+                                                        "id": "media-adultos",
+                                                        "label": "7° a 8°, Educación Media y Adultos",
+                                                        "value": "media-adultos",
+                                                        "events":[
+                                                            {
+                                                                "target": "experiencia-impartiendo-educacion-ciudadana",
+                                                                "payload": {
+                                                                    "visible": true
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "target": "centro-postulacion",
+                                            "payload": {
+                                                "items": [
+                                                    {
+                                                        "id": "udec",
+                                                        "value": "udec",
+                                                        "label": "UDEC"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "ingles",
+                                    "label": "Inglés",
+                                    "value": "ingles",
+                                    "events": [
+                                        {
+                                            "target": "certificados-ingles",
+                                            "payload": {
                                                 "visible": true
-                                            } 
+                                            }
                                         }
                                     ]
                                 }
@@ -513,20 +632,34 @@
                             "component": "combobox",
                             "id": "nivel-postulacion",
                             "label": "Nivel de Postulación",
-                            "visible": false,
                             "info": "Indique el nivel al que quiere postular",
                             "placeholder": "Seleccionar nivel de postulación",
-                            "items":[
+                            "items": []
+                        },
+                        {
+                            "component": "checkbox",
+                            "id": "asignatura-clases",
+                            "label": "Asignaturas Previas",
+                            "info": "Indique en qué asignatura ha hecho clases",
+                            "items":[]
+                        },
+                        {
+                            "component": "radio-field",
+                            "id": "experiencia-impartiendo-educacion-ciudadana",
+                            "label": "¿Tiene experiencia impartiendo Educación Ciudadana?",
+                            "visible": false,
+                            "items": [
                                 {
-                                    "id": 1,
-                                    "label": "Educación Básica 1° a 6° y adultos",
-                                    "value": "basica-adultos"
+                                    "id": "1",
+                                    "label": "Si",
+                                    "value": "si"
                                 },
                                 {
-                                    "id": 2,
-                                    "label": "7° a 8°, Educación Media y Adultos",
-                                    "value": "media-adultos"
+                                    "id": "2",
+                                    "label": "No",
+                                    "value": "Si"
                                 }
+                                
                             ]
                         },
                         {
@@ -537,28 +670,90 @@
                             "items": "get-anios"
                         },
                         {
+                            "component": "checkbox",
+                            "id": "certificados-ingles",
+                            "label": "Certificados Inglés",
+                            "visible": false,
+                            "items": [
+                                {
+                                    "id": "alte-cert",
+                                    "label": "Association of Language Testers in Europe (ALTE)",
+                                    "value": "alte"
+                                },
+                                {
+                                    "id": "toefl-cert",
+                                    "label": "Test of English as a Foreing Language (TOEFL)",
+                                    "value": "toefl"
+                                },
+                                {
+                                    "id": "other-cert",
+                                    "label": "Otro",
+                                    "value": "other",
+                                    "events": [
+                                        {
+                                            "target": "especificacion-cert-ingles",
+                                            "payload": {
+                                                "visible": true
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "component": "text-field",
+                            "id": "especificacion-cert-ingles",
+                            "label": "Certificado Inglés",
+                            "info": "Especifique su certificado de Inglés",
+                            "validators":[
+                                "letter"
+                            ],
+                            "visible":false
+                        },
+                        {
+                            "component": "combobox",
+                            "id": "centro-postulacion",
+                            "label": "Centro",
+                            "info": "El área/asignatura y evidencia para la que postula será corregida en el centro",
+                            "placeholder": "Seleccione un centro",
+                            "items": []
+                        },
+                        {
+                           "component": "checkandfill" ,
+                           "id": "area-and-years"
+                        },
+                        {
                             "component": "radio-field",
                             "id": "tipo-evidencia",
                             "info": "info random",
                             "label": "Indique el tipo de evidencia para la que está postulando",
-                            "items":[
+                            "items": [
                                 {
-                                    "id":1,
+                                    "id": 1,
                                     "label": "Evidencia Escrita Módulo 1",
-                                    "value":"modulo-1"
+                                    "value": "modulo-1"
                                 },
                                 {
-                                    "id":2,
+                                    "id": 2,
                                     "label": "Evidencia Escrita Módulo 2",
-                                    "value":"modulo-2"
+                                    "value": "modulo-2"
                                 },
                                 {
-                                    "id":3,
+                                    "id": 3,
                                     "label": "Evidencia Escrita Módulo 3",
-                                    "value":"modulo-3"
+                                    "value": "modulo-3"
                                 }
                             ]
-
+                        },
+                        {
+                            "component": "text-field",
+                            "id": "anios-experiencia",
+                            "info": "¿Cuántos años de experiencia posee como docente de aula, contados desde la fecha de su titulación?",
+                            "label": "Años de Experiencia",
+                            "type": "number",
+                            "validators": [
+                                "number"
+                            ]
                         }
                     ]
                 }
