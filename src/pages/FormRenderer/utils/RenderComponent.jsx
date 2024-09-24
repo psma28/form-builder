@@ -1,6 +1,7 @@
 import { BlankComponent } from "../../../components/BlankComponent";
 import { ComboboxField } from "../../../components/ComboboxField";
 import { FormStructure } from "../../../components/FormStructure";
+import { RadioButtonField } from "../../../components/RadioButtonField";
 import { TextField } from "../../../components/TextField";
 
 /**
@@ -18,6 +19,8 @@ export function RenderComponent(content) {
         return <TextField id={element.id} key={element.id}/>
       case "combobox":
         return <ComboboxField id={element.id} key={element.id}/>
+      case "radio-field":
+        return <RadioButtonField id={element.id} key={element.id}/>
       case "form-structure":
         return (
           <FormStructure

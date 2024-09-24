@@ -6,7 +6,7 @@ export function FormSchemaInit({ schema }) {
   const { pushComponent } = useContext(EventManagerContext);
 
   useEffect(() => {
-    //console.log("init components", schema);
+    console.log("init components", schema);
     const pushElements = (element) => {
       const componentName = element.component;
 
