@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { LoadingContext } from "./LoadingContext";
 import {
   payloadMapper,
@@ -19,23 +19,24 @@ export function EventManagerProvider({ children }) {
   const [events, setEvents] = useState([]);
   const [components, setComponents] = useState({});
   const { setLoading } = useContext(LoadingContext);
-  const { deleteFormField } = useContext(FormHandlerContext);
+  const { deleteFormField, updateForm} = useContext(FormHandlerContext);
 
   const eventHandler = (actorId, value, events) => {
     collapseEvents(actorId);
     if (events.length === 0) return;
-    events.forEach((event) => {
+    for(const event of events){
       const targetId = event.target;
       payloadMapper(
         event.payload,
         value,
         setLoading,
         updateComponent,
-        targetId
+        targetId,
+        updateForm
       );
-      
       pushEvent(actorId, targetId, event.payload);
-    });
+    }
+    
   };
 
   const pushComponent = async (component) => {
@@ -64,10 +65,10 @@ export function EventManagerProvider({ children }) {
     return components[id];
   };
 
-  useEffect(() => {
+  /*useEffect(() => {
     console.log("arbol de eventos actualizandose", events);
   }, [events]);
- 
+ */
 
   /**
    * This method returns the current event list
@@ -90,8 +91,6 @@ export function EventManagerProvider({ children }) {
    * @param {Object} payload
    */
   const pushEvent = (actorId, target, payload) => {
-    console.log("pushing event", actorId, target, payload);
-
     setEvents((prev) => [...prev, { actorId, target, payload }]);
   };
 
@@ -100,9 +99,7 @@ export function EventManagerProvider({ children }) {
    * @param {String} actorId
    * @returns {Array}
    */
-  const collapseEvents = (actorId) => {
-    console.log("collapsing event with id ", actorId , "from", events);
-    
+  const collapseEvents = (actorId) => {    
     const rollbackedEvents = [];
     const aux = [...events];
     const collapseChain = (actorId) => {

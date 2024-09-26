@@ -17,6 +17,7 @@ export function TextField({ id }) {
 
   const {
     label,
+    extend = false,
     info,
     validators = [dumbValidator],
     visible = true,
@@ -46,7 +47,9 @@ export function TextField({ id }) {
 
   return (
     visible && (
-      <div className="text-field-container">
+      <div className={"text-field-container" + 
+        (extend === false ? " half-field": " full-field")
+      }>
         <div className="text-field-content">
           <div className="text-field-label-content">
             <span className="text-field-label">{label}</span>
@@ -78,7 +81,6 @@ export function TextField({ id }) {
             />
           </div>
         </div>
-
         <div className="text-field-messages font-calibri">
           <ul>
             {errors &&

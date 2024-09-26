@@ -623,6 +623,61 @@
                                             "payload": {
                                                 "visible": true
                                             }
+                                        },
+                                        {
+                                            "target": "centro-postulacion",
+                                            "payload": {
+                                                "items": [
+                                                    {
+                                                        "id": "udp",
+                                                        "value": "udp",
+                                                        "label": "UDP"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "edu-med-tec-pro",
+                                    "label": "Educación Media Técnico Profesional",
+                                    "value" : "educacion-media-tecnico-profesional",
+                                    "events": [
+                                        {
+                                            "target": "area-and-years",
+                                            "payload":{
+                                                "visible": true
+                                            }
+                                        },
+                                        {
+                                            "target": "sector-economico-postulacion",
+                                            "payload":{
+                                                "visible": true
+                                            }
+                                        },
+                                        {
+                                            "target": "cantidad-modulos-impartir",
+                                            "payload":{
+                                                "visible": true
+                                            }
+                                        },
+                                        {
+                                            "target": "cursos-formacion-diferenciada",
+                                            "payload":{
+                                                "visible": true
+                                            }
+                                        },
+                                        {
+                                            "target": "centro-postulacion",
+                                            "payload": {
+                                                "items": [
+                                                    {
+                                                        "id": "ufro",
+                                                        "value": "ufro",
+                                                        "label": "UFRO"
+                                                    }
+                                                ]
+                                            }
                                         }
                                     ]
                                 }
@@ -661,6 +716,15 @@
                                 }
                                 
                             ]
+                        },
+                        {
+                            "component": "combobox",
+                            "id": "sector-economico-postulacion",
+                            "placeholder": "Seleccione sector",
+                            "label" : "Sector Económico",
+                            "info": "Indique el sector económico al que postula",
+                            "visible" : false,
+                            "items" : "get-asignaturas"
                         },
                         {
                             "component": "combobox",
@@ -720,12 +784,43 @@
                         },
                         {
                            "component": "checkandfill" ,
-                           "id": "area-and-years"
+                           "id": "area-and-years",
+                           "label": "Especialidades y Experiencia",
+                           "type": "number",
+                           "visible": false,
+                           "validators": [
+                            "number",
+                            "completion"
+                           ],
+                           "info": "Seleccione la(s) especialidad(es) en que posee experiencia como docente de aula, indicando los años de experiencia en aula de cada una",
+                           "items":[
+                                {
+                                    "id": "agriculturacaf",
+                                    "label": "Agricultura",
+                                    "value": "agricultura"
+                                },
+                                {
+                                    "id": "instalaciones-sanitariascaf",
+                                    "label": "Instalaciones Sanitarias",
+                                    "value": "instalaciones-sanitarias"
+                                },
+                                {
+                                    "id": "conectividad-redescaf",
+                                    "label": "Conectividad y Redes",
+                                    "value": "conectividad-redes"
+                                },
+                                {
+                                    "id": "mecanica-automotrizcaf",
+                                    "label": "Mecánica Automotriz",
+                                    "value": "mecanica-automotriz"
+                                }
+                           ]
                         },
                         {
                             "component": "radio-field",
                             "id": "tipo-evidencia",
                             "info": "info random",
+                            "extend": true,
                             "label": "Indique el tipo de evidencia para la que está postulando",
                             "items": [
                                 {
@@ -746,6 +841,42 @@
                             ]
                         },
                         {
+                            "component": "radio-field",
+                            "id": "cantidad-modulos-impartir",
+                            "label": "En la actualidad, ud. imparte clases en:",
+                            "visible": false,
+                            "items":[
+                                {
+                                    "id":1,
+                                    "label": "Un módulo",
+                                    "value": "uno"
+                                },
+                                {
+                                    "id":2,
+                                    "label": "Más de un módulo",
+                                    "value": "muchos"
+                                }
+                            ]
+                        },
+                        {
+                            "component": "radio-field",
+                            "id": "cursos-formacion-diferenciada",
+                            "label": "Indique en cuál(es) de estos cursos de la formación diferenciada posee experiencia de aula:",
+                            "visible": false,
+                            "items":[
+                                {
+                                    "id":1,
+                                    "label": "III°",
+                                    "value": "tercer"
+                                },
+                                {
+                                    "id":2,
+                                    "label": "IV°",
+                                    "value": "cuarto"
+                                }
+                            ]
+                        },
+                        {
                             "component": "text-field",
                             "id": "anios-experiencia",
                             "info": "¿Cuántos años de experiencia posee como docente de aula, contados desde la fecha de su titulación?",
@@ -754,6 +885,106 @@
                             "validators": [
                                 "number"
                             ]
+                        },
+                        {
+                            "component": "blank"
+                        },
+                        {
+                            "component": "radio-field",
+                            "id": "exp-correccion-portafolios",
+                            "label": "¿Posee Experiencia en la Corrección de Portafolios?",
+                            "items":[
+                                {
+                                    "id": 1,
+                                    "label": "Si",
+                                    "value:": "si"
+                                },
+                                {
+                                    "id": 2,
+                                    "label": "No",
+                                    "value:": "no"
+                                }
+                            ]
+                        },
+                        {
+                            "component": "radio-field",
+                            "id": "ejerce-docente",
+                            "label": "¿Actualmente ejerce como docente o educador/a de aula?",
+                            "items":[
+                                {
+                                    "id": 1,
+                                    "label": "Si",
+                                    "value:": "si"
+                                },
+                                {
+                                    "id": 2,
+                                    "label": "No",
+                                    "value:": "no"
+                                }
+                            ]
+                        },
+                        {
+                            "component": "radio-field",
+                            "id": "red-maestro",
+                            "label": "Actualmente, ¿integra la Red Maestro de Maestros?",
+                            "items":[
+                                {
+                                    "id": 1,
+                                    "label": "Si",
+                                    "value:": "si"
+                                },
+                                {
+                                    "id": 2,
+                                    "label": "No",
+                                    "value:": "no"
+                                }
+                            ]
+                        },
+                        {
+                            "component": "text-field",
+                            "id": "rbd",
+                            "label": "RBD",
+                            "info": "Indique el RBD del establecimiento educacional en que concentra mayor cantidad de horas aula actualmente: Sin digito verificador ( ejemplo, RBD: 9747). Si no ejerce actualmente en aula, indique RBD del último establecimiento en el que trabajó.",
+                            "validators": [
+                                "number"
+                            ],
+                            "events":[
+                                {
+                                    "target": "rbd-establecimiento",
+                                    "payload": {
+                                        "function-value": "rbd-establecimiento",
+                                        "visible": true
+                                    }
+                                },
+                                {
+                                    "target": "rbd-comuna",
+                                    "payload": {
+                                        "function-value": "rbd-comuna",
+                                        "visible": true
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "component": "text-field",
+                            "id": "rbd-establecimiento",
+                            "label": "Nombre Establecimiento",
+                            "visible": false,
+                            "validators":[
+                                "letter",
+                                "completion"
+                            ]                           
+                        },
+                        {
+                            "component": "text-field",
+                            "id": "rbd-comuna",
+                            "label": "Comuna",
+                            "visible": false,                           
+                            "validators":[
+                                "letter",
+                                "completion"
+                            ]                           
+                            
                         }
                     ]
                 }

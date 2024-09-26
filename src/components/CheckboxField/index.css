@@ -62,20 +62,20 @@
   left: 0;
   height: 15px;
   width: 15px;
-  background-color: var(--primary-75);
+  background-color: var(--white);
 }
 
 .checkbox-item:hover input:enabled:not(:checked) ~ .checkbox-checkmark {
-  background-color: var(--secondary-100);
+  background-color: var(--primary-75);
 }
 
 .checkbox-item input:checked ~ .checkbox-checkmark {
   background-color: var(--primary-100);
-  border: 2px solid var(--primary-100);
+  border: 1px solid var(--primary-100);
 }
 
 .checkbox-checkmark {
-  transition-duration: 150ms;
+  transition-duration: 200ms;
 }
 
 .checkbox-checkmark:after {
@@ -89,10 +89,10 @@
 }
 
 .checkbox-item .checkbox-checkmark:after {
-  left: 4.5px;
-  top: 0px;
-  width: 5px;
-  height: 10px;
+  left: 5px;
+  top: 2px;
+  width: 3.5px;
+  height: 7px;
   border: solid var(--white);
   border-width: 0 3px 3px 0;
   -webkit-transform: rotate(45deg);

@@ -6,14 +6,33 @@ export function payloadMapper(
   actorValue,
   setLoading,
   componentUpdater,
-  targetId
+  targetId,
+  formUpdater
 ) {
   let mappedPayload = {};
   if ("visible" in payload)
     mappedPayload = { ...mappedPayload, visible: payload.visible };
 
-  if ("value" in payload)
-    mappedPayload = { ...mappedPayload, ...payload.value };
+  if ("value" in payload ){
+    formUpdater(targetId, payload.value)
+  }
+  
+  if ("function-value" in payload && typeof payload["function-value"] === "string"){
+    
+    setLoading(true);
+    functionExecutor(payload["function-value"], actorValue).then((res) => {
+      console.log("ejecutando un function value: " , res);
+      if(res){
+        formUpdater(targetId, res)
+      }
+      return;
+    }).then(() => {
+      setLoading(false);
+      return
+    })
+  }
+    
+    //mappedPayload = { ...mappedPayload, ...payload.value };
 
   if ("items" in payload && Array.isArray(payload.items))
     mappedPayload = {

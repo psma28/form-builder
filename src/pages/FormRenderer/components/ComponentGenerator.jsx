@@ -14,7 +14,7 @@ export function ComponentGenerator({ schema }) {
   return (
     <>
       {RenderComponent(schema, pushComponent, getComponent)}
-      <button onClick={handleUpdate}>Update Component</button>
+       <button onClick={handleUpdate}>Update Component</button>
     </>
   );
 }

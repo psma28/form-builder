@@ -24,12 +24,14 @@ export function RadioButtonField({ id }) {
   }, [value]);
 
   if (!getComponent(id)) return <></>;
-  const { label, visible = true, items = [], info } = getComponent(id);
+  const { label, visible = true, items = [], info, extend=false } = getComponent(id);
   return (
     visible &&
     items.length > 0 &&
     Array.isArray(items) && (
-      <div className="radio-container">
+      <div className={"radio-container " +
+        (extend === false ? "half-field" : "full-field") 
+      }>
         <div className="radio-label">
           <span className="text-field-label">{label}</span>
           {info && <InfoPopup info={info} />}

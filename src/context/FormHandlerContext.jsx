@@ -6,6 +6,8 @@ export function FormHandlerProvider({ children }) {
   const [form, setForm] = useState({});
 
   const updateForm = (key, value) => {
+    console.log("updating form", key, value);
+
     setForm(() => ({
       ...form,
       [key]: value,

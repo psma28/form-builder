@@ -18,7 +18,6 @@ export function FormSchemaInit({ schema }) {
       }
       if (
         componentName === "form-structure" ||
-        componentName === "form-row" ||
         componentName === "document-manager"
       ) {
         element.content.forEach(pushElements);
