@@ -1,38 +1,38 @@
 import { functionExecutor } from "./APIFunctionMapper";
 import { comboboxResponseMapper } from "./ResponseMapper";
 
-export function payloadMapper(
+export async function payloadMapper(
   payload,
   actorValue,
   setLoading,
   componentUpdater,
   targetId,
-  formUpdater
+  stageForm
 ) {
   let mappedPayload = {};
   if ("visible" in payload)
     mappedPayload = { ...mappedPayload, visible: payload.visible };
 
-  if ("value" in payload ){
-    formUpdater(targetId, payload.value)
+  if ("value" in payload) {
+    stageForm({ targetId, res: payload.value });
   }
-  
-  if ("function-value" in payload && typeof payload["function-value"] === "string"){
-    
+
+  if (
+    "function-value" in payload &&
+    typeof payload["function-value"] === "string"
+  ) {
     setLoading(true);
-    functionExecutor(payload["function-value"], actorValue).then((res) => {
-      console.log("ejecutando un function value: " , res);
-      if(res){
-        formUpdater(targetId, res)
+    try {
+      const res = await functionExecutor(payload["function-value"], actorValue);
+      if (res) {
+        stageForm({ targetId, res });
       }
-      return;
-    }).then(() => {
+    } finally {
       setLoading(false);
-      return
-    })
+    }
   }
-    
-    //mappedPayload = { ...mappedPayload, ...payload.value };
+
+  //mappedPayload = { ...mappedPayload, ...payload.value };
 
   if ("items" in payload && Array.isArray(payload.items))
     mappedPayload = {
@@ -42,12 +42,13 @@ export function payloadMapper(
 
   if ("seeder" in payload && typeof payload.seeder === "string") {
     setLoading(true);
-    functionExecutor(payload.seeder, actorValue).then((res) => {
+    try {
+      const res = await functionExecutor(payload.seeder, actorValue);
       mappedPayload = { ...mappedPayload, items: comboboxResponseMapper(res) };
       componentUpdater(targetId, mappedPayload);
+    } finally {
       setLoading(false);
-      return;
-    });
+    }
   }
   componentUpdater(targetId, mappedPayload);
 }

@@ -9,7 +9,7 @@ export function useSelection(
   if (!initialValue) initialValue = "";
   const [selected, setSelected] = useState(initialValue);
 
-  const handleSelection = (id, value) => {
+  const handleSelection = (id, value) => {    
     const componentSchema = getComponent(id);
     let componentEvents = componentSchema.events;
     let itemEvents = componentSchema.items.find(

@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { LoadingContext } from "./LoadingContext";
 import {
   payloadMapper,
@@ -19,24 +19,42 @@ export function EventManagerProvider({ children }) {
   const [events, setEvents] = useState([]);
   const [components, setComponents] = useState({});
   const { setLoading } = useContext(LoadingContext);
-  const { deleteFormField, updateForm} = useContext(FormHandlerContext);
+  const { deleteFormField, updateForm } = useContext(FormHandlerContext);
 
-  const eventHandler = (actorId, value, events) => {
+  /**
+   * Since updating the form directly by mapping payloads
+   * cause a sync problem, a more direct way to attatch event-based
+   * values in larger groups of events (function based) is by setting a new state
+   * that listens to these changes
+   */
+  const [ formClusterManager, setFormClusterManager ] = useState([]);
+  const stageForm = (element)=>{
+    setFormClusterManager((prev)=>([
+      ...prev, element
+    ]))
+  }
+  useEffect(()=>{
+    const pop = formClusterManager.pop();
+    if(pop) updateForm(pop.targetId, pop.res)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [formClusterManager])
+
+  const eventHandler = async (actorId, value, events) => {
     collapseEvents(actorId);
     if (events.length === 0) return;
-    for(const event of events){
+    for (const event of events) {
       const targetId = event.target;
-      payloadMapper(
+      await payloadMapper(
         event.payload,
         value,
         setLoading,
         updateComponent,
         targetId,
-        updateForm
+        stageForm
       );
-      pushEvent(actorId, targetId, event.payload);
+      pushEvent(actorId, targetId, event.payload); 
     }
-    
+      
   };
 
   const pushComponent = async (component) => {

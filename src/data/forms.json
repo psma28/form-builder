@@ -15,17 +15,19 @@
                         },
                         {
                             "component": "combobox",
-                            "id": "supervisor",
+                            "id": "consideradoParaSupervisor",
                             "label": "¿Está interesado/a en que su postulación sea considerada para el rol de Supervisor/a?",
                             "placeholder": "Seleccione una opción",
                             "items": [
                                 {
+                                    "id": 1,
                                     "label": "Si",
-                                    "value": true
+                                    "value": 1
                                 },
                                 {
+                                    "id":  0,
                                     "label": "No",
-                                    "value": false
+                                    "value": 0
                                 }
                             ]
                         },
@@ -40,7 +42,7 @@
                         },
                         {
                             "component": "text-field",
-                            "id": "nombre-social",
+                            "id": "nombre_social",
                             "label": "Nombre Social",
                             "validators": [
                                 "letter",
@@ -49,7 +51,7 @@
                         },
                         {
                             "component": "text-field",
-                            "id": "apellido-paterno",
+                            "id": "apellido_paterno",
                             "label": "Apellido Paterno",
                             "validators": [
                                 "letter",
@@ -58,7 +60,7 @@
                         },
                         {
                             "component": "text-field",
-                            "id": "apellido-materno",
+                            "id": "apellido_materno",
                             "label": "Apellido Materno",
                             "validators": [
                                 "letter",
@@ -73,17 +75,32 @@
                             "items": [
                                 {
                                     "label": "Chilena",
-                                    "value": "chilena"
+                                    "value": "Chilena"
                                 },
                                 {
                                     "label": "Otra",
-                                    "value": "otra"
+                                    "value": "Otra",
+                                    "events": [
+                                        {
+                                            "target": "otra_nacionalidad",
+                                            "payload": {
+                                                "visible": true
+                                            }
+                                        }
+                                    ]
                                 }
                             ]
                         },
                         {
                             "component": "text-field",
-                            "id": "fecha-nacimiento",
+                            "id": "otra_nacionalidad",
+                            "label": "Indique otra Nacionalidad",
+                            "visible": false,
+                            "validators": []
+                        },
+                        {
+                            "component": "text-field",
+                            "id": "fecha_nacimiento",
                             "label": "Fecha de Nacimiento",
                             "type": "date",
                             "validators": [
@@ -146,10 +163,9 @@
                         },
                         {
                             "component": "text-field",
-                            "id": "direccion-residencia",
+                            "id": "domicilio",
                             "label": "Dirección de Residencia",
                             "validators": [
-                                "letter",
                                 "completion"
                             ]
                         },
@@ -166,21 +182,10 @@
                         },
                         {
                             "component": "combobox",
-                            "id": "sexo-registral",
+                            "id": "id_sexo",
                             "label": "Sexo Registral",
                             "placeholder": "Seleccione Sexo Registral",
-                            "items": [
-                                {
-                                    "id": 1,
-                                    "value": "hombre",
-                                    "label": "Hombre"
-                                },
-                                {
-                                    "id": 2,
-                                    "value": "mujer",
-                                    "label": "Mujer"
-                                }
-                            ]
+                            "items": "lista-sexos"
                         },
                         {
                             "component": "combobox",
@@ -299,7 +304,7 @@
                         },
                         {
                             "component": "text-field",
-                            "id": "correo-electronico",
+                            "id": "email",
                             "label": "Correo Electrónico",
                             "validators": [
                                 "completion",
@@ -537,13 +542,13 @@
                                                         "id": "media-adultos",
                                                         "label": "7° a 8°, Educación Media y Adultos",
                                                         "value": "media-adultos",
-                                                        "events":[
+                                                        "events": [
                                                             {
                                                                 "target": "asignatura-clases",
                                                                 "payload": {
                                                                     "items": [
                                                                         {
-                                                                            "id":1,
+                                                                            "id": 1,
                                                                             "label": "Ciencias para la ciudadanía",
                                                                             "value": "ciencias-para-ciudadania"
                                                                         }
@@ -573,7 +578,7 @@
                                     "id": "historia-geografia-ciencias-sociales",
                                     "value": "historia-geografia-ciencias-sociales",
                                     "label": "Historia, Geografía y Ciencias Sociales",
-                                    "events":[
+                                    "events": [
                                         {
                                             "target": "nivel-postulacion",
                                             "payload": {
@@ -587,7 +592,7 @@
                                                         "id": "media-adultos",
                                                         "label": "7° a 8°, Educación Media y Adultos",
                                                         "value": "media-adultos",
-                                                        "events":[
+                                                        "events": [
                                                             {
                                                                 "target": "experiencia-impartiendo-educacion-ciudadana",
                                                                 "payload": {
@@ -641,29 +646,29 @@
                                 {
                                     "id": "edu-med-tec-pro",
                                     "label": "Educación Media Técnico Profesional",
-                                    "value" : "educacion-media-tecnico-profesional",
+                                    "value": "educacion-media-tecnico-profesional",
                                     "events": [
                                         {
                                             "target": "area-and-years",
-                                            "payload":{
+                                            "payload": {
                                                 "visible": true
                                             }
                                         },
                                         {
                                             "target": "sector-economico-postulacion",
-                                            "payload":{
+                                            "payload": {
                                                 "visible": true
                                             }
                                         },
                                         {
                                             "target": "cantidad-modulos-impartir",
-                                            "payload":{
+                                            "payload": {
                                                 "visible": true
                                             }
                                         },
                                         {
                                             "target": "cursos-formacion-diferenciada",
-                                            "payload":{
+                                            "payload": {
                                                 "visible": true
                                             }
                                         },
@@ -696,7 +701,7 @@
                             "id": "asignatura-clases",
                             "label": "Asignaturas Previas",
                             "info": "Indique en qué asignatura ha hecho clases",
-                            "items":[]
+                            "items": []
                         },
                         {
                             "component": "radio-field",
@@ -714,17 +719,16 @@
                                     "label": "No",
                                     "value": "Si"
                                 }
-                                
                             ]
                         },
                         {
                             "component": "combobox",
                             "id": "sector-economico-postulacion",
                             "placeholder": "Seleccione sector",
-                            "label" : "Sector Económico",
+                            "label": "Sector Económico",
                             "info": "Indique el sector económico al que postula",
-                            "visible" : false,
-                            "items" : "get-asignaturas"
+                            "visible": false,
+                            "items": "get-asignaturas"
                         },
                         {
                             "component": "combobox",
@@ -769,10 +773,10 @@
                             "id": "especificacion-cert-ingles",
                             "label": "Certificado Inglés",
                             "info": "Especifique su certificado de Inglés",
-                            "validators":[
+                            "validators": [
                                 "letter"
                             ],
-                            "visible":false
+                            "visible": false
                         },
                         {
                             "component": "combobox",
@@ -783,17 +787,17 @@
                             "items": []
                         },
                         {
-                           "component": "checkandfill" ,
-                           "id": "area-and-years",
-                           "label": "Especialidades y Experiencia",
-                           "type": "number",
-                           "visible": false,
-                           "validators": [
-                            "number",
-                            "completion"
-                           ],
-                           "info": "Seleccione la(s) especialidad(es) en que posee experiencia como docente de aula, indicando los años de experiencia en aula de cada una",
-                           "items":[
+                            "component": "checkandfill",
+                            "id": "area-and-years",
+                            "label": "Especialidades y Experiencia",
+                            "type": "number",
+                            "visible": false,
+                            "validators": [
+                                "number",
+                                "completion"
+                            ],
+                            "info": "Seleccione la(s) especialidad(es) en que posee experiencia como docente de aula, indicando los años de experiencia en aula de cada una",
+                            "items": [
                                 {
                                     "id": "agriculturacaf",
                                     "label": "Agricultura",
@@ -814,7 +818,7 @@
                                     "label": "Mecánica Automotriz",
                                     "value": "mecanica-automotriz"
                                 }
-                           ]
+                            ]
                         },
                         {
                             "component": "radio-field",
@@ -845,14 +849,14 @@
                             "id": "cantidad-modulos-impartir",
                             "label": "En la actualidad, ud. imparte clases en:",
                             "visible": false,
-                            "items":[
+                            "items": [
                                 {
-                                    "id":1,
+                                    "id": 1,
                                     "label": "Un módulo",
                                     "value": "uno"
                                 },
                                 {
-                                    "id":2,
+                                    "id": 2,
                                     "label": "Más de un módulo",
                                     "value": "muchos"
                                 }
@@ -863,14 +867,14 @@
                             "id": "cursos-formacion-diferenciada",
                             "label": "Indique en cuál(es) de estos cursos de la formación diferenciada posee experiencia de aula:",
                             "visible": false,
-                            "items":[
+                            "items": [
                                 {
-                                    "id":1,
+                                    "id": 1,
                                     "label": "III°",
                                     "value": "tercer"
                                 },
                                 {
-                                    "id":2,
+                                    "id": 2,
                                     "label": "IV°",
                                     "value": "cuarto"
                                 }
@@ -893,16 +897,16 @@
                             "component": "radio-field",
                             "id": "exp-correccion-portafolios",
                             "label": "¿Posee Experiencia en la Corrección de Portafolios?",
-                            "items":[
+                            "items": [
                                 {
-                                    "id": 1,
+                                    "id": "exp-yes",
                                     "label": "Si",
-                                    "value:": "si"
+                                    "value": "true"
                                 },
                                 {
-                                    "id": 2,
+                                    "id": "exp-no",
                                     "label": "No",
-                                    "value:": "no"
+                                    "value": "false"
                                 }
                             ]
                         },
@@ -910,16 +914,16 @@
                             "component": "radio-field",
                             "id": "ejerce-docente",
                             "label": "¿Actualmente ejerce como docente o educador/a de aula?",
-                            "items":[
+                            "items": [
                                 {
                                     "id": 1,
                                     "label": "Si",
-                                    "value:": "si"
+                                    "value": "true"
                                 },
                                 {
                                     "id": 2,
                                     "label": "No",
-                                    "value:": "no"
+                                    "value": "false"
                                 }
                             ]
                         },
@@ -927,16 +931,16 @@
                             "component": "radio-field",
                             "id": "red-maestro",
                             "label": "Actualmente, ¿integra la Red Maestro de Maestros?",
-                            "items":[
+                            "items": [
                                 {
                                     "id": 1,
                                     "label": "Si",
-                                    "value:": "si"
+                                    "value": "true"
                                 },
                                 {
                                     "id": 2,
                                     "label": "No",
-                                    "value:": "no"
+                                    "value": "false"
                                 }
                             ]
                         },
@@ -946,21 +950,20 @@
                             "label": "RBD",
                             "info": "Indique el RBD del establecimiento educacional en que concentra mayor cantidad de horas aula actualmente: Sin digito verificador ( ejemplo, RBD: 9747). Si no ejerce actualmente en aula, indique RBD del último establecimiento en el que trabajó.",
                             "validators": [
+                                "completion",
                                 "number"
                             ],
-                            "events":[
+                            "events": [
                                 {
                                     "target": "rbd-establecimiento",
                                     "payload": {
-                                        "function-value": "rbd-establecimiento",
-                                        "visible": true
+                                        "function-value": "rbd-establecimiento"
                                     }
                                 },
                                 {
                                     "target": "rbd-comuna",
                                     "payload": {
-                                        "function-value": "rbd-comuna",
-                                        "visible": true
+                                        "function-value": "rbd-comuna"
                                     }
                                 }
                             ]
@@ -968,23 +971,67 @@
                         {
                             "component": "text-field",
                             "id": "rbd-establecimiento",
-                            "label": "Nombre Establecimiento",
-                            "visible": false,
-                            "validators":[
-                                "letter",
+                            "label": "Establecimiento",
+                            "validators": [
                                 "completion"
-                            ]                           
+                            ]
                         },
                         {
                             "component": "text-field",
                             "id": "rbd-comuna",
                             "label": "Comuna",
-                            "visible": false,                           
-                            "validators":[
-                                "letter",
+                            "validators": [
                                 "completion"
-                            ]                           
-                            
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "component": "form-structure",
+                    "id": "otros-datos",
+                    "label": "Otros Datos",
+                    "indication": "Por favor, complete los siguientes campos. Estos datos solo se utilizarán en caso de que sea seleccionado y contratado para el proceso.",
+                    "content": [
+                        {
+                            "component": "combobox",
+                            "id": "banco",
+                            "label": "Banco",
+                            "placeholder": "Seleccione un Banco",
+                            "items": [
+                                {
+                                    "label": "Banco Santander",
+                                    "value": "santander"
+                                },
+                                {
+                                    "label": "Scottiabank",
+                                    "value": "scottiabank"
+                                }
+                            ]
+                        },
+                        {
+                            "component": "combobox",
+                            "id": "tipo-cuenta",
+                            "label": "Tipo de Cuenta",
+                            "placeholder": "Seleccione un tipo de cuenta",
+                            "items": [
+                                {
+                                    "label": "Cuenta Corriente",
+                                    "value": "cuenta-corriente"
+                                },
+                                {
+                                    "label": "Visa/RUT",
+                                    "value": "visa"
+                                }
+                            ]
+                        },
+                        {
+                            "component": "text-field",
+                            "id": "numero-cuenta",
+                            "label": "Número de cuenta",
+                            "validators": [
+                                "number",
+                                "completion"
+                            ]
                         }
                     ]
                 }

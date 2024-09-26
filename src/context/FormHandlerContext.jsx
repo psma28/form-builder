@@ -5,17 +5,27 @@ export const FormHandlerContext = createContext();
 export function FormHandlerProvider({ children }) {
   const [form, setForm] = useState({});
 
-  const updateForm = (key, value) => {
-    console.log("updating form", key, value);
+  useEffect(() => {
+    console.log("form", form);
+  },[form])
 
+  const updateForm = (key, value) => {    
     setForm(() => ({
       ...form,
       [key]: value,
     }));
   };
 
+  const attachForm = (cluster) => {
+    setForm((prev)=>(
+      {
+        ... prev, ...cluster
+      }
+    ))
+  }
+
   const deleteFormField = (key) => {
-    delete form[key];
+    delete form[key]
   };
 
   const getFieldValue = (key) => {
@@ -23,21 +33,18 @@ export function FormHandlerProvider({ children }) {
     return value !== undefined ? value : "";
   };
 
-  useEffect(() => {
-    console.log("formulario", form);
-  }, [form]);
 
   const sendForm = (setLoading) => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 5000);
+    }, 1000);
     console.log("Pre envio: ", form);
   };
 
   return (
     <FormHandlerContext.Provider
-      value={{ updateForm, sendForm, getFieldValue, deleteFormField }}
+      value={{ updateForm, sendForm, getFieldValue, deleteFormField, attachForm }}
     >
       {children}
     </FormHandlerContext.Provider>

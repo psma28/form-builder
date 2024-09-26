@@ -9,6 +9,7 @@ import { RUTField } from "../../components/RUTField";
 import { EventManagerProvider } from "../../context/EventManagerContext";
 import { ComponentGenerator } from "./components/ComponentGenerator";
 import { FormSchemaInit } from "../../utils/mappings/FormSchemaInit";
+import { SumbmitButton } from "../../components/SubmitButton";
 
 export function FormRenderer() {
   const { formId } = useParams();
@@ -28,6 +29,8 @@ export function FormRenderer() {
               <RUTField />
               <ComponentGenerator schema={form["form-groups"]} />
             </Layout>
+
+            <SumbmitButton />
           </EventManagerProvider>
         </FormHandlerProvider>
       </FieldAccessProvider>

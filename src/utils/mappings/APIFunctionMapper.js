@@ -5,8 +5,10 @@ import { getUniversidades } from "../../services/api/universitySeeder";
 import { getYears } from "../../services/api/yearSeeder";
 import { getRBDComuna } from "../../services/api/RBDProvider";
 import { getRBDEstablecimiento } from "../../services/api/RBDProvider";
+import { getListaSexos } from "../../services/seeders/lista-sexos";
 
 const APIFunctionsMap = {
+  "lista-sexos": { function: getListaSexos, args: 0},
   "get-escuelas": { function: getColegios, args: 0 },
   "get-universidades": { function: getUniversidades, args: 0 },
   "get-regiones": { function: getRegiones, args: 0 },

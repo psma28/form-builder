@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { convertToNumber } from "../../../utils/stringTools";
 
 export function useSelection(stateHandler, getComponent, eventHandler) {
   const [selected, setSelected] = useState("");
   const handleSelection = (id, value) => {
+    value = convertToNumber(value);
     const componentSchema = getComponent(id);
     let componentEvents = componentSchema.events;
     let itemEvents = componentSchema.items.find(

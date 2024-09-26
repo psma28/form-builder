@@ -46,7 +46,7 @@ export function ComboboxField({ id }) {
           }
           name={label}
           id={label}
-          value={selected}
+          value={value}
           disabled={!getFieldStatus()}
           onChange={(e) => handleSelection(id, e.target.value)}
         >

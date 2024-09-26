@@ -12,7 +12,6 @@ export function TextField({ id }) {
   const { updateForm, getFieldValue } = useContext(FormHandlerContext);
   const { getComponent, eventHandler } = useContext(EventManagerContext);
   const { errors, setErrors } = useErrors();
-
   if (!getComponent(id)) return <></>;
 
   const {
@@ -29,8 +28,8 @@ export function TextField({ id }) {
     updateForm(id, content);
   };
 
-  const handleInput = (content) => {
-    if (eventHandler) eventHandler(id, content, events);
+  const handleInput = (content) => {    
+    console.log("validating field", id, content);
     let validation = true;
     const messages = [];
     validators.map((validator) => {
@@ -42,8 +41,13 @@ export function TextField({ id }) {
       return validator;
     });
     setErrors(messages);
-    if (!validation) updateForm(id, "");
+    if (!validation) {
+      updateForm(id, "")
+      return;
+    };
+    if (eventHandler) eventHandler(id, content, events);
   };
+  const value = getFieldValue(id);
 
   return (
     visible && (

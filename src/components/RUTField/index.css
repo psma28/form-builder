@@ -1,4 +1,97 @@
-.rut-field {
+.rut-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.rut-field{
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+
+.rut-label{
+  position: absolute;
+  user-select: none;
+  top: 50%;
+  left: 20%;
+  font-size: 20px;
+  transform: translateY(-50%);
+}
+
+.rut-search{
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  object-fit: cover;
+  top: 50%;
+  right: 20%;
+  transform: translateY(-50%);
+  fill: var(--primary-100);
+  cursor: pointer;
+  transition: scale 100ms;
+}
+
+.rut-search:hover{
+  scale: 1.1;
+}
+
+.rut-field:focus-within .rut-search {
+  fill: var(--white);
+}
+
+.rut-field:focus-within .rut-label {
+  color: var(--white);
+}
+
+.rut-input{
+  width: 100%;
+  height: 30px;
+  border: 1px solid var(--secondary-100);
+  border-radius: 10px;
+  padding: 5px 20px;
+  transition: 200ms;
+  font-size: 20px;
+  text-align: center;
+  
+  outline: 0;
+  background: transparent;
+}
+
+.rut-input:focus {
+  border: 1px solid var(--primary-100);
+  background-color: var(--primary-100);
+  color: var(--white)
+}
+
+.rut-indicator {
+  user-select: none;
+}
+
+.rut-failed {
+  color: var(--error-100);
+}
+
+.rut-verified {
+  color: green;
+}
+
+.rut-found {
+  color: var(--primary-100);
+}
+
+
+@media (max-width: 800px) {
+  .rut-container{
+    width: 100%;
+  }
+}
+
+/*.rut-field {
   width: 50%;
   margin: auto;
   margin-bottom: 20px;
@@ -64,3 +157,4 @@
   background: transparent;
   text-align: center;
 }
+*/

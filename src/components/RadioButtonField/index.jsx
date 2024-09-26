@@ -42,7 +42,7 @@ export function RadioButtonField({ id }) {
             (getFieldStatus() === false ? " disabled-radio" : "")
           }
         >
-          {items.map((item) => {
+          {items.map((item) => {            
             return (
               <div className="radio-item" key={item.id}>
                 <label className="text-field-label">
