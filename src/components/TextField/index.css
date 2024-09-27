@@ -1,0 +1,74 @@
+.text-field-container {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 15px;
+}
+
+.text-field-content {
+  display: flex;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.text-field-label-content {
+  display: flex;
+  background-color: var(--secondary-75);
+  align-items: center;
+  border-radius: 10px 0 0 10px;
+  padding: 10px 10px;
+  gap: 5px;
+  min-width: 180px;
+  box-sizing: border-box;
+}
+
+.text-field-input {
+  border-radius: 0 10px 10px 0;
+  border-bottom: 1px solid var(--primary-100);
+  padding: 0 10px;
+  width: 100%;
+  position: relative;
+}
+
+.text-field-input span {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.text-field-input input {
+  background: transparent;
+  outline: 0;
+  border: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.disabled-input {
+  background-color: var(--secondary-80);
+}
+
+.text-field-input:focus-within {
+  background-color: var(--primary-75);
+}
+
+.telephone-input {
+  padding-left: 50px;
+}
+
+.text-field-messages {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--error-100);
+}
+
+.text-field-messages ul {
+  margin: 0;
+}
+
+.text-field-error {
+  background-color: var(--error-75);
+  transition: background-color 500ms;
+}
+
