@@ -3,7 +3,7 @@ import { RUTIndicators } from "../data/RUTIndicators";
 import { getValue } from "../../../utils/RUTFormatter";
 import { validateRUT } from "../../../utils/validators/RUTValidator";
 
-export function useRUTField(fieldHandler, updateForm, attachForm) {
+export function useRUTField(fieldHandler, updateForm, attachForm, setLoading) {
   const [rutValue, setRutValue] = useState("");
   const [indicator, setIndicator] = useState(RUTIndicators.waiting);
 
@@ -20,6 +20,7 @@ export function useRUTField(fieldHandler, updateForm, attachForm) {
       const url =
         "https://rrhh.iie.cl/public/web_rrhh/sources/personas.php?run=" +
         rutValue;
+        setLoading(true)
       fetch(url)
         .then((response) => response.json())
         .then((data) => {
@@ -36,6 +37,8 @@ export function useRUTField(fieldHandler, updateForm, attachForm) {
             console.log("cluster", cluster);
           }
           attachForm(cluster);
+          setLoading(false)
+
           //const object = data[0];
           //console.log("respuesta server", object);
           //updateForm("nombres", object.nombres)

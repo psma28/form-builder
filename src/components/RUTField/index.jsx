@@ -5,12 +5,14 @@ import { RUTFormatter } from "../../utils/RUTFormatter";
 import { useRUTField } from "./hook/useRUTField.jsx";
 import { SearchIcon } from "../../assets/icons/SearchIcon.jsx";
 import { FormHandlerContext } from "../../context/FormHandlerContext.jsx";
+import { LoadingContext } from "../../context/LoadingContext.jsx";
 
 export function RUTField() {
   const { setFieldAccess } = useContext(FieldAccessContext);
   const { updateForm, attachForm } = useContext(FormHandlerContext)
+  const { setLoading } = useContext(LoadingContext);
   const { inputChangeHandler, verificateRUT, indicator, rutValue } =
-    useRUTField(setFieldAccess, updateForm, attachForm);
+    useRUTField(setFieldAccess, updateForm, attachForm, setLoading);
   return (
     <div className="rut-container">
       <div className="rut-field">
