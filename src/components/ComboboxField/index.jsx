@@ -1,40 +1,43 @@
 import "./index.css";
 import { useContext, useEffect } from "react";
 import { FieldAccessContext } from "../../context/FieldAccessContext";
-import { FormHandlerContext } from "../../context/FormHandlerContext";
-import { useSelection } from "./hooks/useSelection";
-import { EventManagerContext } from "../../context/EventManagerContext";
+import { FormSchemaContext } from "../../context/FormSchemaContext";
+import { LoadingContext } from "../../context/LoadingContext";
 import { InfoPopup } from "../InfoPin";
+import { useCombobox } from "./hooks/useCombobox";
 
 export function ComboboxField({ id }) {
   const { getFieldStatus } = useContext(FieldAccessContext);
-  const { updateForm, getFieldValue } = useContext(FormHandlerContext);
-  const { getComponent, eventHandler } = useContext(EventManagerContext);
-  const { selected, handleSelection, clearSelection } = useSelection(
-    updateForm,
-    getComponent,
-    eventHandler
-  );
-  const value = getFieldValue(id);
-
-  useEffect(() => {
-    if (!value) clearSelection();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [value]);
-
-  if (!getComponent(id)) return <></>;
-  const {
+  const { setLoading } = useContext(LoadingContext);
+  const { getComponent, updateComponent, eventHandler } =
+    useContext(FormSchemaContext);
+  let {
     label,
+    value,
     placeholder,
-    items = [],
+    items,
+    events,
     visible = true,
     info,
+    extend = false
   } = getComponent(id);
+  const { selected, handleSelection, clearSelection, list, setList } =
+    useCombobox(id, value, items, events, updateComponent, eventHandler, setLoading);
+  useEffect(() => {
+    if (!value) clearSelection();
+  }, [value]);
+
+  useEffect(() => {
+    if (setList) setList(items);
+  }, [items]);
+  
   return (
     visible &&
-    items.length > 0 &&
-    Array.isArray(items) && (
-      <div className="field-container">
+    Array.isArray(list) &&
+    list.length > 0 && (
+      <div className={
+        "field-container " + (extend === false ? "half-field" : "full-field")
+      }>
         <div className="field-label">
           <span className="text-field-label">{label}</span>
           {info && <InfoPopup info={info} />}
@@ -48,10 +51,10 @@ export function ComboboxField({ id }) {
           id={label}
           value={value}
           disabled={!getFieldStatus()}
-          onChange={(e) => handleSelection(id, e.target.value)}
+          onChange={(e) => handleSelection(e.target.value)}
         >
           <option value="" disabled={selected !== ""} label={placeholder} />
-          {items.map((item, index) => {
+          {list.map((item, index) => {
             return (
               <option
                 value={item.value}

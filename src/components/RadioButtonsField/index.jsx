@@ -1,82 +1,83 @@
 import "./index.css";
 import { useContext, useEffect } from "react";
 import { FieldAccessContext } from "../../context/FieldAccessContext";
-import { LoadingContext } from "../../context/LoadingContext";
 import { FormSchemaContext } from "../../context/FormSchemaContext";
-import { useCheckBox } from "./hooks/useCheckbox";
+import { useRadio } from "./hooks/useRadio";
 import { InfoPopup } from "../InfoPin";
+import { LoadingContext } from "../../context/LoadingContext";
 
-export function CheckboxField({ id }) {
+export function RadioButtonsField({ id }) {
   const { getFieldStatus } = useContext(FieldAccessContext);
   const { setLoading } = useContext(LoadingContext);
-  const { getComponent, updateComponent, eventHandler, collapseEvents } =
+  const { getComponent, updateComponent, eventHandler } =
     useContext(FormSchemaContext);
   let {
     label,
-    value = [],
-    items,
-    events,
     visible = true,
+    items,
+    events = [],
     info,
     extend = false,
+    value,
   } = getComponent(id);
-  const {
-    handleSelection,
-    clearSelection,
-    list,
-    setList,
-    isChecked,
-  } = useCheckBox(
+
+  const { selected, handleSelection, clearSelection, list, setList } = useRadio(
     id,
     value,
     items,
     events,
     updateComponent,
     eventHandler,
-    collapseEvents,
     setLoading
   );
   useEffect(() => {
     if (!value) clearSelection();
   }, [value]);
-
   useEffect(() => {
     if (setList) setList(items);
   }, [items]);
+  useEffect(() => {
+    if (Array.isArray(list)) {
+      setLoading(false);
+    }
+  }, [list]);
+  useEffect(()=>{
+    setLoading(true);
+  },[])
   return (
     visible &&
     Array.isArray(list) &&
     list.length > 0 && (
       <div
         className={
-          "checkbox-container " +
-          (extend === false ? "half-field" : "full-field")
+          "radio-container " + (extend === false ? "half-field" : "full-field")
         }
       >
-        <div className="checkbox-label">
+        <div className="radio-label">
           <span className="text-field-label">{label}</span>
           {info && <InfoPopup info={info} />}
         </div>
         <div
           className={
-            "checkbox-options" +
-            (getFieldStatus() === false ? " disabled-checkbox" : "")
+            "radio-options" +
+            (getFieldStatus() === false ? " disabled-radio" : "")
           }
         >
           {list.map((item) => {
             return (
-              <div className="checkbox-item" key={item.id}>
+              <div className="radio-item" key={item.id}>
                 <label className="text-field-label">
                   <input
-                    type="checkbox"
+                    id={item.id}
+                    type="radio"
                     value={item.value}
                     disabled={!getFieldStatus()}
-                    checked={isChecked(item)}
-                    onChange={() => {
-                      handleSelection(item);
+                    checked={selected === item.value}
+                    onChange={(event) => {
+                      handleSelection(event.target.value);
                     }}
                   />
-                  <span className="checkbox-checkmark"></span>
+                  <span className="radio-checkmark"></span>
                   <span>{item.label}</span>
                 </label>
               </div>

@@ -9,10 +9,10 @@ export function RUTFormatter(input) {
   if (input.length > 1) {
     letters.splice(-1, 0, "-");
   }
-  if (input.length > 5) {
+  if (input.length > 4) {
     letters.splice(-5, 0, ".");
   }
-  if (input.length > 9) {
+  if (input.length > 7) {
     letters.splice(-9, 0, ".");
   }
   return letters.join("");

@@ -1,59 +1,64 @@
 import "./index.css";
-import { useContext } from "react";
-import { InfoPopup } from "../InfoPin";
+import { useContext, useEffect, useState } from "react";
 import { FieldAccessContext } from "../../context/FieldAccessContext";
-import { dumbValidator } from "../../utils/validators/dumbValidator";
-import { FormHandlerContext } from "../../context/FormHandlerContext";
-import { EventManagerContext } from "../../context/EventManagerContext";
+import { FormSchemaContext } from "../../context/FormSchemaContext";
 import { useErrors } from "./hooks/useErrors";
+import { InfoPopup } from "../InfoPin";
+import { validatorMapper } from "../../mappings/validatorMapper";
 
 export function TextField({ id }) {
   const { getFieldStatus } = useContext(FieldAccessContext);
-  const { updateForm, getFieldValue } = useContext(FormHandlerContext);
-  const { getComponent, eventHandler } = useContext(EventManagerContext);
+  const { getComponent, updateComponent, eventHandler } =
+    useContext(FormSchemaContext);
   const { errors, setErrors } = useErrors();
-  if (!getComponent(id)) return <></>;
-
   const {
     label,
     extend = false,
     info,
-    validators = [dumbValidator],
+    value,
+    validators = [],
     visible = true,
     events = [],
     ...props
   } = getComponent(id);
+  const [content, setContent] = useState(value);
+  useEffect(() => {
+    if (value !== content) {
+      setContent(value)
+      handleInput(value)
+    }
+  }, [value]);
 
-  const contentUpdater = (content) => {
-    updateForm(id, content);
-  };
-
-  const handleInput = (content) => {    
-    console.log("validating field", id, content);
+  const handleInput = (input) => {
     let validation = true;
     const messages = [];
-    validators.map((validator) => {
-      const validationResult = validator(content);
+    const mappedValidators = validatorMapper(validators);
+    mappedValidators.forEach((func) => {
+      const validationResult = func(input);
       if (!validationResult.valid) {
         validation = false;
         messages.push(validationResult.message);
       }
-      return validator;
     });
     setErrors(messages);
     if (!validation) {
-      updateForm(id, "")
+      //updateForm(id, "")
+      //updateComponent(id, { value: "" })
+      setContent("");
+      updateComponent(id, { value: "" });
       return;
-    };
-    if (eventHandler) eventHandler(id, content, events);
+    }
+    updateComponent(id, { value: input });
+    eventHandler(id, input, events);
   };
-  const value = getFieldValue(id);
-
   return (
     visible && (
-      <div className={"text-field-container" + 
-        (extend === false ? " half-field": " full-field")
-      }>
+      <div
+        className={
+          "text-field-container" +
+          (extend === false ? " half-field" : " full-field")
+        }
+      >
         <div className="text-field-content">
           <div className="text-field-label-content">
             <span className="text-field-label">{label}</span>
@@ -76,12 +81,12 @@ export function TextField({ id }) {
               id={id}
               type={{ ...props }.type}
               disabled={!getFieldStatus()}
-              value={getFieldValue(id)}
-              onChange={(e) => {
-                contentUpdater(e.target.value);
-              }}
+              value={content}
               maxLength={{ ...props }.type === "tel" ? "8" : "30"}
-              onBlur={(e) => handleInput(e.target.value)}
+              onChange={(e) => {
+                setContent(e.target.value);
+              }}
+              onBlur={() => handleInput(content)}
             />
           </div>
         </div>

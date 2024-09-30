@@ -1,13 +1,24 @@
 import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { NotFoundPage } from "./pages/NotFoundPage";
-import { FormRenderer } from "./pages/FormRenderer";
+import { Form } from "./pages/Form";
+import { FormSchemaProvider } from "./context/FormSchemaContext";
+import { LoadingProvider } from "./context/LoadingContext";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/form/:formId" element={<FormRenderer />} />
+        <Route
+          path="/form/:formId"
+          element={
+            <LoadingProvider>
+              <FormSchemaProvider>
+                <Form />
+              </FormSchemaProvider>
+            </LoadingProvider>
+          }
+        />
         <Route
           path="/*"
           element={<NotFoundPage message={"Página no encontrada"} />}

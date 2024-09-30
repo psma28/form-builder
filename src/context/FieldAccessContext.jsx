@@ -5,10 +5,6 @@ export const FieldAccessContext = createContext();
 export function FieldAccessProvider({ children }) {
   const [enabled, setEnabled] = useState(false);
 
-  const toggleFieldAccess = () => {
-    setEnabled(!enabled);
-  };
-
   const setFieldAccess = (value) => {
     setEnabled(value);
   };
@@ -19,7 +15,7 @@ export function FieldAccessProvider({ children }) {
 
   return (
     <FieldAccessContext.Provider
-      value={{ toggleFieldAccess, setFieldAccess, getFieldStatus }}
+      value={{ setFieldAccess, getFieldStatus }}
     >
       {children}
     </FieldAccessContext.Provider>

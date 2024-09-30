@@ -1,18 +1,22 @@
-import "./index.css";
+import './index.css'
 import { useContext } from "react";
 import { FieldAccessContext } from "../../context/FieldAccessContext";
+import { LoadingContext } from "../../context/LoadingContext";
+import { SearchIcon } from "../../assets/icons/SearchIcon";
 import { RUTFormatter } from "../../utils/RUTFormatter";
-import { useRUTField } from "./hook/useRUTField.jsx";
-import { SearchIcon } from "../../assets/icons/SearchIcon.jsx";
-import { FormHandlerContext } from "../../context/FormHandlerContext.jsx";
-import { LoadingContext } from "../../context/LoadingContext.jsx";
+import { useRUT } from "./hooks/useRUT";
+import { FormSchemaContext } from '../../context/FormSchemaContext';
 
 export function RUTField() {
+  //13.962.983-3
   const { setFieldAccess } = useContext(FieldAccessContext);
-  const { updateForm, attachForm } = useContext(FormHandlerContext)
   const { setLoading } = useContext(LoadingContext);
-  const { inputChangeHandler, verificateRUT, indicator, rutValue } =
-    useRUTField(setFieldAccess, updateForm, attachForm, setLoading);
+  const { updateComponent } = useContext(FormSchemaContext);
+  const { inputChangeHandler, verificateRUT, indicator, rutValue } = useRUT(
+    setLoading,
+    setFieldAccess,
+    updateComponent
+  );
   return (
     <div className="rut-container">
       <div className="rut-field">
@@ -30,7 +34,6 @@ export function RUTField() {
             }
           }}
           onChange={(e) => inputChangeHandler(e.target.value)}
-          
         />
       </div>
       <div className="rut-indicator">
