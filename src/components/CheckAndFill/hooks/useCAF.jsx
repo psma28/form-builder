@@ -22,7 +22,11 @@ export function useCAF(
   const [textState, setTextState] = useState(extractTextState(initialValues));
   useEffect(() => {
     if (typeof list === "string") {
+      console.log("tipo caf", list);
+      
       functionExecutor(list, "", setLoading).then((res) => {
+        console.log("res", [...itemMapper(res)]);
+        
         setList([...itemMapper(res)]);
       });
     }
@@ -37,7 +41,7 @@ export function useCAF(
   }, [selections]);
 
   /**
-   * Si los valores se cargan desde el form
+   *  If values are loaded by any other means
    */
   useEffect(() => {
     if (!arrayEquals(initialValues, selections)) {
@@ -55,7 +59,7 @@ export function useCAF(
 
   const handleSelection = (item) => {
     console.log("handling caf selection", item);
-    
+
     let itemEvents = item?.events;
     if (!Array.isArray(itemEvents)) itemEvents = [];
     let aux = [...selections];
@@ -64,17 +68,20 @@ export function useCAF(
       manualCollapse(item.id);
       aux = aux.filter((e) => e);
     } else {
-      //Should it execute only when te combobox is filled???      
+      //Should it execute only when te combobox is filled???
       eventHandler(item.id, item.value, itemEvents);
       aux.push({ check: item.value, fill: "" });
     }
-    console.log("after checking cheks, component should update", fieldId,  { value: [...aux] });
-    
+    console.log("after checking cheks, component should update", fieldId, {
+      value: [...aux],
+    });
+
     updateComponent(fieldId, { value: [...aux] });
     setSelections([...aux]);
   };
 
   const isChecked = (item) => {
+    if(!selections) return false;
     const res = selections.find((element) => element.check === item.value);
     return res === undefined ? false : true;
   };
@@ -111,7 +118,7 @@ export function useCAF(
     attachFill,
     getCheckFill,
     list,
-    setList
+    setList,
   };
 }
 
@@ -124,6 +131,7 @@ export function useCAF(
  */
 function extractTextState(list) {
   let res = {};
+  if(!list) return res;
   list.forEach((element) => {
     res = { ...res, [element.check]: element.fill };
   });

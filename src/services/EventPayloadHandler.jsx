@@ -25,41 +25,33 @@ export async function handlePayload(
     "function-value" in payload &&
     typeof payload["function-value"] === "string"
   ) {
-    
-      const res = await functionExecutor(
-        payload["function-value"],
-        actorValue,
-        setLoading
-      );
-      if (res) {
-        payloadResults = {
-          ...payloadResults,
-          value: res,
-        };
-        updateComponentState(targetId, { value: res });
-      }
-  }
-  /*if("item-function" in payload){
-    setLoading(true);
-    try {
-      const res = await functionExecutor(payload["item-function"], actorValue);
-      payloadResults = { ...payloadResults, items: itemMapper(res) };
-      updateComponentState(targetId, {items: itemMapper(res)})
-    } finally {
-      setLoading(false);
+    const res = await functionExecutor(
+      payload["function-value"],
+      actorValue,
+      setLoading
+    );
+    if (res) {
+      payloadResults = {
+        ...payloadResults,
+        value: res,
+      };
+      updateComponentState(targetId, { value: res });
     }
-  }*/
+  }
   if ("seeder" in payload && typeof payload.seeder === "string") {
-    
-      const res = await functionExecutor(payload.seeder, actorValue, setLoading);
-      payloadResults = { ...payloadResults, items: itemMapper(res) };
-      updateComponentState(targetId, { items: itemMapper(res) });
-    
+    const res = await functionExecutor(payload.seeder, actorValue, setLoading);
+    payloadResults = { ...payloadResults, items: itemMapper(res) };
+    updateComponentState(targetId, { items: itemMapper(res) });
     //payloadResults = { ...payloadResults, items: payload.seeder }
+  }
+  if ("info" in payload && typeof payload.info === "string") {
+    payloadResults = { ...payloadResults,  info: payload.info };
   }
   updateComponentState(targetId, payloadResults);
 }
 export function rollbackPayload(event) {
+  console.log("trying to rollback", event);
+
   let payload = event?.payload;
   if (!payload) return {};
   let mappedPayload = {};
@@ -70,5 +62,6 @@ export function rollbackPayload(event) {
   //if("value" in payload || "function-value" in payload){
   mappedPayload = { ...mappedPayload, value: "" };
   //}
+  console.log("rollback payload", mappedPayload);
   return mappedPayload;
 }

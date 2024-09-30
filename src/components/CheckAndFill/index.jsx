@@ -93,7 +93,7 @@ export function CheckAndFillField({ id }) {
             "caf-options" + (getFieldStatus() === false ? " disabled-caf" : "")
           }
         >
-          {items.map((item) => {
+          {list.map((item) => {
             const errors = getFieldErrors(item.id);
             return (
               <div className="caf-option" key={item.id}>

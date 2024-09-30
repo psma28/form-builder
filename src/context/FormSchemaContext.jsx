@@ -23,6 +23,8 @@ export function FormSchemaProvider({ children }) {
     collapseEvents(actorId);
     if (events.length === 0) return;
     for (const event of events) {
+      console.log("handling event", event);
+      
       const targetId = event.target;
       await handlePayload(value, event, setLoading, updateComponent);
       pushEvent(actorId, targetId, event.payload);

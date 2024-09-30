@@ -1,8 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { rollbackPayload } from "../services/EventPayloadHandler";
 
 export function useEvents(updateComponent) {
   const [events, setEvents] = useState([]);
+
+  useEffect(()=>{
+    console.log("events changed:", events);
+    
+  },[events])
+
   /**
    * This method returns the current event list
    * @returns
@@ -24,6 +30,8 @@ export function useEvents(updateComponent) {
    * @param {Object} payload
    */
   const pushEvent = (actorId, target, payload) => {
+    console.log("ppushing event", actorId, target, events);
+    
     setEvents((prev) => [...prev, { actorId, target, payload }]);
   };
 
@@ -33,6 +41,8 @@ export function useEvents(updateComponent) {
    * @returns {Array}
    */
   const collapseEvents = (actorId) => {
+    console.log("collapsing events from ", actorId);
+    
     const rollbackedEvents = [];
     const aux = [...events];
     const collapseChain = (actorId) => {

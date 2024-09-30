@@ -65,6 +65,7 @@ export function useCheckBox(
   };
 
   const isChecked = (item) => {
+    if(!selections) return false;
     const res = selections.find((element) => element === item.value);
     return res === undefined ? false : true;
   };

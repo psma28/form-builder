@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { functionExecutor } from "../../../mappings/APIFunctionMapper";
 import { itemMapper } from "../../../mappings/ResponseMapper";
-import { extractEvents } from "../../../utils/extractEventsFromItems"
+import { extractEvents } from "../../../utils/extractEventsFromItems";
 
 export function useCombobox(
   fieldId,
@@ -25,17 +25,17 @@ export function useCombobox(
 
   if (!Array.isArray(events)) events = [];
 
-  useEffect(()=>{
+  useEffect(() => {
     if (initialValue !== selected) {
-        setSelected(initialValue)
-        handleSelection(initialValue)
-      }
-  },[initialValue])
-  
-  const handleSelection = (value) => {
+      setSelected(initialValue);
+    }
+    if (initialValue) handleSelection(initialValue);
+  }, [initialValue]);
+
+  const handleSelection = async (value) => {
     const incomingEvents = [...events, ...extractEvents(list, value)];
-    setSelected(value);
-    eventHandler(fieldId, value, incomingEvents);
+    setSelected(value);    
+    await eventHandler(fieldId, value, incomingEvents);
     updateComponent(fieldId, { value: value });
   };
   const clearSelection = () => {
