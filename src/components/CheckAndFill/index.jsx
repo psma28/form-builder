@@ -68,9 +68,9 @@ export function CheckAndFillField({ id }) {
       return validator;
     });
     setFieldErrors(fieldId, messages);
-    if (!validation){
-        handleFill(fieldId, content);
-        return;
+    if (!validation) {
+      handleFill(fieldId, content);
+      return;
     }
     attachFill(fieldId);
   };

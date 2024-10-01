@@ -1,11 +1,11 @@
-import './index.css'
+import "./index.css";
 import { useContext } from "react";
 import { FieldAccessContext } from "../../context/FieldAccessContext";
 import { LoadingContext } from "../../context/LoadingContext";
 import { SearchIcon } from "../../assets/icons/SearchIcon";
 import { RUTFormatter } from "../../utils/RUTFormatter";
 import { useRUT } from "./hooks/useRUT";
-import { FormSchemaContext } from '../../context/FormSchemaContext';
+import { FormSchemaContext } from "../../context/FormSchemaContext";
 
 export function RUTField() {
   //13.962.983-3

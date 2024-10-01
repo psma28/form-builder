@@ -22,11 +22,7 @@ export function useCAF(
   const [textState, setTextState] = useState(extractTextState(initialValues));
   useEffect(() => {
     if (typeof list === "string") {
-      console.log("tipo caf", list);
-      
       functionExecutor(list, "", setLoading).then((res) => {
-        console.log("res", [...itemMapper(res)]);
-        
         setList([...itemMapper(res)]);
       });
     }
@@ -81,7 +77,7 @@ export function useCAF(
   };
 
   const isChecked = (item) => {
-    if(!selections) return false;
+    if (!selections) return false;
     const res = selections.find((element) => element.check === item.value);
     return res === undefined ? false : true;
   };
@@ -131,7 +127,7 @@ export function useCAF(
  */
 function extractTextState(list) {
   let res = {};
-  if(!list) return res;
+  if (!list) return res;
   list.forEach((element) => {
     res = { ...res, [element.check]: element.fill };
   });

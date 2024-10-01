@@ -4,6 +4,7 @@ import { NotFoundPage } from "./pages/NotFoundPage";
 import { Form } from "./pages/Form";
 import { FormSchemaProvider } from "./context/FormSchemaContext";
 import { LoadingProvider } from "./context/LoadingContext";
+import { ModalProvider } from "./context/ModalContext";
 
 function App() {
   return (
@@ -13,9 +14,11 @@ function App() {
           path="/form/:formId"
           element={
             <LoadingProvider>
-              <FormSchemaProvider>
-                <Form />
-              </FormSchemaProvider>
+              <ModalProvider>
+                <FormSchemaProvider>
+                  <Form />
+                </FormSchemaProvider>
+              </ModalProvider>
             </LoadingProvider>
           }
         />

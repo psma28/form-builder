@@ -1,17 +1,13 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export function useComponents() {
   const [components, setComponents] = useState({});
-  useEffect(()=>{
-    console.log("components changed", components);
-    
-  },[components])
   const pushComponent = async (component) => {
     const { id } = component;
     if (components[id]) return;
     setComponents((prev) => ({ ...prev, [id]: component }));
   };
-  const updateComponent = (id, props) => {    
+  const updateComponent = (id, props) => {
     setComponents((prev) => ({
       ...prev,
       [id]: { ...prev[id], ...props },
@@ -21,5 +17,9 @@ export function useComponents() {
     return components[id];
   };
 
-  return {pushComponent, updateComponent, getComponent}
+  const getSchema = () => {
+    return components;
+  };
+
+  return { pushComponent, updateComponent, getComponent, getSchema };
 }

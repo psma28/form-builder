@@ -1,6 +1,6 @@
 import { FieldAccessProvider } from "../../context/FieldAccessContext";
 import { FormSchemaContext } from "../../context/FormSchemaContext";
-import { Layout } from "../../components/layout";
+import { Layout } from "../../components/Layout";
 import { RUTField } from "../../components/RUTField";
 import { RenderComponents } from "./utils/RenderComponents";
 import { useContext } from "react";

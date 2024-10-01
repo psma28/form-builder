@@ -45,13 +45,11 @@ export async function handlePayload(
     //payloadResults = { ...payloadResults, items: payload.seeder }
   }
   if ("info" in payload && typeof payload.info === "string") {
-    payloadResults = { ...payloadResults,  info: payload.info };
+    payloadResults = { ...payloadResults, info: payload.info };
   }
   updateComponentState(targetId, payloadResults);
 }
 export function rollbackPayload(event) {
-  console.log("trying to rollback", event);
-
   let payload = event?.payload;
   if (!payload) return {};
   let mappedPayload = {};
@@ -62,6 +60,5 @@ export function rollbackPayload(event) {
   //if("value" in payload || "function-value" in payload){
   mappedPayload = { ...mappedPayload, value: "" };
   //}
-  console.log("rollback payload", mappedPayload);
   return mappedPayload;
 }

@@ -25,11 +25,11 @@ export function useCheckBox(
 
   if (!Array.isArray(events)) events = [];
 
-  useEffect(()=>{
+  useEffect(() => {
     let componentEvents = events;
-    if (!Array.isArray(events) || selections.length===0) componentEvents = [];
+    if (!Array.isArray(events) || selections.length === 0) componentEvents = [];
     eventHandler(fieldId, selections, componentEvents);
-  },[selections])
+  }, [selections]);
 
   /**
    * Si los valores se cargan desde el form
@@ -65,7 +65,7 @@ export function useCheckBox(
   };
 
   const isChecked = (item) => {
-    if(!selections) return false;
+    if (!selections) return false;
     const res = selections.find((element) => element === item.value);
     return res === undefined ? false : true;
   };

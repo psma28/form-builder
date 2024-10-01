@@ -1,39 +1,20 @@
-const RBDData = [
-  {
-    id: 1,
-    establecimiento: "LICEO POLITECNICO ARICA",
-    comuna: "ARICA",
-  },
-  {
-    id: 2,
-    establecimiento: "PARVULARIO LAS ESPIGUITAS",
-    comuna: "ARICA",
-  },
-  {
-    id: 9747,
-    establecimiento: "C.E.I.A.PEDRO AGUIRRE CERDA",
-    comuna: "PEDRO AGUIRRE CERDA",
-  },
-];
+const urlRBD = "https://rrhh.iie.cl/public/web_rrhh/sources/rbd.php?rbd=";
+let RBDObject = {};
 
-export function getRBDEstablecimiento(number) {
-  let rbd = RBDData.find((data) => "" + data.id === "" + number);
-  let res = "";
-  if (rbd) res = rbd.establecimiento;
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(res);
-    }, 1000);
-  });
+export async function getEstablecimientoRBD(number) {
+  const res = await fetch(urlRBD + number);
+  const data = await res.json();
+  let newRBD = { establecimiento: "", comuna: "" };
+  if (data.length > 0) {
+    newRBD = {
+      establecimiento: data[0]["nombre_establecimiento"],
+      comuna: data[0]["comuna"],
+    };
+  }
+  RBDObject = { ...newRBD };
+  return RBDObject.establecimiento;
 }
 
-export function getRBDComuna(number) {
-  let rbd = RBDData.find((data) => "" + data.id === "" + number);
-  let res = "";
-  if (rbd) res = rbd.comuna;
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(res);
-    }, 1000);
-  });
+export async function getComunaRBD() {
+  return RBDObject.comuna;
 }

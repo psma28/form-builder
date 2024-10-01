@@ -41,9 +41,9 @@ export function RadioButtonsField({ id }) {
       setLoading(false);
     }
   }, [list]);
-  useEffect(()=>{
+  useEffect(() => {
     setLoading(true);
-  },[])
+  }, []);
   return (
     visible &&
     Array.isArray(list) &&

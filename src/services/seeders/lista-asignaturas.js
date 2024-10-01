@@ -68,33 +68,33 @@ const asignaturas_EDD24 = [
     value: 1014,
     label: "Historia, Geografía y Ciencias Sociales",
     events: [
-        {
-          target: "id_nivel_asignatura_basica_media",
-          payload: {
-            visible: true,
-            items: [
-              {
-                id: 1074,
-                value: 1074,
-                label: "Educación Básica 1°a 6° y Adultos",
-              },
-              {
-                id: 1075,
-                value: 1075,
-                label: "7°a 8°, Educación Media y Adultos",
-                events: [
-                  {
-                    target: "experiencia_educacion_ciudadana",
-                    payload: {
-                      visible: true
-                    },
+      {
+        target: "id_nivel_asignatura_basica_media",
+        payload: {
+          visible: true,
+          items: [
+            {
+              id: 1074,
+              value: 1074,
+              label: "Educación Básica 1°a 6° y Adultos",
+            },
+            {
+              id: 1075,
+              value: 1075,
+              label: "7°a 8°, Educación Media y Adultos",
+              events: [
+                {
+                  target: "experiencia_educacion_ciudadana",
+                  payload: {
+                    visible: true,
                   },
-                ],
-              },
-            ],
-          },
+                },
+              ],
+            },
+          ],
         },
-      ],
+      },
+    ],
   },
   {
     id: 1016,
@@ -104,10 +104,10 @@ const asignaturas_EDD24 = [
       {
         target: "ingles_asignatura",
         payload: {
-          visible: true
-        }
-      }
-    ]
+          visible: true,
+        },
+      },
+    ],
   },
   {
     id: 1009,
@@ -207,10 +207,28 @@ const asignaturas_EDD24 = [
       {
         target: "especialidades-anios",
         payload: {
-          visible: true
-        }
-      }
-    ]
+          visible: true,
+        },
+      },
+      {
+        target: "cantidad_modulos",
+        payload: {
+          visible: true,
+        },
+      },
+      {
+        target: "cursos_diferenciada",
+        payload: {
+          visible: true,
+        },
+      },
+      {
+        target: "id_tecnico_asignatura",
+        payload: {
+          visible: true,
+        },
+      },
+    ],
   },
   {
     id: 1062,
@@ -226,11 +244,33 @@ const asignaturas_EDD24 = [
     id: 1064,
     value: 1064,
     label: "Necesidades Educativas Especiales Permanentes",
+    events: [
+      {
+        target: "discapacidad_auditiva",
+        payload: {
+          visible: true,
+        },
+      },
+      {
+        target: "lengua_senas",
+        payload: {
+          visible: true,
+        },
+      },
+    ],
   },
   {
     id: 1149,
     value: 1149,
     label: "Educación en Contexto de Encierro",
+    events: [
+      {
+        target: "contexto_encierro",
+        payload: {
+          visible: true,
+        },
+      },
+    ],
   },
   {
     id: 1072,
@@ -241,6 +281,14 @@ const asignaturas_EDD24 = [
     id: 1073,
     value: 1073,
     label: "Sector Lengua Indígena",
+    events: [
+      {
+        target: "lengua_asignatura",
+        payload: {
+          visible: true,
+        },
+      },
+    ],
   },
 ];
 

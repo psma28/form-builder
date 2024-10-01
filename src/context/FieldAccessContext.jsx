@@ -14,9 +14,7 @@ export function FieldAccessProvider({ children }) {
   };
 
   return (
-    <FieldAccessContext.Provider
-      value={{ setFieldAccess, getFieldStatus }}
-    >
+    <FieldAccessContext.Provider value={{ setFieldAccess, getFieldStatus }}>
       {children}
     </FieldAccessContext.Provider>
   );

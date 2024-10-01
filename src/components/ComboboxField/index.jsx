@@ -19,10 +19,18 @@ export function ComboboxField({ id }) {
     events,
     visible = true,
     info,
-    extend = false
+    extend = false,
   } = getComponent(id);
   const { selected, handleSelection, clearSelection, list, setList } =
-    useCombobox(id, value, items, events, updateComponent, eventHandler, setLoading);
+    useCombobox(
+      id,
+      value,
+      items,
+      events,
+      updateComponent,
+      eventHandler,
+      setLoading
+    );
   useEffect(() => {
     if (!value) clearSelection();
   }, [value]);
@@ -30,14 +38,16 @@ export function ComboboxField({ id }) {
   useEffect(() => {
     if (setList) setList(items);
   }, [items]);
-  
+
   return (
     visible &&
     Array.isArray(list) &&
     list.length > 0 && (
-      <div className={
-        "field-container " + (extend === false ? "half-field" : "full-field")
-      }>
+      <div
+        className={
+          "field-container " + (extend === false ? "half-field" : "full-field")
+        }
+      >
         <div className="field-label">
           <span className="text-field-label">{label}</span>
           {info && <InfoPopup info={info} />}

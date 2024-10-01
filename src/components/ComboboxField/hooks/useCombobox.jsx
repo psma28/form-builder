@@ -34,7 +34,7 @@ export function useCombobox(
 
   const handleSelection = async (value) => {
     const incomingEvents = [...events, ...extractEvents(list, value)];
-    setSelected(value);    
+    setSelected(value);
     await eventHandler(fieldId, value, incomingEvents);
     updateComponent(fieldId, { value: value });
   };

@@ -135,16 +135,15 @@
                             "placeholder": "Seleccione región",
                             "items": "get-regiones",
                             "visible": false,
-                            "events":[
+                            "events": [
                                 {
                                     "target": "id_comuna_nacimiento",
-                                    "payload":{
+                                    "payload": {
                                         "visible": true,
                                         "seeder": "get-comunas"
                                     }
-
                                 }
-                            ]    
+                            ]
                         },
                         {
                             "component": "combobox",
@@ -188,7 +187,7 @@
                         },
                         {
                             "component": "text",
-                            "id": "direccion_residencia",
+                            "id": "domicilio",
                             "label": "Dirección de Residencia",
                             "validators": [
                                 "completion"
@@ -196,7 +195,7 @@
                         },
                         {
                             "component": "text",
-                            "id": "sector_residencia",
+                            "id": "domicilio_sector",
                             "label": "Sector/Villa/Población",
                             "validators": [
                                 "completion"
@@ -225,7 +224,7 @@
                         },
                         {
                             "component": "combobox",
-                            "id": "id_situacion_discapacida",
+                            "id": "id_situacion_discapacidad",
                             "label": "Situación Discapacidad",
                             "placeholder": "Seleccione Situación de Discapacidad",
                             "items": "lista-discapacidad"
@@ -402,7 +401,7 @@
                                 {
                                     "id": 1,
                                     "label": "8 a 10 semestres",
-                                    "value": "8 a 10 semestres" 
+                                    "value": "8 a 10 semestres"
                                 },
                                 {
                                     "id": 1,
@@ -435,6 +434,41 @@
                             "items": []
                         },
                         {
+                            "component": "checkbox",
+                            "id": "contexto_encierro",
+                            "label": "Indique en qué asignatura ha hecho clases",
+                            "info": "Puede seleccionar más de una opción",
+                            "extend": true,
+                            "visible": false,
+                            "items": [
+                                {
+                                    "id": "Ciencias Naturales (Biología, Química y/o Física)",
+                                    "value": "Ciencias Naturales (Biología, Química y/o Física)",
+                                    "label": "Ciencias Naturales (Biología, Química y/o Física)"
+                                },
+                                {
+                                    "id": "Estudios Sociales",
+                                    "value": "Estudios Sociales",
+                                    "label": "Estudios Sociales"
+                                },
+                                {
+                                    "id": "Inglés",
+                                    "value": "Inglés",
+                                    "label": "Inglés"
+                                },
+                                {
+                                    "id": "Lengua Castellana y Comunicación",
+                                    "value": "Lengua Castellana y Comunicación",
+                                    "label": "Lengua Castellana y Comunicación"
+                                },
+                                {
+                                    "id": "Matemática",
+                                    "value": "Matemática",
+                                    "label": "Matemática"
+                                }
+                            ]
+                        },
+                        {
                             "component": "radio",
                             "id": "experiencia_educacion_ciudadana",
                             "label": "¿Tiene experiencia impartiendo Educación Ciudadana?",
@@ -443,23 +477,52 @@
                                 {
                                     "id": 1,
                                     "label": "Si",
-                                    "value": 1
+                                    "value": "1"
                                 },
                                 {
                                     "id": 2,
                                     "label": "No",
-                                    "value": 0
+                                    "value": "0"
                                 }
                             ]
                         },
                         {
                             "component": "combobox",
-                            "id": "sector-economico-postulacion",
+                            "id": "id_tecnico_asignatura",
                             "placeholder": "Seleccione sector",
                             "label": "Sector Económico",
                             "info": "Indique el sector económico al que postula",
                             "visible": false,
                             "items": "get-asignaturas-tecnico"
+                        },
+                        {
+                            "component": "combobox",
+                            "id": "lengua_asignatura",
+                            "placeholder": "Seleccione lengua",
+                            "label": "Lenguas",
+                            "visible": false,
+                            "items": [
+                                {
+                                    "id": 1,
+                                    "label": "Aymara",
+                                    "value": 1
+                                },
+                                {
+                                    "id": 2,
+                                    "label": "Mapuzugun",
+                                    "value": 2
+                                },
+                                {
+                                    "id": 3,
+                                    "label": "Quechua",
+                                    "value": 3
+                                },
+                                {
+                                    "id": 4,
+                                    "label": "Rapanui",
+                                    "value": 4
+                                }
+                            ]
                         },
                         {
                             "component": "combobox",
@@ -510,67 +573,103 @@
                         },
                         {
                             "component": "radio",
+                            "id": "cantidad_modulos",
+                            "label": "En la actualidad, ud. imparte clases en:",
+                            "visible": false,
+                            "items": [
+                                {
+                                    "id": "modulo_mas",
+                                    "label": "Un módulo",
+                                    "value": "modulo_mas"
+                                },
+                                {
+                                    "id": "modulo_uno",
+                                    "label": "Más de un módulo",
+                                    "value": "modulo_uno"
+                                }
+                            ]
+                        },
+                        {
+                            "component": "checkbox",
+                            "id": "cursos_diferenciada",
+                            "label": "Indique en cuál(es) de estos cursos de la formación diferenciada posee experiencia de aula:",
+                            "visible": false,
+                            "items": [
+                                {
+                                    "id": "curso_iii",
+                                    "label": "III°",
+                                    "value": "curso_iii"
+                                },
+                                {
+                                    "id": "curso_iv",
+                                    "label": "IV°",
+                                    "value": "curso_iv"
+                                }
+                            ]
+                        },
+                        {
+                            "component": "radio",
+                            "id": "discapacidad_auditiva",
+                            "label": "¿Tiene experiencia trabajando con niños, niñas y/o estudiantes con discapacidad auditiva? ",
+                            "visible": false,
+                            "items": [
+                                {
+                                    "id": 1,
+                                    "label": "Si",
+                                    "value": 1
+                                },
+                                {
+                                    "id": 0,
+                                    "label": "No",
+                                    "value": 0
+                                }
+                            ]
+                        },
+                        {
+                            "component": "radio",
+                            "id": "lengua_senas",
+                            "label": "¿Tiene experiencia trabajando con niños, niñas y/o estudiantes con discapacidad auditiva? ",
+                            "visible": false,
+                            "items": [
+                                {
+                                    "id": 1,
+                                    "label": "Si",
+                                    "value": 1
+                                },
+                                {
+                                    "id": 0,
+                                    "label": "No",
+                                    "value": 0
+                                }
+                            ]
+                        },
+                        {
+                            "component": "radio",
                             "id": "tipo-evidencia",
                             "info": "info random",
                             "extend": true,
                             "label": "Indique el tipo de evidencia para la que está postulando",
                             "items": [
                                 {
-                                    "id": 1,
+                                    "id": "si_evidencia",
                                     "label": "Evidencia Escrita Módulo 1",
-                                    "value": "modulo-1"
+                                    "value": "si_evidencia"
                                 },
                                 {
-                                    "id": 2,
-                                    "label": "Evidencia Escrita Módulo 2",
-                                    "value": "modulo-2"
+                                    "id": "evidencia_m2",
+                                    "label": "Clase Grabada Módulo 2",
+                                    "value": "evidencia_m2"
                                 },
                                 {
-                                    "id": 3,
+                                    "id": "no_evidencia",
                                     "label": "Evidencia Escrita Módulo 3",
-                                    "value": "modulo-3"
-                                }
-                            ]
-                        },
-                        {
-                            "component": "radio",
-                            "id": "cantidad-modulos-impartir",
-                            "label": "En la actualidad, ud. imparte clases en:",
-                            "visible": false,
-                            "items": [
-                                {
-                                    "id": 1,
-                                    "label": "Un módulo",
-                                    "value": "uno"
-                                },
-                                {
-                                    "id": 2,
-                                    "label": "Más de un módulo",
-                                    "value": "muchos"
-                                }
-                            ]
-                        },
-                        {
-                            "component": "radio",
-                            "id": "cursos-formacion-diferenciada",
-                            "label": "Indique en cuál(es) de estos cursos de la formación diferenciada posee experiencia de aula:",
-                            "visible": false,
-                            "items": [
-                                {
-                                    "id": 1,
-                                    "label": "III°",
-                                    "value": "tercer"
-                                },
-                                {
-                                    "id": 2,
-                                    "label": "IV°",
-                                    "value": "cuarto"
+                                    "value": "no_evidencia"
                                 }
                             ]
                         },
                         {
                             "component": "text",
-                            "id": "anios-experiencia",
+                            "id": "experiencia_area_asignatura",
                             "info": "¿Cuántos años de experiencia posee como docente de aula, contados desde la fecha de su titulación?",
                             "label": "Años de Experiencia",
                             "type": "number",
@@ -579,24 +678,122 @@
                             ]
                         },
                         {
-                            "component": "blank"
-                        },
-                        {
                             "component": "radio",
-                            "id": "exp-correccion-portafolios",
+                            "id": "experiencia",
                             "label": "¿Posee Experiencia en la Corrección de Portafolios?",
                             "items": [
                                 {
                                     "id": "exp-yes",
                                     "label": "Si",
-                                    "value": "true"
+                                    "value": "si_contrato",
+                                    "events": [
+                                        {
+                                            "target": "cargo_centro_correccion",
+                                            "payload": {
+                                                "visible": true
+                                            }
+                                        },
+                                        {
+                                            "target": "cargos_trabajados",
+                                            "payload": {
+                                                "visible": true
+                                            }
+                                        },
+                                        {
+                                            "target": "modulos_trabajados",
+                                            "payload": {
+                                                "visible": true
+                                            }
+                                        },
+                                        {
+                                            "target": "anios_trabajados",
+                                            "payload": {
+                                                "visible": true
+                                            }
+                                        }
+                                    ]
                                 },
                                 {
                                     "id": "exp-no",
                                     "label": "No",
-                                    "value": "false"
+                                    "value": "no_contrato"
                                 }
                             ]
+                        },
+                        {
+                            "component": "checkbox",
+                            "extend": true,
+                            "id": "cargo_centro_correccion",
+                            "label": "¿En que centro de Corrección ha participado? ",
+                            "info": "(Puede seleccionar más de uno)",
+                            "visible": false,
+                            "items": "get-cargos-centros-correccion"
+                        },
+                        {
+                            "component": "text",
+                            "id": "otro_centro",
+                            "label": "Otro Centro",
+                            "visible": false,
+                            "validators": [
+                                "letter"
+                            ]
+                        },
+                        {
+                            "component": "checkbox",
+                            "id": "cargos_trabajados",
+                            "visible": false,
+                            "label": "¿Qué cargo desempeñó?",
+                            "info": "(Puede seleccionar más de uno)",
+                            "items": [
+                                {
+                                    "id": "Corrector/a",
+                                    "value": "Corrector/a",
+                                    "label": "Corrector/a"
+                                },
+                                {
+                                    "id": "Supervisor/a",
+                                    "value": "Supervisor/a",
+                                    "label": "Supervisor/a"
+                                },
+                                {
+                                    "id": "Encargado/a",
+                                    "value": "Encargado/a",
+                                    "label": "Encargado/a"
+                                }
+                            ]
+                        },
+                        {
+                            "component": "checkbox",
+                            "id": "modulos_trabajados",
+                            "visible": false,
+                            "label": "¿En qué módulo ha trabajado? ",
+                            "info": "(Puede seleccionar más de uno)",
+                            "items": [
+                                {
+                                    "id": "Módulo 1",
+                                    "value": "Módulo 1",
+                                    "label": "Módulo 1"
+                                },
+                                {
+                                    "id": "Módulo 2",
+                                    "value": "Módulo 2",
+                                    "label": "Módulo 2"
+                                },
+                                {
+                                    "id": "Módulo 3",
+                                    "value": "Módulo 3",
+                                    "label": "Módulo 3"
+                                }
+                            ]
+                        },
+                        {
+                            "component": "checkbox",
+                            "id": "anios_trabajados",
+                            "visible": false,
+                            "extend": true,
+                            "label": "¿En qué año participó?",
+                            "info": "(Puede seleccionar más de uno)",
+                            "items": "get-anios-trabajados"
                         },
                         {
                             "component": "radio",
@@ -617,18 +814,18 @@
                         },
                         {
                             "component": "radio",
-                            "id": "red-maestro",
+                            "id": "red_maestro",
                             "label": "Actualmente, ¿integra la Red Maestro de Maestros?",
                             "items": [
                                 {
                                     "id": 1,
                                     "label": "Si",
-                                    "value": "true"
+                                    "value": "si_red_maestro"
                                 },
                                 {
                                     "id": 2,
                                     "label": "No",
-                                    "value": "false"
+                                    "value": "no_red_maestro"
                                 }
                             ]
                         },
@@ -689,14 +886,14 @@
                         },
                         {
                             "component": "combobox",
-                            "id": "tipo_cuenta",
+                            "id": "banco_tipo_cuenta",
                             "label": "Tipo de Cuenta",
                             "placeholder": "Seleccione un tipo de cuenta",
                             "items": "get-tipos-cuenta"
                         },
                         {
                             "component": "text",
-                            "id": "numero_cuenta",
+                            "id": "banco_nro_cuenta",
                             "label": "Número de cuenta",
                             "validators": [
                                 "number",
@@ -704,9 +901,83 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "component": "form-structure",
+                    "id": "documentos",
+                    "label": "Documentos",
+                    "indication": "( Formatos soportados: doc, docx, pdf, png, jpg, zip o rar ) ( Tamaño máximo por archivo es de 7Mb )",
+                    "content": []
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "form-title": "Test Form",
+            "form-intro": "Este es un formulario de prueba",
+            "form-groups": [
+                {
+                    "component": "form-structure",
+                    "id": "datos-personales",
+                    "label": "Datos personales",
+                    "content": [
+                        {
+                            "component": "text",
+                            "label": "Nombres",
+                            "id": "nombres",
+                            "validators": [
+                                "letter",
+                                "completion"
+                            ]
+                        },
+                        {
+                            "component": "text",
+                            "label": "Apellidos",
+                            "id": "apellidos",
+                            "validators": [
+                                "letter",
+                                "completion"
+                            ]
+                        },
+                        {
+                            "component": "combobox",
+                            "label": "Elecciones",
+                            "id": "elecciones",
+                            "placeholder": "Elija",
+                            "items": [
+                                {
+                                    "id": 1,
+                                    "value": 1,
+                                    "label": "Si",
+                                    "events": [
+                                        {
+                                            "target": "condicion_1",
+                                            "payload": {
+                                                "visible": true
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": 2,
+                                    "value": 2,
+                                    "label": "No"
+                                }
+                            ]
+                        },
+                        {
+                            "component": "text",
+                            "label": "Condicion 1",
+                            "id": "condicion_1",
+                            "visible": false,
+                            "validators": [
+                                "completion",
+                                "letter"
+                            ]
+                        }
+                    ]
                 }
             ]
         }
-       
     ]
 }

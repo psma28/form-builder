@@ -20,22 +20,17 @@ export function CheckboxField({ id }) {
     info,
     extend = false,
   } = getComponent(id);
-  const {
-    handleSelection,
-    clearSelection,
-    list,
-    setList,
-    isChecked,
-  } = useCheckBox(
-    id,
-    value,
-    items,
-    events,
-    updateComponent,
-    eventHandler,
-    collapseEvents,
-    setLoading
-  );
+  const { handleSelection, clearSelection, list, setList, isChecked } =
+    useCheckBox(
+      id,
+      value,
+      items,
+      events,
+      updateComponent,
+      eventHandler,
+      collapseEvents,
+      setLoading
+    );
   useEffect(() => {
     if (!value) clearSelection();
   }, [value]);

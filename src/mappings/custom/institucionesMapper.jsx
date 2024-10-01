@@ -9,14 +9,14 @@ export function institucionesMapper(data) {
     id: 1000,
     value: 1000,
     label: "Otro (Especifique en el campo que aparecerá abajo)",
-    events:[
-        {
-            target: "universidad",
-            payload: {
-                visible: true
-            }
-        }
-    ]
+    events: [
+      {
+        target: "universidad",
+        payload: {
+          visible: true,
+        },
+      },
+    ],
   });
   return mapped;
 }

@@ -24,8 +24,8 @@ export function TextField({ id }) {
   const [content, setContent] = useState(value);
   useEffect(() => {
     if (value !== content) {
-      setContent(value)
-      handleInput(value)
+      setContent(value);
+      handleInput(value);
     }
   }, [value]);
 

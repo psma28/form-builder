@@ -50,10 +50,9 @@ const certificadosIngles = [
 ];
 
 export function getCertificadosIngles() {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(certificadosIngles);
-      }, 0);
-    });
-  }
-  
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(certificadosIngles);
+    }, 0);
+  });
+}

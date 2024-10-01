@@ -13,9 +13,9 @@ export function toNormalText(string) {
     .replace(/(^\w|\s\w)/g, (match) => match.toUpperCase());
 }
 
-export function convertToNumber(string){
-  if(isNaN(+string)){
-    return string
+export function convertToNumber(string) {
+  if (isNaN(+string)) {
+    return string;
   }
-  return +string
+  return +string;
 }

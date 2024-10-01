@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { functionExecutor } from "../../../mappings/APIFunctionMapper";
 import { itemMapper } from "../../../mappings/ResponseMapper";
-import { extractEvents } from "../../../utils/extractEventsFromItems"
+import { extractEvents } from "../../../utils/extractEventsFromItems";
 
 export function useRadio(
   fieldId,
@@ -25,13 +25,13 @@ export function useRadio(
 
   if (!Array.isArray(events)) events = [];
 
-  useEffect(()=>{
+  useEffect(() => {
     if (initialValue !== selected) {
-        setSelected(initialValue)
-        handleSelection(initialValue)
-      }
-  },[initialValue])
-  
+      setSelected(initialValue);
+      handleSelection(initialValue);
+    }
+  }, [initialValue]);
+
   const handleSelection = (value) => {
     const incomingEvents = [...events, ...extractEvents(list, value)];
     setSelected(value);

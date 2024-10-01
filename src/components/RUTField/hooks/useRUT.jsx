@@ -16,19 +16,18 @@ export function useRUT(setLoading, fieldHandler, updateComponent) {
   const verificateRUT = () => {
     if (validateRUT(getValue(rutValue))) {
       const url =
-      "https://rrhh.iie.cl/public/web_rrhh/sources/personas.php?run=" +
-      RUTFormatter(rutValue);
+        "https://rrhh.iie.cl/public/web_rrhh/sources/personas.php?run=" +
+        RUTFormatter(rutValue);
       setLoading(true);
       fetch(url)
         .then((response) => response.json())
         .then((data) => {
-          console.log("respuesta server", data);
-
+          //console.log("respuesta server", data);
           if (data.length > 0) {
             const res = data[0];
             for (const [key, value] of Object.entries(res)) {
               console.log(`${key}: ${value}`);
-              updateComponent(key, { value: value });
+              if (value) updateComponent(key, { value: value });
             }
           }
           setLoading(false);
