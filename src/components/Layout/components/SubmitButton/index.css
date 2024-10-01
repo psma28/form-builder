@@ -1,26 +1,24 @@
-.submit-section {
-  position: sticky;
+.submit-bubble {
+  position: fixed;
+  width: 75px;
+  height: 75px;
+  bottom: 10px;
+  right: 10px;
+  fill: var(--primary-100);
+  border: 1px solid var(--primary-100);
+  background-color: var(--white);
+  border-radius: 100%;
+  padding: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
-  bottom: 0;
-  z-index: 1000;
-  padding: 15px 0;
-  background-color: rgba(73, 80, 87, 0.4);
-  backdrop-filter: blur(10px);
-}
-
-.submit-button {
-  border: 2px solid var(--tertiary-100);
-  font-size: 1.2rem;
-  padding: 10px 15px;
-  border-radius: 15px;
-  background-color: var(--tertiary-75);
   cursor: pointer;
   transition: 150ms;
 }
 
-.submit-button:hover {
-  background-color: var(--tertiary-100);
-  color: var(--black);
+.submit-bubble:hover {
+  border: 1px solid var(--success-100);
+  fill: var(--white);
+  background-color: var(--success-100);
 }
+

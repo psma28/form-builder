@@ -2,6 +2,7 @@ import "./index.css";
 import { useContext } from "react";
 import { FieldAccessContext } from "../../../../context/FieldAccessContext";
 import { FormSchemaContext } from "../../../../context/FormSchemaContext";
+import { SubmitIcon } from "../../../../assets/icons/SubmitIcon";
 
 export const SumbmitButton = () => {
   const { getFieldStatus } = useContext(FieldAccessContext);
@@ -9,14 +10,13 @@ export const SumbmitButton = () => {
   const visible = getFieldStatus();
   return (
     visible && (
-      <div className="submit-section">
-        <button
-          onClick={() => sendForm()}
-          className="submit-button font-calibri"
-        >
-          Enviar postulación
-        </button>
-      </div>
+      <button
+        className="submit-bubble"
+        title="Subir formulario"
+        onClick={() => sendForm()}
+      >
+        <SubmitIcon style="submit-icon" />
+      </button>
     )
   );
 };

@@ -13,6 +13,9 @@
 }
 
 .modal-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 40%;
   background-color: var(--white);
   box-sizing: border-box;
@@ -82,4 +85,15 @@
 }
 .modal-close-button:hover {
   background-color: var(--error-100);
+}
+
+@media (max-width: 1000px) {
+  .modal-container {
+    width: 80%;
+    height: 80%;
+  }
+
+  .modal-content{
+    max-height: 70%;
+  }
 }
