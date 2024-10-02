@@ -416,7 +416,15 @@
                             "label": "Área o Asignatura",
                             "placeholder": "Seleccionar área o asignatura",
                             "info": "Indique el área o asignatura a la que postula",
-                            "items": "get-asignaturas"
+                            "items": "get-asignaturas",
+                            "events": [
+                                {
+                                    "target": "centro_postulacion",
+                                    "payload": {
+                                        "seeder": "set-asignatura-edd2024-institucion-evaluadora"
+                                    }
+                                }
+                            ]
                         },
                         {
                             "component": "combobox",
@@ -551,7 +559,8 @@
                         },
                         {
                             "component": "combobox",
-                            "id": "centro-postulacion",
+                            "id": "centro_postulacion",
+                            "extend": true,
                             "label": "Centro",
                             "info": "El área/asignatura y evidencia para la que postula será corregida en el centro",
                             "placeholder": "Seleccione un centro",
@@ -664,6 +673,14 @@
                                     "id": "no_evidencia",
                                     "label": "Evidencia Escrita Módulo 3",
                                     "value": "no_evidencia"
+                                }
+                            ],
+                            "events": [
+                                {
+                                    "target": "centro_postulacion",
+                                    "payload": {
+                                        "seeder": "set-evidencia-edd2024-institucion-evaluadora"
+                                    }
                                 }
                             ]
                         },
@@ -907,24 +924,184 @@
                     "id": "documentos",
                     "label": "Documentos",
                     "indication": "( Formatos soportados: doc, docx, pdf, png, jpg, zip o rar ) ( Tamaño máximo por archivo es de 7Mb )",
-                    "content": []
+                    "content": [
+                        {
+                            "component": "file",
+                            "id": "cedula-identidad",
+                            "required": true,
+                            "label": "Cédula de identidad",
+                            "info": "Por ambos lados (Obligatorio)",
+                            "allow": [
+                                "doc",
+                                "docx",
+                                "pdf",
+                                "png",
+                                "jpg",
+                                "zip",
+                                "rar"
+                            ],
+                            "maxsize": 7
+                        },
+                        {
+                            "component": "file",
+                            "id": "cv",
+                            "required": true,
+                            "label": "Currículum Vitae",
+                            "info": "Obligatorio",
+                            "allow": [
+                                "doc",
+                                "docx",
+                                "pdf",
+                                "png",
+                                "jpg",
+                                "zip",
+                                "rar"
+                            ],
+                            "maxsize": 7
+                        },
+                        {
+                            "component": "file",
+                            "id": "titulo-pedagogia",
+                            "required": true,
+                            "label": "Copia de Título de Pedagogía o Título Profesional",
+                            "info": "Para docentes EMTP (Obligatorio)",
+                            "allow": [
+                                "doc",
+                                "docx",
+                                "pdf",
+                                "png",
+                                "jpg",
+                                "zip",
+                                "rar"
+                            ],
+                            "maxsize": 7
+                        },
+                        {
+                            "component": "file",
+                            "id": "certificado-ejerce",
+                            "required": true,
+                            "label": "Certificado de habilitación para ejercer la función docente ",
+                            "info": "Para docentes EMTP (Obligatorio)",
+                            "allow": [
+                                "doc",
+                                "docx",
+                                "pdf",
+                                "png",
+                                "jpg",
+                                "zip",
+                                "rar"
+                            ],
+                            "maxsize": 7
+                        },
+                        {
+                            "component": "file",
+                            "id": "ausencia-incompatibilidad",
+                            "required": true,
+                            "label": "Declaración de Ausencia de Incompatibilidad firmada",
+                            "info": "(Obligatorio)",
+                            "allow": [
+                                "doc",
+                                "docx",
+                                "pdf",
+                                "png",
+                                "jpg",
+                                "zip",
+                                "rar"
+                            ],
+                            "maxsize": 7
+                        },
+                        {
+                            "component": "file",
+                            "id": "certificado-idioma",
+                            "required": true,
+                            "label": "Certificado de dominio de idioma",
+                            "info": "(Opcional si postula a Inglés o a Sector Lengua Indígena)",
+                            "allow": [
+                                "doc",
+                                "docx",
+                                "pdf",
+                                "png",
+                                "jpg",
+                                "zip",
+                                "rar"
+                            ],
+                            "maxsize": 7
+                        },
+                        {
+                            "component": "file",
+                            "id": "contrato",
+                            "required": true,
+                            "label": "Copia contrato de trabajo, Decreto de nombramiento o Certificado de Vigencia en aula",
+                            "info": "(o último contrato que tuvo) (obligatorio)",
+                            "allow": [
+                                "doc",
+                                "docx",
+                                "pdf",
+                                "png",
+                                "jpg",
+                                "zip",
+                                "rar"
+                            ],
+                            "maxsize": 7
+                        },
+                        {
+                            "component": "file",
+                            "id": "acuerdo-confidencialidad",
+                            "required": true,
+                            "label": "Acuerdo de confidencialidad",
+                            "info": "(Obligatorio)",
+                            "allow": [
+                                "doc",
+                                "docx",
+                                "pdf",
+                                "png",
+                                "jpg",
+                                "zip",
+                                "rar"
+                            ],
+                            "maxsize": 7
+                        }
+                    ]
                 }
             ]
         },
         {
-            "id": 2,
-            "form-title": "Test Form",
-            "form-intro": "Este es un formulario de prueba",
+            "id": 3,
+            "form-title": "Formulario de Postulación ENDFID 2024",
+            "form-intro": "Completa el siguiente formulario para postular.",
             "form-groups": [
                 {
                     "component": "form-structure",
                     "id": "datos-personales",
-                    "label": "Datos personales",
+                    "label": "Datos Personales",
                     "content": [
                         {
+                            "component": "checkbox",
+                            "id": "cargo_postulacion",
+                            "extend": true,
+                            "label": "Cargo(s) a postular",
+                            "items": [
+                                {
+                                    "id": "examinador",
+                                    "value": "examinador",
+                                    "label": "Examinador"
+                                },
+                                {
+                                    "id": "supervisor",
+                                    "value": "supervisor",
+                                    "label": "Supervisor"
+                                },
+                                {
+                                    "id": "tecnico",
+                                    "value": "tecnico",
+                                    "label": "Técnico"
+                                }
+                            ]
+                        },
+                        {
                             "component": "text",
-                            "label": "Nombres",
                             "id": "nombres",
+                            "label": "Nombres",
                             "validators": [
                                 "letter",
                                 "completion"
@@ -932,8 +1109,26 @@
                         },
                         {
                             "component": "text",
-                            "label": "Apellidos",
-                            "id": "apellidos",
+                            "id": "nombre_social",
+                            "label": "Nombre Social",
+                            "validators": [
+                                "letter",
+                                "completion"
+                            ]
+                        },
+                        {
+                            "component": "text",
+                            "id": "apellido_paterno",
+                            "label": "Primer Apellido",
+                            "validators": [
+                                "letter",
+                                "completion"
+                            ]
+                        },
+                        {
+                            "component": "text",
+                            "id": "apellido_materno",
+                            "label": "Segundo Apellido",
                             "validators": [
                                 "letter",
                                 "completion"
@@ -941,17 +1136,16 @@
                         },
                         {
                             "component": "combobox",
-                            "label": "Elecciones",
-                            "id": "elecciones",
-                            "placeholder": "Elija",
+                            "id": "nacionalidad",
+                            "label": "Nacionalidad",
+                            "placeholder": "Seleccione nacionalidad",
                             "items": [
                                 {
-                                    "id": 1,
-                                    "value": 1,
-                                    "label": "Si",
+                                    "label": "Chilena",
+                                    "value": "Chilena",
                                     "events": [
                                         {
-                                            "target": "condicion_1",
+                                            "target": "id_region_postulacion",
                                             "payload": {
                                                 "visible": true
                                             }
@@ -959,21 +1153,431 @@
                                     ]
                                 },
                                 {
-                                    "id": 2,
-                                    "value": 2,
-                                    "label": "No"
+                                    "label": "Otra",
+                                    "value": "Otra",
+                                    "events": [
+                                        {
+                                            "target": "otra_nacionalidad",
+                                            "payload": {
+                                                "visible": true
+                                            }
+                                        },
+                                        {
+                                            "target": "otro_lugar_nacimiento",
+                                            "payload": {
+                                                "visible": true
+                                            }
+                                        }
+                                    ]
                                 }
                             ]
                         },
                         {
                             "component": "text",
-                            "label": "Condicion 1",
-                            "id": "condicion_1",
+                            "id": "otra_nacionalidad",
+                            "label": "Indique Nacionalidad",
                             "visible": false,
+                            "validators": []
+                        },
+                        {
+                            "component": "text",
+                            "id": "otro_lugar_nacimiento",
+                            "label": "Lugar Nacimiento",
+                            "visible": false,
+                            "validators": []
+                        },
+                        {
+                            "component": "text",
+                            "id": "fecha_nacimiento",
+                            "label": "Fecha de Nacimiento",
+                            "type": "date",
+                            "validators": [
+                                "completion"
+                            ]
+                        },
+                        {
+                            "component": "combobox",
+                            "id": "id_region_postulacion",
+                            "label": "Región de Nacimiento",
+                            "placeholder": "Seleccione región",
+                            "items": "get-regiones",
+                            "visible": false,
+                            "events": [
+                                {
+                                    "target": "id_comuna_nacimiento",
+                                    "payload": {
+                                        "visible": true,
+                                        "seeder": "get-comunas"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "component": "combobox",
+                            "id": "id_comuna_nacimiento",
+                            "label": "Comuna de Nacimiento",
+                            "placeholder": "Seleccione comuna",
+                            "visible": false,
+                            "items": [],
+                            "events": []
+                        },
+                        {
+                            "component": "combobox",
+                            "id": "id_region_residencia",
+                            "label": "Región de Residencia",
+                            "placeholder": "Seleccione región",
+                            "items": "get-regiones",
+                            "events": [
+                                {
+                                    "target": "id_comuna_residencia",
+                                    "payload": {
+                                        "seeder": "get-comunas"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "component": "combobox",
+                            "id": "id_comuna_residencia",
+                            "label": "Comuna de Residencia",
+                            "placeholder": "Seleccione comuna",
+                            "items": [],
+                            "events": []
+                        },
+                        {
+                            "component": "text",
+                            "id": "ciudad_residencia",
+                            "label": "Ciudad",
+                            "validators": [
+                                "completion"
+                            ]
+                        },
+                        {
+                            "component": "text",
+                            "id": "domicilio",
+                            "label": "Dirección de Residencia",
+                            "validators": [
+                                "completion"
+                            ]
+                        },
+                        {
+                            "component": "text",
+                            "id": "domicilio_sector",
+                            "label": "Sector/Villa/Población",
+                            "validators": [
+                                "completion"
+                            ]
+                        },
+                        {
+                            "component": "combobox",
+                            "id": "id_sexo",
+                            "label": "Sexo Registral",
+                            "placeholder": "Seleccione Sexo Registral",
+                            "items": "lista-sexos"
+                        },
+                        {
+                            "component": "combobox",
+                            "id": "id_estado_civil",
+                            "placeholder": "Seleccione Estado Civil",
+                            "label": "Estado Civil",
+                            "items": "lista-estados-civiles"
+                        },
+                        {
+                            "component": "combobox",
+                            "id": "id_identidad_genero",
+                            "label": "Identidad de Género",
+                            "placeholder": "Seleccione su Identidad de Género",
+                            "items": "lista-identidad-genero"
+                        },
+                        {
+                            "component": "combobox",
+                            "id": "id_situacion_discapacidad",
+                            "label": "Situación Discapacidad",
+                            "placeholder": "Seleccione Situación de Discapacidad",
+                            "items": "lista-discapacidad"
+                        },
+                        {
+                            "component": "combobox",
+                            "id": "id_pertenencia_pueblo",
+                            "label": "Pertenencia Pueblos",
+                            "placeholder": "Seleccione Pertenencia Pueblos",
+                            "items": "lista-pertenencia-pueblos"
+                        },
+                        {
+                            "component": "text",
+                            "id": "email",
+                            "label": "Correo Electrónico",
+                            "info": "Recuerde ingresar un correo electrónico válido y activo, ya que a esa dirección se enviarán todas las informaciones oficiales en el futuro. De preferencia use un correo Gmail.",
                             "validators": [
                                 "completion",
-                                "letter"
+                                "email"
                             ]
+                        },
+                        {
+                            "component": "text",
+                            "id": "telefono",
+                            "label": "Celular",
+                            "type": "tel",
+                            "validators": [
+                                "completion",
+                                "number"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "component": "form-structure",
+                    "id": "datos-academicos",
+                    "label": "Datos Académicos",
+                    "content": [
+                        {
+                            "component": "combobox",
+                            "id": "nivel_estudios",
+                            "label": "Nivel de Estudios",
+                            "placeholder": "Seleccione su Nivel de Estudios",
+                            "items": [
+                                {
+                                    "id": 3,
+                                    "label": "Educación Media Completa",
+                                    "value": 3
+                                },
+                                {
+                                    "id": 4,
+                                    "label": "Educación Técnico Nivel Medio Incompleta",
+                                    "value": 4,
+                                    "events": [
+                                        {
+                                            "target": "institucion_texto",
+                                            "payload": {
+                                                "visible": true
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": 5,
+                                    "label": "Educación Técnico Nivel Medio Completa",
+                                    "value": 5,
+                                    "events": [
+                                        {
+                                            "target": "institucion_texto",
+                                            "payload": {
+                                                "visible": true
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": 6,
+                                    "label": "Educación Superior Incompleta",
+                                    "value": 6,
+                                    "events": [
+                                        {
+                                            "target": "id_universidad",
+                                            "payload": {
+                                                "visible": true
+                                            }
+                                        },
+                                        {
+                                            "target": "profesion",
+                                            "payload": {
+                                                "visible": true
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": 7,
+                                    "label": "Educación Superior Completa",
+                                    "value": 7,
+                                    "events": [
+                                        {
+                                            "target": "id_universidad",
+                                            "payload": {
+                                                "visible": true
+                                            }
+                                        },
+                                        {
+                                            "target": "profesion",
+                                            "payload": {
+                                                "visible": true
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": 8,
+                                    "label": "Postgrado Incompleto",
+                                    "value": 8,
+                                    "events": [
+                                        {
+                                            "target": "id_universidad",
+                                            "payload": {
+                                                "visible": true
+                                            }
+                                        },
+                                        {
+                                            "target": "profesion",
+                                            "payload": {
+                                                "visible": true
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": 9,
+                                    "label": "Postgrado Completo",
+                                    "value": 9,
+                                    "events": [
+                                        {
+                                            "target": "id_universidad",
+                                            "payload": {
+                                                "visible": true
+                                            }
+                                        },
+                                        {
+                                            "target": "profesion",
+                                            "payload": {
+                                                "visible": true
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "component": "text",
+                            "id": "institucion_texto",
+                            "label": "Indique Institución",
+                            "validators": [
+                                "letter"
+                            ],
+                            "visible": false
+                        },
+                        {
+                            "component": "combobox",
+                            "placeholder": "Seleccione Institución",
+                            "label": "Institución",
+                            "id": "id_universidad",
+                            "visible": false,
+                            "items": "get-instituciones"
+                        },
+                        {
+                            "component": "text",
+                            "label": "Indique institución",
+                            "id": "universidad",
+                            "visible": false,
+                            "validators": [
+                                "letter",
+                                "completion"
+                            ]
+                        },
+                        {
+                            "component": "combobox",
+                            "placeholder": "Seleccione título",
+                            "label": "Título/Carrera",
+                            "id": "profesion",
+                            "visible": false,
+                            "items": "get-carreras"
+                        },
+                        {
+                            "component": "text",
+                            "label": "Indique titulo",
+                            "id": "profesion_text",
+                            "visible": false,
+                            "validators": [
+                                "letter",
+                                "completion"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "component": "form-structure",
+                    "id": "otros-datos",
+                    "label": "Otros Datos",
+                    "indication": "Por favor, complete los siguientes campos. Estos datos solo se utilizarán en caso de que sea seleccionado y contratado para el proceso.",
+                    "content": [
+                        {
+                            "component": "combobox",
+                            "id": "banco_nombre",
+                            "label": "Banco",
+                            "placeholder": "Seleccione un Banco",
+                            "items": "get-bancos"
+                        },
+                        {
+                            "component": "combobox",
+                            "id": "banco_tipo_cuenta",
+                            "label": "Tipo de Cuenta",
+                            "placeholder": "Seleccione un tipo de cuenta",
+                            "items": "get-tipos-cuenta"
+                        },
+                        {
+                            "component": "text",
+                            "id": "banco_nro_cuenta",
+                            "label": "Número de cuenta",
+                            "validators": [
+                                "number",
+                                "completion"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "component": "form-structure",
+                    "id": "documentos",
+                    "label": "Documentos",
+                    "indication": "( Formatos soportados: doc, docx, pdf, png, jpg, zip o rar ) ( Tamaño máximo por archivo es de 7Mb )",
+                    "content": [
+                        {
+                            "component": "file",
+                            "id": "cedula-identidad",
+                            "required": true,
+                            "label": "Cédula de identidad",
+                            "info": "Por ambos lados (Obligatorio)",
+                            "allow": [
+                                "doc",
+                                "docx",
+                                "pdf",
+                                "png",
+                                "jpg",
+                                "zip",
+                                "rar"
+                            ],
+                            "maxsize": 7
+                        },
+                        {
+                            "component": "file",
+                            "id": "cv",
+                            "required": true,
+                            "label": "Currículum Vitae",
+                            "info": "Obligatorio",
+                            "allow": [
+                                "doc",
+                                "docx",
+                                "pdf",
+                                "png",
+                                "jpg",
+                                "zip",
+                                "rar"
+                            ],
+                            "maxsize": 7
+                        },
+                        {
+                            "component": "file",
+                            "id": "certificado-titulo",
+                            "required": true,
+                            "label": "Certificado de Título",
+                            "allow": [
+                                "doc",
+                                "docx",
+                                "pdf",
+                                "png",
+                                "jpg",
+                                "zip",
+                                "rar"
+                            ],
+                            "maxsize": 7
                         }
                     ]
                 }

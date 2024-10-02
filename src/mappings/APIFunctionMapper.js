@@ -1,6 +1,4 @@
 import { getComunas, getRegiones } from "../services/api/regionProvider";
-import { getColegios } from "../services/api/schoolSeeder";
-import { getUniversidades } from "../services/api/universitySeeder";
 import { getYears } from "../services/api/yearSeeder";
 import {
   getComunaRBD,
@@ -20,6 +18,8 @@ import { getAsignaturasTecnicoEDD24 } from "../services/seeders/lista-asignatura
 import { getEspecialidades } from "../services/seeders/lista-especialidades";
 import { getCargoCentrosCorreccion } from "../services/seeders/lista-cargo-centro-correccion";
 import { getAniosTrabajados } from "../services/seeders/lista-anios-trabakados";
+import { setAsignaturaEDD24InstitucionEvaluadora, setEvidenciaEDD24InstitucionEvaluadora } from "../services/misc/edd24-institucion-evaluadora";
+import { getCarreras } from "../services/seeders/lista-carreras";
 
 const APIFunctionsMap = {
   "lista-sexos": { function: getListaSexos, args: 0 },
@@ -31,6 +31,7 @@ const APIFunctionsMap = {
     args: 0,
   },
   "get-regiones": { function: getRegiones, args: 0 },
+  "get-carreras": { function: getCarreras, args: 0 },
   "get-comunas": { function: getComunas, args: 1 },
   "get-bancos": { function: getBancos, args: 0 },
   "get-tipos-cuenta": { function: getTiposCuenta, args: 0 },
@@ -45,10 +46,14 @@ const APIFunctionsMap = {
     args: 0,
   },
   "get-anios-trabajados": { function: getAniosTrabajados, args: 0 },
-
-  "get-escuelas": { function: getColegios, args: 0 },
-  "get-universidades": { function: getUniversidades, args: 0 },
-
+  "set-asignatura-edd2024-institucion-evaluadora": {
+    function: setAsignaturaEDD24InstitucionEvaluadora,
+    args: 1,
+  },
+  "set-evidencia-edd2024-institucion-evaluadora": {
+    function: setEvidenciaEDD24InstitucionEvaluadora,
+    args: 1,
+  },
   "rbd-comuna": { function: getComunaRBD, args: 1 },
   "rbd-establecimiento": { function: getEstablecimientoRBD, args: 1 },
 };

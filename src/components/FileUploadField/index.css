@@ -1,0 +1,104 @@
+.file-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+}
+
+.file-disabled{
+  background-color: var(--secondary-80);
+}
+
+.file-handler {
+  height: 100%;
+  border-radius: 10px;
+  width: 65%;
+}
+
+.file-label {
+  box-sizing: border-box;
+  width: 180px;
+  border-radius: 10px 0 0 10px;
+  background-color: var(--secondary-75);
+  height: 100%;
+  gap: 5px;
+  display: flex;
+  align-items: center;
+  padding: 10px 10px;
+}
+
+.file-drag-space {
+  position: absolute;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  z-index: 1000;
+}
+
+.container-drag {
+  background-color: var(--tertiary-75);
+}
+
+.container-error {
+  background-color: var(--error-75);
+}
+
+.file-status {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  gap: 10px;
+  background-color: var(--secondary-75);
+  border: 1px solid var(--primary-100);
+  border-radius: 4px;
+  width: 100%;
+}
+
+.file-info {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  width: 100%;
+}
+
+.file-remove {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  background-color: var(--white);
+  border: 1px solid var(--primary-100);
+  border-radius: 100%;
+  padding: 5px;
+  cursor: pointer;
+  fill: var(--primary-100);
+  transition-duration: 150ms;
+}
+.file-remove:hover {
+  background-color: var(--primary-100);
+  fill: var(--white);
+}
+
+.file-uploader {
+  border: 2px dashed var(--primary-100);
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  padding: 15px;
+  position: relative;
+  text-align: center;
+}
+
+.file-uploader input {
+  display: none;
+}
+
+.file-uploader p {
+  font-size: 1.1rem;
+  margin: 0;
+}
