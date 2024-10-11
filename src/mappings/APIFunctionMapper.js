@@ -18,7 +18,10 @@ import { getAsignaturasTecnicoEDD24 } from "../services/seeders/lista-asignatura
 import { getEspecialidades } from "../services/seeders/lista-especialidades";
 import { getCargoCentrosCorreccion } from "../services/seeders/lista-cargo-centro-correccion";
 import { getAniosTrabajados } from "../services/seeders/lista-anios-trabakados";
-import { setAsignaturaEDD24InstitucionEvaluadora, setEvidenciaEDD24InstitucionEvaluadora } from "../services/misc/edd24-institucion-evaluadora";
+import {
+  setAsignaturaEDD24InstitucionEvaluadora,
+  setEvidenciaEDD24InstitucionEvaluadora,
+} from "../services/misc/edd24-institucion-evaluadora";
 import { getCarreras } from "../services/seeders/lista-carreras";
 
 const APIFunctionsMap = {

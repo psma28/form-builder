@@ -13,9 +13,7 @@ const comunaURL =
   "https://rrhh.iie.cl/public/web_rrhh/sources/comunas.php?region_id=";
 
 export async function getComunas(regionID) {
-  console.log("id region ", comunaURL, regionID);
   const res = await fetch(comunaURL + regionID);
   const data = await res.json();
-  console.log("rsponsecomuinad", data);
   return comunasMapper(data);
 }

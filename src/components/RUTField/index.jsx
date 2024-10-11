@@ -11,11 +11,12 @@ export function RUTField() {
   //13.962.983-3
   const { setFieldAccess } = useContext(FieldAccessContext);
   const { setLoading } = useContext(LoadingContext);
-  const { updateComponent } = useContext(FormSchemaContext);
+  const { updateComponent, getComponent } = useContext(FormSchemaContext);
   const { inputChangeHandler, verificateRUT, indicator, rutValue } = useRUT(
     setLoading,
     setFieldAccess,
-    updateComponent
+    updateComponent,
+    getComponent
   );
   return (
     <div className="rut-container">

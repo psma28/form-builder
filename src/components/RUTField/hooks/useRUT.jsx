@@ -2,7 +2,13 @@ import { useState } from "react";
 import { RUTIndicators } from "../data/RUTIndicators";
 import { validateRUT } from "../../../validators/RUTValidator";
 import { getValue, RUTFormatter } from "../../../utils/RUTFormatter";
-export function useRUT(setLoading, fieldHandler, updateComponent) {
+import { RUTVerification } from "../../../services/api/RUTVerification";
+export function useRUT(
+  setLoading,
+  fieldHandler,
+  updateComponent,
+  getComponent
+) {
   const [rutValue, setRutValue] = useState("");
   const [indicator, setIndicator] = useState(RUTIndicators.waiting);
 
@@ -13,34 +19,23 @@ export function useRUT(setLoading, fieldHandler, updateComponent) {
     setRutValue(getValue(value));
   };
 
-  const verificateRUT = () => {
-    if (validateRUT(getValue(rutValue))) {
-      const url =
-        "https://rrhh.iie.cl/public/web_rrhh/sources/personas.php?run=" +
-        RUTFormatter(rutValue);
-      setLoading(true);
-      fetch(url)
-        .then((response) => response.json())
-        .then((data) => {
-          //console.log("respuesta server", data);
-          if (data.length > 0) {
-            const res = data[0];
-            for (const [key, value] of Object.entries(res)) {
-              console.log(`${key}: ${value}`);
-              if (value) updateComponent(key, { value: value });
-            }
-          }
-          setLoading(false);
-        });
-
-      //updateForm("rut", rutValue);
-      handleIndicator(RUTIndicators.verified);
-      fieldHandler(true);
-    } else {
+  const verificateRUT = async () => {
+    if (!validateRUT(getValue(rutValue))) {
       handleIndicator(RUTIndicators.failed);
       fieldHandler(false);
-      //updateForm("rut", "");
+      return;
     }
+    setLoading(true);
+    const data = await RUTVerification(RUTFormatter(rutValue));
+    const entries = data[0] ?? [];
+    for (const [key, value] of Object.entries(entries)) {
+      if (!getComponent(key)) continue;
+      if (value) updateComponent(key, { value: value });
+    }
+    setLoading(false);
+    updateComponent("rut", { value: rutValue });
+    handleIndicator(RUTIndicators.verified);
+    fieldHandler(true);
   };
 
   return { inputChangeHandler, verificateRUT, indicator, rutValue };

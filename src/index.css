@@ -15,7 +15,7 @@
   box-sizing: border-box;
 }
 
-#root{
+#root {
   min-height: 100vh;
 }
 
@@ -68,17 +68,16 @@ html {
   font-weight: 500;
 }
 
-
-.full-field{
+.full-field {
   grid-column: span 2;
 }
 
-.half-field{
+.half-field {
   grid-column: span 1;
 }
 
 @media (max-width: 1000px) {
-  .full-field{
+  .full-field {
     grid-column: span 1;
   }
 }

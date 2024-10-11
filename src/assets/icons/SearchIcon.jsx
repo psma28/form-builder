@@ -1,5 +1,4 @@
 export function SearchIcon({ action, style }) {
-    
   return (
     <svg
       version="1.1"

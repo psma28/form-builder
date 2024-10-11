@@ -8,16 +8,15 @@ import { InfoPopup } from "../InfoPin";
 
 export function FileUploadField({ id }) {
   const { getFieldStatus } = useContext(FieldAccessContext);
-  const { getComponent, updateComponent } =
-    useContext(FormSchemaContext);
+  const { getComponent, updateComponent } = useContext(FormSchemaContext);
 
   const {
     label,
     maxsize,
     allow = [],
-   // visible = true,
-   // events = [],
-   // extend = false,
+    // visible = true,
+    // events = [],
+    // extend = false,
     info,
   } = getComponent(id);
   const {
@@ -43,8 +42,7 @@ export function FileUploadField({ id }) {
       </div>
       <div
         className={
-          "file-handler" +
-          (getFieldStatus() === false ? " file-disabled" : "")
+          "file-handler" + (getFieldStatus() === false ? " file-disabled" : "")
         }
       >
         {file ? (

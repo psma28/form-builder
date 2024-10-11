@@ -1,6 +1,12 @@
 import { useRef, useState } from "react";
 
-export function useFiles(fieldId, allowed, maxFileSize, getFieldStatus, updateComponent) {
+export function useFiles(
+  fieldId,
+  allowed,
+  maxFileSize,
+  getFieldStatus,
+  updateComponent
+) {
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
   const [isDrag, setIsDrag] = useState(false);
@@ -78,7 +84,7 @@ export function useFiles(fieldId, allowed, maxFileSize, getFieldStatus, updateCo
     }
     setFile(file);
     setError(null);
-    updateComponent(fieldId, { value: file})
+    updateComponent(fieldId, { value: file });
   };
 
   return {
