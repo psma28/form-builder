@@ -88,4 +88,10 @@
   .rut-container {
     width: 100%;
   }
+  .rut-label {
+    left: 10%;
+  }
+  .rut-search {
+    right: 10%;
+  }
 }

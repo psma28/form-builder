@@ -4,3 +4,10 @@
   padding: 23px 30px;
   text-align: center;
 }
+
+
+@media (max-width: 800px) {
+  .title-container span{
+    font-size: 20px;
+  }
+}

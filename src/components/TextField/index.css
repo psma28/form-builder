@@ -27,6 +27,7 @@
   padding: 0 10px;
   width: 100%;
   position: relative;
+  box-sizing: border-box;
 }
 
 .text-field-input span {
@@ -70,4 +71,18 @@
 .text-field-error {
   background-color: var(--error-75);
   transition: background-color 500ms;
+}
+
+
+@media (max-width: 1000px) {
+  .text-field-content{
+    flex-direction: column;
+  }
+  .text-field-label-content{
+    border-radius: 10px 10px 0 0;
+  }
+  .text-field-input{
+    padding: 10px;
+    border-radius: 0 0 10px 10px;
+  }
 }
