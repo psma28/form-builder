@@ -42,8 +42,6 @@ export function TextField({ id }) {
     });
     setErrors(messages);
     if (!validation) {
-      //updateForm(id, "")
-      //updateComponent(id, { value: "" })
       setContent("");
       updateComponent(id, { value: "" });
       return;
