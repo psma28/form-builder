@@ -1,20 +1,6 @@
 ---
-title: Setting the project up
+title: 2.Installing dependencies
 ---
-## Repo cloning
-
-The GitHub repository URL is <https://github.com/psma28/form-builder.git>.
-
-Simply clone the project into your local dev enviroment using the following command.
-
-```powershell
-git clone https://github.com/psma28/form-builder.git
-```
-
-Then open the project with your code editor of choice.
-
-## Installing dependencies
-
 To install the dependencies for the project to start up simply run the following command.
 
 ```powershell
