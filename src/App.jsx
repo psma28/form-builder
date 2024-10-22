@@ -11,7 +11,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route
-          path="/form/:formId"
+          path="/public/web_rrhh/dev_test/:formId"
           element={
             <LoadingProvider>
               <ModalProvider>
