@@ -4,6 +4,11 @@ import { rollbackPayload } from "../services/EventPayloadHandler";
 export function useEvents(updateComponent) {
   const [events, setEvents] = useState([]);
 
+  /* useEffect(()=>{
+    console.log("events", events);
+    
+  },[events])
+*/
   /**
    * This method returns the current event list
    * @returns

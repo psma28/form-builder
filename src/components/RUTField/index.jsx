@@ -6,23 +6,29 @@ import { SearchIcon } from "../../assets/icons/SearchIcon";
 import { RUTFormatter } from "../../utils/RUTFormatter";
 import { useRUT } from "./hooks/useRUT";
 import { FormSchemaContext } from "../../context/FormSchemaContext";
+import { ModalContext } from "../../context/ModalContext";
 
 export function RUTField() {
   //13.962.983-3
   const { setFieldAccess } = useContext(FieldAccessContext);
   const { setLoading } = useContext(LoadingContext);
-  const { updateComponent, getComponent } = useContext(FormSchemaContext);
-  const { inputChangeHandler, verificateRUT, indicator, rutValue } = useRUT(
-    setLoading,
-    setFieldAccess,
-    updateComponent,
-    getComponent
-  );
+  const { updateComponent, getComponent, cleanForm } = useContext(FormSchemaContext);
+  const { setModalContent, toggleModal } = useContext(ModalContext);
+  const { inputChangeHandler, checkRUT, indicator, rutValue } =
+    useRUT(
+      setLoading,
+      setFieldAccess,
+      updateComponent,
+      getComponent,
+      setModalContent,
+      toggleModal,
+      cleanForm
+    );
   return (
     <div className="rut-container">
       <div className="rut-field">
         <span className="rut-label text-form-title">RUT</span>
-        <SearchIcon action={verificateRUT} style="rut-search" />
+        <SearchIcon action={checkRUT} style="rut-search" />
         <input
           className="rut-input font-calibri"
           type="text"
@@ -31,7 +37,7 @@ export function RUTField() {
           value={RUTFormatter(rutValue)}
           onKeyDown={(e) => {
             if (e.key === "Enter") {
-              verificateRUT();
+              checkRUT();
             }
           }}
           onChange={(e) => inputChangeHandler(e.target.value)}

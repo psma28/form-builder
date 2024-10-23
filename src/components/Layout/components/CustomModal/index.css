@@ -86,6 +86,19 @@
 .modal-close-button:hover {
   background-color: var(--error-100);
 }
+.modal-action-button {
+  background-color: var(--success-75);
+  border: none;
+  color: var(--white);
+  font-size: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px 10px;
+  transition: 150ms;
+}
+.modal-action-button:hover {
+  background-color: var(--success-100);
+}
 
 @media (max-width: 1000px) {
   .modal-container {

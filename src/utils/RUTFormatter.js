@@ -36,3 +36,13 @@ export function getValue(input) {
   }
   return out;
 }
+
+export function turnToRutForm(input){
+  let number = input.toString();
+
+  if (number.length > 1) {
+    number = number.slice(0, -1) + "-" + number.slice(-1);
+  }
+
+  return number;
+}

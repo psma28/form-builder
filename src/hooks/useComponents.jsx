@@ -21,5 +21,9 @@ export function useComponents() {
     return components;
   };
 
-  return { pushComponent, updateComponent, getComponent, getSchema };
+  const cleanForm = () => {
+    setComponents({});
+  }
+
+  return { pushComponent, updateComponent, getComponent, getSchema, cleanForm };
 }

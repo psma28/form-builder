@@ -1,5 +1,5 @@
 export function letterInputValidator(input) {
-  input = input.replace(" ", "");
+  input = input.replaceAll(" ", "");
   for (let i = 0; i < input.length; i++) {
     if (!isCharacterALetter(input.charAt(i))) {
       return { valid: false, message: "Ingrese solamente letras y espacios" };
@@ -9,5 +9,5 @@ export function letterInputValidator(input) {
 }
 
 function isCharacterALetter(char) {
-  return /[a-zA-Z]/.test(char);
+  return /\p{L}/u.test(char);
 }

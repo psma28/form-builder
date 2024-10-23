@@ -7,6 +7,10 @@ export function ModalProvider({ children }) {
   const [modalContent, setModalContent] = useState({
     title: "Titulo",
     content: ["Contenido", "aqui"],
+    action: {
+      label: "Accion",
+      function: null
+    }
   });
 
   const toggleModal = () => {

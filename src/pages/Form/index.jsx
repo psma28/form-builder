@@ -12,6 +12,7 @@ export function Form() {
       <Layout>
         <RUTField />
         {RenderComponents(form["form-groups"])}
+        <input type="hidden" id="_token" value="{{ csrf_token() }}"></input>
       </Layout>
     </FieldAccessProvider>
   );

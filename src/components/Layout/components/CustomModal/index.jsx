@@ -26,9 +26,25 @@ export function CustomModal() {
             })}
           </div>
           <div className="modal-actions">
+            {modalContent?.action && modalContent.action.function && (
+              <button
+                className="modal-action-button font-calibri"
+                onClick={() => {
+                  modalContent.action.function();
+                  toggleModal();
+                }}
+              >
+                {modalContent.action.label}
+              </button>
+            )}
             <button
               className="modal-close-button font-calibri"
-              onClick={() => toggleModal()}
+              onClick={() => {
+                if (modalContent?.close) {
+                  modalContent.close();
+                }
+                toggleModal();
+              }}
             >
               Cerrar
             </button>
