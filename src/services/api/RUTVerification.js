@@ -1,4 +1,4 @@
-import { RUT_URL } from "../../utils/RUT_URL";
+import { RUT_URL } from "../../utils/URL";
 
 export async function RUTVerification (rut){
     const url = RUT_URL + rut;

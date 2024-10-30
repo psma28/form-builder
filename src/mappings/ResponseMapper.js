@@ -1,6 +1,6 @@
 import { toNormalText, toSnakeCase } from "../utils/stringTools";
 
-export function itemMapper(data) {
+export function itemMapper(data) {  
   return data.map((item) => {
     let events = item.events;
     if (!events) events = [];

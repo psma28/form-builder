@@ -1,20 +1,5 @@
-const sexos = [
-  {
-    id: 81,
-    label: "Hombre",
-    value: 81,
-  },
-  {
-    id: 80,
-    label: "Mujer",
-    value: 80,
-  },
-];
-
-export function getListaSexos() {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(sexos);
-    }, 0);
-  });
+export async function getListaSexos() {
+  const res = await fetch('https://devrrhh.iie.cl/rrhh_api/item/sexos-registrales');
+  const data = await res.json();
+  return data;
 }

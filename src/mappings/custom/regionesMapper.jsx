@@ -1,11 +1,10 @@
 export function regionesMapper(data) {
   const mapped = [];
   data.forEach((item) => {
-    const numeroRegion = item["numero_region"];
     let mappedEntry = {
-      id: numeroRegion,
-      value: numeroRegion,
-      label: item["nombre_region"],
+      id: item.id_region,
+      value: item.id_region,
+      label: item.nombre,
     };
     mapped.push(mappedEntry);
   });

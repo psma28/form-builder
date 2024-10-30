@@ -1,8 +1,11 @@
 export function comunasMapper(data) {
   const mapped = [];
   data.forEach((item) => {
-    const nombreComuna = item["nombre_comuna"];
-    let mappedEntry = { id: item.id, value: item.id, label: nombreComuna };
+    let mappedEntry = {
+      id: item.id_comuna,
+      value: item.id_comuna,
+      label: item.nombre,
+    };
     mapped.push(mappedEntry);
   });
   return mapped;

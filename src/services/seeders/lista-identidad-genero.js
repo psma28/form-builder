@@ -1,25 +1,5 @@
-const identidadGenero = [
-  {
-    id: 81,
-    label: "Masculino",
-    value: 81,
-  },
-  {
-    id: 80,
-    label: "Femenino",
-    value: 80,
-  },
-  {
-    id: 1138,
-    label: "Otro",
-    value: 1138,
-  },
-];
-
-export function getListaIdentidadGenero() {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(identidadGenero);
-    }, 0);
-  });
+export async function getListaIdentidadGenero() {
+  const res = await fetch('https://devrrhh.iie.cl/rrhh_api/item/identidades-genero');
+  const data = await res.json();
+  return data;
 }

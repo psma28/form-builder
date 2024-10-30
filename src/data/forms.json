@@ -1,7 +1,7 @@
 {
     "forms": [
         {
-            "id": "f2da25af-66b7-4c88-b36e-1dc76379ad51",
+            "id": "1",
             "form-title": "Formulario de Postulación ENDFID 2024",
             "form-intro": "Completa el siguiente formulario para postular.",
             "form-groups": [
@@ -71,16 +71,16 @@
                         },
                         {
                             "component": "combobox",
-                            "id": "nacionalidad",
+                            "id": "id_nacionalidad",
                             "label": "Nacionalidad",
                             "placeholder": "Seleccione nacionalidad",
                             "items": [
                                 {
                                     "label": "Chilena",
-                                    "value": "Chilena",
+                                    "value": 1195,
                                     "events": [
                                         {
-                                            "target": "id_region_postulacion",
+                                            "target": "id_region_nacimiento",
                                             "payload": {
                                                 "visible": true
                                             }
@@ -89,7 +89,7 @@
                                 },
                                 {
                                     "label": "Otra",
-                                    "value": "Otra",
+                                    "value": 1196,
                                     "events": [
                                         {
                                             "target": "otra_nacionalidad",
@@ -98,7 +98,7 @@
                                             }
                                         },
                                         {
-                                            "target": "otro_lugar_nacimiento",
+                                            "target": "lugar_nacimiento",
                                             "payload": {
                                                 "visible": true
                                             }
@@ -116,7 +116,7 @@
                         },
                         {
                             "component": "text",
-                            "id": "otro_lugar_nacimiento",
+                            "id": "lugar_nacimiento",
                             "label": "Lugar Nacimiento",
                             "visible": false,
                             "validators": []
@@ -149,7 +149,7 @@
                         },
                         {
                             "component": "combobox",
-                            "id": "id_region_postulacion",
+                            "id": "id_region_residencia",
                             "label": "Región de Residencia",
                             "placeholder": "Seleccione región",
                             "items": "get-regiones",
@@ -259,7 +259,7 @@
                     "content": [
                         {
                             "component": "combobox",
-                            "id": "nivel_estudios",
+                            "id": "id_nivel_estudio",
                             "label": "Nivel de Estudios",
                             "placeholder": "Seleccione su Nivel de Estudios",
                             "items": [
@@ -274,7 +274,7 @@
                                     "value": 4,
                                     "events": [
                                         {
-                                            "target": "universidad",
+                                            "target": "id_institucion",
                                             "payload": {
                                                 "visible": true
                                             }
@@ -287,7 +287,7 @@
                                     "value": 5,
                                     "events": [
                                         {
-                                            "target": "universidad",
+                                            "target": "id_institucion",
                                             "payload": {
                                                 "visible": true
                                             }
@@ -306,7 +306,7 @@
                                             }
                                         },
                                         {
-                                            "target": "profesion",
+                                            "target": "id_profesion",
                                             "payload": {
                                                 "visible": true
                                             }
@@ -325,7 +325,7 @@
                                             }
                                         },
                                         {
-                                            "target": "profesion",
+                                            "target": "id_profesion",
                                             "payload": {
                                                 "visible": true
                                             }
@@ -344,7 +344,7 @@
                                             }
                                         },
                                         {
-                                            "target": "profesion",
+                                            "target": "id_profesion",
                                             "payload": {
                                                 "visible": true
                                             }
@@ -363,7 +363,7 @@
                                             }
                                         },
                                         {
-                                            "target": "profesion",
+                                            "target": "id_profesion",
                                             "payload": {
                                                 "visible": true
                                             }
@@ -383,7 +383,7 @@
                         {
                             "component": "text",
                             "label": "Indique institución",
-                            "id": "universidad",
+                            "id": "otra_institucion",
                             "visible": false,
                             "validators": [
                                 "letter",
@@ -394,7 +394,7 @@
                             "component": "combobox",
                             "placeholder": "Seleccione título",
                             "label": "Título/Carrera",
-                            "id": "profesion",
+                            "id": "id_profesion",
                             "visible": false,
                             "items": "get-carreras"
                         },
@@ -418,14 +418,14 @@
                     "content": [
                         {
                             "component": "combobox",
-                            "id": "banco_nombre",
+                            "id": "id_banco",
                             "label": "Banco",
                             "placeholder": "Seleccione un Banco",
                             "items": "get-bancos"
                         },
                         {
                             "component": "combobox",
-                            "id": "banco_tipo_cuenta",
+                            "id": "id_banco_tipo_cuenta",
                             "label": "Tipo de Cuenta",
                             "placeholder": "Seleccione un tipo de cuenta",
                             "items": "get-tipos-cuenta"

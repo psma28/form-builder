@@ -1,1 +1,0 @@
-export const RUT_URL ="https://rrhh.iie.cl/public/web_rrhh/sources/personas.php?run=";

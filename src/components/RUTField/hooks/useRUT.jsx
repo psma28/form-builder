@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { RUTIndicators } from "../data/RUTIndicators";
 import { validateRUT } from "../../../validators/RUTValidator";
-import { getValue, RUTFormatter } from "../../../utils/RUTFormatter";
+import { getValue, turnToRutForm } from "../../../utils/RUTFormatter";
 import { RUTVerification } from "../../../services/api/RUTVerification";
 export function useRUT(
   setLoading,
@@ -51,8 +51,8 @@ export function useRUT(
       return;
     }
     setLoading(true);
-    const data = await RUTVerification(RUTFormatter(rutValue));
-    const entries = data[0] ?? [];
+    const data = await RUTVerification(turnToRutForm(rutValue));
+    const entries = data.data ?? {};
     setModalContent({
       title: "Aviso importante",
       content: [
