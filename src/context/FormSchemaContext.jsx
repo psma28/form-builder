@@ -10,6 +10,7 @@ import { ModalContext } from "./ModalContext";
 import { endfidDocuments, endfidFD } from "../mappings/form/ENDFIDFormMapper";
 import { uploadForm } from "../services/api/uploadForm";
 import { uploadDocument } from "../services/api/uploadDocument";
+import { formMapper } from "../mappings/form/FormMapper";
 
 export const FormSchemaContext = createContext();
 
@@ -40,7 +41,7 @@ export function FormSchemaProvider({ children }) {
     const missingFields = [];
     //const stagedSchema = new FormData();
     const stagedSchema = [];
-    const monitorForm = [];
+    const monitorForm = []; //MONITORIZAR LA SALIDA EN LOG
     for (const [key, props] of Object.entries(schema)) {
       if (
         props.component &&
@@ -73,8 +74,8 @@ export function FormSchemaProvider({ children }) {
       return;
     }
     //stagedSchema.append("run", getComponent("run").value);
-    stagedSchema.push({ key: "run", value: getComponent("run").value });
-    monitorForm.push("run: " + getComponent("run").value);
+    stagedSchema.push({ key: "rut", value: getComponent("rut").value });
+    monitorForm.push("rut: " + getComponent("rut").value);
     setModalContent({
       title: "Enviar Formulario",
       content: [
@@ -84,7 +85,8 @@ export function FormSchemaProvider({ children }) {
         label: "Subir postulación",
         function: async () => {
           setLoading(true)
-          const formData = endfidFD(stagedSchema);
+          await uploadForm(formMapper(stagedSchema));
+          /*const formData = endfidFD(stagedSchema);
           uploadForm(formData);
           const documentData = await endfidDocuments(stagedSchema);
           for (const form of documentData) {
@@ -94,9 +96,10 @@ export function FormSchemaProvider({ children }) {
             } catch (error) {
               console.error("Error al subir el formulario:", error);
             }
-          }
-          setLoading(false);
-          window.alert("Postulación completada");
+          }*/
+
+         window.alert("Postulación completada");
+         setLoading(false);
         },
       },
     });
@@ -121,7 +124,7 @@ export function FormSchemaProvider({ children }) {
     pushComponent(element);
   };
 
-  form["form-groups"].forEach((group) => parseForm(group));
+  form.schema.forEach((group) => parseForm(group));
 
   return (
     <FormSchemaContext.Provider

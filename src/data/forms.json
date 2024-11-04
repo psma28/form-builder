@@ -2,9 +2,9 @@
     "forms": [
         {
             "id": "1",
-            "form-title": "Formulario de Postulación ENDFID 2024",
-            "form-intro": "Completa el siguiente formulario para postular.",
-            "form-groups": [
+            "title": "Formulario de Postulación ENDFID 2024",
+            "intro": "Completa el siguiente formulario para postular.",
+            "schema": [
                 {
                     "component": "form-structure",
                     "id": "datos-personales",
@@ -74,11 +74,10 @@
                             "id": "id_nacionalidad",
                             "label": "Nacionalidad",
                             "placeholder": "Seleccione nacionalidad",
-                            "items": [
+                            "subevents": [
                                 {
-                                    "label": "Chilena",
-                                    "value": 1195,
-                                    "events": [
+                                    "item-value": 1195,
+                                    "events":[
                                         {
                                             "target": "id_region_nacimiento",
                                             "payload": {
@@ -88,9 +87,8 @@
                                     ]
                                 },
                                 {
-                                    "label": "Otra",
-                                    "value": 1196,
-                                    "events": [
+                                     "item-value": 1196,
+                                    "events":[
                                         {
                                             "target": "otra_nacionalidad",
                                             "payload": {
@@ -105,7 +103,8 @@
                                         }
                                     ]
                                 }
-                            ]
+                            ],
+                            "items": "lista-nacionalidades"
                         },
                         {
                             "component": "text",
@@ -262,17 +261,10 @@
                             "id": "id_nivel_estudio",
                             "label": "Nivel de Estudios",
                             "placeholder": "Seleccione su Nivel de Estudios",
-                            "items": [
+                            "subevents": [
                                 {
-                                    "id": 3,
-                                    "label": "Educación Media Completa",
-                                    "value": 3
-                                },
-                                {
-                                    "id": 4,
-                                    "label": "Educación Técnico Nivel Medio Incompleta",
-                                    "value": 4,
-                                    "events": [
+                                    "item-value": 1189,
+                                    "events":[
                                         {
                                             "target": "id_institucion",
                                             "payload": {
@@ -282,10 +274,8 @@
                                     ]
                                 },
                                 {
-                                    "id": 5,
-                                    "label": "Educación Técnico Nivel Medio Completa",
-                                    "value": 5,
-                                    "events": [
+                                    "item-value": 1190,
+                                    "events":[
                                         {
                                             "target": "id_institucion",
                                             "payload": {
@@ -295,10 +285,8 @@
                                     ]
                                 },
                                 {
-                                    "id": 6,
-                                    "label": "Educación Superior Incompleta",
-                                    "value": 6,
-                                    "events": [
+                                    "item-value": 1191,
+                                    "events":[
                                         {
                                             "target": "id_institucion",
                                             "payload": {
@@ -314,10 +302,8 @@
                                     ]
                                 },
                                 {
-                                    "id": 7,
-                                    "label": "Educación Superior Completa",
-                                    "value": 7,
-                                    "events": [
+                                    "item-value": 1192,
+                                    "events":[
                                         {
                                             "target": "id_institucion",
                                             "payload": {
@@ -333,10 +319,8 @@
                                     ]
                                 },
                                 {
-                                    "id": 8,
-                                    "label": "Postgrado Incompleto",
-                                    "value": 8,
-                                    "events": [
+                                    "item-value": 1193,
+                                    "events":[
                                         {
                                             "target": "id_institucion",
                                             "payload": {
@@ -352,10 +336,8 @@
                                     ]
                                 },
                                 {
-                                    "id": 9,
-                                    "label": "Postgrado Completo",
-                                    "value": 9,
-                                    "events": [
+                                    "item-value": 1194,
+                                    "events":[
                                         {
                                             "target": "id_institucion",
                                             "payload": {
@@ -370,7 +352,9 @@
                                         }
                                     ]
                                 }
-                            ]
+
+                            ],
+                            "items": "lista-nivel-estudios"
                         },
                         {
                             "component": "combobox",
@@ -378,7 +362,20 @@
                             "label": "Institución",
                             "id": "id_institucion",
                             "visible": false,
-                            "items": "get-instituciones"
+                            "items": "get-instituciones",
+                            "subevents": [
+                                {
+                                    "item-value": 10001,
+                                    "events":[
+                                        {
+                                            "target": "otra_institucion",
+                                            "payload": {
+                                                "visible": true
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
                         },
                         {
                             "component": "text",
@@ -386,7 +383,6 @@
                             "id": "otra_institucion",
                             "visible": false,
                             "validators": [
-                                "letter",
                                 "completion"
                             ]
                         },
@@ -396,7 +392,20 @@
                             "label": "Título/Carrera",
                             "id": "id_profesion",
                             "visible": false,
-                            "items": "get-carreras"
+                            "items": "get-profesiones",
+                            "subevents": [
+                                {
+                                    "item-value": 1310,
+                                    "events":[
+                                        {
+                                            "target": "otra_profesion",
+                                            "payload": {
+                                                "visible": true
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
                         },
                         {
                             "component": "text",
@@ -404,7 +413,6 @@
                             "id": "otra_profesion",
                             "visible": false,
                             "validators": [
-                                "letter",
                                 "completion"
                             ]
                         }

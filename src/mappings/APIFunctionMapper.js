@@ -1,9 +1,6 @@
-import { getComunas, getRegiones } from "../services/api/regionProvider";
-import { getYears } from "../services/api/yearSeeder";
-import {
-  getComunaRBD,
-  getEstablecimientoRBD,
-} from "../services/api/RBDProvider";
+import { getRegiones } from "../services/seeders/lista-regiones";
+import { getComunas } from "../services/seeders/lista-comunas";
+import { getAnios } from "../services/seeders/lista-anios";
 import { getListaSexos } from "../services/seeders/lista-sexos";
 import { getListaEstadosCiviles } from "../services/seeders/lista-estado-civil";
 import { getListaIdentidadGenero } from "../services/seeders/lista-identidad-genero";
@@ -18,11 +15,17 @@ import { getAsignaturasTecnicoEDD24 } from "../services/seeders/lista-asignatura
 import { getEspecialidades } from "../services/seeders/lista-especialidades";
 import { getCargoCentrosCorreccion } from "../services/seeders/lista-cargo-centro-correccion";
 import { getAniosTrabajados } from "../services/seeders/lista-anios-trabakados";
+import { getProfesiones } from "../services/seeders/lista-profesiones";
+import { getNacionalidades } from "../services/seeders/lista-nacionalidades";
+import { getNivelEstudios } from "../services/seeders/lista-nivel-estudios";
+import {
+  getComunaRBD,
+  getEstablecimientoRBD,
+} from "../services/api/RBDProvider";
 import {
   setAsignaturaEDD24InstitucionEvaluadora,
   setEvidenciaEDD24InstitucionEvaluadora,
 } from "../services/misc/edd24-institucion-evaluadora";
-import { getCarreras } from "../services/seeders/lista-carreras";
 
 const APIFunctionsMap = {
   "lista-sexos": { function: getListaSexos, args: 0 },
@@ -34,15 +37,17 @@ const APIFunctionsMap = {
     args: 0,
   },
   "get-regiones": { function: getRegiones, args: 0 },
-  "get-carreras": { function: getCarreras, args: 0 },
+  "get-profesiones": { function: getProfesiones, args: 0 },
   "get-comunas": { function: getComunas, args: 1 },
   "get-bancos": { function: getBancos, args: 0 },
   "get-tipos-cuenta": { function: getTiposCuenta, args: 0 },
   "get-instituciones": { function: getInstituciones, args: 0 },
+  "lista-nacionalidades": { function: getNacionalidades, args: 0 },
+  "lista-nivel-estudios": { function: getNivelEstudios, args: 0 },
   "get-asignaturas": { function: getAsignaturasEDD24, args: 0 },
   "get-especialidades": { function: getEspecialidades, args: 0 },
   "get-asignaturas-tecnico": { function: getAsignaturasTecnicoEDD24, args: 0 },
-  "get-anios": { function: getYears, args: 0 },
+  "get-anios": { function: getAnios, args: 0 },
   "get-certificados-ingles": { function: getCertificadosIngles, args: 0 },
   "get-cargos-centros-correccion": {
     function: getCargoCentrosCorreccion,

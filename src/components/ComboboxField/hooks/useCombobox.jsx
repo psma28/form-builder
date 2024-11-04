@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { functionExecutor } from "../../../mappings/APIFunctionMapper";
-import { itemMapper } from "../../../mappings/ResponseMapper";
 import { extractEvents } from "../../../utils/extractEventsFromItems";
+import { injectEvents } from "../../../utils/eventInjector";
 
 export function useCombobox(
   fieldId,
   initialValue,
   initialItems,
   events,
+  subevents,
   updateComponent,
   eventHandler,
   setLoading
@@ -18,12 +19,10 @@ export function useCombobox(
   useEffect(() => {
     if (typeof list === "string") {
       functionExecutor(list, "", setLoading).then((res) => {
-        setList([...itemMapper(res)]);
+        setList([...injectEvents(subevents,res)]);
       });
     }
   }, [list]);
-
-  if (!Array.isArray(events)) events = [];
 
   useEffect(() => {
     if (initialValue !== selected) {

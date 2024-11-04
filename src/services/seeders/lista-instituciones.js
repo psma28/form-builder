@@ -1,10 +1,7 @@
-import { institucionesMapper } from "../../mappings/custom/institucionesMapper";
-
-const institucionURL =
-  "https://devrrhh.iie.cl/rrhh_api/item/instituciones";
+import { INSTITUCIONES_URL } from "../../utils/URL";
 
 export async function getInstituciones() {
-  const res = await fetch(institucionURL);
+  const res = await fetch(INSTITUCIONES_URL);
   const data = await res.json();
   return data;
 }

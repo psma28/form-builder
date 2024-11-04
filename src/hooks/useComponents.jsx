@@ -2,6 +2,9 @@ import { useState } from "react";
 
 export function useComponents() {
   const [components, setComponents] = useState({});
+
+  /*useEffect(()=>{console.log("componentes", components);
+  },[components])*/
   const pushComponent = async (component) => {
     const { id } = component;
     if (components[id]) return;

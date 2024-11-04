@@ -16,6 +16,7 @@ export function RadioButtonsField({ id }) {
     visible = true,
     items,
     events = [],
+    subevents = [],
     info,
     extend = false,
     value,
@@ -26,6 +27,7 @@ export function RadioButtonsField({ id }) {
     value,
     items,
     events,
+    subevents,
     updateComponent,
     eventHandler,
     setLoading

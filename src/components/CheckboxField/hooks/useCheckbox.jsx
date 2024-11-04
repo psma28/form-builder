@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { functionExecutor } from "../../../mappings/APIFunctionMapper";
-import { itemMapper } from "../../../mappings/ResponseMapper";
+import { injectEvents } from "../../../utils/eventInjector";
 import { arrayEquals } from "../../../utils/arrayTools";
 export function useCheckBox(
   fieldId,
   initialValues,
   initialItems,
   events,
+  subevents,
   updateComponent,
   eventHandler,
   manualCollapse,
@@ -15,15 +16,13 @@ export function useCheckBox(
   const [selections, setSelections] = useState(initialValues);
   const [list, setList] = useState(initialItems);
 
-  useEffect(() => {
+  useEffect(() => {    
     if (typeof list === "string") {
       functionExecutor(list, "", setLoading).then((res) => {
-        setList([...itemMapper(res)]);
+        setList([...injectEvents(subevents, res)]);
       });
     }
   }, [list]);
-
-  if (!Array.isArray(events)) events = [];
 
   useEffect(() => {
     let componentEvents = events;
@@ -32,7 +31,7 @@ export function useCheckBox(
   }, [selections]);
 
   /**
-   * Si los valores se cargan desde el form
+   * Si los valores se cargan junto con el usuario
    */
   useEffect(() => {
     if (!arrayEquals(initialValues, selections)) {

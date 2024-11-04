@@ -23,9 +23,9 @@ export function useRUT(
   };
 
   const checkRUT = () => {
-    console.log("checkeando rut", getComponent("run"));
-    const auxRut = getComponent("run");
-    if (getComponent("run")) {
+    console.log("checkeando rut", getComponent("rut"));
+    const auxRut = getComponent("rut");
+    if (getComponent("rut")) {
       setModalContent({
         title: "Aviso importante",
         content: ["Al cambiar de RUT los campos sin guardar se eliminarán"],
@@ -65,7 +65,7 @@ export function useRUT(
       if (value) updateComponent(key, { value: value });
     }
     setLoading(false);
-    updateComponent("run", { value: rutValue });
+    updateComponent("rut", { value: turnToRutForm(rutValue) });
     handleIndicator(RUTIndicators.verified);
     fieldHandler(true);
   };

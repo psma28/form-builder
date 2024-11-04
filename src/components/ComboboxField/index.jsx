@@ -16,7 +16,8 @@ export function ComboboxField({ id }) {
     value,
     placeholder,
     items,
-    events,
+    events = [],
+    subevents = [],
     visible = true,
     info,
     extend = false,
@@ -27,6 +28,7 @@ export function ComboboxField({ id }) {
       value,
       items,
       events,
+      subevents,
       updateComponent,
       eventHandler,
       setLoading

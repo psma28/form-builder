@@ -1,9 +1,7 @@
-import { bancosMapper } from "../../mappings/custom/bancosMapper";
-
-const bancoURL = "https://devrrhh.iie.cl/rrhh_api/item/bancos";
+import { BANK_URL } from "../../utils/URL";
 
 export async function getBancos() {
-  const res = await fetch(bancoURL);
+  const res = await fetch(BANK_URL);
   const data = await res.json();
   return data;
 }

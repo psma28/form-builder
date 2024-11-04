@@ -15,9 +15,9 @@ export function Layout({ children }) {
   return (
     <div className="layout-container">
       {isLoading === true ? <LoadingScreen /> : <></>}
-      <FormHeader title={form["form-title"]} />
+      <FormHeader title={form.title} />
       <div className="container-fluid">
-        <FormHelpText text={form["form-intro"]} />
+        <FormHelpText text={form.intro} />
         {children}
       </div>
       <SumbmitButton />
