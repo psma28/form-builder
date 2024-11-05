@@ -42,6 +42,8 @@ export function FormSchemaProvider({ children }) {
     //const stagedSchema = new FormData();
     const stagedSchema = [];
     const monitorForm = []; //MONITORIZAR LA SALIDA EN LOG
+
+    //Verificar todos los campos del formulario
     for (const [key, props] of Object.entries(schema)) {
       if (
         props.component &&
@@ -109,10 +111,7 @@ export function FormSchemaProvider({ children }) {
   const parseForm = (element) => {
     const componentName = element.component;
     if (componentName === "blank") return;
-    if (
-      componentName === "form-structure" ||
-      componentName === "document-manager"
-    ) {
+    if (componentName === "form-structure") {
       element.content.forEach(parseForm);
       return;
     }
