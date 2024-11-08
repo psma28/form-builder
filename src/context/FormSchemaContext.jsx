@@ -7,9 +7,7 @@ import { LoadingContext } from "./LoadingContext";
 import { useEvents } from "../hooks/useEvents";
 import { useComponents } from "../hooks/useComponents";
 import { ModalContext } from "./ModalContext";
-import { endfidDocuments, endfidFD } from "../mappings/form/ENDFIDFormMapper";
 import { uploadForm } from "../services/api/uploadForm";
-import { uploadDocument } from "../services/api/uploadDocument";
 import { formMapper } from "../mappings/form/FormMapper";
 
 export const FormSchemaContext = createContext();
@@ -17,6 +15,7 @@ export const FormSchemaContext = createContext();
 export function FormSchemaProvider({ children }) {
   const { formId } = useParams();
   const form = formBrowser(formId);
+  const title = form.title;
   const { setLoading } = useContext(LoadingContext);
   const { pushComponent, updateComponent, getComponent, getSchema, cleanForm } =
     useComponents();
@@ -39,7 +38,6 @@ export function FormSchemaProvider({ children }) {
   const sendForm = async () => {
     const schema = getSchema();
     const missingFields = [];
-    //const stagedSchema = new FormData();
     const stagedSchema = [];
     const monitorForm = []; //MONITORIZAR LA SALIDA EN LOG
 
@@ -76,7 +74,6 @@ export function FormSchemaProvider({ children }) {
       toggleModal();
       return;
     }
-    //stagedSchema.append("run", getComponent("run").value);
     stagedSchema.push({ key: "rut", value: getComponent("rut").value });
     monitorForm.push("rut: " + getComponent("rut").value);
     setModalContent({
@@ -92,17 +89,6 @@ export function FormSchemaProvider({ children }) {
           formData.append('id_proyecto', form.id_proyecto)
           console.log(form)
           await uploadForm(formData);
-          /*const formData = endfidFD(stagedSchema);
-          uploadForm(formData);
-          const documentData = await endfidDocuments(stagedSchema);
-          for (const form of documentData) {
-            try {
-              const response = await uploadDocument(form);
-              console.log("Respuesta de la carga:", response);
-            } catch (error) {
-              console.error("Error al subir el formulario:", error);
-            }
-          }*/
 
          window.alert("Postulación completada");
          setLoading(false);
@@ -142,6 +128,7 @@ export function FormSchemaProvider({ children }) {
         hasEvent,
         sendForm,
         cleanForm,
+        title
       }}
     >
       {children}

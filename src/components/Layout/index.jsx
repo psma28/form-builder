@@ -10,12 +10,12 @@ import { CustomModal } from "./components/CustomModal";
 
 export function Layout({ children }) {
   const { isLoading } = useContext(LoadingContext);
-  const { form } = useContext(FormSchemaContext);
+  const { form, title } = useContext(FormSchemaContext);
 
   return (
     <div className="layout-container">
       {isLoading === true ? <LoadingScreen /> : <></>}
-      <FormHeader title={form.title} />
+      <FormHeader title={title} />
       <div className="container-fluid">
         <FormHelpText text={form.intro} />
         {children}
