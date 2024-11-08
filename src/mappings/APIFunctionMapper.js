@@ -18,6 +18,7 @@ import { getAniosTrabajados } from "../services/seeders/lista-anios-trabakados";
 import { getProfesiones } from "../services/seeders/lista-profesiones";
 import { getNacionalidades } from "../services/seeders/lista-nacionalidades";
 import { getNivelEstudios } from "../services/seeders/lista-nivel-estudios";
+import { getListaCargosEndfid2024 } from "../services/seeders/lista-cargos-endfid2024";
 import {
   getComunaRBD,
   getEstablecimientoRBD,
@@ -64,6 +65,7 @@ const APIFunctionsMap = {
   },
   "rbd-comuna": { function: getComunaRBD, args: 1 },
   "rbd-establecimiento": { function: getEstablecimientoRBD, args: 1 },
+  "cargos-endfid-2024": { function: getListaCargosEndfid2024, args: 0 },
 };
 
 function searchFunction(functionName) {

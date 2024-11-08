@@ -2,6 +2,7 @@
     "forms": [
         {
             "id": "1",
+            "id_proyecto": "27",
             "title": "Formulario de Postulación ENDFID 2024",
             "intro": "Completa el siguiente formulario para postular.",
             "schema": [
@@ -15,23 +16,7 @@
                             "id": "cargo_postulacion",
                             "extend": true,
                             "label": "Cargo(s) a postular",
-                            "items": [
-                                {
-                                    "id": "examinador",
-                                    "value": "postula_examinador",
-                                    "label": "Examinador"
-                                },
-                                {
-                                    "id": "supervisor",
-                                    "value": "postula_supervisor",
-                                    "label": "Supervisor"
-                                },
-                                {
-                                    "id": "tecnico",
-                                    "value": "postula_tecnico_apoyo",
-                                    "label": "Técnico"
-                                }
-                            ]
+                            "items": "cargos-endfid-2024"
                         },
                         {
                             "component": "text",
@@ -46,9 +31,9 @@
                             "component": "text",
                             "id": "nombre_social",
                             "label": "Nombre Social",
+                            "required": false,
                             "validators": [
-                                "letter",
-                                "completion"
+                                "letter"
                             ]
                         },
                         {
@@ -64,9 +49,9 @@
                             "component": "text",
                             "id": "apellido_materno",
                             "label": "Segundo Apellido",
+                            "required": false,
                             "validators": [
-                                "letter",
-                                "completion"
+                                "letter"
                             ]
                         },
                         {
@@ -457,7 +442,7 @@
                     "content": [
                         {
                             "component": "file",
-                            "id": "doc_ci",
+                            "id": "CARNET_IDENTIDAD",
                             "required": true,
                             "label": "Cédula de identidad",
                             "info": "Por ambos lados (Obligatorio)",
@@ -474,7 +459,7 @@
                         },
                         {
                             "component": "file",
-                            "id": "doc_cv",
+                            "id": "CV",
                             "required": true,
                             "label": "Currículum Vitae",
                             "info": "Obligatorio",
@@ -491,7 +476,7 @@
                         },
                         {
                             "component": "file",
-                            "id": "doc_ct",
+                            "id": "CERTIFICADO_TITULO",
                             "required": true,
                             "label": "Certificado de Título",
                             "allow": [

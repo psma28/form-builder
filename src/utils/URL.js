@@ -39,3 +39,6 @@ export const NIVEL_ESTUDIOS_URL = "https://devrrhh.iie.cl/rrhh_api/item/niveles-
 
 //Lista de profesiones
 export const PROFESIONES_URL = "https://devrrhh.iie.cl/rrhh_api/item/profesiones";
+
+//Lista de cargos endfid
+export const CARGOS_ENDFID_URL = 'https://devrrhh.iie.cl/rrhh_api/item/cargos-endfid';

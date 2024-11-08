@@ -48,6 +48,7 @@ export function FormSchemaProvider({ children }) {
       if (
         props.component &&
         props.visible !== false &&
+        props.required !== false &&
         (props.items === undefined || (props.items && props.items.length > 0))
       ) {
         //Verifies every field that has items and is visible
@@ -87,7 +88,10 @@ export function FormSchemaProvider({ children }) {
         label: "Subir postulación",
         function: async () => {
           setLoading(true)
-          await uploadForm(formMapper(stagedSchema));
+          const formData = formMapper(stagedSchema);
+          formData.append('id_proyecto', form.id_proyecto)
+          console.log(form)
+          await uploadForm(formData);
           /*const formData = endfidFD(stagedSchema);
           uploadForm(formData);
           const documentData = await endfidDocuments(stagedSchema);
