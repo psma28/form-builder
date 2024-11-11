@@ -8,7 +8,7 @@
   min-width: 18px;
   background-color: var(--black);
   border-radius: 999px;
-  cursor: default;
+  cursor: pointer;
   user-select: none;
   transition: background-color ease-in-out 200ms;
 }

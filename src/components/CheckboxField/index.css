@@ -45,13 +45,14 @@
 
 .checkbox-item input {
   position: absolute;
+  cursor: pointer;
   opacity: 0;
   height: 0;
   width: 0;
 }
 
 .checkbox-item label:not(:enabled) {
-  cursor: default;
+  cursor: pointer;
 }
 
 .checkbox-checkmark {
