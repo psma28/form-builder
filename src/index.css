@@ -35,7 +35,7 @@ html {
 }
 
 .font-calibri {
-  font-family: "Calibri";
+  font-family: "Open Sans", sans-serif;
 }
 
 .text-form-title {
@@ -46,20 +46,20 @@ html {
 }
 
 .text-help {
-  font-size: 1.3rem;
-  font-family: "Calibri";
+  font-size: 1.2rem;
+  font-family: "Open Sans", sans-serif;
   color: var(--secondary-100);
 }
 
 .text-field-label {
-  font-size: 1rem;
-  font-family: "Calibri";
+  font-size: 0.85rem;
+  font-family: "Open Sans", sans-serif;
   color: var(--black);
 }
 
 .text-field-label-white {
-  font-size: 1.2rem;
-  font-family: "Calibri";
+  font-size: 1.1rem;
+  font-family: "Open Sans", sans-serif;
   color: var(--white);
 }
 
