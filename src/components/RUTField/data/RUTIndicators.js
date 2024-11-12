@@ -1,19 +1,19 @@
 export const RUTIndicators = {
   waiting: {
-    message: "Ingresa tu RUT por favor",
+    message: "Ingresa tu RUN por favor",
     color: "",
   },
   failed: {
-    message: "RUT inválido",
+    message: "RUN inválido",
     color: "rut-failed",
   },
   verified: {
-    message: "RUT verificado. Complete el formulario.",
+    message: "RUN verificado. Complete el formulario.",
     color: "rut-verified",
   },
   found: {
     message:
-      "RUT usado previamente. Verifique sus datos y complete la solicitud.",
+      "RUN usado previamente. Verifique sus datos y complete la solicitud.",
     color: "rut-verified",
   },
 };

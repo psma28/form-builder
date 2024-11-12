@@ -28,7 +28,7 @@ export function useRUT(
     if (getComponent("rut")) {
       setModalContent({
         title: "Aviso importante",
-        content: ["Al cambiar de RUT los campos sin guardar se eliminarán"],
+        content: ["Al cambiar de RUN los campos sin guardar se eliminarán"],
         action: {
           label: "Aceptar",
           function: async () => {

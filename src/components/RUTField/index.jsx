@@ -27,7 +27,7 @@ export function RUTField() {
   return (
     <div className="rut-container">
       <div className="rut-field">
-        <span className="rut-label text-form-title">RUT</span>
+        <span className="rut-label text-form-title">RUN</span>
         <SearchIcon action={checkRUT} style="rut-search" />
         <input
           className="rut-input font-calibri"

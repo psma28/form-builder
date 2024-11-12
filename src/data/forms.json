@@ -3,7 +3,7 @@
         {
             "id": "1",
             "id_proyecto": "27",
-            "title": "Formulario de Postulación ENDFID 2024",
+            "title": "Postulación ENDFID 2024",
             "intro": "Completa el siguiente formulario para postular.",
             "schema": [
                 {
@@ -176,7 +176,8 @@
                             "label": "Fecha de Nacimiento",
                             "type": "date",
                             "validators": [
-                                "completion"
+                                "completion",
+                                "mayor-edad"
                             ]
                         },
                         {
@@ -251,7 +252,7 @@
                                     "item-value": 1189,
                                     "events":[
                                         {
-                                            "target": "id_institucion",
+                                            "target": "otra_institucion",
                                             "payload": {
                                                 "visible": true
                                             }
@@ -262,7 +263,7 @@
                                     "item-value": 1190,
                                     "events":[
                                         {
-                                            "target": "id_institucion",
+                                            "target": "otra_institucion",
                                             "payload": {
                                                 "visible": true
                                             }

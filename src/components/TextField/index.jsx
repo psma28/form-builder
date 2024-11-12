@@ -80,7 +80,7 @@ export function TextField({ id }) {
               type={{ ...props }.type}
               disabled={!getFieldStatus()}
               value={content}
-              maxLength={{ ...props }.type === "tel" ? "8" : "30"}
+              maxLength={{ ...props }.type === "tel" ? "8" : "50"}
               onChange={(e) => {
                 setContent(e.target.value);
               }}
