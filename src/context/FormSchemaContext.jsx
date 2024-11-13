@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { formBrowser } from "../utils/formBrowser";
 import { NotFoundPage } from "../pages/NotFoundPage";
@@ -15,7 +15,7 @@ export const FormSchemaContext = createContext();
 export function FormSchemaProvider({ children }) {
   const { formId } = useParams();
   const form = formBrowser(formId);
-  const title = form.title;
+  const title = form?.title;
   const { setLoading } = useContext(LoadingContext);
   const { pushComponent, updateComponent, getComponent, getSchema, cleanForm } =
     useComponents();
@@ -23,8 +23,12 @@ export function FormSchemaProvider({ children }) {
     useEvents(updateComponent);
   const { toggleModal, setModalContent } = useContext(ModalContext);
 
+  useEffect(()=>{
+    if(form) document.title = title;
+  },[])
+  
   if (!form) return <NotFoundPage message="No se encontró el formulario" />;
-
+  
   const eventHandler = async (actorId, value, events) => {
     collapseEvents(actorId);
     if (events.length === 0) return;
@@ -34,13 +38,13 @@ export function FormSchemaProvider({ children }) {
       pushEvent(actorId, targetId, event.payload);
     }
   };
-
+  
   const sendForm = async () => {
     const schema = getSchema();
     const missingFields = [];
     const stagedSchema = [];
     const monitorForm = []; //MONITORIZAR LA SALIDA EN LOG
-
+    
     //Verificar todos los campos del formulario
     for (const [key, props] of Object.entries(schema)) {
       if (
@@ -89,15 +93,15 @@ export function FormSchemaProvider({ children }) {
           formData.append('id_proyecto', form.id_proyecto)
           console.log(form)
           await uploadForm(formData);
-
-         window.alert("Postulación completada");
-         setLoading(false);
+          
+          window.alert("Postulación completada");
+          setLoading(false);
         },
       },
     });
     toggleModal();
   };
-
+  
   const parseForm = (element) => {
     const componentName = element.component;
     if (componentName === "blank") return;
@@ -112,15 +116,15 @@ export function FormSchemaProvider({ children }) {
     element = { ...element, value };
     pushComponent(element);
   };
-
+  
   form.schema.forEach((group) => parseForm(group));
-
+  
   return (
     <FormSchemaContext.Provider
-      value={{
-        form,
-        pushComponent,
-        updateComponent,
+    value={{
+      form,
+      pushComponent,
+      updateComponent,
         collapseEvents,
         getComponent,
         eventHandler,
