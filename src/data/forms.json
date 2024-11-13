@@ -23,7 +23,7 @@
                             "id": "nombres",
                             "label": "Nombres",
                             "validators": [
-                                "letter",
+                                "letter-symbol",
                                 "completion"
                             ]
                         },
@@ -33,7 +33,7 @@
                             "label": "Nombre Social",
                             "required": false,
                             "validators": [
-                                "letter"
+                                "letter-symbol"
                             ]
                         },
                         {
@@ -41,7 +41,7 @@
                             "id": "apellido_paterno",
                             "label": "Primer Apellido",
                             "validators": [
-                                "letter",
+                                "letter-symbol",
                                 "completion"
                             ]
                         },
@@ -51,7 +51,7 @@
                             "label": "Segundo Apellido",
                             "required": false,
                             "validators": [
-                                "letter"
+                                "letter-symbol"
                             ]
                         },
                         {
@@ -480,6 +480,7 @@
                             "id": "CERTIFICADO_TITULO",
                             "required": true,
                             "label": "Certificado de Título",
+                            "info": "Obligatorio",
                             "allow": [
                                 "doc",
                                 "docx",

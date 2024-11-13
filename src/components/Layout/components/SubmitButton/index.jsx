@@ -15,7 +15,8 @@ export const SumbmitButton = () => {
         title="Subir formulario"
         onClick={() => sendForm()}
       >
-        <SubmitIcon style="submit-icon" />
+        {/*<SubmitIcon style="submit-icon" />*/}
+      <h4>Postular</h4>
       </button>
     )
   );

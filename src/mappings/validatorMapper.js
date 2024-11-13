@@ -1,4 +1,5 @@
 import { letterInputValidator } from "../validators/letterInputValidator";
+import { letterSymbolInputValidator } from "../validators/letterSymbolInputValidator";
 import { completionValidator } from "../validators/completionValidator";
 import { numericInputValidator } from "../validators/numericInputValidator";
 import { emailValidator } from "../validators/emailValidator";
@@ -10,6 +11,8 @@ export function validatorMapper(validators) {
     switch (validator) {
       case "letter":
         return letterInputValidator;
+      case "letter-symbol":
+        return letterSymbolInputValidator;
       case "completion":
         return completionValidator;
       case "number":
