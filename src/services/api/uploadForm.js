@@ -10,15 +10,16 @@ export async function uploadForm(form) {
       }
     );
     const data = await res.json();
+    
     if (!res.ok) {
       throw new Error(
-        "Error del servidor, intentelo de nuevo mas tarde"
+        "Error al procesar la solicitud."
       );
     }
-    console.log("Respuesta subida", data);
     return data;
   } catch (err) {
-    console.error("Error en la subida del formulario:", err);
-    return { success: false, message: err.message };
+    let message = 'Error del servidor, inténtelo de nuevo mas tarde';
+    if (!err.message) message = err.message;
+    return { success: false, message: message};
   }
 }

@@ -112,8 +112,8 @@ export function FormSchemaProvider({ children }) {
       toggleModal();
     } catch (error) {
       setModalContent({
-        title: "Error al subir formulario",
-        content: ["Inténtalo mas tarde o comunícate con un encargado."],
+        title: "Error",
+        content: [error.message],
       }); 
       toggleModal();
     } finally {
