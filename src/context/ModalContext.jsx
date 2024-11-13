@@ -9,8 +9,8 @@ export function ModalProvider({ children }) {
     content: ["Contenido", "aqui"],
     action: {
       label: "Accion",
-      function: null
-    }
+      function: null,
+    },
   });
 
   const toggleModal = () => {

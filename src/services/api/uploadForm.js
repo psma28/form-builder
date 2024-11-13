@@ -10,16 +10,14 @@ export async function uploadForm(form) {
       }
     );
     const data = await res.json();
-    
+
     if (!res.ok) {
-      throw new Error(
-        "Error al procesar la solicitud."
-      );
+      throw new Error("Error al procesar la solicitud.");
     }
     return data;
   } catch (err) {
-    let message = 'Error del servidor, inténtelo de nuevo mas tarde';
+    let message = "Error del servidor, inténtelo de nuevo mas tarde";
     if (!err.message) message = err.message;
-    return { success: false, message: message};
+    return { success: false, message: message };
   }
 }

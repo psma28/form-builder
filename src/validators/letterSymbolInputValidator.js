@@ -3,7 +3,10 @@ export function letterSymbolInputValidator(input) {
   input = input.replaceAll(" ", "");
   for (let i = 0; i < input.length; i++) {
     if (!isCharacterAllowed(input.charAt(i))) {
-      return { valid: false, message: "Ingrese solamente letras, espacios, guiones o diéresis" };
+      return {
+        valid: false,
+        message: "Ingrese solamente letras, espacios, guiones o diéresis",
+      };
     }
   }
   return { valid: true };

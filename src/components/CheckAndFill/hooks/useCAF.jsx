@@ -54,8 +54,6 @@ export function useCAF(
   };
 
   const handleSelection = (item) => {
-    console.log("handling caf selection", item);
-
     let itemEvents = item?.events;
     if (!Array.isArray(itemEvents)) itemEvents = [];
     let aux = [...selections];
@@ -68,9 +66,6 @@ export function useCAF(
       eventHandler(item.id, item.value, itemEvents);
       aux.push({ check: item.value, fill: "" });
     }
-    console.log("after checking cheks, component should update", fieldId, {
-      value: [...aux],
-    });
 
     updateComponent(fieldId, { value: [...aux] });
     setSelections([...aux]);

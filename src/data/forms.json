@@ -62,7 +62,7 @@
                             "subevents": [
                                 {
                                     "item-value": 1195,
-                                    "events":[
+                                    "events": [
                                         {
                                             "target": "id_region_nacimiento",
                                             "payload": {
@@ -72,8 +72,8 @@
                                     ]
                                 },
                                 {
-                                     "item-value": 1196,
-                                    "events":[
+                                    "item-value": 1196,
+                                    "events": [
                                         {
                                             "target": "otra_nacionalidad",
                                             "payload": {
@@ -250,7 +250,7 @@
                             "subevents": [
                                 {
                                     "item-value": 1189,
-                                    "events":[
+                                    "events": [
                                         {
                                             "target": "otra_institucion",
                                             "payload": {
@@ -261,7 +261,7 @@
                                 },
                                 {
                                     "item-value": 1190,
-                                    "events":[
+                                    "events": [
                                         {
                                             "target": "otra_institucion",
                                             "payload": {
@@ -272,7 +272,7 @@
                                 },
                                 {
                                     "item-value": 1191,
-                                    "events":[
+                                    "events": [
                                         {
                                             "target": "id_institucion",
                                             "payload": {
@@ -289,7 +289,7 @@
                                 },
                                 {
                                     "item-value": 1192,
-                                    "events":[
+                                    "events": [
                                         {
                                             "target": "id_institucion",
                                             "payload": {
@@ -306,7 +306,7 @@
                                 },
                                 {
                                     "item-value": 1193,
-                                    "events":[
+                                    "events": [
                                         {
                                             "target": "id_institucion",
                                             "payload": {
@@ -323,7 +323,7 @@
                                 },
                                 {
                                     "item-value": 1194,
-                                    "events":[
+                                    "events": [
                                         {
                                             "target": "id_institucion",
                                             "payload": {
@@ -338,7 +338,6 @@
                                         }
                                     ]
                                 }
-
                             ],
                             "items": "lista-nivel-estudios"
                         },
@@ -352,7 +351,7 @@
                             "subevents": [
                                 {
                                     "item-value": 10001,
-                                    "events":[
+                                    "events": [
                                         {
                                             "target": "otra_institucion",
                                             "payload": {
@@ -382,7 +381,7 @@
                             "subevents": [
                                 {
                                     "item-value": 1310,
-                                    "events":[
+                                    "events": [
                                         {
                                             "target": "otra_profesion",
                                             "payload": {

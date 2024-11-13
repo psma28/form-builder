@@ -35,7 +35,7 @@ export function useRUT(
             await verificateRUT();
           },
         },
-        close: (()=>inputChangeHandler(auxRut.value))
+        close: () => inputChangeHandler(auxRut.value),
       });
       toggleModal();
       return;

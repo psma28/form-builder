@@ -37,7 +37,7 @@ export function getValue(input) {
   return out;
 }
 
-export function turnToRutForm(input){
+export function turnToRutForm(input) {
   let number = input.toString();
 
   if (number.length > 1) {

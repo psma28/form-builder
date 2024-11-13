@@ -12,18 +12,18 @@ export function RUTField() {
   //13.962.983-3
   const { setFieldAccess } = useContext(FieldAccessContext);
   const { setLoading } = useContext(LoadingContext);
-  const { updateComponent, getComponent, cleanForm } = useContext(FormSchemaContext);
+  const { updateComponent, getComponent, cleanForm } =
+    useContext(FormSchemaContext);
   const { setModalContent, toggleModal } = useContext(ModalContext);
-  const { inputChangeHandler, checkRUT, indicator, rutValue } =
-    useRUT(
-      setLoading,
-      setFieldAccess,
-      updateComponent,
-      getComponent,
-      setModalContent,
-      toggleModal,
-      cleanForm
-    );
+  const { inputChangeHandler, checkRUT, indicator, rutValue } = useRUT(
+    setLoading,
+    setFieldAccess,
+    updateComponent,
+    getComponent,
+    setModalContent,
+    toggleModal,
+    cleanForm
+  );
   return (
     <div className="rut-container">
       <div className="rut-field">

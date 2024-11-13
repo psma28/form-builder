@@ -22,24 +22,19 @@ export function CheckboxField({ id }) {
     info,
     extend = false,
   } = getComponent(id);
-  const {
-    handleSelection,
-    clearSelection,
-    list,
-    setList,
-    isChecked,
-  } = useCheckBox(
-    id,
-    value,
-    items,
-    events,
-    subevents,
-    updateComponent,
-    eventHandler,
-    collapseEvents,
-    setLoading
-  );
-  useEffect(() => {    
+  const { handleSelection, clearSelection, list, setList, isChecked } =
+    useCheckBox(
+      id,
+      value,
+      items,
+      events,
+      subevents,
+      updateComponent,
+      eventHandler,
+      collapseEvents,
+      setLoading
+    );
+  useEffect(() => {
     if (!value) clearSelection();
   }, [value]);
 
@@ -64,7 +59,7 @@ export function CheckboxField({ id }) {
         <div
           className={
             "checkbox-options" +
-            (getFieldStatus() === false ? " disabled-checkbox" : "")+
+            (getFieldStatus() === false ? " disabled-checkbox" : "") +
             (highlighted ? " checkbox-flaged" : "")
           }
         >
@@ -83,10 +78,9 @@ export function CheckboxField({ id }) {
                   />
                   <span className="checkbox-checkmark"></span>
                   <span>{item.label}</span>
-                  {
-                    item.info &&
-                    <InfoPopup key={`info${item.id}`} info={item.info}/>
-                  }
+                  {item.info && (
+                    <InfoPopup key={`info${item.id}`} info={item.info} />
+                  )}
                 </label>
               </div>
             );

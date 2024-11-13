@@ -20,7 +20,7 @@ export function useCheckBox(
    * La carga de los items se debe ejecutar si "items" es una cadena
    * lo cual sucede al incluir seeders en el render del form
    */
-  useEffect(() => {    
+  useEffect(() => {
     if (typeof list === "string") {
       functionExecutor(list, "", setLoading).then((res) => {
         setList([...injectEvents(subevents, res)]);
@@ -30,7 +30,7 @@ export function useCheckBox(
 
   /**
    * Los eventos del componente global se ejecutan cada que se realice
-   * un cambio en alguno de sus elementos 
+   * un cambio en alguno de sus elementos
    */
   useEffect(() => {
     let componentEvents = events;
@@ -69,8 +69,6 @@ export function useCheckBox(
   };
 
   const clearSelection = () => {
-    console.log("clearing selection");
-    
     if (selections.length !== 0) setSelections([]);
   };
 
@@ -86,6 +84,6 @@ export function useCheckBox(
     list,
     setList,
     isChecked,
-    selections
+    selections,
   };
 }

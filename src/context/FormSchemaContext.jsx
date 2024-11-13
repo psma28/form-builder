@@ -117,7 +117,7 @@ export function FormSchemaProvider({ children }) {
       setModalContent({
         title: "Postulación completada",
         content: ["Gracias por completar tu postulación."],
-        close: ()=>setFieldAccess(false),
+        close: () => setFieldAccess(false),
       });
       toggleModal();
     } catch (error) {

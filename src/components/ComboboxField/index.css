@@ -17,7 +17,7 @@
   box-sizing: border-box;
 }
 
-.combobox-flaged{
+.combobox-flaged {
   background-color: var(--error-75);
   transition: background-color 500ms;
 }

@@ -19,7 +19,7 @@ export function useRadio(
   useEffect(() => {
     if (typeof list === "string") {
       functionExecutor(list, "", setLoading).then((res) => {
-        setList([...injectEvents(subevents,res)]);
+        setList([...injectEvents(subevents, res)]);
       });
     }
   }, [list]);

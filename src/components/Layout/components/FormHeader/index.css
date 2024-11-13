@@ -5,9 +5,8 @@
   text-align: center;
 }
 
-
 @media (max-width: 800px) {
-  .title-container span{
+  .title-container span {
     font-size: 20px;
   }
 }

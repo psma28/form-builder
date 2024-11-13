@@ -61,7 +61,7 @@ export function FileUploadField({ id }) {
             className={
               "file-uploader font-calibri " +
               (error === null ? "" : " container-error ") +
-              (isDrag === true ? " container-drag " : "")+
+              (isDrag === true ? " container-drag " : "") +
               (highlighted ? " file-flaged" : "")
             }
           >

@@ -20,7 +20,7 @@ export function validatorMapper(validators) {
       case "email":
         return emailValidator;
       case "mayor-edad":
-        return mayorEdadValidator;  
+        return mayorEdadValidator;
       default:
         return;
     }

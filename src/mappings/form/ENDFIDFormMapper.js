@@ -4,7 +4,6 @@ import { turnToRutForm } from "../../utils/RUTFormatter";
 
 export function endfidFD(stagedForm) {
   var formData = new FormData();
-  console.log("form satged", stagedForm);
 
   formData.append(
     "run",
@@ -14,7 +13,6 @@ export function endfidFD(stagedForm) {
   const cargos = stagedForm.find(
     (element) => element.key === "cargo_postulacion"
   ).value;
-  console.log("cargos: ", cargos);
 
   const postula_examinador = cargos.includes("postula_examinador") ? 1 : 0;
   const postula_supervisor = cargos.includes("postula_supervisor") ? 1 : 0;
@@ -144,7 +142,6 @@ export function endfidFD(stagedForm) {
     ).value,
   };
   datosBancarios = JSON.stringify(datosBancarios);
-  console.log("datos bancarios", datosBancarios);
 
   formData.append("datos_bancarios", datosBancarios);
   formData.append("apoyo_discapacidad_visual", 0);

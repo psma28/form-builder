@@ -15,7 +15,7 @@
   width: 65%;
 }
 
-.file-flaged{
+.file-flaged {
   background-color: var(--error-75);
   transition: background-color 500ms;
 }

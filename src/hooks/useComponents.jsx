@@ -26,7 +26,7 @@ export function useComponents() {
 
   const cleanForm = () => {
     setComponents({});
-  }
+  };
 
   return { pushComponent, updateComponent, getComponent, getSchema, cleanForm };
 }

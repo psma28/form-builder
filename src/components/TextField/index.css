@@ -73,15 +73,14 @@
   transition: background-color 500ms;
 }
 
-
 @media (max-width: 1000px) {
-  .text-field-content{
+  .text-field-content {
     flex-direction: column;
   }
-  .text-field-label-content{
+  .text-field-label-content {
     border-radius: 10px 10px 0 0;
   }
-  .text-field-input{
+  .text-field-input {
     padding: 10px;
     border-radius: 0 0 10px 10px;
   }

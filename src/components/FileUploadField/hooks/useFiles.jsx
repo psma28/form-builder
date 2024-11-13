@@ -70,10 +70,11 @@ export function useFiles(
 
   const handleFileValidation = (file) => {
     const fileType = file.type.split("/")[1];
-    const fileTypes = [...allowed]
+    const fileTypes = [...allowed];
     let index = fileTypes.indexOf("docx");
     if (index !== -1) {
-      fileTypes[index] = "vnd.openxmlformats-officedocument.wordprocessingml.document";
+      fileTypes[index] =
+        "vnd.openxmlformats-officedocument.wordprocessingml.document";
     }
     index = fileTypes.indexOf("rar");
     if (index !== -1) {
