@@ -9,6 +9,7 @@ import { useComponents } from "../hooks/useComponents";
 import { ModalContext } from "./ModalContext";
 import { uploadForm } from "../services/api/uploadForm";
 import { formMapper } from "../mappings/form/FormMapper";
+import { FieldAccessContext } from "./FieldAccessContext";
 
 export const FormSchemaContext = createContext();
 
@@ -22,6 +23,7 @@ export function FormSchemaProvider({ children }) {
   const { getEvents, collapseEvents, hasEvent, pushEvent } =
     useEvents(updateComponent);
   const { toggleModal, setModalContent } = useContext(ModalContext);
+  const { setFieldAccess } = useContext(FieldAccessContext);
 
   useEffect(() => {
     if (form) document.title = title;
@@ -115,6 +117,7 @@ export function FormSchemaProvider({ children }) {
       setModalContent({
         title: "Postulación completada",
         content: ["Gracias por completar tu postulación."],
+        close: ()=>setFieldAccess(false),
       });
       toggleModal();
     } catch (error) {

@@ -5,7 +5,7 @@ export function NotFoundPage({ message }) {
     <article className="not-found-background">
       <div className="not-found-content">
         <NoResultsIcon style="not-found-image" />
-        <span className="font-calibri">{message}</span>
+        <span className="text-header">{message}</span>
       </div>
     </article>
   );

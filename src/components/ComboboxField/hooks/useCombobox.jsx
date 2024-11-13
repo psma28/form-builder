@@ -35,7 +35,7 @@ export function useCombobox(
     const incomingEvents = [...events, ...extractEvents(list, value)];
     setSelected(value);
     await eventHandler(fieldId, value, incomingEvents);
-    updateComponent(fieldId, { value: value });
+    updateComponent(fieldId, { value: value, highlighted: false });
   };
   const clearSelection = () => {
     if (selected !== "") setSelected("");

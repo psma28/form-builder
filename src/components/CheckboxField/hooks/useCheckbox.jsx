@@ -64,7 +64,7 @@ export function useCheckBox(
       eventHandler(item.id, item.value, itemEvents);
       aux.push(item.value);
     }
-    updateComponent(fieldId, { value: [...aux] });
+    updateComponent(fieldId, { value: [...aux], highlighted: false });
     setSelections([...aux]);
   };
 
