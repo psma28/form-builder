@@ -83,6 +83,10 @@ export function CheckboxField({ id }) {
                   />
                   <span className="checkbox-checkmark"></span>
                   <span>{item.label}</span>
+                  {
+                    item.info &&
+                    <InfoPopup key={`info${item.id}`} info={item.info}/>
+                  }
                 </label>
               </div>
             );
