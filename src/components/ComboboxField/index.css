@@ -17,6 +17,11 @@
   box-sizing: border-box;
 }
 
+.combobox-flaged{
+  background-color: var(--error-75);
+  transition: background-color 500ms;
+}
+
 .disabled-combobox {
   background-color: var(--secondary-100);
 }

@@ -16,6 +16,7 @@ export function ComboboxField({ id }) {
     value,
     placeholder,
     items,
+    highlighted = false,
     events = [],
     subevents = [],
     visible = true,
@@ -57,7 +58,8 @@ export function ComboboxField({ id }) {
         <select
           className={
             "field-select text-field-label " +
-            (getFieldStatus() === false ? "disabled-combobox" : "")
+            (getFieldStatus() === false ? "disabled-combobox" : "")+
+            (highlighted ? " combobox-flaged" : "")
           }
           name={label}
           id={label}

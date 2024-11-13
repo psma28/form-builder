@@ -13,6 +13,11 @@
   padding: 10px 10px;
 }
 
+.checkbox-flaged{
+  background-color: var(--error-75);
+  transition: background-color 500ms;
+}
+
 .checkbox-options {
   display: flex;
   flex-wrap: wrap;

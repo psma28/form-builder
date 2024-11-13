@@ -16,6 +16,10 @@ export function useCheckBox(
   const [selections, setSelections] = useState(initialValues);
   const [list, setList] = useState(initialItems);
 
+  /**
+   * La carga de los items se debe ejecutar si "items" es una cadena
+   * lo cual sucede al incluir seeders en el render del form
+   */
   useEffect(() => {    
     if (typeof list === "string") {
       functionExecutor(list, "", setLoading).then((res) => {
@@ -24,6 +28,10 @@ export function useCheckBox(
     }
   }, [list]);
 
+  /**
+   * Los eventos del componente global se ejecutan cada que se realice
+   * un cambio en alguno de sus elementos 
+   */
   useEffect(() => {
     let componentEvents = events;
     if (!Array.isArray(events) || selections.length === 0) componentEvents = [];
@@ -31,7 +39,7 @@ export function useCheckBox(
   }, [selections]);
 
   /**
-   * Si los valores se cargan junto con el usuario
+   * Si los valores se cargan al introducir rut
    */
   useEffect(() => {
     if (!arrayEquals(initialValues, selections)) {
@@ -40,6 +48,7 @@ export function useCheckBox(
       initialValues.forEach((value) => {
         handleSelection(value);
       });
+      return;
     }
   }, [initialValues]);
 
@@ -60,6 +69,8 @@ export function useCheckBox(
   };
 
   const clearSelection = () => {
+    console.log("clearing selection");
+    
     if (selections.length !== 0) setSelections([]);
   };
 
@@ -75,5 +86,6 @@ export function useCheckBox(
     list,
     setList,
     isChecked,
+    selections
   };
 }

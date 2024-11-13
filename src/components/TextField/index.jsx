@@ -22,6 +22,11 @@ export function TextField({ id }) {
     ...props
   } = getComponent(id);
   const [content, setContent] = useState(value);
+
+  /**
+   * Activación del campo cuando se le hace stage al form
+   * comunmente cuando está vacío y necesitamos "encenderlo"
+   */
   useEffect(() => {
     if (value !== content) {
       setContent(value);

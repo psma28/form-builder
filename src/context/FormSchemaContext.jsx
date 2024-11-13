@@ -23,12 +23,12 @@ export function FormSchemaProvider({ children }) {
     useEvents(updateComponent);
   const { toggleModal, setModalContent } = useContext(ModalContext);
 
-  useEffect(()=>{
-    if(form) document.title = title;
-  },[])
-  
+  useEffect(() => {
+    if (form) document.title = title;
+  }, []);
+
   if (!form) return <NotFoundPage message="No se encontró el formulario" />;
-  
+
   const eventHandler = async (actorId, value, events) => {
     collapseEvents(actorId);
     if (events.length === 0) return;
@@ -38,8 +38,8 @@ export function FormSchemaProvider({ children }) {
       pushEvent(actorId, targetId, event.payload);
     }
   };
-  
-  const stageForm = (schema)=>{
+
+  const stageForm = (schema) => {
     const missingFields = [];
     const stagedFields = [];
     //Verificar todos los campos del formulario
@@ -57,18 +57,26 @@ export function FormSchemaProvider({ children }) {
           if (props.component === "text") {
             updateComponent(key, { value: " " });
           }
+          if (
+            props.component === "checkbox" ||
+            props.component === "combobox" ||
+            props.component === "file"
+          ) {
+            updateComponent(key, { highlighted: true });
+          }
           continue;
         }
         //stagedFields.append(key, props.value);
+        updateComponent(key, { highlighted: false });
         stagedFields.push({ key, value: props.value });
       }
     }
-    return {missingFields, stagedFields};
-  }
+    return { missingFields, stagedFields };
+  };
 
   const sendForm = async () => {
     const schema = getSchema();
-    const {missingFields, stagedFields} = stageForm(schema);
+    const { missingFields, stagedFields } = stageForm(schema);
     if (missingFields.length > 0) {
       setModalContent({
         title: "Formulario incompleto",
@@ -88,39 +96,38 @@ export function FormSchemaProvider({ children }) {
       ],
       action: {
         label: "Subir postulación",
-        function: ()=>uploadAction(stagedFields),
+        function: () => uploadAction(stagedFields),
       },
     });
     toggleModal();
   };
 
-  const uploadAction = async(stagedFields)=>{
-    setLoading(true)
+  const uploadAction = async (stagedFields) => {
+    setLoading(true);
     const formData = formMapper(stagedFields);
-    formData.append('id_proyecto', form.id_proyecto)
-    console.log(form)
+    formData.append("id_proyecto", form.id_proyecto);
     try {
       const res = await uploadForm(formData);
-      
+
       if (res.success === false) {
         throw new Error(res.message);
       }
       setModalContent({
         title: "Postulación completada",
         content: ["Gracias por completar tu postulación."],
-      }); 
+      });
       toggleModal();
     } catch (error) {
       setModalContent({
         title: "Error",
         content: [error.message],
-      }); 
+      });
       toggleModal();
     } finally {
       setLoading(false);
     }
-  } 
-  
+  };
+
   const parseForm = (element) => {
     const componentName = element.component;
     if (componentName === "blank") return;
@@ -135,15 +142,15 @@ export function FormSchemaProvider({ children }) {
     element = { ...element, value };
     pushComponent(element);
   };
-  
+
   form.schema.forEach((group) => parseForm(group));
-  
+
   return (
     <FormSchemaContext.Provider
-    value={{
-      form,
-      pushComponent,
-      updateComponent,
+      value={{
+        form,
+        pushComponent,
+        updateComponent,
         collapseEvents,
         getComponent,
         eventHandler,
@@ -151,7 +158,7 @@ export function FormSchemaProvider({ children }) {
         hasEvent,
         sendForm,
         cleanForm,
-        title
+        title,
       }}
     >
       {children}

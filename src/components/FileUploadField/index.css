@@ -15,6 +15,11 @@
   width: 65%;
 }
 
+.file-flaged{
+  background-color: var(--error-75);
+  transition: background-color 500ms;
+}
+
 .file-label {
   font-size: 0.85rem;
   box-sizing: border-box;

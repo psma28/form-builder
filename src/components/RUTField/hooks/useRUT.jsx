@@ -23,7 +23,6 @@ export function useRUT(
   };
 
   const checkRUT = () => {
-    console.log("checkeando rut", getComponent("rut"));
     const auxRut = getComponent("rut");
     if (getComponent("rut")) {
       setModalContent({

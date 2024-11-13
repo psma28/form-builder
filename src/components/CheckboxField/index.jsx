@@ -15,31 +15,38 @@ export function CheckboxField({ id }) {
     label,
     value = [],
     items,
+    highlighted = false,
     events = [],
     subevents = [],
     visible = true,
     info,
     extend = false,
   } = getComponent(id);
-  const { handleSelection, clearSelection, list, setList, isChecked } =
-    useCheckBox(
-      id,
-      value,
-      items,
-      events,
-      subevents,
-      updateComponent,
-      eventHandler,
-      collapseEvents,
-      setLoading
-    );
-  useEffect(() => {
+  const {
+    handleSelection,
+    clearSelection,
+    list,
+    setList,
+    isChecked,
+  } = useCheckBox(
+    id,
+    value,
+    items,
+    events,
+    subevents,
+    updateComponent,
+    eventHandler,
+    collapseEvents,
+    setLoading
+  );
+  useEffect(() => {    
     if (!value) clearSelection();
   }, [value]);
 
   useEffect(() => {
     if (setList) setList(items);
   }, [items]);
+
   return (
     visible &&
     Array.isArray(list) &&
@@ -57,7 +64,8 @@ export function CheckboxField({ id }) {
         <div
           className={
             "checkbox-options" +
-            (getFieldStatus() === false ? " disabled-checkbox" : "")
+            (getFieldStatus() === false ? " disabled-checkbox" : "")+
+            (highlighted ? " checkbox-flaged" : "")
           }
         >
           {list.map((item) => {
