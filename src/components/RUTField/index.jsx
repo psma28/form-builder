@@ -30,7 +30,7 @@ export function RUTField() {
         <span className="rut-label text-form-title">RUN</span>
         <SearchIcon action={checkRUT} style="rut-search" />
         <input
-          className="rut-input font-calibri"
+          className="rut-input font-calibri-rut"
           type="text"
           maxLength={12}
           placeholder="xx.xxx.xxx-x"

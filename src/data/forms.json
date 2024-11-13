@@ -448,11 +448,10 @@
                             "label": "Cédula de identidad",
                             "info": "Por ambos lados (Obligatorio)",
                             "allow": [
-                                "doc",
                                 "docx",
                                 "pdf",
                                 "png",
-                                "jpg",
+                                "jpeg",
                                 "zip",
                                 "rar"
                             ],
@@ -465,11 +464,10 @@
                             "label": "Currículum Vitae",
                             "info": "Obligatorio",
                             "allow": [
-                                "doc",
                                 "docx",
                                 "pdf",
                                 "png",
-                                "jpg",
+                                "jpeg",
                                 "zip",
                                 "rar"
                             ],
@@ -482,11 +480,10 @@
                             "label": "Certificado de Título",
                             "info": "Obligatorio",
                             "allow": [
-                                "doc",
                                 "docx",
                                 "pdf",
                                 "png",
-                                "jpg",
+                                "jpeg",
                                 "zip",
                                 "rar"
                             ],

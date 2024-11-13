@@ -39,12 +39,9 @@ export function FormSchemaProvider({ children }) {
     }
   };
   
-  const sendForm = async () => {
-    const schema = getSchema();
+  const stageForm = (schema)=>{
     const missingFields = [];
-    const stagedSchema = [];
-    const monitorForm = []; //MONITORIZAR LA SALIDA EN LOG
-    
+    const stagedFields = [];
     //Verificar todos los campos del formulario
     for (const [key, props] of Object.entries(schema)) {
       if (
@@ -62,11 +59,16 @@ export function FormSchemaProvider({ children }) {
           }
           continue;
         }
-        //stagedSchema.append(key, props.value);
-        stagedSchema.push({ key, value: props.value });
-        monitorForm.push(key + ": " + props.value);
+        //stagedFields.append(key, props.value);
+        stagedFields.push({ key, value: props.value });
       }
     }
+    return {missingFields, stagedFields};
+  }
+
+  const sendForm = async () => {
+    const schema = getSchema();
+    const {missingFields, stagedFields} = stageForm(schema);
     if (missingFields.length > 0) {
       setModalContent({
         title: "Formulario incompleto",
@@ -78,8 +80,7 @@ export function FormSchemaProvider({ children }) {
       toggleModal();
       return;
     }
-    stagedSchema.push({ key: "rut", value: getComponent("rut").value });
-    monitorForm.push("rut: " + getComponent("rut").value);
+    stagedFields.push({ key: "rut", value: getComponent("rut").value });
     setModalContent({
       title: "Enviar Formulario",
       content: [
@@ -87,20 +88,38 @@ export function FormSchemaProvider({ children }) {
       ],
       action: {
         label: "Subir postulación",
-        function: async () => {
-          setLoading(true)
-          const formData = formMapper(stagedSchema);
-          formData.append('id_proyecto', form.id_proyecto)
-          console.log(form)
-          await uploadForm(formData);
-          
-          window.alert("Postulación completada");
-          setLoading(false);
-        },
+        function: ()=>uploadAction(stagedFields),
       },
     });
     toggleModal();
   };
+
+  const uploadAction = async(stagedFields)=>{
+    setLoading(true)
+    const formData = formMapper(stagedFields);
+    formData.append('id_proyecto', form.id_proyecto)
+    console.log(form)
+    try {
+      const res = await uploadForm(formData);
+      
+      if (res.success === false) {
+        throw new Error(res.message);
+      }
+      setModalContent({
+        title: "Postulación completada",
+        content: ["Gracias por completar tu postulación."],
+      }); 
+      toggleModal();
+    } catch (error) {
+      setModalContent({
+        title: "Error al subir formulario",
+        content: ["Inténtalo mas tarde o comunícate con un encargado."],
+      }); 
+      toggleModal();
+    } finally {
+      setLoading(false);
+    }
+  } 
   
   const parseForm = (element) => {
     const componentName = element.component;

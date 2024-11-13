@@ -70,8 +70,21 @@ export function useFiles(
 
   const handleFileValidation = (file) => {
     const fileType = file.type.split("/")[1];
+    const fileTypes = [...allowed]
+    let index = fileTypes.indexOf("docx");
+    if (index !== -1) {
+      fileTypes[index] = "vnd.openxmlformats-officedocument.wordprocessingml.document";
+    }
+    index = fileTypes.indexOf("rar");
+    if (index !== -1) {
+      fileTypes[index] = "x-compressed";
+    }
+    index = fileTypes.indexOf("zip");
+    if (index !== -1) {
+      fileTypes[index] = "x-zip-compressed";
+    }
     const fileSizeMB = file.size / (1024 * 1024);
-    if (!allowed.includes(fileType)) {
+    if (!fileTypes.includes(fileType)) {
       setError(`Formato inválido. Formatos permitidos: ${allowed.join(", ")}`);
       setFile(null);
       return;
