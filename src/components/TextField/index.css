@@ -38,11 +38,17 @@
 }
 
 .text-field-input input {
-  background: transparent;
+  background: transparent !important;
   outline: 0;
   border: 0;
   width: 100%;
   height: 100%;
+}
+
+.text-field-input input:-webkit-autofill,
+.text-field-input input:-webkit-autofill:hover, 
+.text-field-input input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #fafafa inset;
 }
 
 .disabled-input {

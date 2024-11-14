@@ -47,13 +47,26 @@ export function FileUploadField({ id }) {
         }
       >
         {file ? (
-          <div className="file-status font-calibri" title="Eliminar archivo">
+          <div
+            className={
+              "file-status font-calibri" +
+              (getFieldStatus() === false ? " file-disabled" : " active")
+            }
+          >
             <div className="file-info">
               <span>{getFileIcon(file.type)}</span>
               <span>{getFileName(file.name)}</span>
             </div>
-            <div className="file-remove" onClick={removeFile}>
-              <TrashIcon className="file-remove-icon" />
+            <div
+              className="file-remove"
+              onClick={() => {
+                if (getFieldStatus() === true) removeFile();
+              }}
+            >
+              <TrashIcon
+                className="file-remove-icon"
+                title="Eliminar archivo"
+              />
             </div>
           </div>
         ) : (
