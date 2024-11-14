@@ -9,10 +9,9 @@ import { FormSchemaContext } from "../../context/FormSchemaContext";
 import { ModalContext } from "../../context/ModalContext";
 
 export function RUTField() {
-  //13.962.983-3
   const { setFieldAccess } = useContext(FieldAccessContext);
   const { setLoading } = useContext(LoadingContext);
-  const { updateComponent, getComponent, cleanForm } =
+  const { updateComponent, getComponent, cleanForm, form } =
     useContext(FormSchemaContext);
   const { setModalContent, toggleModal } = useContext(ModalContext);
   const { inputChangeHandler, checkRUT, indicator, rutValue } = useRUT(
@@ -22,7 +21,8 @@ export function RUTField() {
     getComponent,
     setModalContent,
     toggleModal,
-    cleanForm
+    cleanForm,
+    form.id_proyecto
   );
   return (
     <div className="rut-container">

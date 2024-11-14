@@ -10,7 +10,8 @@ export function useRUT(
   getComponent,
   setModalContent,
   toggleModal,
-  cleanForm
+  cleanForm,
+  projectId
 ) {
   const [rutValue, setRutValue] = useState("");
   const [indicator, setIndicator] = useState(RUTIndicators.waiting);
@@ -50,11 +51,11 @@ export function useRUT(
       return;
     }
     setLoading(true);
-    const data = await RUTVerification(turnToRutForm(rutValue));
+    const data = await RUTVerification(turnToRutForm(rutValue), projectId);
     const entries = data.data ?? {};
     if (entries.modificado == true){
       setModalContent({
-        title: "Verificar Run",
+        title: "Verificación RUN",
         content: [
           "Nuestro sistema ya cuenta con una postulación asociada al RUN ingresado. ",
         ],
