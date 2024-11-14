@@ -52,6 +52,17 @@ export function useRUT(
     setLoading(true);
     const data = await RUTVerification(turnToRutForm(rutValue));
     const entries = data.data ?? {};
+    if (entries.modificado == true){
+      setModalContent({
+        title: "Verificar Run",
+        content: [
+          "Nuestro sistema ya cuenta con una postulación asociada al RUN ingresado. ",
+        ],
+      });
+      toggleModal();
+      setLoading(false);
+      return;
+    }
     setModalContent({
       title: "Aviso importante",
       content: [
