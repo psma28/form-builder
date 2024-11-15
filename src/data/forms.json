@@ -414,14 +414,22 @@
                             "id": "id_banco",
                             "label": "Banco",
                             "placeholder": "Seleccione un Banco",
-                            "items": "get-bancos"
+                            "items": "get-bancos",
+                            "events": [{
+                                "target": "id_banco_tipo_cuenta",
+                                "payload": {
+                                    "visible": true,
+                                    "seeder": "get-tipos-cuenta"
+                                }
+
+                            }]
                         },
                         {
                             "component": "combobox",
                             "id": "id_banco_tipo_cuenta",
                             "label": "Tipo de Cuenta",
                             "placeholder": "Seleccione un tipo de cuenta",
-                            "items": "get-tipos-cuenta"
+                            "items": []
                         },
                         {
                             "component": "text",

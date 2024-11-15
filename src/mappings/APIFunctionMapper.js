@@ -41,7 +41,7 @@ const APIFunctionsMap = {
   "get-profesiones": { function: getProfesiones, args: 0 },
   "get-comunas": { function: getComunas, args: 1 },
   "get-bancos": { function: getBancos, args: 0 },
-  "get-tipos-cuenta": { function: getTiposCuenta, args: 0 },
+  "get-tipos-cuenta": { function: getTiposCuenta, args: 1 },
   "get-instituciones": { function: getInstituciones, args: 0 },
   "lista-nacionalidades": { function: getNacionalidades, args: 0 },
   "lista-nivel-estudios": { function: getNivelEstudios, args: 0 },
