@@ -46,15 +46,17 @@ export function FormSchemaProvider({ children }) {
     const stagedFields = [];
     //Verificar todos los campos del formulario
     for (const [key, props] of Object.entries(schema)) {
+      //Verifies every field that has items and is visible
       if (
         props.component &&
         props.visible !== false &&
-        props.required !== false &&
         (props.items === undefined || (props.items && props.items.length > 0))
       ) {
-        //Verifies every field that has items and is visible
-        if (props.value === "" || props.value.length === 0) {
-          //Field must be completed
+        //Field must be completed (if required)
+        if (
+          (props.value === "" && props.required === true) ||
+          props.value.length === 0
+        ) {
           missingFields.push("-" + props.label);
           if (props.component === "text") {
             updateComponent(key, { value: " " });
