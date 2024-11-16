@@ -1,18 +1,26 @@
 :root {
-  --primary-100: #133b85;
-  --primary-75: #2c29cf41;
+  --primary-100: #5672FF;
+  --primary-75: #5672ff55;
   --secondary-100: #495057;
   --secondary-80: #81888f;
   --secondary-75: #f2f4ff;
   --white: #fafafa;
-  --black: #121212;
+  --black: #000;
   --black-75: #121212b0;
   --tertiary-100: #f7ca90;
   --tertiary-75: #fce6c9;
+  --accent-100: #D8FF56;
+  --accent-75: #d1f755a2;
   --error-100: #c71919;
   --error-75: #da54549c;
   --success-75: #0c771bc5;
   --success-100: #067a16;
+  --text-normal: #111;
+  --form-structure-title-bg: #123;
+  --disabled-field: #DCE2FF;
+  --disabled-selector: #d3daff;
+  --field-label-bg: #f2f4ff;
+  --structure-bg: #fff;
   box-sizing: border-box;
 }
 
@@ -34,13 +42,17 @@ html {
   overflow-x: hidden;
 }
 
+.font-encode {
+  font-family: "Encode Sans", sans-serif;
+}
+
 .font-calibri {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 0.9rem;
 }
 
 .font-calibri-rut {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 20px;
 }
 
@@ -53,19 +65,19 @@ html {
 
 .text-help {
   font-size: 1.2rem;
-  font-family: "Open Sans", sans-serif;
-  color: var(--secondary-100);
+  font-family: "Roboto", sans-serif;
+  color: var(--text-normal);
 }
 
 .text-field-label {
   font-size: 0.85rem;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
   color: var(--black);
 }
 
 .text-field-label-white {
   font-size: 1.1rem;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
   color: var(--white);
 }
 

@@ -25,29 +25,33 @@ export function RUTField() {
     form.id_proyecto
   );
   return (
-    <div className="rut-container">
+    <div className="rut-card">
       <div className="rut-field">
-        <span className="rut-label text-form-title">RUN</span>
-        <SearchIcon action={checkRUT} style="rut-search" />
-        <input
-          className="rut-input font-calibri-rut"
-          type="text"
-          maxLength={12}
-          placeholder="xx.xxx.xxx-x"
-          value={RUTFormatter(rutValue)}
-          onKeyDown={(e) => {
-            if (e.key === "Enter") {
-              checkRUT();
-            }
-          }}
-          onChange={(e) => inputChangeHandler(e.target.value)}
-        />
+        <div className="rut-label">
+          <span className="text-field-label">RUN</span>
+        </div>
+        <div className="rut-input">
+          <input
+            className=" font-calibri-rut"
+            type="text"
+            maxLength={12}
+            placeholder="xx.xxx.xxx-x"
+            value={RUTFormatter(rutValue)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                checkRUT();
+              }
+            }}
+            onChange={(e) => inputChangeHandler(e.target.value)}
+          />
+          <SearchIcon action={checkRUT} style="rut-search" />
+        </div>
       </div>
       <div className="rut-indicator">
         <span className={"font-calibri " + indicator.color}>
           {indicator.message}
         </span>
-      </div>
+      </div>      
     </div>
   );
 }

@@ -23,9 +23,10 @@
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  background-color: var(--tertiary-75);
+  background-color: var(--accent-100);
+  color: var(--primary-100);
   padding: 10px 20px;
   z-index: 100;
-  border-radius: 40px;
-  box-shadow: 0px 0px 5px var(--black);
+  border-radius: 10px;
+  box-shadow: 0px 0px 2px var(--black);
 }

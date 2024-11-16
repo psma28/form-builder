@@ -1,12 +1,27 @@
 .title-container {
   background-color: var(--primary-100);
   color: var(--white);
-  padding: 23px 30px;
+  /* padding: 23px 30px; */
   text-align: center;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  gap: 5%;
+}
+.title-image {
+  margin: -3px 0 0 0;
+  height: 80px;
+}
+.title-image img {
+  width: 200px;
 }
 
 @media (max-width: 800px) {
   .title-container span {
     font-size: 20px;
   }
+  .title-image img {
+    width: 120px;
+  }
 }
+

@@ -10,14 +10,16 @@ export const SumbmitButton = () => {
   const visible = getFieldStatus();
   return (
     visible && (
-      <button
-        className="submit-bubble"
-        title="Subir formulario"
-        onClick={() => sendForm()}
-      >
-        {/*<SubmitIcon style="submit-icon" />*/}
-        <h4>Postular</h4>
-      </button>
+      <div className="submit-section">
+        <button
+          className="submit-button font-encode"
+          title="Subir formulario"
+          onClick={() => sendForm()}
+        >
+          <SubmitIcon />
+          <span>Enviar Postulación</span>
+        </button>
+      </div>
     )
   );
 };

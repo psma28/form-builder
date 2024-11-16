@@ -1,26 +1,59 @@
-.rut-container {
+.rut-card{
+  box-shadow: 0px 0px 30px #1857b42f;
   display: flex;
+  background-color: var(--white);
+  padding: 20px 35px;
+  gap:5px;
   flex-direction: column;
+  border-radius: 10px;
   align-items: center;
+  box-sizing: border-box;
   width: 40%;
-  margin: auto;
-  margin-bottom: 20px;
+  margin: 0 auto 30px auto;
 }
-
-.rut-field {
+.rut-field{
   display: flex;
+  box-sizing: border-box;
   position: relative;
   width: 100%;
 }
 
 .rut-label {
+  display: flex;
+  background-color: var(--field-label-bg);
+  align-items: center;
+  border-radius: 10px 0 0 10px;
+  padding: 10px 10px;
+  gap: 5px;
+  min-width: 180px;
+  box-sizing: border-box;
+}
+
+.rut-input {
+  border-bottom: 1px solid var(--primary-100);
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.rut-input span {
   position: absolute;
-  user-select: none;
+  left: 10px;
   top: 50%;
-  left: 20%;
-  font-size: 20px;
   transform: translateY(-50%);
 }
+
+.rut-input input {
+  box-sizing: border-box;
+  background: transparent !important;
+  outline: 0;
+  border: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  padding: 0 10px;
+}
+
 
 .rut-search {
   position: absolute;
@@ -29,7 +62,7 @@
   display: flex;
   object-fit: cover;
   top: 50%;
-  right: 20%;
+  right: 10%;
   transform: translateY(-50%);
   fill: var(--primary-100);
   cursor: pointer;
@@ -40,33 +73,11 @@
   scale: 1.1;
 }
 
-.rut-field:focus-within .rut-search {
-  fill: var(--white);
-}
 
-.rut-field:focus-within .rut-label {
-  color: var(--white);
-}
-
-.rut-input {
-  width: 100%;
-  height: 30px;
-  border: 1px solid var(--secondary-100);
-  border-radius: 10px;
-  padding: 5px 20px;
-  transition: 200ms;
-  font-size: 20px;
-  text-align: center;
-
-  outline: 0;
-  background: transparent;
-}
-
-.rut-input:focus {
-  border: 1px solid var(--primary-100);
-  background-color: var(--primary-100);
-  color: var(--white);
-}
+.rut-input input:focus {
+  box-shadow: inset 0 0 0 3px rgba(0, 123, 255, 0.4);
+  transition: box-shadow ease-in-out 150ms;
+} 
 
 .rut-indicator {
   user-select: none;
@@ -84,14 +95,11 @@
   color: var(--primary-100);
 }
 
-@media (max-width: 800px) {
-  .rut-container {
+@media (max-width: 1000px) {
+  .rut-card {
     width: 100%;
   }
-  .rut-label {
-    left: 10%;
-  }
-  .rut-search {
-    right: 10%;
+  .rut-label{
+    min-width: 20%;
   }
 }

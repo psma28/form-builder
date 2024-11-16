@@ -12,7 +12,7 @@
 
 .text-field-label-content {
   display: flex;
-  background-color: var(--secondary-75);
+  background-color: var(--field-label-bg);
   align-items: center;
   border-radius: 10px 0 0 10px;
   padding: 10px 10px;
@@ -22,7 +22,6 @@
 }
 
 .text-field-input {
-  border-radius: 0 10px 10px 0;
   border-bottom: 1px solid var(--primary-100);
   padding: 0 10px;
   width: 100%;
@@ -43,20 +42,22 @@
   border: 0;
   width: 100%;
   height: 100%;
+  font-size: 14px;
 }
 
 .text-field-input input:-webkit-autofill,
 .text-field-input input:-webkit-autofill:hover, 
 .text-field-input input:-webkit-autofill:focus {
-  -webkit-box-shadow: 0 0 0px 1000px #fafafa inset;
+  -webkit-box-shadow: 0 0 0px 1000px var(--disabled-field) inset;
 }
 
 .disabled-input {
-  background-color: var(--secondary-80);
+  background-color: var(--disabled-field);
 }
 
 .text-field-input:focus-within {
-  background-color: var(--primary-75);
+  box-shadow: inset 0 0 0 3px rgba(0, 123, 255, 0.4);
+  transition: box-shadow ease-in-out 150ms;
 }
 
 .telephone-input {
@@ -76,7 +77,7 @@
 
 .text-field-error {
   background-color: var(--error-75);
-  transition: background-color 500ms;
+  transition: background-color 200ms;
 }
 
 @media (max-width: 1000px) {

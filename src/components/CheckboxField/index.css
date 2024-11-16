@@ -15,19 +15,18 @@
 
 .checkbox-flaged {
   background-color: var(--error-75);
-  transition: background-color 500ms;
+  transition: background-color 200ms;
 }
 
 .checkbox-options {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  border-radius: 0 0 10px 10px;
   border-bottom: 1px solid var(--primary-100);
 }
 
 .disabled-checkbox {
-  background-color: var(--secondary-80);
+  background-color: var(--disabled-field);
 }
 
 .checkbox-item {
@@ -70,7 +69,7 @@
   background-color: var(--white);
 }
 
-.checkbox-item:hover input:enabled:not(:checked) ~ .checkbox-checkmark {
+.checkbox-item label:hover input:enabled:not(:checked) ~ .checkbox-checkmark {
   background-color: var(--primary-75);
 }
 

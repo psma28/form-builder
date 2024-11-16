@@ -18,7 +18,7 @@ export function InfoPopup({ info }) {
         <span>i</span>
         {hovered && (
           <div className="field-info">
-            <span className="text-field-label">{info}</span>
+            <span className="font-calibri">{info}</span>
           </div>
         )}
       </div>

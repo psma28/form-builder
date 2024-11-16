@@ -85,6 +85,7 @@ export function TextField({ id }) {
               type={{ ...props }.type}
               disabled={!getFieldStatus()}
               value={content}
+              className="font-calibri"
               maxLength={{ ...props }.type === "tel" ? "8" : "50"}
               onChange={(e) => {
                 setContent(e.target.value);

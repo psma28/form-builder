@@ -1,23 +1,38 @@
-.submit-bubble {
-  position: fixed;
-  width: 75px;
-  height: 75px;
-  bottom: 10px;
-  right: 10px;
+.submit-section{
+  position: sticky;
+  display: flex;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--primary-75);
+  height: 65px;
+  align-items: center;
+  padding: 0 20px;
+  justify-content: end;
+  box-sizing: border-box;
+}
+
+.submit-button {
+  padding: 0.35% 1% 0.5% 1%;
+  border-radius: 4px;
+  gap:5px;
   fill: var(--primary-100);
-  border: 1px solid var(--success-100);
-  background-color: var(--white);
-  border-radius: 100%;
-  padding: 5px;
+  border: none;
+  background-color: var(--accent-75);
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--primary-100);
   cursor: pointer;
   transition: 150ms;
+  font-weight: 500;
+  font-size: 16px;
 }
 
-.submit-bubble:hover {
-  border: 1px solid var(--success-100);
-  color: var(--white);
-  background-color: var(--success-100);
+.submit-button svg{
+  width: 25px;
+  height: 25px;
+}
+
+.submit-button:hover {
+  background-color: var(--accent-100);
 }

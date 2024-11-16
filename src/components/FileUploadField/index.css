@@ -6,7 +6,7 @@
 }
 
 .file-disabled {
-  background-color: var(--secondary-80);
+  background-color: var(--disabled-field);
 }
 
 .file-handler {
@@ -17,7 +17,7 @@
 
 .file-flaged {
   background-color: var(--error-75);
-  transition: background-color 500ms;
+  transition: background-color 200ms;
 }
 
 .file-label {
@@ -25,7 +25,7 @@
   box-sizing: border-box;
   width: 180px;
   border-radius: 10px 0 0 10px;
-  background-color: var(--secondary-75);
+  background-color: var(--field-label-bg);
   height: 100%;
   gap: 5px;
   display: flex;
@@ -43,7 +43,7 @@
 }
 
 .container-drag {
-  background-color: var(--tertiary-75);
+  background-color: var(--accent-75);
 }
 
 .container-error {

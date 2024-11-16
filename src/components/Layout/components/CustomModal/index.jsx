@@ -11,7 +11,7 @@ export function CustomModal() {
       <div className="modal-background">
         <div className="modal-container">
           <div className="modal-title">
-            <span className="text-header">{modalContent?.title}</span>
+            <span className="font-calibri">{modalContent?.title}</span>
             <div className="modal-close" onClick={() => toggleModal()}>
               <CloseIcon style={"modal-close-icon"} />
             </div>

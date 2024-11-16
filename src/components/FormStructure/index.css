@@ -2,12 +2,12 @@
   display: flex;
   flex-direction: column;
   border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  box-shadow: 0px 0px 30px #1857b42f;
   margin: 0 0 50px 0;
 }
 
 .form-title {
-  background-color: var(--secondary-75);
+  background-color: var(--field-label-bg);
   border-bottom: 1px solid var(--primary-100);
   padding: 15px 20px;
   display: flex;
