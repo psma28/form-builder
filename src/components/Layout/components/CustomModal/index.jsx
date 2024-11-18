@@ -11,7 +11,7 @@ export function CustomModal() {
       <div className="modal-background">
         <div className="modal-container">
           <div className="modal-title">
-            <span className="font-calibri">{modalContent?.title}</span>
+            <span className="font-roboto">{modalContent?.title}</span>
             <div className="modal-close" onClick={() => toggleModal()}>
               <CloseIcon style={"modal-close-icon"} />
             </div>
@@ -19,7 +19,7 @@ export function CustomModal() {
           <div className="modal-content">
             {modalContent?.content.map((paragraph, index) => {
               return (
-                <p key={index} className="font-calibri">
+                <p key={index} className="font-roboto">
                   {paragraph}
                 </p>
               );
@@ -28,7 +28,7 @@ export function CustomModal() {
           <div className="modal-actions">
             {modalContent?.action && modalContent.action.function && (
               <button
-                className="modal-action-button font-calibri"
+                className="modal-action-button font-roboto"
                 onClick={() => {
                   modalContent.action.function();
                   toggleModal();
@@ -38,7 +38,7 @@ export function CustomModal() {
               </button>
             )}
             <button
-              className="modal-close-button font-calibri"
+              className="modal-close-button font-roboto"
               onClick={() => {
                 if (modalContent?.close) {
                   modalContent.close();

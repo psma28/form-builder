@@ -7,6 +7,7 @@ import { FormHelpText } from "./components/FormHelpText";
 import { FormSchemaContext } from "../../context/FormSchemaContext";
 import { SumbmitButton } from "./components/SubmitButton";
 import { CustomModal } from "./components/CustomModal";
+import { IndicationBlock } from "./components/IndicationBlock";
 
 export function Layout({ children }) {
   const { isLoading } = useContext(LoadingContext);
@@ -18,6 +19,7 @@ export function Layout({ children }) {
       <FormHeader title={title} />
       <div className="container-fluid">
         <FormHelpText text={form.intro} />
+        <IndicationBlock text={form.indication} />
         {children}
       </div>
       <SumbmitButton />

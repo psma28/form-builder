@@ -5,6 +5,7 @@
             "id_proyecto": "27",
             "title": "Postulación ENDFID 2024",
             "intro": "Completa el siguiente formulario para postular.",
+            "indication": "Debes completar $toda la información requerida$ antes de enviar tu postulación.",
             "schema": [
                 {
                     "component": "form-structure",

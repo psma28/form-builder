@@ -37,7 +37,7 @@ export function FileUploadField({ id }) {
 
   return (
     <div className="file-container">
-      <div className="file-label font-calibri">
+      <div className="file-label font-roboto">
         <span>{label}</span>
         {info && <InfoPopup info={info} />}
       </div>
@@ -49,7 +49,7 @@ export function FileUploadField({ id }) {
         {file ? (
           <div
             className={
-              "file-status font-calibri" +
+              "file-status font-roboto" +
               (getFieldStatus() === false ? " file-disabled" : " active")
             }
           >
@@ -72,7 +72,7 @@ export function FileUploadField({ id }) {
         ) : (
           <div
             className={
-              "file-uploader font-calibri " +
+              "file-uploader font-roboto " +
               (error === null ? "" : " container-error ") +
               (isDrag === true ? " container-drag " : "") +
               (highlighted ? " file-flaged" : "")

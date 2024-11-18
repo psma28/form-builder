@@ -140,7 +140,7 @@ export function CheckAndFillField({ id }) {
                     />
                   </div>
                   {errors.length > 0 && (
-                    <div className="caf-textfield-messages font-calibri">
+                    <div className="caf-textfield-messages font-roboto">
                       <ul className="caf-error-element">
                         {errors.map((error) => {
                           return <li key={error}>{error}</li>;

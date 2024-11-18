@@ -85,7 +85,7 @@ export function TextField({ id }) {
               type={{ ...props }.type}
               disabled={!getFieldStatus()}
               value={content}
-              className="font-calibri"
+              className="font-roboto"
               maxLength={{ ...props }.type === "tel" ? "8" : "50"}
               onChange={(e) => {
                 setContent(e.target.value);
@@ -94,7 +94,7 @@ export function TextField({ id }) {
             />
           </div>
         </div>
-        <div className="text-field-messages font-calibri">
+        <div className="text-field-messages font-roboto">
           <ul>
             {errors &&
               errors.map((error) => {

@@ -32,7 +32,7 @@ export function RUTField() {
         </div>
         <div className="rut-input">
           <input
-            className=" font-calibri-rut"
+            className=" font-roboto-rut"
             type="text"
             maxLength={12}
             placeholder="xx.xxx.xxx-x"
@@ -48,7 +48,7 @@ export function RUTField() {
         </div>
       </div>
       <div className="rut-indicator">
-        <span className={"font-calibri " + indicator.color}>
+        <span className={"font-roboto " + indicator.color}>
           {indicator.message}
         </span>
       </div>      
