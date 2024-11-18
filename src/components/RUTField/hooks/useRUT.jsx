@@ -32,6 +32,7 @@ export function useRUT(
         action: {
           label: "Aceptar",
           function: async () => {
+            fieldHandler(false);
             cleanForm();
             await verificateRUT();
           },
