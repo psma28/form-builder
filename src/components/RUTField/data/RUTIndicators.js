@@ -14,6 +14,11 @@ export const RUTIndicators = {
   found: {
     message:
       "RUN usado previamente. Verifique sus datos y complete la solicitud.",
-    color: "rut-verified",
+    color: "rut-found",
+  },
+  already: {
+    message:
+      "Este RUN ya fue utilizado para subir una postulación.",
+    color: "rut-already",
   },
 };

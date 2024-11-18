@@ -91,6 +91,10 @@
   color: green;
 }
 
+.rut-already {
+  color: var(--tertiary-100);
+}
+
 .rut-found {
   color: var(--primary-100);
 }

@@ -61,6 +61,8 @@ export function useRUT(
         ],
       });
       toggleModal();
+      fieldHandler(false);
+      handleIndicator(RUTIndicators.already);
       setLoading(false);
       return;
     }
