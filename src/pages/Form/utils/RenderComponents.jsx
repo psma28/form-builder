@@ -6,6 +6,7 @@ import { ComboboxField } from "../../../components/ComboboxField";
 import { CheckboxField } from "../../../components/CheckboxField";
 import { CheckAndFillField } from "../../../components/CheckAndFill";
 import { FileUploadField } from "../../../components/FileUploadField";
+import { AlertText } from "../../../components/AlertText";
 
 /**
  * Function that receives a list of JSON objects that
@@ -29,6 +30,8 @@ export function RenderComponents(schema) {
         return <CheckAndFillField id={element.id} key={element.id} />;
       case "file":
         return <FileUploadField id={element.id} key={element.id} />;
+      case "alert":
+        return <AlertText id={element.id} key={element.id} />;
       case "form-structure":
         return (
           <FormStructure

@@ -450,6 +450,11 @@
                     "indication": "( Formatos soportados: doc, docx, pdf, png, jpg, zip o rar ) ( Tamaño máximo por archivo es de 7Mb )",
                     "content": [
                         {
+                            "component": "alert",
+                            "id": "alerta-alimento",
+                            "text": "Recuerde leer con detalle lo que se solicita y subir sus documentos completos.\nEl/la postulante que figure en el Registro Nacional de Deudores de Pensión de Alimentos, según Ley 21.389 y sus modificaciones, como condición para su contratación en organismos públicos, deberá firmar una Declaración Jurada Simple que autoriza la retención del valor informado por el Tribunal de Familia para el pago de pensión alimenticia. De lo contrario deberá desistir de su participación en este proyecto."
+                        },
+                        {
                             "component": "file",
                             "id": "CARNET_IDENTIDAD",
                             "required": true,

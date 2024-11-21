@@ -1,0 +1,10 @@
+.alert-text-container{
+    padding: 0 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.alert-text-container span{
+    display: block;
+    color: var(--warning)
+}
