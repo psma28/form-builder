@@ -48,7 +48,7 @@ export function FormSchemaProvider({ children }) {
     for (const [key, props] of Object.entries(schema)) {
       //Verifies every field that has items and is visible
       if (
-        props.component &&
+        props.component && props.component !== "alert" &&
         props.visible !== false &&
         (props.items === undefined || (props.items && props.items.length > 0))
       ) {
