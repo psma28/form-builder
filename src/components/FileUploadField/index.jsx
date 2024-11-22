@@ -17,7 +17,7 @@ export function FileUploadField({ id }) {
     highlighted = false,
     // visible = true,
     // events = [],
-    // extend = false,
+    extend = false,
     info,
   } = getComponent(id);
   const {
@@ -36,7 +36,7 @@ export function FileUploadField({ id }) {
   } = useFiles(id, allow, maxsize, getFieldStatus, updateComponent);
 
   return (
-    <div className="file-container">
+    <div className={"file-container " + (extend === true ? " full-field" : " half-field")}>
       <div className="file-label font-roboto">
         <span>{label}</span>
         {info && <InfoPopup info={info} />}

@@ -458,7 +458,7 @@
                             "component": "file",
                             "id": "CARNET_IDENTIDAD",
                             "required": true,
-                            "label": "Cédula de identidad",
+                            "label": "Cédula de identidad (Vigente y por ambos lados)",
                             "info": "Por ambos lados (Obligatorio)",
                             "allow": [
                                 "docx",
@@ -468,13 +468,14 @@
                                 "zip",
                                 "rar"
                             ],
-                            "maxsize": 7
+                            "maxsize": 7,
+                            "extend": true
                         },
                         {
                             "component": "file",
                             "id": "CV",
                             "required": true,
-                            "label": "Currículum Vitae",
+                            "label": "Currículum Vitae (Actualizado)",
                             "info": "Obligatorio",
                             "allow": [
                                 "docx",
@@ -484,13 +485,14 @@
                                 "zip",
                                 "rar"
                             ],
-                            "maxsize": 7
+                            "maxsize": 7,
+                            "extend": true
                         },
                         {
                             "component": "file",
                             "id": "CERTIFICADO_TITULO",
                             "required": true,
-                            "label": "Certificado de Título",
+                            "label": "Certificado de Título y/o estudios",
                             "info": "Obligatorio",
                             "allow": [
                                 "docx",
@@ -500,7 +502,8 @@
                                 "zip",
                                 "rar"
                             ],
-                            "maxsize": 7
+                            "maxsize": 7,
+                            "extend": true
                         }
                     ]
                 }

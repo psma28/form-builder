@@ -21,9 +21,10 @@
 }
 
 .file-label {
+  flex: 1;
   font-size: 0.85rem;
   box-sizing: border-box;
-  width: 180px;
+  min-width: 180px;
   border-radius: 10px 0 0 10px;
   background-color: var(--field-label-bg);
   height: 100%;
@@ -31,6 +32,7 @@
   display: flex;
   align-items: center;
   padding: 10px 10px;
+  justify-content: space-between;
 }
 
 .file-drag-space {
@@ -111,4 +113,20 @@
 .file-uploader p {
   font-size: 0.9rem;
   margin: 0;
+}
+
+@media (max-width: 1000px) {
+  .text-field-content {
+    flex-direction: column;
+  }
+  .text-field-label-content {
+    border-radius: 10px 10px 0 0;
+  }
+  .text-field-input {
+    padding: 10px;
+    border-radius: 0 0 10px 10px;
+  }
+  .telephone-input{
+    padding-left: 50px;
+  }
 }
