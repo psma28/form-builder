@@ -48,14 +48,15 @@ export function FormSchemaProvider({ children }) {
     for (const [key, props] of Object.entries(schema)) {
       //Verifies every field that has items and is visible
       if (
-        props.component && props.component !== "alert" &&
+        props.component &&
+        props.component !== "alert" &&
         props.visible !== false &&
         (props.items === undefined || (props.items && props.items.length > 0))
       ) {
         //Field must be completed (if required)
         if (
           (props.value === "" && props.required === true) ||
-          props.value.length === 0
+          (Array.isArray(props.value) && props.value.length === 0)
         ) {
           missingFields.push("-" + props.label);
           if (props.component === "text") {
