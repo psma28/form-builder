@@ -37,7 +37,7 @@ export function FileUploadField({ id }) {
 
   return (
     <div className={"file-container " + (extend === true ? " full-field" : " half-field")}>
-      <div className="file-label font-roboto">
+      <div className="file-label text-field-label">
         <span>{label}</span>
         {info && <InfoPopup info={info} />}
       </div>
