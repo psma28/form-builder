@@ -52,10 +52,10 @@ export function FormSchemaProvider({ children }) {
         props.component !== "alert" &&
         props.visible !== false &&
         (props.items === undefined || (props.items && props.items.length > 0))
-      ) {
+      ) {        
         //Field must be completed (if required)
         if (
-          (props.value === "" && props.required === true) ||
+          (props.value === "" && props.required !== false) ||
           (Array.isArray(props.value) && props.value.length === 0)
         ) {
           missingFields.push("-" + props.label);
