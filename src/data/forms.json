@@ -504,6 +504,23 @@
                             ],
                             "maxsize": 7,
                             "extend": true
+                        },
+                        {
+                            "component": "file",
+                            "id": "CERTIFICADO_ANTECEDENTES",
+                            "required": true,
+                            "label": "Certificado de antecedentes",
+                            "info": "Obligatorio",
+                            "allow": [
+                                "docx",
+                                "pdf",
+                                "png",
+                                "jpeg",
+                                "zip",
+                                "rar"
+                            ],
+                            "maxsize": 7,
+                            "extend": true
                         }
                     ]
                 }
