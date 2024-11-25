@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { FieldAccessContext } from "../../context/FieldAccessContext";
 import { FormSchemaContext } from "../../context/FormSchemaContext";
 import { InfoPopup } from "../InfoPin";
+import { handleLinkOnLabel } from "../../utils/linkOnLabel";
 
 export function FileUploadField({ id }) {
   const { getFieldStatus } = useContext(FieldAccessContext);
@@ -36,9 +37,21 @@ export function FileUploadField({ id }) {
   } = useFiles(id, allow, maxsize, getFieldStatus, updateComponent);
 
   return (
-    <div className={"file-container " + (extend === true ? " full-field" : " half-field")}>
+    <div
+      className={
+        "file-container " + (extend === true ? " full-field" : " half-field")
+      }
+    >
       <div className="file-label text-field-label">
-        <span>{label}</span>
+        <span>
+          {label?.split("/a").map((part, index) =>
+            index % 2 !== 0 ? (
+              handleLinkOnLabel(part, index)
+            ) : (
+              part
+            )
+          )}
+        </span>
         {info && <InfoPopup info={info} />}
       </div>
       <div
@@ -95,3 +108,4 @@ export function FileUploadField({ id }) {
     </div>
   );
 }
+

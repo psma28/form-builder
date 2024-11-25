@@ -459,7 +459,6 @@
                             "id": "CARNET_IDENTIDAD",
                             "required": true,
                             "label": "Cédula de identidad (Vigente y por ambos lados)",
-                            "info": "Por ambos lados (Obligatorio)",
                             "allow": [
                                 "docx",
                                 "pdf",
@@ -476,7 +475,6 @@
                             "id": "CV",
                             "required": true,
                             "label": "Currículum Vitae (Actualizado)",
-                            "info": "Obligatorio",
                             "allow": [
                                 "docx",
                                 "pdf",
@@ -493,7 +491,6 @@
                             "id": "CERTIFICADO_TITULO",
                             "required": true,
                             "label": "Certificado de Título y/o estudios",
-                            "info": "Obligatorio",
                             "allow": [
                                 "docx",
                                 "pdf",
@@ -509,8 +506,8 @@
                             "component": "file",
                             "id": "CERTIFICADO_ANTECEDENTES",
                             "required": true,
-                            "label": "Certificado de antecedentes",
-                            "info": "Obligatorio",
+                            "label": "Certificado de antecedentes (/aDescargue aquí/lhttps://www.registrocivil.cl/principal/servicios-en-linea/a)",
+                            "info": "Para descargar, haz clic en el enlace y selecciona la opción \"Certificado Antecedentes Fines Particulares\". Este certificado es gratuito y requiere iniciar sesión con \"clave única\".",
                             "allow": [
                                 "docx",
                                 "pdf",
