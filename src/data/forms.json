@@ -1060,7 +1060,7 @@
                             "id": "CERTIFICADO_TRAMO",
                             "required": true,
                             "label": "Certificado de Tramo de Carrera Docente (/aDescargue aquí/lhttps://portaldocente.mineduc.cl/portal_docente-web/mvc/inicio/inicio#!/a)",
-                            "info": "",
+                            "info": "Para descargar, haz clic en el enlace y obtén tu certificado de tramo. Este certificado es gratuito y requiere iniciar sesión con tu RUT y contraseña. Si no estás registrado, debes hacerlo para obtener el certificado.",
                             "allow": [
                                 "docx",
                                 "pdf",
