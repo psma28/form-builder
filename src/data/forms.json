@@ -957,7 +957,7 @@
     },
     {
       "id": "3",
-      "id_proyecto": "27",
+      "id_proyecto": "28",
       "title": "Postulación ECTP 2025",
       "intro": "¡Bienvenido/a! Para poder postular, debe completar el siguiente formulario. Como primer paso, ingrese su RUT para poder continuar",
       "indication": "",
@@ -974,20 +974,20 @@
               "label": "Cargo(s) a postular",
               "items": [
                 {
-                  "id": 1011,
-                  "value": 1011,
+                  "id": 8,
+                  "value": 8,
                   "label": "Examinador(a)",
                   "info": "--Titulado, egresado o estudiante de alguna carrera de educación técnica o superior, preferentemente de las áreas de Pedagogía Básica o Media (excepto profesionales, egresados o estudiantes de pedagogía en educación media de Lenguaje o Matemática), Psicología, Educación Parvularia, Educación Diferencial, Psicopedagogía, Trabajo Social, Sociología u otra sujeta a previa evaluación de la Agencia. \n--Mínimo 23 años de edad.\n--Deseable al menos 1 experiencia donde cumplió el rol de examinador o equivalente."
                 },
                 {
-                  "id": 1012,
-                  "value": 1012,
+                  "id": 1013,
+                  "value": 1013,
                   "label": "Apoyo técnico",
                   "info": "--Profesional, técnico o estudiante que cuente con habilidades técnicas y tecnológicas para brindar soporte en la provisión de red de internet y/o habilitación de equipamiento tecnológico.\n--Deseable, tener 21 años mínimo de edad.\n--Deseable al menos 1 experiencia donde cumplió el rol de técnico informático o equivalente."
                 },
                 {
-                  "id": 1013,
-                  "value": 1013,
+                  "id": 9,
+                  "value": 9,
                   "label": "Supervisor(a)",
                   "info": "--Titulado, egresado o estudiante de alguna carrera de educación superior (Universidades, Centro de Formación Técnica o Instituto Profesional), excepto profesionales, egresados o estudiantes de pedagogía en educación media de Lenguaje o Matemática.\n--Mínimo 23 años de edad.\n--Deseable al menos 1 experiencia donde cumplió el rol de supervisor o equivalente."
                 }
@@ -1112,9 +1112,6 @@
                 }
               ],
               "items": "lista-nacionalidades"
-            },
-            {
-              "component": "blank-component"
             },
             {
               "component": "text",
@@ -1575,9 +1572,6 @@
                 }
               ],
               "items": "lista-nacionalidades"
-            },
-            {
-              "component": "blank-component"
             },
             {
               "component": "text",
