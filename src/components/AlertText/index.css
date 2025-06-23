@@ -6,5 +6,6 @@
 
 .alert-text-container span{
     display: block;
+    line-height: 1.3rem;
     color: var(--warning)
 }
