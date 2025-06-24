@@ -36,6 +36,7 @@ export function useFiles(
 
   const removeFile = () => {
     setFileFn(null);
+    updateComponent(fieldId, { value: "" });
   };
 
   const handleFileSelect = (e) => {
