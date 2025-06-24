@@ -1,5 +1,5 @@
 :root {
-  --primary-100: #5672FF;
+  --primary-100: #5672ff;
   --primary-75: #5672ff55;
   --secondary-100: #495057;
   --secondary-80: #81888f;
@@ -9,7 +9,7 @@
   --black-75: #121212b0;
   --tertiary-100: #eba716;
   --tertiary-75: #fce6c9;
-  --accent-100: #D8FF56;
+  --accent-100: #d8ff56;
   --accent-75: #d1f755a2;
   --error-100: #c71919;
   --error-75: #da54549c;
@@ -18,7 +18,7 @@
   --success-100: #067a16;
   --text-normal: #111;
   --form-structure-title-bg: #123;
-  --disabled-field: #DCE2FF;
+  --disabled-field: #dce2ff;
   --disabled-selector: #d3daff;
   --field-label-bg: #f2f4ff;
   --structure-bg: #fff;

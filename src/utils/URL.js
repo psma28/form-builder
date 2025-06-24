@@ -1,6 +1,5 @@
 //Verificar persona
-export const RUT_URL =
-  "https://devrrhh.iie.cl/rrhh_api/form/buscar-persona";
+export const RUT_URL = "https://devrrhh.iie.cl/rrhh_api/form/buscar-persona";
 
 //Lista de bancos
 export const BANK_URL = "https://devrrhh.iie.cl/rrhh_api/item/bancos";

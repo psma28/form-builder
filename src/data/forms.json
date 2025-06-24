@@ -1404,7 +1404,7 @@
               "component": "file",
               "id": "CARNET_IDENTIDAD",
               "required": true,
-              "label": "Cédula de identidad (Vigente y por ambos lados)",
+              "label": "Cédula de identidad\u200B (Vigente y por ambos lados)",
               "allow": ["docx", "pdf", "png", "jpeg", "zip", "rar"],
               "maxsize": 7,
               "extend": true
@@ -1413,7 +1413,7 @@
               "component": "file",
               "id": "CV",
               "required": true,
-              "label": "Currículum Vitae (Actualizado)",
+              "label": "Currículum Vitae\u200B (Actualizado)",
               "allow": ["docx", "pdf", "png", "jpeg", "zip", "rar"],
               "maxsize": 7,
               "extend": true
@@ -1431,8 +1431,7 @@
               "component": "file",
               "id": "CERTIFICADO_INHABILIDAD",
               "required": true,
-              "label": "Certificado de de Inhabilidad (El certificado es gratuito y se puede obtener a través del enlace /ainhabilidades.srcei.cl/lhttps://inhabilidades.srcei.cl/ConsInhab/consultaInhabilidad.do/a)",
-              "info": "El certificado de inhabilidades debe ser del mes de agosto.",
+              "label": "Certificado de de Inhabilidad\u200B (El certificado es gratuito y se puede obtener a través del enlace /ainhabilidades.srcei.cl/lhttps://inhabilidades.srcei.cl/ConsInhab/consultaInhabilidad.do/a)",
               "allow": ["docx", "pdf", "png", "jpeg", "zip", "rar"],
               "maxsize": 7,
               "extend": true

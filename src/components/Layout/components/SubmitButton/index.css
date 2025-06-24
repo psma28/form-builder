@@ -1,4 +1,4 @@
-.submit-section{
+.submit-section {
   position: sticky;
   display: flex;
   bottom: 0;
@@ -15,7 +15,7 @@
 .submit-button {
   padding: 0.35% 1% 0.5% 1%;
   border-radius: 4px;
-  gap:5px;
+  gap: 5px;
   fill: var(--primary-100);
   border: none;
   background-color: var(--accent-75);
@@ -29,7 +29,7 @@
   font-size: 16px;
 }
 
-.submit-button svg{
+.submit-button svg {
   width: 25px;
   height: 25px;
 }

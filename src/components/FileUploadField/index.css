@@ -63,9 +63,8 @@
   width: 100%;
 }
 
-.file-status .active{
+.file-status .active {
   background-color: var(--secondary-75);
-
 }
 
 .file-info {
@@ -125,7 +124,7 @@
     padding: 10px;
     border-radius: 0 0 10px 10px;
   }
-  .telephone-input{
+  .telephone-input {
     padding-left: 50px;
   }
 }

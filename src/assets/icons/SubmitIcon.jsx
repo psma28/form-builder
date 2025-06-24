@@ -8,7 +8,7 @@ export function SubmitIcon() {
       fill="#5672FF"
     >
       <path d="M4.02 42l41.98-18-41.98-18-.02 14 30 4-30 4z" />
-      <path d="M0 0h48v48h-48z"  fill="none"/>
+      <path d="M0 0h48v48h-48z" fill="none" />
     </svg>
   );
 }

@@ -18,7 +18,7 @@
 }
 
 .combobox-flaged {
-  background-color: var(--error-75) ;
+  background-color: var(--error-75);
   transition: background-color 200ms;
   cursor: pointer;
 }
@@ -37,7 +37,7 @@
   transition: background-color 0ms;
 }
 
-.normal-combobox{
+.normal-combobox {
   cursor: pointer;
   background-color: var(--white);
 }

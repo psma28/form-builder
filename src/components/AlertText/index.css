@@ -1,11 +1,11 @@
-.alert-text-container{
-    padding: 0 15px;
-    width: 100%;
-    box-sizing: border-box;
+.alert-text-container {
+  padding: 0 15px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.alert-text-container span{
-    display: block;
-    line-height: 1.3rem;
-    color: var(--warning)
+.alert-text-container span {
+  display: block;
+  line-height: 1.3rem;
+  color: var(--warning);
 }

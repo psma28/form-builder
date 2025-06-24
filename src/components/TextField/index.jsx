@@ -35,7 +35,7 @@ export function TextField({ id }) {
   }, [value]);
 
   const handleInput = (input) => {
-    if(getFieldStatus()===false) return;
+    if (getFieldStatus() === false) return;
     let validation = true;
     const messages = [];
     const mappedValidators = validatorMapper(validators);

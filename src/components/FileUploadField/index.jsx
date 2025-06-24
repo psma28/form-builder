@@ -1,7 +1,7 @@
 import "./index.css";
 import { TrashIcon } from "../../assets/icons/TrashIcon";
 import { useFiles } from "./hooks/useFiles";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FieldAccessContext } from "../../context/FieldAccessContext";
 import { FormSchemaContext } from "../../context/FormSchemaContext";
 import { InfoPopup } from "../InfoPin";
@@ -16,13 +16,14 @@ export function FileUploadField({ id }) {
     maxsize,
     allow = [],
     highlighted = false,
+    value,
     // visible = true,
     // events = [],
     extend = false,
     info,
   } = getComponent(id);
+  const [file, setFile] = useState(value);
   const {
-    file,
     getFileIcon,
     getFileName,
     removeFile,
@@ -34,8 +35,19 @@ export function FileUploadField({ id }) {
     handleDragEnter,
     handleDragLeave,
     handleFileSelect,
-  } = useFiles(id, allow, maxsize, getFieldStatus, updateComponent);
+    handleFileValidation,
+  } = useFiles(id, allow, maxsize, getFieldStatus, updateComponent, setFile);
 
+  /**
+   * Activación del campo cuando se le hace stage al form
+   * comunmente cuando está vacío y necesitamos "encenderlo"
+   */
+  useEffect(() => {
+    if (value !== file) {
+      setFile(value);
+      handleFileValidation(value);
+    }
+  }, [value]);
   return (
     <div
       className={
@@ -44,13 +56,11 @@ export function FileUploadField({ id }) {
     >
       <div className="file-label text-field-label">
         <span>
-          {label?.split("/a").map((part, index) =>
-            index % 2 !== 0 ? (
-              handleLinkOnLabel(part, index)
-            ) : (
-              part
-            )
-          )}
+          {label
+            ?.split("/a")
+            .map((part, index) =>
+              index % 2 !== 0 ? handleLinkOnLabel(part, index) : part
+            )}
         </span>
         {info && <InfoPopup info={info} />}
       </div>
@@ -108,4 +118,3 @@ export function FileUploadField({ id }) {
     </div>
   );
 }
-

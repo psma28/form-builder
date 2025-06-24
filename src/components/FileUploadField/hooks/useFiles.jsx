@@ -5,9 +5,9 @@ export function useFiles(
   allowed,
   maxFileSize,
   getFieldStatus,
-  updateComponent
+  updateComponent,
+  setFileFn
 ) {
-  const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
   const [isDrag, setIsDrag] = useState(false);
   const fileInputRef = useRef(null);
@@ -35,7 +35,7 @@ export function useFiles(
   };
 
   const removeFile = () => {
-    setFile(null);
+    setFileFn(null);
   };
 
   const handleFileSelect = (e) => {
@@ -69,6 +69,7 @@ export function useFiles(
   };
 
   const handleFileValidation = (file) => {
+    if (!file) return;
     const fileType = file.type.split("/")[1];
     const fileTypes = [...allowed];
     let index = fileTypes.indexOf("docx");
@@ -87,22 +88,21 @@ export function useFiles(
     const fileSizeMB = file.size / (1024 * 1024);
     if (!fileTypes.includes(fileType)) {
       setError(`Formato inválido. Formatos permitidos: ${allowed.join(", ")}`);
-      setFile(null);
+      setFileFn(null);
       return;
     }
 
     if (fileSizeMB > maxFileSize) {
       setError(`El archivo supera el tamaño máximo de ${maxFileSize} MB.`);
-      setFile(null);
+      setFileFn(null);
       return;
     }
-    setFile(file);
+    setFileFn(file);
     setError(null);
     updateComponent(fieldId, { value: file });
   };
 
   return {
-    file,
     getFileIcon,
     getFileName,
     removeFile,
@@ -114,5 +114,6 @@ export function useFiles(
     handleDragEnter,
     handleDragLeave,
     handleFileSelect,
+    handleFileValidation,
   };
 }

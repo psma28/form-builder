@@ -52,13 +52,15 @@ export function FormSchemaProvider({ children }) {
         props.component !== "alert" &&
         props.visible !== false &&
         (props.items === undefined || (props.items && props.items.length > 0))
-      ) {        
+      ) {
         //Field must be completed (if required)
         if (
           (props.value === "" && props.required !== false) ||
           (Array.isArray(props.value) && props.value.length === 0)
         ) {
-          missingFields.push("-" + props.label);
+          const labelPreview = props.label?.split("\u200B")[0] ?? props.label;
+          missingFields.push("-" + labelPreview.trim());
+          //missingFields.push("-" + props.label);
           if (props.component === "text") {
             updateComponent(key, { value: " " });
           }
@@ -120,7 +122,10 @@ export function FormSchemaProvider({ children }) {
       setModalContent({
         title: "Postulación completada",
         content: ["Gracias por completar tu postulación."],
-        close: () => setFieldAccess(false),
+        close: () => {
+          //cleanForm();
+          setFieldAccess(false);
+        },
       });
       toggleModal();
     } catch (error) {

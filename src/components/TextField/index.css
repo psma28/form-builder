@@ -46,7 +46,7 @@
 }
 
 .text-field-input input:-webkit-autofill,
-.text-field-input input:-webkit-autofill:hover, 
+.text-field-input input:-webkit-autofill:hover,
 .text-field-input input:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0px 1000px var(--disabled-field) inset;
 }
@@ -91,7 +91,7 @@
     padding: 10px;
     border-radius: 0 0 10px 10px;
   }
-  .telephone-input{
+  .telephone-input {
     padding-left: 50px;
   }
 }

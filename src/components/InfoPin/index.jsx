@@ -7,8 +7,8 @@ export function InfoPopup({ info }) {
   // Función para parsear el texto
   const parseInfo = (text) => {
     const lines = text.split("\n");
-    const listItems = lines.filter(line => line.startsWith("--"));
-    const otherText = lines.filter(line => !line.startsWith("--"));
+    const listItems = lines.filter((line) => line.startsWith("--"));
+    const otherText = lines.filter((line) => !line.startsWith("--"));
 
     return (
       <>

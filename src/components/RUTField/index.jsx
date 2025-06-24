@@ -51,7 +51,7 @@ export function RUTField() {
         <span className={"font-roboto " + indicator.color}>
           {indicator.message}
         </span>
-      </div>      
+      </div>
     </div>
   );
 }

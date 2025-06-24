@@ -17,8 +17,7 @@ export const RUTIndicators = {
     color: "rut-found",
   },
   already: {
-    message:
-      "Este RUN ya fue utilizado para subir una postulación.",
+    message: "Este RUN ya fue utilizado para subir una postulación.",
     color: "rut-already",
   },
 };

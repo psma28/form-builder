@@ -54,7 +54,7 @@ export function useRUT(
     setLoading(true);
     const data = await RUTVerification(turnToRutForm(rutValue), projectId);
     const entries = data.data ?? {};
-    if (entries.modificado == true){
+    if (entries.modificado == true) {
       setModalContent({
         title: "Verificación RUN",
         content: [
