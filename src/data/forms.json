@@ -1032,7 +1032,7 @@
               "id": "fecha_nacimiento",
               "label": "Fecha de Nacimiento",
               "type": "date",
-              "validators": ["completion", "mayor-edad"]
+              "validators": ["completion", "mayor-21"]
             },
             {
               "component": "combobox",

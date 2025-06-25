@@ -3,7 +3,7 @@ import { letterSymbolInputValidator } from "../validators/letterSymbolInputValid
 import { completionValidator } from "../validators/completionValidator";
 import { numericInputValidator } from "../validators/numericInputValidator";
 import { emailValidator } from "../validators/emailValidator";
-import { mayorEdadValidator } from "../validators/mayorEdadValidator";
+import { mayorEdadValidator, mayor21Validator} from "../validators/mayorEdadValidator";
 
 export function validatorMapper(validators) {
   if (!validators) return [];
@@ -21,6 +21,8 @@ export function validatorMapper(validators) {
         return emailValidator;
       case "mayor-edad":
         return mayorEdadValidator;
+      case "mayor-21":
+        return mayor21Validator; 
       default:
         return;
     }
