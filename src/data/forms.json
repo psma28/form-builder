@@ -1442,8 +1442,8 @@
     },
     {
       "id": "458e6e30-1b4c-4368-b04e-7c8e26dc50b3",
-      "id_proyecto": "27",
-      "title": "FORMULARIO DE POSTULACIÓN - SEICEP 2024",
+      "id_proyecto": "29",
+      "title": "FORMULARIO DE POSTULACIÓN - SEICEP 2025",
       "intro": "¡Bienvenido/a! Para poder postular, debe completar el siguiente formulario con toda la información. Como primer paso, ingrese su RUT para poder continuar",
       "indication": "",
       "schema": [
@@ -1818,19 +1818,19 @@
           "content": [
             {
               "component": "combobox",
-              "id": "experienciaMGCEP",
+              "id": "experiencia_mgcep",
               "label": "¿Cuenta con experiencia en la aplicación de Instrumentos de evaluación estandarizadas?",
               "placeholder": "Seleccione experiencia",
               "extend": true,
               "items": [
                 {
                   "id": 1,
-                  "value": 1,
+                  "value": true,
                   "label": "Si"
                 },
                 {
                   "id": 2,
-                  "value": 2,
+                  "value": false,
                   "label": "No"
                 }
               ]
@@ -1908,9 +1908,18 @@
             },
             {
               "component": "file",
-              "id": "documento_8",
+              "id": "CERTIFICADO_INHABILIDAD",
               "required": true,
-              "label": "Declaración Simple de NO parentesco ni vinculación con personal JUNJI /aDescargar formato/lhttps://inhabilidades.srcei.cl/ConsInhab/consultaInhabilidad.do/a)",
+              "label": "Certificado de de Inhabilidad\u200B (El certificado es gratuito y se puede obtener a través del enlace /ainhabilidades.srcei.cl/lhttps://inhabilidades.srcei.cl/ConsInhab/consultaInhabilidad.do/a)",
+              "allow": ["docx", "pdf", "png", "jpeg", "zip", "rar"],
+              "maxsize": 7,
+              "extend": true
+            },
+            {
+              "component": "file",
+              "id": "DECLARACION_PARENTESCO",
+              "required": true,
+              "label": "Declaración Simple de NO parentesco ni vinculación con personal JUNJI\u200B /aDescargar formato/lhttps://rrhh.iie.cl/public/web_rrhh/proyecto/junji/2024/Declaraci%C3%B3n_Simple_JUNJI.pdf/a)",
               "allow": ["docx", "pdf", "png", "jpeg", "zip", "rar"],
               "maxsize": 7,
               "extend": true
