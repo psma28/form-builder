@@ -1453,6 +1453,26 @@
           "label": "Datos Personales",
           "content": [
             {
+              "component": "checkbox",
+              "id": "cargo_postulacion",
+              "extend": true,
+              "label": "Cargo(s) a postular",
+              "items": [
+                {
+                  "id": 8,
+                  "value": 8,
+                  "label": "Examinador(a)",
+                  "info": "--Profesional con título universitario, de instituto profesional o centro de formación técnica; o bien, egresado(a) de carreras universitarias o técnicas; o con grado de licenciado(a) de carreras universitarias; o estudiante de últimos años de una carrera universitaria o técnica.\n--Será responsable de realizar la visita de reconocimiento y la visita de aplicación en el jardín infantil asignado."
+                },
+                {
+                  "id": 1030,
+                  "value": 1030,
+                  "label": "Encargado/a Zonal",
+                  "info": "Profesional universitario o técnico responsable de coordinar a un equipo de examinadores para llevar a cabo la visita de reconocimiento y visita de aplicación en los jardines infantiles de la zona asignada."
+                }
+              ]
+            },
+            {
               "component": "text",
               "id": "nombres",
               "label": "Nombres",
@@ -1919,7 +1939,7 @@
               "component": "file",
               "id": "DECLARACION_PARENTESCO",
               "required": true,
-              "label": "Declaración Simple de NO parentesco ni vinculación con personal JUNJI\u200B /aDescargar formato/lhttps://rrhh.iie.cl/public/web_rrhh/proyecto/junji/2024/Declaraci%C3%B3n_Simple_JUNJI.pdf/a)",
+              "label": "Declaración Simple de NO parentesco ni vinculación con personal JUNJI\u200B /aDescargar formato/lhttps://devrrhh.iie.cl/rrhh_api/public/form_docs/junji/DECLARACION_SIMPLE_2025.pdf/a)",
               "allow": ["docx", "pdf", "png", "jpeg", "zip", "rar"],
               "maxsize": 7,
               "extend": true
