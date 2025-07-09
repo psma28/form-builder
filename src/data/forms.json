@@ -959,7 +959,7 @@
       "id": "125ee6a8-cf67-4e0b-9a1b-0332bd9af0f7",
       "id_proyecto": "28",
       "title": "Postulación ECTP 2025",
-      "intro": "¡Bienvenido/a! Para poder postular, debe completar el siguiente formulario. Como primer paso, ingrese su RUT para poder continuar",
+      "intro": "¡Bienvenido/a! Para postular, debe completar el siguiente formulario. Como primer paso, ingrese su RUT para poder continuar",
       "indication": "",
       "schema": [
         {
@@ -971,6 +971,7 @@
               "component": "checkbox",
               "id": "cargo_postulacion",
               "extend": true,
+              "single": true,
               "label": "Cargo(s) a postular",
               "items": [
                 {
@@ -1431,7 +1432,7 @@
               "component": "file",
               "id": "CERTIFICADO_INHABILIDAD",
               "required": true,
-              "label": "Certificado de de Inhabilidad\u200B (El certificado es gratuito y se puede obtener a través del enlace /ainhabilidades.srcei.cl/lhttps://inhabilidades.srcei.cl/ConsInhab/consultaInhabilidad.do/a)",
+              "label": "Certificado de Inhabilidad\u200B (El certificado es gratuito y se puede obtener a través del enlace /ainhabilidades.srcei.cl/lhttps://inhabilidades.srcei.cl/ConsInhab/consultaInhabilidad.do/a)",
               "allow": ["docx", "pdf", "png", "jpeg", "zip", "rar"],
               "maxsize": 7,
               "extend": true

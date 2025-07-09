@@ -19,6 +19,7 @@ export function CheckboxField({ id }) {
     events = [],
     subevents = [],
     visible = true,
+    single = false,
     info,
     extend = false,
   } = getComponent(id);
@@ -32,7 +33,8 @@ export function CheckboxField({ id }) {
       updateComponent,
       eventHandler,
       collapseEvents,
-      setLoading
+      setLoading,
+      single
     );
   useEffect(() => {
     if (!value) clearSelection();
