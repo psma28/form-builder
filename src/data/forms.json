@@ -1457,6 +1457,7 @@
               "component": "checkbox",
               "id": "cargo_postulacion",
               "extend": true,
+              "single": true,
               "label": "Cargo(s) a postular",
               "items": [
                 {
