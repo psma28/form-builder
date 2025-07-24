@@ -11,7 +11,8 @@ export function useCheckBox(
   updateComponent,
   eventHandler,
   manualCollapse,
-  setLoading
+  setLoading,
+  single
 ) {
   const [selections, setSelections] = useState(initialValues);
   const [list, setList] = useState(initialItems);
@@ -61,6 +62,12 @@ export function useCheckBox(
       manualCollapse(item.id);
       aux = aux.filter((e) => e);
     } else {
+      if (single && aux.length > 0) {
+        aux.forEach((val) => {
+          manualCollapse(val);
+        });
+        aux = []; 
+      }
       eventHandler(item.id, item.value, itemEvents);
       aux.push(item.value);
     }
@@ -69,7 +76,7 @@ export function useCheckBox(
   };
 
   const clearSelection = () => {
-    if (selections.length !== 0) setSelections([]);
+    if (selections.length > 0) setSelections([]);
   };
 
   const isChecked = (item) => {
