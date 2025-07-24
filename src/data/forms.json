@@ -1880,6 +1880,11 @@
           "indication": "( Formatos soportados: doc, docx, pdf, png, jpg, zip o rar ) ( Tamaño máximo por archivo es de 7Mb )",
           "content": [
             {
+              "component": "alert",
+              "id": "alerta-alimento",
+              "text": "Recuerde leer con detalle lo que se solicita y subir sus documentos completos.\nPara su contratación, deberá firmar anexos al contrato, en formato de declaración Jurada simple que tiene relación con:\n • Inhabilidades e Incompatibilidades Administrativas. Ley 18.575, Artículo 54.\n • Requisitos de Ingreso. Ley 18.834, Artículo 12 letras e), f).\n • Inhabilidades por parentesco. Artículo 85.\n • Prevención de delitos. Ley 20.393.\nEn el caso que usted se encuentre en alguna de las siguientes situaciones, deberá firmar otra declaración: \n •  Ser deudor/a de Pensión de Alimentos (Ley 21.389). \n • Ser abogado/a, (Prohibición Ley 20.000).\nEl entregar información falsa lo hace incurrir en las penas establecidas en el Artículo 210 del Código Penal.\nEn el caso de no firmar las declaraciones, deberá desistir de su participación en este proyecto."
+            },
+            {
               "component": "file",
               "id": "CARNET_IDENTIDAD",
               "required": true,
