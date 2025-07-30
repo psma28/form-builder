@@ -1,7 +1,7 @@
 import "./index.css";
 
 export function IndicationBlock({ text }) {
-  const parts = text.split("$");
+  const parts = text?.split("$");
 
   return (
     text && (
