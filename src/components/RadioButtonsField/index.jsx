@@ -13,13 +13,14 @@ export function RadioButtonsField({ id }) {
     useContext(FormSchemaContext);
   let {
     label,
-    visible = true,
+    value,
     items,
+    highlighted = false,
+    visible = true,
     events = [],
     subevents = [],
     info,
     extend = false,
-    value,
   } = getComponent(id);
 
   const { selected, handleSelection, clearSelection, list, setList } = useRadio(
@@ -62,7 +63,11 @@ export function RadioButtonsField({ id }) {
         <div
           className={
             "radio-options" +
-            (getFieldStatus() === false ? " disabled-radio" : "")
+            (getFieldStatus() === false
+              ? " disabled-radio"
+              : highlighted === true
+              ? " radio-flaged"
+              : " normal-radio")
           }
         >
           {list.map((item) => {

@@ -23,8 +23,20 @@
   border-bottom: 1px solid var(--primary-100);
 }
 
+.radio-flaged {
+  background-color: var(--error-75);
+  transition: background-color 200ms;
+  cursor: pointer;
+}
+
 .disabled-radio {
-  background-color: var(--secondary-80);
+  cursor: default;
+  background-color: var(--disabled-selector);
+}
+
+.normal-radio {
+  cursor: pointer;
+  background-color: var(--white);
 }
 
 .radio-item {

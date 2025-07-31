@@ -15,9 +15,12 @@ import { getAsignaturasTecnicoEDD24 } from "../services/seeders/lista-asignatura
 import { getEspecialidades } from "../services/seeders/lista-especialidades";
 import { getCargoCentrosCorreccion } from "../services/seeders/lista-cargo-centro-correccion";
 import { getAniosTrabajados } from "../services/seeders/lista-anios-trabakados";
-import { getProfesiones } from "../services/seeders/lista-profesiones";
+import { getProfesiones, getProfesionesEDD } from "../services/seeders/lista-profesiones";
 import { getNacionalidades } from "../services/seeders/lista-nacionalidades";
-import { getNivelEstudios } from "../services/seeders/lista-nivel-estudios";
+import {
+  getNivelEstudios,
+  getNivelEstudiosEDDCorrector,
+} from "../services/seeders/lista-nivel-estudios";
 import { getListaCargosEndfid2024 } from "../services/seeders/lista-cargos-endfid2024";
 import {
   getComunaRBD,
@@ -39,12 +42,17 @@ const APIFunctionsMap = {
   },
   "get-regiones": { function: getRegiones, args: 0 },
   "get-profesiones": { function: getProfesiones, args: 0 },
+  "get-profesiones-edd": { function: getProfesionesEDD, args: 0 },
   "get-comunas": { function: getComunas, args: 1 },
   "get-bancos": { function: getBancos, args: 0 },
   "get-tipos-cuenta": { function: getTiposCuenta, args: 1 },
   "get-instituciones": { function: getInstituciones, args: 0 },
   "lista-nacionalidades": { function: getNacionalidades, args: 0 },
   "lista-nivel-estudios": { function: getNivelEstudios, args: 0 },
+  "lista-nivel-estudios-edd-corrector": {
+    function: getNivelEstudiosEDDCorrector,
+    args: 0,
+  },
   "get-asignaturas": { function: getAsignaturasEDD24, args: 0 },
   "get-especialidades": { function: getEspecialidades, args: 0 },
   "get-asignaturas-tecnico": { function: getAsignaturasTecnicoEDD24, args: 0 },

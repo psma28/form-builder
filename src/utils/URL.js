@@ -46,9 +46,17 @@ export const NACIONALIDAD_URL =
 export const NIVEL_ESTUDIOS_URL =
   "https://devrrhh.iie.cl/rrhh_api/item/niveles-estudio";
 
+//Lista de niveles de estudio para  EDD CORRECTORES
+export const NIVEL_ESTUDIOS_EDD_CORRECTOR_URL =
+  "https://devrrhh.iie.cl/rrhh_api/item/niveles-estudio-edd-correctores";
+
 //Lista de profesiones
 export const PROFESIONES_URL =
   "https://devrrhh.iie.cl/rrhh_api/item/profesiones";
+
+//Lista de profesiones EDD
+export const PROFESIONES_EDD_URL =
+  "https://devrrhh.iie.cl/rrhh_api/item/profesiones-edd";
 
 //Lista de cargos endfid
 export const CARGOS_ENDFID_URL =
