@@ -9,7 +9,7 @@ import { getListaPertenenciaPueblos } from "../services/seeders/lista-pertenenci
 import { getBancos } from "../services/seeders/lista-bancos";
 import { getTiposCuenta } from "../services/seeders/lista-tipo-cuenta";
 import { getInstituciones } from "../services/seeders/lista-instituciones";
-import { getAsignaturasEDD24 } from "../services/seeders/lista-asignaturas";
+import { getAsignaturasEDD } from "../services/seeders/lista-asignaturas";
 import { getCertificadosIngles } from "../services/seeders/lista-certificados-ingles";
 import { getAsignaturasTecnicoEDD24 } from "../services/seeders/lista-asignaturas-tecnico";
 import { getEspecialidades } from "../services/seeders/lista-especialidades";
@@ -30,6 +30,7 @@ import {
   setAsignaturaEDD24InstitucionEvaluadora,
   setEvidenciaEDD24InstitucionEvaluadora,
 } from "../services/misc/edd24-institucion-evaluadora";
+import { getSectorEconomicoEDD } from "../services/seeders/lista-sector-economico";
 
 const APIFunctionsMap = {
   "lista-sexos": { function: getListaSexos, args: 0 },
@@ -53,7 +54,8 @@ const APIFunctionsMap = {
     function: getNivelEstudiosEDDCorrector,
     args: 0,
   },
-  "get-asignaturas": { function: getAsignaturasEDD24, args: 0 },
+  "get-asignaturas-edd": { function: getAsignaturasEDD, args: 0 },
+  "get-sectores-economicos-edd": { function: getSectorEconomicoEDD, args: 0 },
   "get-especialidades": { function: getEspecialidades, args: 0 },
   "get-asignaturas-tecnico": { function: getAsignaturasTecnicoEDD24, args: 0 },
   "get-anios": { function: getAnios, args: 0 },

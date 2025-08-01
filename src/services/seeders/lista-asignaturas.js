@@ -1,3 +1,5 @@
+import { ASIGNATURAS_EDD_URL } from "../../utils/URL";
+
 const asignaturas_EDD24 = [
   {
     id: 1059,
@@ -292,10 +294,8 @@ const asignaturas_EDD24 = [
   },
 ];
 
-export function getAsignaturasEDD24() {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(asignaturas_EDD24);
-    }, 0);
-  });
+export async function getAsignaturasEDD() {
+  const res = await fetch(ASIGNATURAS_EDD_URL);
+    const data = await res.json();
+    return data;
 }

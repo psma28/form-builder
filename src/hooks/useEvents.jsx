@@ -1,14 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { rollbackPayload } from "../services/EventPayloadHandler";
 
 export function useEvents(updateComponent) {
   const [events, setEvents] = useState([]);
 
-  /* useEffect(()=>{
+   useEffect(()=>{
     console.log("events", events);
     
   },[events])
-*/
+
   /**
    * This method returns the current event list
    * @returns

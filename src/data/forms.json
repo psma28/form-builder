@@ -2351,30 +2351,222 @@
                 }
               ]
             },
-
             {
               "component": "combobox",
               "id": "id_area_asignatura",
               "label": "Área o Asignatura",
               "placeholder": "Seleccionar área o asignatura",
               "info": "Indique el área o asignatura a la que postula",
-              "items": "get-asignaturas",
-              "extend": true
-            },
-            {
-              "component": "combobox",
-              "id": "id_nivel_asignatura_basica_media",
-              "label": "Nivel de Postulación",
-              "info": "Indique el nivel al que postula",
-              "placeholder": "Seleccionar nivel de postulación",
-              "items": []
+              "items": "get-asignaturas-edd",
+              "extend": true,
+              "subevents": [
+                {
+                  "item-value": 1348,
+                  "events": [
+                    {
+                      "target": "asignaturas_ciencia",
+                      "payload": {
+                        "visible": true
+                      }
+                    }
+                  ]
+                },
+                {
+                  "item-value": 1349,
+                  "events": [
+                    {
+                      "target": "area_postulacion_contexto_encierro",
+                      "payload": {
+                        "visible": true
+                      }
+                    },
+                    {
+                      "target": "asignaturas_contexto_encierro",
+                      "payload": {
+                        "visible": true
+                      }
+                    }
+                  ]
+                },
+                {
+                  "item-value": 1350,
+                  "events": [
+                    {
+                      "target": "area_postulacion_ed_especial_escuela_regular",
+                      "payload": {
+                        "visible": true
+                      }
+                    },
+                    {
+                      "target": "diagnosticos_trabajados_ed_especial_escuela_regular",
+                      "payload": {
+                        "visible": true
+                      }
+                    },
+                    {
+                      "target": "experiencia_discapacidad_auditiva",
+                      "payload": {
+                        "visible": true
+                      }
+                    },
+                    {
+                      "target": "lengua_senas",
+                      "payload": {
+                        "visible": true
+                      }
+                    }
+                  ]
+                },
+                {
+                  "item-value": 1351,
+                  "events": [
+                    {
+                      "target": "diagnosticos_trabajados_ed_especial_escuela_especial",
+                      "payload": {
+                        "visible": true
+                      }
+                    },
+                    {
+                      "target": "experiencia_clases_escuela_especial",
+                      "payload": {
+                        "visible": true
+                      }
+                    },
+                    {
+                      "target": "experiencia_discapacidad_auditiva",
+                      "payload": {
+                        "visible": true
+                      }
+                    },
+                    {
+                      "target": "lengua_senas",
+                      "payload": {
+                        "visible": true
+                      }
+                    }
+                  ]
+                },
+                {
+                  "item-value": 1353,
+                  "events": [
+                    {
+                      "target": "id_sector_economico",
+                      "payload": {
+                        "visible": true
+                      }
+                    },
+                    {
+                      "target": "anio_titulacion",
+                      "payload": {
+                        "visible": true
+                      }
+                    },
+                    {
+                      "target": "anios_especialidades",
+                      "payload": {
+                        "visible": true
+                      }
+                    },
+                    {
+                      "target": "cantidad_modulos",
+                      "payload": {
+                        "visible": true
+                      }
+                    },
+                    {
+                      "target": "modulos_cursos",
+                      "payload": {
+                        "visible": true
+                      }
+                    }
+                  ]
+                },
+                {
+                  "item-value": 1354,
+                  "events": [
+                    {
+                      "target": "modalidad_educacion_parvularia",
+                      "payload": {
+                        "visible": true
+                      }
+                    },
+                    {
+                      "target": "niveles_experiencia_educacion_parvularia",
+                      "payload": {
+                        "visible": true
+                      }
+                    }
+                  ]
+                },
+                {
+                  "item-value": 1360,
+                  "events": [
+                    {
+                      "target": "experiencia_educacion_ciudadana",
+                      "payload": {
+                        "visible": true
+                      }
+                    }
+                  ]
+                },
+                {
+                  "item-value": 1361,
+                  "events": [
+                    {
+                      "target": "id_certificado_ingles",
+                      "payload": {
+                        "visible": true
+                      }
+                    }
+                  ]
+                },
+                {
+                  "item-value": 1371,
+                  "events": [
+                    {
+                      "target": "asignatura_lengua",
+                      "payload": {
+                        "visible": true
+                      }
+                    }
+                  ]
+                }
+              ]
             },
             {
               "component": "checkbox",
               "id": "asignaturas_ciencia",
               "label": "Indique en qué asignatura ha hecho clases",
               "info": "Puede seleccionar más de una opción",
-              "items": []
+              "visible": false,
+              "extend": true,
+              "items": [
+                {
+                  "id": "1348CienciasCiudadania",
+                  "value": "Ciencias para la Ciudadanía",
+                  "label": "Ciencias para la Ciudadanía"
+                },
+                {
+                  "id": "1348CienciasNaturales",
+                  "value": "Ciencias Naturales",
+                  "label": "Ciencias Naturales"
+                },
+                {
+                  "id": "1348Biologia",
+                  "value": "Biología",
+                  "label": "Biología"
+                },
+                {
+                  "id": "1348Fisica",
+                  "value": "Física",
+                  "label": "Física"
+                },
+                {
+                  "id": "1348Quimica",
+                  "value": "Química",
+                  "label": "Química"
+                }
+              ]
             },
             {
               "component": "radio",
@@ -2383,60 +2575,98 @@
               "visible": false,
               "items": [
                 {
-                  "id": 1,
+                  "id": "1360SI",
                   "label": "Si",
-                  "value": 1
+                  "value": true
                 },
                 {
-                  "id": 2,
+                  "id": "1360NO",
                   "label": "No",
-                  "value": 0
+                  "value": false
+                }
+              ]
+            },
+            {
+              "component": "checkbox",
+              "id": "id_certificado_ingles",
+              "label": "Certificados Inglés",
+              "visible": false,
+              "extend": true,
+              "items": "get-certificados-ingles",
+              "subevents": [
+                {
+                  "item-value": 1396,
+                  "events": [
+                    {
+                      "target": "otro_certificado_ingles",
+                      "payload": {
+                        "visible": true
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "component": "text",
+              "id": "otro_certificado_ingles",
+              "label": "Otro Certificado Inglés",
+              "info": "Especifique su certificado de Inglés",
+              "validators": ["completion", "letter"],
+              "extend": true,
+              "visible": false
+            },
+            {
+              "component": "checkbox",
+              "id": "asignatura_lengua",
+              "label": "Indique en qué asignatura ha hecho clases",
+              "info": "Puede seleccionar más de una opción",
+              "visible": false,
+              "extend": true,
+              "single": true,
+              "items": [
+                {
+                  "id": "1371Aymara",
+                  "value": "Aymara",
+                  "label": "Aymara"
+                },
+                {
+                  "id": "1371Mapuzugun",
+                  "value": "Mapuzugun",
+                  "label": "Mapuzugun"
+                },
+                {
+                  "id": "1371Quechua",
+                  "value": "Quechua",
+                  "label": "Quechua"
+                },
+                {
+                  "id": "1371Rapanui",
+                  "value": "Rapanui",
+                  "label": "Rapanui"
                 }
               ]
             },
             {
               "component": "combobox",
-              "id": "sector-economico-postulacion",
+              "id": "id_sector_economico",
               "placeholder": "Seleccione sector",
               "label": "Sector Económico",
               "info": "Indique el sector económico al que postula",
               "visible": false,
-              "items": "get-asignaturas-tecnico"
+              "items": "get-sectores-economicos-edd"
             },
             {
               "component": "combobox",
               "id": "anio_titulacion",
               "label": "Año título",
               "placeholder": "Seleccione un año",
+              "visible": false,
               "items": "get-anios"
             },
             {
-              "component": "checkbox",
-              "id": "ingles_asignatura",
-              "label": "Certificados Inglés",
-              "visible": false,
-              "extend": true,
-              "items": "get-certificados-ingles"
-            },
-            {
-              "component": "text",
-              "id": "otro-ingles",
-              "label": "Certificado Inglés",
-              "info": "Especifique su certificado de Inglés",
-              "validators": ["letter"],
-              "visible": false
-            },
-            {
-              "component": "combobox",
-              "id": "centro-postulacion",
-              "label": "Centro",
-              "info": "El área/asignatura y evidencia para la que postula será corregida en el centro",
-              "placeholder": "Seleccione un centro",
-              "items": []
-            },
-            {
               "component": "checkandfill",
-              "id": "especialidades-anios",
+              "id": "anios_especialidades",
               "label": "Especialidades y Experiencia",
               "type": "number",
               "visible": false,
@@ -2447,28 +2677,414 @@
             },
             {
               "component": "radio",
-              "id": "tipo-evidencia",
+              "id": "cantidad_modulos",
+              "label": "En la actualidad, ud. imparte clases en:",
+              "visible": false,
+              "items": [
+                {
+                  "id": "1353UnModulo",
+                  "label": "Un Módulo",
+                  "value": "uno"
+                },
+                {
+                  "id": "1353MuchosModulos",
+                  "label": "Más de un Módulo",
+                  "value": "muchos"
+                }
+              ]
+            },
+            {
+              "component": "checkbox",
+              "id": "modulos_cursos",
+              "label": "Indique en cuál(es) de estos cursos de la formación diferenciada posee experiencia de aula:",
+              "visible": false,
+              "items": [
+                {
+                  "id": "1353III",
+                  "label": "III°",
+                  "value": "III"
+                },
+                {
+                  "id": "1353IV",
+                  "label": "IV°",
+                  "value": "IV"
+                }
+              ]
+            },
+            {
+              "component": "combobox",
+              "id": "modalidad_educacion_parvularia",
+              "visible": false,
+              "extend": true,
+              "label": "Indique a qué modalidad postula",
+              "items": [
+                {
+                  "id": "1354EDUJAR",
+                  "label": "Educación Parvularia en Jardines (Sala Cuna y Nivel Medio)",
+                  "value": "Educacion Parvularia en Jardines"
+                },
+                {
+                  "id": "1354EDUESC",
+                  "label": "Educación Parvularia en Escuelas (Nivel Transición)",
+                  "value": "Educacion Parvularia en Escuelas"
+                }
+              ]
+            },
+            {
+              "component": "checkbox",
+              "id": "niveles_experiencia_educacion_parvularia",
+              "visible": false,
+              "extend": true,
+              "label": "Indique en qué niveles tiene experiencia",
+              "items": [
+                {
+                  "id": "1354SALACUNA",
+                  "label": "Sala Cuna",
+                  "value": "Sala Cuna"
+                },
+                {
+                  "id": "1354NIVELMEDIO",
+                  "label": "Nivel Medio",
+                  "value": "Nivel Medio"
+                },
+                {
+                  "id": "1354NIVELTRANSICION",
+                  "label": "Nivel Transición",
+                  "value": "Nivel Transicion"
+                }
+              ]
+            },
+            {
+              "component": "combobox",
+              "id": "area_postulacion_contexto_encierro",
+              "visible": false,
+              "extend": true,
+              "placeholder": "Seleccionar área",
+              "label": "Indique su área de postulación",
+              "items": [
+                {
+                  "id": "1349CIENCIASNATURALES",
+                  "label": "Ciencias Naturales (Biología, Química y/o Física)",
+                  "value": "Ciencias Naturales"
+                },
+                {
+                  "id": "1349ESTUDIOSSOCIALES",
+                  "label": "Estudios Sociales",
+                  "value": "Estudios Sociales"
+                },
+                {
+                  "id": "1349INGLES",
+                  "label": "Inglés",
+                  "value": "Ingles"
+                },
+                {
+                  "id": "1349LENGUACASTELLANACOMUNICACION",
+                  "label": "Lengua Castellana y Comunicación",
+                  "value": "Lengua Castellana y Comunicacion"
+                },
+                {
+                  "id": "1349MATEMATICA",
+                  "label": "Matemática",
+                  "value": "Matematica"
+                }
+              ]
+            },
+            {
+              "component": "checkbox",
+              "id": "asignaturas_contexto_encierro",
+              "visible": false,
+              "extend": true,
+              "label": "Indique en qué asignaturas tiene experiencia",
+              "items": [
+                {
+                  "id": "1349CIENCIASNATURALESCHECK",
+                  "label": "Ciencias Naturales (Biología, Química y/o Física)",
+                  "value": "Ciencias Naturales"
+                },
+                {
+                  "id": "1349ESTUDIOSSOCIALESCHECK",
+                  "label": "Estudios Sociales",
+                  "value": "Estudios Sociales"
+                },
+                {
+                  "id": "1349INGLESCHECK",
+                  "label": "Inglés",
+                  "value": "Ingles"
+                },
+                {
+                  "id": "1349LENGUACASTELLANACOMUNICACIONCHECK",
+                  "label": "Lengua Castellana y Comunicación",
+                  "value": "Lengua Castellana y Comunicacion"
+                },
+                {
+                  "id": "1349MATEMATICACHECK",
+                  "label": "Matemática",
+                  "value": "Matematica"
+                }
+              ]
+            },
+            {
+              "component": "combobox",
+              "id": "area_postulacion_ed_especial_escuela_regular",
+              "visible": false,
+              "extend": true,
+              "placeholder": "Seleccionar área",
+              "label": "Indique su área de postulación",
+              "items": [
+                {
+                  "id": "1350DIFICULTADESAPRENDIZAJE",
+                  "label": "Dificultades Específicas del Aprendizaje",
+                  "value": "Dificultades Especificas del Aprendizaje"
+                },
+                {
+                  "id": "1350TRASTORNOLENGUAJE",
+                  "label": "Trastorno Específico del Lenguaje",
+                  "value": "Trastorno Especifico del Lenguaje"
+                },
+                {
+                  "id": "1350NEEP",
+                  "label": "Necesidades Educativas Especiales Permanentes (Discapacidad Auditiva, Intelectual, Múltiple, Visual, Espectro Autista, Disfasia Severa)",
+                  "value": "Necesidades Educativas Especiales Permanentes"
+                }
+              ]
+            },
+            {
+              "component": "checkbox",
+              "id": "diagnosticos_trabajados_ed_especial_escuela_regular",
+              "visible": false,
+              "extend": true,
+              "label": "Indique con cuáles de los siguientes diagnósticos ha trabajado",
+              "items": [
+                {
+                  "id": "1350DFA",
+                  "label": "Dificultades Específicas de Aprendizaje",
+                  "value": "Dificultades Específicas de Aprendizaje"
+                },
+                {
+                  "id": "1350TEL",
+                  "label": "Trastorno Específico del Lenguaje",
+                  "value": "Trastorno Específico del Lenguaje"
+                },
+                {
+                  "id": "1350DA",
+                  "label": "Discapacidad Auditiva",
+                  "value": "Discapacidad Auditiva"
+                },
+                {
+                  "id": "1350DI",
+                  "label": "Discapacidad Intelectual",
+                  "value": "Discapacidad Intelectual"
+                },
+                {
+                  "id": "1350DM",
+                  "label": "Discapacidad Múltiple",
+                  "value": "Discapacidad Múltiple"
+                },
+                {
+                  "id": "1350DV",
+                  "label": "Discapacidad Visual",
+                  "value": "Discapacidad Visual"
+                },
+                {
+                  "id": "1350EA",
+                  "label": "Espectro Autista",
+                  "value": "Espectro Autista"
+                },
+                {
+                  "id": "1350DS",
+                  "label": "Disfasia Severa",
+                  "value": "Disfasia Severa"
+                }
+              ]
+            },
+            {
+              "component": "checkbox",
+              "id": "diagnosticos_trabajados_ed_especial_escuela_especial",
+              "visible": false,
+              "extend": true,
+              "label": "Indique con cuáles de los siguientes diagnósticos ha trabajado",
+              "items": [
+                {
+                  "id": "1351DA",
+                  "label": "Discapacidad Auditiva",
+                  "value": "Discapacidad Auditiva"
+                },
+                {
+                  "id": "1351DI",
+                  "label": "Discapacidad Intelectual",
+                  "value": "Discapacidad Intelectual"
+                },
+                {
+                  "id": "1351DM",
+                  "label": "Discapacidad Múltiple",
+                  "value": "Discapacidad Múltiple"
+                },
+                {
+                  "id": "1351DV",
+                  "label": "Discapacidad Visual",
+                  "value": "Discapacidad Visual"
+                },
+                {
+                  "id": "1351EA",
+                  "label": "Espectro Autista",
+                  "value": "Espectro Autista"
+                },
+                {
+                  "id": "1351DS",
+                  "label": "Disfasia Severa",
+                  "value": "Disfasia Severa"
+                }
+              ]
+            },
+            {
+              "component": "radio",
+              "id": "experiencia_clases_escuela_especial",
+              "label": "¿Tiene experiencia realizando clases de Artes Musicales, Artes Visuales y/o Educación Física?",
+              "visible": false,
+              "items": [
+                {
+                  "id": "1351SI",
+                  "label": "Si",
+                  "value": false
+                },
+                {
+                  "id": "1351NO",
+                  "label": "No",
+                  "value": false
+                }
+              ]
+            },
+            {
+              "component": "radio",
+              "id": "experiencia_discapacidad_auditiva",
+              "label": "¿Tiene experiencia trabajando con niños, niñas y/o estudiantes con discapacidad auditiva?",
+              "visible": false,
+              "extend": true,
+              "items": [
+                {
+                  "id": "EXPERIENCIA_DISC_AUDSI",
+                  "label": "Si",
+                  "value": false
+                },
+                {
+                  "id": "EXPERIENCIA_DISC_AUDNO",
+                  "label": "No",
+                  "value": false
+                }
+              ]
+            },
+            {
+              "component": "radio",
+              "id": "lengua_senas",
+              "label": "¿Usted puede comunicarse en lengua de señas?",
+              "visible": false,
+              "extend": true,
+              "items": [
+                {
+                  "id": "LENGSENASSI",
+                  "label": "Si",
+                  "value": false
+                },
+                {
+                  "id": "LENGSENASNO",
+                  "label": "No",
+                  "value": false
+                }
+              ]
+            },
+            {
+              "component": "radio",
+              "id": "tipo_evidencia",
               "info": "info random",
               "extend": true,
               "label": "Indique el tipo de evidencia para la que está postulando",
               "items": [
                 {
-                  "id": 1,
-                  "label": "Evidencia Escrita Módulo 1",
+                  "id": "tipo_evidencia1",
+                  "label": "Módulo 1 (Evidencia escrita)",
                   "value": "modulo-1"
                 },
                 {
-                  "id": 2,
-                  "label": "Evidencia Escrita Módulo 2",
+                  "id": "tipo_evidencia2",
+                  "label": "Módulo 2 (Clase grabada)",
                   "value": "modulo-2"
                 },
                 {
-                  "id": 3,
-                  "label": "Evidencia Escrita Módulo 3",
+                  "id": "tipo_evidencia3",
+                  "label": "Módulo 3 (Trabajo colaborativo)",
                   "value": "modulo-3"
                 }
               ]
             },
+            {
+              "component": "text",
+              "id": "anios_experiencia",
+              "info": "¿Cuántos años de experiencia posee como docente de aula, contados desde la fecha de su titulación?",
+              "label": "Años de Experiencia",
+              "type": "number",
+              "validators": ["completion","number"]
+            },
+            {
+              "component": "radio",
+              "id": "ejerce_pedagogia",
+              "label": "¿Actualmente ejerce como docente o educador/a de aula?",
+              "items": [
+                {
+                  "id": "ejerce_pedagogia1",
+                  "label": "Si",
+                  "value": true
+                },
+                {
+                  "id": "ejerce_pedagogia2",
+                  "label": "No",
+                  "value": false
+                }
+              ]
+            },
+            {
+              "component": "radio",
+              "id": "red_maestro",
+              "label": "Actualmente, ¿integra la Red Maestro de Maestros?",
+              "items": [
+                {
+                  "id": "red_maestro1",
+                  "label": "Si",
+                  "value": true
+                },
+                {
+                  "id": "red_maestro2",
+                  "label": "No",
+                  "value": false
+                }
+              ]
+            },
+            {
+              "component": "text",
+              "id": "ocupacion_actual",
+              "label": "¿A qué se ha dedicado el últimom año?",
+              "info": "Indique ocupación",
+              "type": "text",
+              "validators": ["completion"]
+            },
+
+            {
+              "component": "combobox",
+              "id": "id_nivel_asignatura_basica_media",
+              "label": "Nivel de Postulación",
+              "info": "Indique el nivel al que postula",
+              "placeholder": "Seleccionar nivel de postulación",
+              "items": []
+            },
+            {
+              "component": "combobox",
+              "id": "centro-postulacion",
+              "label": "Centro",
+              "info": "El área/asignatura y evidencia para la que postula será corregida en el centro",
+              "placeholder": "Seleccione un centro",
+              "items": []
+            },
+           
+
             {
               "component": "radio",
               "id": "cantidad-modulos-impartir",
@@ -2487,35 +3103,8 @@
                 }
               ]
             },
-            {
-              "component": "radio",
-              "id": "cursos-formacion-diferenciada",
-              "label": "Indique en cuál(es) de estos cursos de la formación diferenciada posee experiencia de aula:",
-              "visible": false,
-              "items": [
-                {
-                  "id": 1,
-                  "label": "III°",
-                  "value": "tercer"
-                },
-                {
-                  "id": 2,
-                  "label": "IV°",
-                  "value": "cuarto"
-                }
-              ]
-            },
-            {
-              "component": "text",
-              "id": "anios-experiencia",
-              "info": "¿Cuántos años de experiencia posee como docente de aula, contados desde la fecha de su titulación?",
-              "label": "Años de Experiencia",
-              "type": "number",
-              "validators": ["number"]
-            },
-            {
-              "component": "blank"
-            },
+
+            
             {
               "component": "radio",
               "id": "exp-correccion-portafolios",
@@ -2533,40 +3122,8 @@
                 }
               ]
             },
-            {
-              "component": "radio",
-              "id": "ejerce-docente",
-              "label": "¿Actualmente ejerce como docente o educador/a de aula?",
-              "items": [
-                {
-                  "id": 1,
-                  "label": "Si",
-                  "value": "true"
-                },
-                {
-                  "id": 2,
-                  "label": "No",
-                  "value": "false"
-                }
-              ]
-            },
-            {
-              "component": "radio",
-              "id": "red-maestro",
-              "label": "Actualmente, ¿integra la Red Maestro de Maestros?",
-              "items": [
-                {
-                  "id": 1,
-                  "label": "Si",
-                  "value": "true"
-                },
-                {
-                  "id": 2,
-                  "label": "No",
-                  "value": "false"
-                }
-              ]
-            },
+            
+          
             {
               "component": "text",
               "id": "rbd",

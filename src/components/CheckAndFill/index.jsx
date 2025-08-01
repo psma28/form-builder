@@ -118,7 +118,7 @@ export function CheckAndFillField({ id }) {
                     className={
                       "caf-textfield-input text-field-label" +
                       (!isChecked(item) ? " disabled-caf-text" : "") +
-                      (errors?.length > 0 ? " caf-text-error" : "") +
+                      ((errors.length > 0 && isChecked(item)) ? " caf-text-error" : "") +
                       ({ ...props }.type === "tel" ? " caf-telephone" : "")
                     }
                   >
@@ -139,7 +139,7 @@ export function CheckAndFillField({ id }) {
                       onBlur={(e) => handleText(item.value, e.target.value)}
                     />
                   </div>
-                  {errors.length > 0 && (
+                  {(errors.length > 0 && isChecked(item)) && (
                     <div className="caf-textfield-messages font-roboto">
                       <ul className="caf-error-element">
                         {errors.map((error) => {

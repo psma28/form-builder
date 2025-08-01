@@ -1,3 +1,5 @@
+import { CERTIFICADOS_INGLES_URL } from "../../utils/URL";
+
 const certificadosIngles = [
   {
     id: "c1",
@@ -49,10 +51,8 @@ const certificadosIngles = [
   },
 ];
 
-export function getCertificadosIngles() {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(certificadosIngles);
-    }, 0);
-  });
+export async function getCertificadosIngles() {
+  const res = await fetch(CERTIFICADOS_INGLES_URL);
+  const data = await res.json();
+  return data;
 }

@@ -58,6 +58,18 @@ export const PROFESIONES_URL =
 export const PROFESIONES_EDD_URL =
   "https://devrrhh.iie.cl/rrhh_api/item/profesiones-edd";
 
+//Lista de profesiones EDD
+export const ASIGNATURAS_EDD_URL =
+  "https://devrrhh.iie.cl/rrhh_api/item/asignaturas-postulacion-edd";
+
+//Lista de profesiones EDD
+export const SECTOR_ECONOMICO_EDD_URL =
+  "https://devrrhh.iie.cl/rrhh_api/item/sector-economico-edd";
+
 //Lista de cargos endfid
 export const CARGOS_ENDFID_URL =
   "https://devrrhh.iie.cl/rrhh_api/item/cargos-endfid";
+
+//Lista de certificados ingles
+export const CERTIFICADOS_INGLES_URL =
+  "https://devrrhh.iie.cl/rrhh_api/item/certificados-ingles";
