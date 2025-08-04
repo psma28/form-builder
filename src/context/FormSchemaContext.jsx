@@ -10,6 +10,7 @@ import { ModalContext } from "./ModalContext";
 import { uploadForm } from "../services/api/uploadForm";
 import { formMapper } from "../mappings/form/FormMapper";
 import { FieldAccessContext } from "./FieldAccessContext";
+import { isProcessableComponent } from "../utils/stringTools";
 
 export const FormSchemaContext = createContext();
 
@@ -46,6 +47,14 @@ export function FormSchemaProvider({ children }) {
     const stagedFields = [];
     //Verificar todos los campos del formulario
     for (const [key, props] of Object.entries(schema)) {
+      // if (
+      //   !isProcessableComponent(props.component) ||
+      //   !props.visible ||
+      //   !props.items ||
+      //   (props.items && props.items.lenght === 0)
+      // ) {
+      //   continue;
+      // }
       //Verifies every field that has items and is visible
       if (
         props.component &&

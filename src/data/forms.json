@@ -3061,10 +3061,11 @@
             {
               "component": "text",
               "id": "ocupacion_actual",
-              "label": "¿A qué se ha dedicado el últimom año?",
+              "label": "¿A qué se ha dedicado el último año?",
               "info": "Indique ocupación",
               "type": "text",
-              "validators": ["completion"]
+              "validators": ["completion"],
+              "extend": true
             },
 
             {

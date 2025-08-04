@@ -19,3 +19,8 @@ export function convertToNumber(string) {
   }
   return +string;
 }
+
+export function isProcessableComponent(componentType){
+  const unprocessableComponents = ['alert', 'blank', 'form-structure', undefined, null, ''];
+  return !unprocessableComponents.includes(componentType);
+}
