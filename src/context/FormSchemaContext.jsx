@@ -10,7 +10,7 @@ import { ModalContext } from "./ModalContext";
 import { uploadForm } from "../services/api/uploadForm";
 import { formMapper } from "../mappings/form/FormMapper";
 import { FieldAccessContext } from "./FieldAccessContext";
-import { isProcessableComponent } from "../utils/stringTools";
+// import { isProcessableComponent } from "../utils/stringTools";
 
 export const FormSchemaContext = createContext();
 
@@ -75,8 +75,10 @@ export function FormSchemaProvider({ children }) {
           }
           if (
             props.component === "checkbox" ||
+            props.component === "radio" ||
             props.component === "combobox" ||
-            props.component === "file"
+            props.component === "file" ||
+            props.component === "checkandfill"
           ) {
             updateComponent(key, { highlighted: true });
           }

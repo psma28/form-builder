@@ -16,15 +16,16 @@ export function CheckAndFillField({ id }) {
   const { getComponent, updateComponent, eventHandler, collapseEvents } =
     useContext(FormSchemaContext);
 
-  const {
-    visible = true,
-    extend = false,
+  let {
     label,
     value,
-    info,
     items,
+    highlighted = false,
+    visible = true,
+    extend = false,
+    info,
     validators = [],
-    events,
+    events = [],
     ...props
   } = getComponent(id);
   const {
@@ -90,7 +91,9 @@ export function CheckAndFillField({ id }) {
         </div>
         <div
           className={
-            "caf-options" + (getFieldStatus() === false ? " disabled-caf" : "")
+            "caf-options" + 
+            (getFieldStatus() === false ? " disabled-caf" : "") +
+            (highlighted ? " checkbox-flaged" : "")
           }
         >
           {list.map((item) => {

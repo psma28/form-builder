@@ -31,6 +31,8 @@ import {
   setEvidenciaEDD24InstitucionEvaluadora,
 } from "../services/misc/edd24-institucion-evaluadora";
 import { getSectorEconomicoEDD } from "../services/seeders/lista-sector-economico";
+import { getCentrosCorreccionPrevios } from "../services/seeders/lista-centros-correccion-previos";
+import { getAniosCorreccionPortafolios } from "../services/seeders/lista-anios-correccion-portafolios";
 
 const APIFunctionsMap = {
   "lista-sexos": { function: getListaSexos, args: 0 },
@@ -65,6 +67,7 @@ const APIFunctionsMap = {
     args: 0,
   },
   "get-anios-trabajados": { function: getAniosTrabajados, args: 0 },
+  "get-anios-correccion-portafolios": { function: getAniosCorreccionPortafolios, args: 0 },
   "set-asignatura-edd2024-institucion-evaluadora": {
     function: setAsignaturaEDD24InstitucionEvaluadora,
     args: 1,
@@ -73,6 +76,7 @@ const APIFunctionsMap = {
     function: setEvidenciaEDD24InstitucionEvaluadora,
     args: 1,
   },
+  "get-centros-correccion-previos": { function: getCentrosCorreccionPrevios, args: 0 },
   "rbd-comuna": { function: getComunaRBD, args: 1 },
   "rbd-establecimiento": { function: getEstablecimientoRBD, args: 1 },
   "cargos-endfid-2024": { function: getListaCargosEndfid2024, args: 0 },

@@ -2717,6 +2717,7 @@
               "visible": false,
               "extend": true,
               "label": "Indique a qué modalidad postula",
+              "placeholder": "Seleccione modalidad",
               "items": [
                 {
                   "id": "1354EDUJAR",
@@ -3026,6 +3027,102 @@
             },
             {
               "component": "radio",
+              "id": "experiencia_correccion_portafolios",
+              "label": "¿Posee Experiencia en la Corrección de Portafolios?",
+              "items": [
+                {
+                  "id": "experiencia_correccion_portafolios1",
+                  "label": "Si",
+                  "value": true,
+                  "events": [
+                    {
+                      "target": "centros_correccion",
+                      "payload":{
+                        "visible": true
+                      }
+                    },
+                    {
+                      "target": "cargos_centro_correccion",
+                      "payload":{
+                        "visible": true
+                      }
+                    },
+                    {
+                      "target": "modulos_trabajados",
+                      "payload":{
+                        "visible": true
+                      }
+                    },
+                    {
+                      "target": "anios_participacion_correccion",
+                      "payload":{
+                        "visible": true
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "experiencia_correccion_portafolios2",
+                  "label": "No",
+                  "value": false
+                }
+              ]
+            },
+            {
+              "component": "checkbox",
+              "id": "centros_correccion",
+              "label": "¿En qué centro de Corrección ha participado? (puede seleccionar mas de uno)",
+              "items": "get-centros-correccion-previos",
+              "visible": false
+            },
+            {
+              "component": "text",
+              "id": "otro_centro_correccion",
+              "label": "¿A qué se ha dedicado el último año?",
+              "info": "Indique ocupación",
+              "type": "text",
+              "validators": ["completion"],
+              "visible": false
+            },
+            {
+              "component": "checkbox",
+              "id": "cargos_centro_correccion",
+              "label": "¿Qué cargo desempeñó? (puede seleccionar mas de uno)",
+              "items": "get-cargos-centros-correccion",
+              "visible": false
+            },
+            {
+              "component": "checkbox",
+              "id": "modulos_trabajados",
+              "label": "¿En qué módulos ha trabajado? (puede seleccionar mas de uno)",
+              "visible": false,
+              "items": [
+                {
+                  "id": "modulotrabajado1",
+                  "label": "Módulo 1",
+                  "value": "Módulo 1"
+                },
+                {
+                  "id": "modulotrabajado2",
+                  "label": "Módulo 2",
+                  "value": "Módulo 2"
+                },
+                {
+                  "id": "modulotrabajado3",
+                  "label": "Módulo 3",
+                  "value": "Módulo 3"
+                }
+              ]
+            },
+            {
+              "component": "checkbox",
+              "id": "anios_participacion_correccion",
+              "label": "¿En qué año participó? (puede seleccionar mas de uno)",
+              "items": "get-anios-correccion-portafolios",
+              "visible": false
+            },
+            {
+              "component": "radio",
               "id": "ejerce_pedagogia",
               "label": "¿Actualmente ejerce como docente o educador/a de aula?",
               "items": [
@@ -3064,18 +3161,18 @@
               "label": "¿A qué se ha dedicado el último año?",
               "info": "Indique ocupación",
               "type": "text",
-              "validators": ["completion"],
-              "extend": true
+              "validators": ["completion"]
             },
-
             {
               "component": "combobox",
-              "id": "id_nivel_asignatura_basica_media",
-              "label": "Nivel de Postulación",
-              "info": "Indique el nivel al que postula",
-              "placeholder": "Seleccionar nivel de postulación",
-              "items": []
+              "id": "ultimo_anio_ejerciendo",
+              "label": "¿Cuál es su último año ejerciendo en aula?",
+              "placeholder": "Seleccione año",
+              "type": "combobox",
+              "items": "get-anios-trabajados"
             },
+
+
             {
               "component": "combobox",
               "id": "centro-postulacion",
@@ -3085,45 +3182,6 @@
               "items": []
             },
            
-
-            {
-              "component": "radio",
-              "id": "cantidad-modulos-impartir",
-              "label": "En la actualidad, ud. imparte clases en:",
-              "visible": false,
-              "items": [
-                {
-                  "id": 1,
-                  "label": "Un módulo",
-                  "value": "uno"
-                },
-                {
-                  "id": 2,
-                  "label": "Más de un módulo",
-                  "value": "muchos"
-                }
-              ]
-            },
-
-            
-            {
-              "component": "radio",
-              "id": "exp-correccion-portafolios",
-              "label": "¿Posee Experiencia en la Corrección de Portafolios?",
-              "items": [
-                {
-                  "id": "exp-yes",
-                  "label": "Si",
-                  "value": "true"
-                },
-                {
-                  "id": "exp-no",
-                  "label": "No",
-                  "value": "false"
-                }
-              ]
-            },
-            
           
             {
               "component": "text",
