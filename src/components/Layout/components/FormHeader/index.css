@@ -10,11 +10,13 @@
 }
 .title-image {
   margin: -3px 0 0 0;
-  height: 80px;
+  min-height: 80px;
 }
 .title-image img {
   width: 200px;
 }
+
+
 
 @media (max-width: 800px) {
   .title-container span {

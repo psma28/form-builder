@@ -27,7 +27,7 @@ export function FormSchemaProvider({ children }) {
   const { setFieldAccess } = useContext(FieldAccessContext);
 
   useEffect(() => {
-    if (form) document.title = title;
+    if (form) document.title = title?.text || "Formulario";
   }, []);
 
   if (!form) return <NotFoundPage message="No se encontró el formulario" />;
