@@ -39,150 +39,121 @@ const institucionesEvaluadorasEDD24 = [
 let area_asignatura = "";
 let evidencia = "";
 
-function filterInstitutionKey() {
-  let neededId = "";
-  if (
-    //(area_asignatura === "1059" && evidencia === "si_evidencia") ||
-    (area_asignatura === "1058" && evidencia === "no_evidencia") ||
-    (area_asignatura === "1027" && evidencia === "si_evidencia") ||
-    evidencia === "no_evidencia" ||
-    evidencia === "evidencia_m2" ||
-    (area_asignatura === "1019" && evidencia === "evidencia_m2") ||
-    (area_asignatura === "1011" && evidencia === "si_evidencia") ||
-    evidencia === "evidencia_m2" ||
-    (area_asignatura === "1064" && evidencia === "si_evidencia") ||
-    evidencia === "evidencia_m2" ||
-    (area_asignatura === "1149" && evidencia === "si_evidencia") ||
-    evidencia === "evidencia_m2" ||
-    (area_asignatura === "1072" && evidencia === "si_evidencia") ||
-    evidencia === "evidencia_m2" ||
-    (area_asignatura === "1072" && evidencia === "si_evidencia") ||
-    evidencia === "evidencia_m2"
-  ) {
-    neededId = "UFRO";
-  }
+function obtenerInstitucion() {
+  const mapeo = {
+    "1373_m1": "UDP",
+    "1373_m2": "UDP",
+    "1373_m3": "UCSH",
+    "1346_m1": "PUCV",
+    "1346_m2": "UDEC",
+    "1346_m3": "UDEC",
+    "1347_m1": "PUCV",
+    "1347_m2": "UDEC",
+    "1347_m3": "UDEC",
+    "1348_m1": "PUCV",
+    "1348_m2": "UDEC",
+    "1348_m3": "UDEC",
+    "1349_m1": "UFRO",
+    "1349_m2": "UFRO",
+    "1349_m3": "UCSH",
+    "1350_m1": "UCSH",
+    "1350_m2": "PUCV",
+    "1350_m3": "ULS",
+    "1351_m1": "UFRO",
+    "1351_m2": "UFRO",
+    "1351_m3": "ULS",
+    "1352_m1": "PUCV",
+    "1352_m2": "PUCV",
+    "1352_m3": "UDP",
+    "1353_m1": "UFRO",
+    "1353_m2": "UFRO",
+    "1353_m3": "UCSH",
+    "1354_m1": "UCSH",
+    "1354_m2": "UDP",
+    "1354_m3": "UCT",
+    "1355_m1": "UCSH",
+    "1355_m2": "UCSH",
+    "1355_m3": "ULS",
+    "1356_m1": "PUCV",
+    "1356_m2": "UDEC",
+    "1356_m3": "UDEC",
+    "1357_m1": "UFRO",
+    "1357_m2": "UFRO",
+    "1357_m3": "UFRO",
+    "1358_m1": "UDP",
+    "1358_m2": "ULS",
+    "1358_m3": "UFRO",
+    "1359_m1": "PUCV",
+    "1359_m2": "UDEC",
+    "1359_m3": "UDEC",
+    "1360_m1": "PUCV",
+    "1360_m2": "UDEC",
+    "1360_m3": "UDEC",
+    "1361_m1": "UDP",
+    "1361_m2": "ULS",
+    "1361_m3": "UCT",
+    "1362_m1": "UDEC",
+    "1362_m2": "UDP",
+    "1362_m3": "UDEC",
+    "1363_m1": "UDEC",
+    "1363_m2": "UDP",
+    "1363_m3": "UDEC",
+    "1364_m1": "UDP",
+    "1364_m2": "PUCV",
+    "1364_m3": "UDP",
+    "1365_m1": "UDP",
+    "1365_m2": "PUCV",
+    "1365_m3": "UDP",
+    "1366_m1": "PUCV",
+    "1366_m2": "UFRO",
+    "1366_m3": "ULS",
+    "1367_m1": "UFRO",
+    "1367_m2": "UFRO",
+    "1367_m3": "ULS",
+    "1368_m1": "PUCV",
+    "1368_m2": "UDEC",
+    "1368_m3": "UDEC",
+    "1369_m1": "UCSH",
+    "1369_m2": "UCSH",
+    "1369_m3": "ULS",
+    "1370_m1": "UCSH",
+    "1370_m2": "UCSH",
+    "1370_m3": "ULS",
+    "1371_m1": "UCT",
+    "1371_m2": "UCT",
+    "1371_m3": "UCSH",
+    "1372_m1": "UDP",
+    "1372_m2": "UDP",
+    "1372_m3": "UCSH"
+  };
 
-  if (
-    (area_asignatura === "1059" && evidencia === "si_evidencia") ||
-    (area_asignatura === "1008" && evidencia === "no_evidencia") ||
-    (area_asignatura === "1012" && evidencia === "evidencia_m2") ||
-    ((area_asignatura === "1025" || area_asignatura === "1054") &&
-      (evidencia === "si_evidencia" || evidencia === "evidencia_m2")) ||
-    (area_asignatura === "1055" && evidencia === "no_evidencia") ||
-    (area_asignatura === "1011" && evidencia === "no_evidencia") ||
-    (area_asignatura === "1062" && evidencia === "si_evidencia") ||
-    (area_asignatura === "1063" && evidencia === "si_evidencia") ||
-    (area_asignatura === "1149" && evidencia === "no_evidencia") ||
-    (area_asignatura === "1073" && evidencia === "no_evidencia")
-  ) {
-    neededId = "UCSH";
-  }
-  if (
-    (area_asignatura === "1059" &&
-      (evidencia === "no_evidencia" || evidencia === "evidencia_m2")) ||
-    (area_asignatura === "1073" &&
-      (evidencia === "si_evidencia" || evidencia === "evidencia_m2"))
-  ) {
-    neededId = "UCT";
-  }
-
-  if (
-    (area_asignatura === "1058" && evidencia === "evidencia_m2") ||
-    (area_asignatura === "1058" && evidencia === "si_evidencia") ||
-    (area_asignatura === "1008" &&
-      (evidencia === "si_evidencia" || evidencia === "evidencia_m2")) ||
-    (area_asignatura === "1060" && evidencia === "no_evidencia") ||
-    (area_asignatura === "1016" &&
-      (evidencia === "si_evidencia" || evidencia === "no_evidencia")) ||
-    ((area_asignatura === "1017" || area_asignatura === "1113") &&
-      evidencia === "evidencia_m2") ||
-    ((area_asignatura === "1018" || area_asignatura === "1112") &&
-      (evidencia === "si_evidencia" || evidencia === "no_evidencia")) ||
-    (area_asignatura === "1055" &&
-      (evidencia === "si_evidencia" || evidencia === "evidencia_m2")) ||
-    (area_asignatura === "1063" && evidencia === "si_evidencia")
-  ) {
-    neededId = "UDP";
-  }
-  if (
-    (area_asignatura === "1058" && evidencia === "evidencia_m2") ||
-    (area_asignatura === "1016" && evidencia === "evidencia_m2") ||
-    (area_asignatura === "1012" && evidencia === "no_evidencia") ||
-    (area_asignatura === "1019" && evidencia === "no_evidencia") ||
-    ((area_asignatura === "1025" || area_asignatura === "1054") &&
-      evidencia === "no_evidencia") ||
-    (area_asignatura === "1062" && evidencia === "no_evidencia") ||
-    (area_asignatura === "1063" && evidencia === "no_evidencia") ||
-    (area_asignatura === "1064" && evidencia === "no_evidencia") ||
-    (area_asignatura === "1072" && evidencia === "no_evidencia")
-  ) {
-    neededId = "ULS";
-  }
-  if (
-    ((area_asignatura === "1061" ||
-      area_asignatura === "1111" ||
-      area_asignatura === "1060") &&
-      evidencia === "si_evidencia") ||
-    ((area_asignatura === "1061" || area_asignatura === "1111") &&
-      evidencia === "no_evidencia") ||
-    (area_asignatura === "1060" && evidencia === "evidencia_m2") ||
-    ((area_asignatura === "1014" || area_asignatura === "1110") &&
-      evidencia === "si_evidencia") ||
-    (area_asignatura === "1009" &&
-      (evidencia === "si_evidencia" || evidencia === "no_evidencia")) ||
-    (area_asignatura === "1013" &&
-      (evidencia === "si_evidencia" ||
-        evidencia === "no_evidencia" ||
-        evidencia === "evidencia_m2")) ||
-    ((area_asignatura === "1018" || area_asignatura === "1112") &&
-      evidencia === "evidencia_m2") ||
-    (area_asignatura === "1019" && evidencia === "si_evidencia") ||
-    (area_asignatura === "1020" &&
-      (evidencia === "si_evidencia" ||
-        evidencia === "no_evidencia" ||
-        evidencia === "evidencia_m2")) ||
-    (area_asignatura === "1062" && evidencia === "evidencia_m2")
-  ) {
-    neededId = "PUCV";
-  }
-  if (
-    ((area_asignatura === "1061" || area_asignatura === "1111") &&
-      evidencia === "evidencia_m2") ||
-    ((area_asignatura === "1014" || area_asignatura === "1110") &&
-      (evidencia === "evidencia_m2" || evidencia === "no_evidencia")) ||
-    (area_asignatura === "1009" && evidencia === "evidencia_m2") ||
-    (area_asignatura === "1012" && evidencia === "si_evidencia") ||
-    ((area_asignatura === "1017" || area_asignatura === "1113") &&
-      (evidencia === "si_evidencia" || evidencia === "no_evidencia"))
-  ) {
-    neededId = "UDEC";
-  }
-  return neededId;
+  return mapeo[`${area_asignatura}_${evidencia}`] || "";
 }
 
 export function setAsignaturaEDD24InstitucionEvaluadora(value) {
   area_asignatura = value;
-  const idInstitucion = filterInstitutionKey();
-  const instituciones = getInstitucion(idInstitucion);
-  return sendInstituciones(instituciones);
+  const idInstitucion = obtenerInstitucion();
+  const institucion = getInstitucion(idInstitucion);
+  return sendInstitucion(institucion);
 }
 export function setEvidenciaEDD24InstitucionEvaluadora(value) {
   evidencia = value;
-  const idInstitucion = filterInstitutionKey();
-  const instituciones = getInstitucion(idInstitucion);
-  return sendInstituciones(instituciones);
+  const idInstitucion = obtenerInstitucion();
+  const institucion = getInstitucion(idInstitucion);
+  return sendInstitucion(institucion);
 }
 
 function getInstitucion(key) {
-  const res = [];
+  let res = "";
   institucionesEvaluadorasEDD24.forEach((item) => {
     if (item.id === key) {
-      res.push(item);
+      res = (item);
     }
   });
   return res;
 }
 
-function sendInstituciones(list) {
-  return Promise.resolve(list);
+
+function sendInstitucion(institucion) {
+  return Promise.resolve(institucion.label);
 }
