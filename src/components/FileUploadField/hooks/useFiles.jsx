@@ -58,10 +58,23 @@ export function useFiles(
         return "📁";
     }
   };
+
+  const sanitizeFileName = (fileName) => {
+    const lastDot = fileName.lastIndexOf(".");
+    const name = lastDot === -1 ? fileName : fileName.substring(0, lastDot);
+    return name.replace(/[<>:"/\\|?*#%&{}.]/g, "");
+  };
+
+  const getSanitizedFullFileName = (fileName) => {
+    if (!fileName) return "";
+    const lastDot = fileName.lastIndexOf(".");
+    const ext = lastDot === -1 ? "" : fileName.substring(lastDot);
+    return sanitizeFileName(fileName) + ext;
+  };
+
   const getFileName = (file) => {
     if (!file) return "";
-    const name = file.split(".")[0];
-    return name;
+    return sanitizeFileName(file);
   };
 
   const handleClick = () => {
@@ -98,9 +111,17 @@ export function useFiles(
       setFileFn(null);
       return;
     }
-    setFileFn(file);
+
+    const sanitizedFullName = getSanitizedFullFileName(file.name);
+    const sanitizedFile = new File([file], sanitizedFullName, {
+      type: file.type,
+    });
+    setFileFn(sanitizedFile);
     setError(null);
-    updateComponent(fieldId, { value: file });
+    updateComponent(fieldId, { value: sanitizedFile });
+    // setFileFn(file);
+    // setError(null);
+    // updateComponent(fieldId, { value: file });
   };
 
   return {
