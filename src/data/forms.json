@@ -2716,7 +2716,8 @@
               "component": "text",
               "id": "centro_postulacion",
               "label": "Centro",
-              "info": "El área/asignatura y evidencia para la que postula será corregida en el centro"
+              "info": "El área/asignatura y evidencia para la que postula será corregida en el centro",
+              "editable": false
             },
            
           
@@ -2745,13 +2746,15 @@
               "component": "text",
               "id": "rbd-establecimiento",
               "label": "Establecimiento",
-              "validators": ["completion"]
+              "validators": ["completion"],
+              "editable": false
             },
             {
               "component": "text",
               "id": "rbd-comuna",
               "label": "Comuna",
-              "validators": ["completion"]
+              "validators": ["completion"],
+              "editable": false
             }
           ]
         },
@@ -2816,7 +2819,7 @@
               "component": "file",
               "id": "CV",
               "required": true,
-              "label": "Currículum Vitae (Actualizado)",
+              "label": "Currículum Vitae (Actualizado y Obligatorio)",
               "allow": ["docx", "pdf", "png", "jpeg", "zip", "rar"],
               "maxsize": 7,
               "extend": true

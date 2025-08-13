@@ -14,6 +14,7 @@ export function TextField({ id }) {
   const {
     label,
     extend = false,
+    editable = true,
     info,
     value,
     validators = [],
@@ -84,7 +85,7 @@ export function TextField({ id }) {
             <input
               id={id}
               type={{ ...props }.type}
-              disabled={!getFieldStatus()}
+              disabled={!getFieldStatus() || !editable}
               value={content}
               className="font-roboto"
               maxLength={{ ...props }.type === "tel" ? "8" : "50"}
