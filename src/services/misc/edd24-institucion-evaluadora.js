@@ -36,11 +36,7 @@ const institucionesEvaluadorasEDD24 = [
   },
 ];
 
-let area_asignatura = "";
-let evidencia = "";
-
-function obtenerInstitucion() {
-  const mapeo = {
+const mapeo = {
     "1373_m1": "UDP",
     "1373_m2": "UDP",
     "1373_m3": "UCSH",
@@ -127,6 +123,11 @@ function obtenerInstitucion() {
     "1372_m3": "UCSH"
   };
 
+
+let area_asignatura = "";
+let evidencia = "";
+
+function obtenerInstitucion() {
   return mapeo[`${area_asignatura}_${evidencia}`] || "";
 }
 
@@ -147,7 +148,7 @@ function getInstitucion(key) {
   let res = "";
   institucionesEvaluadorasEDD24.forEach((item) => {
     if (item.id === key) {
-      res = (item);
+      res = item.label;
     }
   });
   return res;
@@ -155,5 +156,5 @@ function getInstitucion(key) {
 
 
 function sendInstitucion(institucion) {
-  return Promise.resolve(institucion.label);
+    return Promise.resolve(institucion);
 }

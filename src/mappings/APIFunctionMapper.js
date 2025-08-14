@@ -15,7 +15,10 @@ import { getAsignaturasTecnicoEDD24 } from "../services/seeders/lista-asignatura
 import { getEspecialidades } from "../services/seeders/lista-especialidades";
 import { getCargoCentrosCorreccion } from "../services/seeders/lista-cargo-centro-correccion";
 import { getAniosTrabajados } from "../services/seeders/lista-anios-trabakados";
-import { getProfesiones, getProfesionesEDD } from "../services/seeders/lista-profesiones";
+import {
+  getProfesiones,
+  getProfesionesEDD,
+} from "../services/seeders/lista-profesiones";
 import { getNacionalidades } from "../services/seeders/lista-nacionalidades";
 import {
   getNivelEstudios,
@@ -67,7 +70,10 @@ const APIFunctionsMap = {
     args: 0,
   },
   "get-anios-trabajados": { function: getAniosTrabajados, args: 0 },
-  "get-anios-correccion-portafolios": { function: getAniosCorreccionPortafolios, args: 0 },
+  "get-anios-correccion-portafolios": {
+    function: getAniosCorreccionPortafolios,
+    args: 0,
+  },
   "set-asignatura-edd2024-institucion-evaluadora": {
     function: setAsignaturaEDD24InstitucionEvaluadora,
     args: 1,
@@ -76,7 +82,10 @@ const APIFunctionsMap = {
     function: setEvidenciaEDD24InstitucionEvaluadora,
     args: 1,
   },
-  "get-centros-correccion-previos": { function: getCentrosCorreccionPrevios, args: 0 },
+  "get-centros-correccion-previos": {
+    function: getCentrosCorreccionPrevios,
+    args: 0,
+  },
   "rbd-comuna": { function: getComunaRBD, args: 1 },
   "rbd-establecimiento": { function: getEstablecimientoRBD, args: 1 },
   "cargos-endfid-2024": { function: getListaCargosEndfid2024, args: 0 },
@@ -91,13 +100,15 @@ export async function functionExecutor(functionName, args, setLoading) {
   setLoading(true);
   const functionInfo = searchFunction(functionName);
   if (functionInfo.args === 0) {
-    return functionInfo.function().then((res) => {
-      setLoading(false);
-      return res;
-    });
-  }
-  return functionInfo.function(args).then((res) => {
+    const res = await functionInfo.function();
     setLoading(false);
     return res;
-  });
+  }
+  const res = await functionInfo.function(args);
+  setLoading(false);
+  return res;
+  // return functionInfo.function(args).then((res) => {
+  //   setLoading(false);
+  //   return res;
+  // });
 }

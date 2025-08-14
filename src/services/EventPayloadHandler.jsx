@@ -30,23 +30,25 @@ export async function handlePayload(
       actorValue,
       setLoading
     );
+
     if (res) {
       payloadResults = {
         ...payloadResults,
         value: res,
       };
-      updateComponentState(targetId, { value: res });
+      //updateComponentState(targetId, { value: res });
     }
   }
   if ("seeder" in payload && typeof payload.seeder === "string") {
     const res = await functionExecutor(payload.seeder, actorValue, setLoading);
     payloadResults = { ...payloadResults, items: itemMapper(res) };
-    updateComponentState(targetId, { items: itemMapper(res) });
+    //updateComponentState(targetId, { items: itemMapper(res) });
     //payloadResults = { ...payloadResults, items: payload.seeder }
   }
   if ("info" in payload && typeof payload.info === "string") {
     payloadResults = { ...payloadResults, info: payload.info };
   }
+
   updateComponentState(targetId, payloadResults);
 }
 export function rollbackPayload(event) {

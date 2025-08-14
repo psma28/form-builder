@@ -6,3 +6,7 @@ export function arrayEquals(a, b) {
     a.every((val, index) => val === b[index])
   );
 }
+
+export function isEmptyObject(obj) {
+  return obj && Object.keys(obj).length === 0 && obj.constructor === Object;
+}
