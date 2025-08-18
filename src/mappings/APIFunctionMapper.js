@@ -98,17 +98,11 @@ function searchFunction(functionName) {
 
 export async function functionExecutor(functionName, args, setLoading) {
   setLoading(true);
-  const functionInfo = searchFunction(functionName);
-  if (functionInfo.args === 0) {
-    const res = await functionInfo.function();
-    setLoading(false);
+  try {
+    const { function: apiFunc, args: argCount } = searchFunction(functionName);
+    const res = argCount === 0 ? await apiFunc() : await apiFunc(args);
     return res;
+  } finally {
+    setLoading(false);
   }
-  const res = await functionInfo.function(args);
-  setLoading(false);
-  return res;
-  // return functionInfo.function(args).then((res) => {
-  //   setLoading(false);
-  //   return res;
-  // });
 }

@@ -29,10 +29,10 @@ export function TextField({ id }) {
    * comunmente cuando está vacío y necesitamos "encenderlo"
    */
   useEffect(() => {
-    if (value !== content) {
+    //if (value !== content) {
       setContent(value);
       handleInput(value);
-    }
+    //}
   }, [value]);
 
   const handleInput = (input) => {

@@ -3221,6 +3221,7 @@
               "component": "text",
               "id": "centro_postulacion",
               "label": "Centro asignado",
+              "validators": ["completion"],
               "info": "El área/asignatura y evidencia para la que postula será corregida en el centro",
               "editable": false
             },
