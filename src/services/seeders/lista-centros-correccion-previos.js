@@ -50,7 +50,7 @@ const centrosCorreccion = [
     value: "Otra",
     events: [
       {
-        target: "otro_centro_correccion",
+        target: "otro_centro_correccion_previo",
         payload: {
           visible: true,
         },

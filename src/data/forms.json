@@ -1982,7 +1982,7 @@
     },
     {
       "id": "edd",
-      "id_proyecto": "30",
+      "id_proyecto": "31",
       "title": {
         "text":"Postulación EDD Corrector 2025",
         "logo": "mineduc"
@@ -1995,20 +1995,20 @@
           "content": [
             {
               "component": "combobox",
-              "id": "consideradoParaSupervisor",
+              "id": "considerado_como_supervisor_corrector",
               "label": "¿Está interesado/a en que su postulación sea considerada para el rol de Supervisor/a?",
               "placeholder": "Seleccione una opción",
               "extend": true,
               "items": [
                 {
-                  "id": "consideradoParaSupervisor1",
+                  "id": "considerado_como_supervisor_corrector1",
                   "label": "Si",
-                  "value": true
+                  "value": "true"
                 },
                 {
-                  "id": "consideradoParaSupervisor0",
+                  "id": "considerado_como_supervisor_corrector0",
                   "label": "No",
-                  "value": false
+                  "value": "false"
                 }
               ]
             },
@@ -2653,12 +2653,12 @@
               "visible": false
             },
             {
-              "component": "checkbox",
+              "component": "combobox",
               "id": "asignatura_lengua",
-              "label": "Indique en qué asignatura ha hecho clases",
-              "info": "Puede seleccionar más de una opción",
+              "label": "¿Cuál es la lengua indígena que domina?",
+              "placeholder": "Seleccione una lengua indígena",
               "visible": false,
-              "extend": true,
+              "extend": false,
               "single": true,
               "items": [
                 {
@@ -2716,6 +2716,7 @@
               "id": "cantidad_modulos",
               "label": "En la actualidad, ud. imparte clases en:",
               "visible": false,
+              "required": true,
               "items": [
                 {
                   "id": "1353UnModulo",
@@ -2734,6 +2735,7 @@
               "id": "modulos_cursos",
               "label": "Indique en cuál(es) de estos cursos de la formación diferenciada posee experiencia de aula:",
               "visible": false,
+              "required": true,
               "items": [
                 {
                   "id": "1353III",
@@ -2982,12 +2984,12 @@
                 {
                   "id": "1351SI",
                   "label": "Si",
-                  "value": false
+                  "value": "true"
                 },
                 {
                   "id": "1351NO",
                   "label": "No",
-                  "value": false
+                  "value": "false"
                 }
               ]
             },
@@ -3001,12 +3003,12 @@
                 {
                   "id": "EXPERIENCIA_DISC_AUDSI",
                   "label": "Si",
-                  "value": false
+                  "value": "true"
                 },
                 {
                   "id": "EXPERIENCIA_DISC_AUDNO",
                   "label": "No",
-                  "value": false
+                  "value": "false"
                 }
               ]
             },
@@ -3077,16 +3079,16 @@
                 {
                   "id": "experiencia_correccion_portafolios1",
                   "label": "Si",
-                  "value": true,
+                  "value": "true",
                   "events": [
                     {
-                      "target": "centros_correccion",
+                      "target": "centros_correccion_previos",
                       "payload":{
                         "visible": true
                       }
                     },
                     {
-                      "target": "cargos_centro_correccion",
+                      "target": "cargos_trabajados",
                       "payload":{
                         "visible": true
                       }
@@ -3108,29 +3110,28 @@
                 {
                   "id": "experiencia_correccion_portafolios2",
                   "label": "No",
-                  "value": false
+                  "value": "false"
                 }
               ]
             },
             {
               "component": "checkbox",
-              "id": "centros_correccion",
+              "id": "centros_correccion_previos",
               "label": "¿En qué centro de Corrección ha participado? (puede seleccionar mas de uno)",
               "items": "get-centros-correccion-previos",
               "visible": false
             },
             {
               "component": "text",
-              "id": "otro_centro_correccion",
-              "label": "¿A qué se ha dedicado el último año?",
-              "info": "Indique ocupación",
+              "id": "otro_centro_correccion_previo",
+              "label": "Indique centro",
               "type": "text",
               "validators": ["completion"],
               "visible": false
             },
             {
               "component": "checkbox",
-              "id": "cargos_centro_correccion",
+              "id": "cargos_trabajados",
               "label": "¿Qué cargo desempeñó? (puede seleccionar mas de uno)",
               "items": "get-cargos-centros-correccion",
               "visible": false
@@ -3161,6 +3162,7 @@
             {
               "component": "checkbox",
               "id": "anios_participacion_correccion",
+              "extend":true,
               "label": "¿En qué año participó? (puede seleccionar mas de uno)",
               "items": "get-anios-correccion-portafolios",
               "visible": false
@@ -3226,7 +3228,6 @@
               "editable": false
             },
            
-          
             {
               "component": "text",
               "id": "rbd",
@@ -3235,13 +3236,13 @@
               "validators": ["completion", "number"],
               "events": [
                 {
-                  "target": "rbd-establecimiento",
+                  "target": "rbd_establecimiento",
                   "payload": {
                     "function-value": "rbd-establecimiento"
                   }
                 },
                 {
-                  "target": "rbd-comuna",
+                  "target": "rbd_comuna",
                   "payload": {
                     "function-value": "rbd-comuna"
                   }
@@ -3250,14 +3251,14 @@
             },
             {
               "component": "text",
-              "id": "rbd-establecimiento",
+              "id": "rbd_establecimiento",
               "label": "Establecimiento",
               "validators": ["completion"],
               "editable": false
             },
             {
               "component": "text",
-              "id": "rbd-comuna",
+              "id": "rbd_comuna",
               "label": "Comuna",
               "validators": ["completion"],
               "editable": false
