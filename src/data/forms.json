@@ -2340,7 +2340,7 @@
               ],
               "events": [
                 {
-                  "target": "semestres_duracion",
+                  "target": "semestres_duracion_carrera",
                   "payload": {
                     "visible": true
                   }
