@@ -5,6 +5,7 @@ export function formMapper(stagedForm) {
 
     if (Array.isArray(value) || typeof value === "object") {
       formData.append(key, JSON.stringify(value));
+      continue;
     }
     formData.append(key, value);
   }
