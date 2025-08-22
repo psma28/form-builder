@@ -147,7 +147,7 @@ function getInstitucion(key) {
   let res = "";
   institucionesEvaluadorasEDD.forEach((item) => {
     if (item.id === key) {
-      res = item.label;
+      res = item.value;
     }
   });
   return res;
