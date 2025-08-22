@@ -2549,7 +2549,7 @@
                   "item-value": 1361,
                   "events": [
                     {
-                      "target": "id_certificado_ingles",
+                      "target": "certificados_ingles",
                       "payload": {
                         "visible": true
                       }
@@ -2624,7 +2624,7 @@
             },
             {
               "component": "checkbox",
-              "id": "id_certificado_ingles",
+              "id": "certificados_ingles",
               "label": "Certificados Inglés",
               "visible": false,
               "extend": true,
