@@ -1,14 +1,22 @@
-export async function uploadForm(form) {
+export async function uploadForm(form, outputType) {
+  let BASE_URL = "https://devrrhh.iie.cl/rrhh_api/form";
+  let url = BASE_URL;
+  switch (outputType) {
+    case "junji-docs":
+      url += "/subir-documento-junji";
+      break;
+    default:
+      url += "/subir-postulacion";
+      break;
+  }
+    
   try {
-    const res = await fetch(
-      "https://devrrhh.iie.cl/rrhh_api/form/subir-postulacion",
-      {
-        method: "POST",
-        body: form,
-        mode: "cors",
-        cache: "no-cache",
-      }
-    );
+    const res = await fetch(url, {
+      method: "POST",
+      body: form,
+      mode: "cors",
+      cache: "no-cache",
+    });
     const data = await res.json();
 
     if (!res.ok) {

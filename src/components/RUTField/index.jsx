@@ -23,7 +23,8 @@ export function RUTField() {
     toggleModal,
     cleanForm,
     form.id_proyecto,
-    form?.access || "default"
+    form?.access || "default",
+    form?.can_complete_msg
   );
   return (
     <div className="rut-card">

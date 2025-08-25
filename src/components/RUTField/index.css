@@ -85,6 +85,10 @@
   color: var(--error-100);
 }
 
+.rut-not-able{
+  color: var(--error-100);
+}
+
 .rut-verified {
   color: green;
 }

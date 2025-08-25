@@ -13,6 +13,7 @@ export function useRUT(
   cleanForm,
   projectId,
   accessType, //Indica el tipo de acceso que tendrán los postulantes
+  canCompleteMsg //Mensaje del modal si se puede completar
 ) {
   const [rutValue, setRutValue] = useState("");
   const [indicator, setIndicator] = useState(RUTIndicators.waiting);
@@ -47,19 +48,45 @@ export function useRUT(
   };
 
   const verificateRUT = async () => {
+    //RUN INVALIDO
     if (!validateRUT(getValue(rutValue))) {
       handleIndicator(RUTIndicators.failed);
       fieldHandler(false);
       return;
     }
     setLoading(true);
-    const data = await RUTVerification(turnToRutForm(rutValue), projectId, accessType);
-    const entries = data.data ?? {};
-    if (entries.modificado == true) {
+    const response = await RUTVerification(
+      turnToRutForm(rutValue),
+      projectId,
+      accessType
+    );
+    console.log("respuesta", response);
+    
+    const data = response.data ?? {};
+    const message = response?.message;
+
+    //No está habilitado para subir forms
+    if (data?.habilitado_form === false || !response.ok) {
+      setModalContent({
+        title: "Aviso",
+        content: [
+          "No puede subir una postulación por el momento.",
+          `${message ? "Motivo: " + message : ""}`,
+        ],
+      });
+      toggleModal();
+      fieldHandler(false);
+      handleIndicator(RUTIndicators.not_able);
+      setLoading(false);
+      return;
+    }
+
+    //No permite subir de nuevo
+    if (data.modificado == true) {
       setModalContent({
         title: "Verificación RUN",
         content: [
-          "Nuestro sistema ya cuenta con una postulación asociada al RUN ingresado. ",
+          "El sistema ya cuenta con una postulación asociada al RUN ingresado. ",
         ],
       });
       toggleModal();
@@ -71,11 +98,14 @@ export function useRUT(
     setModalContent({
       title: "Aviso importante",
       content: [
-        "Por favor ingrese NOMBRES Y APELLIDOS tal cual aparecen en su Cédula de Identidad.",
+        canCompleteMsg ||
+          "Por favor ingrese NOMBRES Y APELLIDOS tal cual aparecen en su Cédula de Identidad.",
       ],
     });
     toggleModal();
-    for (const [key, value] of Object.entries(entries)) {
+
+    //RELLENAR FORM CON DATOS
+    for (const [key, value] of Object.entries(data)) {
       if (!getComponent(key)) continue;
       if (value) updateComponent(key, { value: value });
     }

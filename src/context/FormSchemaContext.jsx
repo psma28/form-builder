@@ -126,7 +126,7 @@ export function FormSchemaProvider({ children }) {
     formData.append("id_proyecto", form.id_proyecto);
         
     try {
-      const res = await uploadForm(formData);
+      const res = await uploadForm(formData, form?.output || 'default');
 
       if (res.success === false) {
         throw new Error(res.message);

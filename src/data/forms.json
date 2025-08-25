@@ -3391,7 +3391,7 @@
       ]
     },
     {
-      "id": "prueba",
+      "id": "650edbfa-0ae0-4db0-8268-a39a84f184c3",
       "id_proyecto": "29",
       "title": {
         "text": "ACUERDO DE CONFIDENCIALIDAD - SEICEP 2025",
@@ -3399,6 +3399,7 @@
       },
       "intro": "¡Bienvenido/a! Para avanzar en el proceso de contratación, es importante que cargues el Acuerdo de Confidencialidad. Por favor, ingrese su RUN para poder continuar",
       "indication": "",
+      "can_complete_msg": "Para completar el formulario, suba el documento solicitado",
       "access": "junji-docs",
       "output": "junji-docs",
       "schema": [

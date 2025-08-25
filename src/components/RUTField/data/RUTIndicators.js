@@ -20,4 +20,8 @@ export const RUTIndicators = {
     message: "Este RUN ya fue utilizado para subir una postulación.",
     color: "rut-already",
   },
+  not_able:{
+    message: "No habilitado para completar formulario",
+    color: 'rut-not-able'
+  }
 };
