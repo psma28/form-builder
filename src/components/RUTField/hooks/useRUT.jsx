@@ -11,7 +11,8 @@ export function useRUT(
   setModalContent,
   toggleModal,
   cleanForm,
-  projectId
+  projectId,
+  accessType, //Indica el tipo de acceso que tendrán los postulantes
 ) {
   const [rutValue, setRutValue] = useState("");
   const [indicator, setIndicator] = useState(RUTIndicators.waiting);
@@ -52,7 +53,7 @@ export function useRUT(
       return;
     }
     setLoading(true);
-    const data = await RUTVerification(turnToRutForm(rutValue), projectId);
+    const data = await RUTVerification(turnToRutForm(rutValue), projectId, accessType);
     const entries = data.data ?? {};
     if (entries.modificado == true) {
       setModalContent({

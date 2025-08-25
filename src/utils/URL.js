@@ -1,6 +1,9 @@
 //Verificar persona
 export const RUT_URL = "https://devrrhh.iie.cl/rrhh_api/form/buscar-persona";
 
+//Verificar persona - DOCS JUNJI
+export const RUT_JUNJI_DOCS_URL = "https://devrrhh.iie.cl/rrhh_api/form/buscar-persona-junji";
+
 //Lista de bancos
 export const BANK_URL = "https://devrrhh.iie.cl/rrhh_api/item/bancos";
 

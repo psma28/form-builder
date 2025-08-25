@@ -4,7 +4,7 @@
       "id": "endfid-2024",
       "id_proyecto": "27",
       "title": {
-        "text":"Postulación ENDFID 2024",
+        "text": "Postulación ENDFID 2024",
         "logo": "mineduc"
       },
       "intro": "Completa el siguiente formulario para postular.",
@@ -473,7 +473,7 @@
       "id": "125ee6a8-cf67-4e0b-9a1b-0332bd9af0f7",
       "id_proyecto": "28",
       "title": {
-        "text":"Postulación ECTP 2025",
+        "text": "Postulación ECTP 2025",
         "logo": "mineduc"
       },
       "intro": "¡Bienvenido/a! Para postular, debe completar el siguiente formulario. Como primer paso, ingrese su RUT para poder continuar",
@@ -962,7 +962,7 @@
       "id": "458e6e30-1b4c-4368-b04e-7c8e26dc50b3",
       "id_proyecto": "29",
       "title": {
-        "text":"FORMULARIO DE POSTULACIÓN - SEICEP 2025",
+        "text": "FORMULARIO DE POSTULACIÓN - SEICEP 2025",
         "logo": "junji"
       },
       "intro": "¡Bienvenido/a! Para poder postular, debe completar el siguiente formulario con toda la información. Como primer paso, ingrese su RUT para poder continuar",
@@ -1473,7 +1473,7 @@
       "id": "563ea8da-7ffd-4fa0-9bab-1c8da5c4ce10",
       "id_proyecto": "29",
       "title": {
-        "text":"FORMULARIO DE POSTULACIÓN - SEICEP 2025",
+        "text": "FORMULARIO DE POSTULACIÓN - SEICEP 2025",
         "logo": "junji"
       },
       "intro": "¡Bienvenido/a! Para poder postular, debe completar el siguiente formulario con toda la información. Como primer paso, ingrese su RUT para poder continuar",
@@ -1984,7 +1984,7 @@
       "id": "5f9568aa-5d40-4f31-802c-454793a2339b",
       "id_proyecto": "31",
       "title": {
-        "text":"Postulación EDD Corrector 2025",
+        "text": "Postulación EDD Corrector 2025",
         "logo": "mineduc"
       },
       "schema": [
@@ -2387,7 +2387,7 @@
               "info": "Indique el área o asignatura a la que postula",
               "items": "get-asignaturas-edd",
               "extend": true,
-              "events":[
+              "events": [
                 {
                   "target": "centro_postulacion",
                   "payload": {
@@ -3036,7 +3036,7 @@
               "id": "tipo_evidencia",
               "info": "info random",
               "extend": true,
-              "events":[
+              "events": [
                 {
                   "target": "centro_postulacion",
                   "payload": {
@@ -3069,7 +3069,7 @@
               "info": "¿Cuántos años de experiencia posee como docente de aula, contados desde la fecha de su titulación?",
               "label": "Años de Experiencia",
               "type": "number",
-              "validators": ["completion","number"]
+              "validators": ["completion", "number"]
             },
             {
               "component": "radio",
@@ -3083,25 +3083,25 @@
                   "events": [
                     {
                       "target": "centros_correccion_previos",
-                      "payload":{
+                      "payload": {
                         "visible": true
                       }
                     },
                     {
                       "target": "cargos_trabajados",
-                      "payload":{
+                      "payload": {
                         "visible": true
                       }
                     },
                     {
                       "target": "modulos_trabajados",
-                      "payload":{
+                      "payload": {
                         "visible": true
                       }
                     },
                     {
                       "target": "anios_participacion_correccion",
-                      "payload":{
+                      "payload": {
                         "visible": true
                       }
                     }
@@ -3162,7 +3162,7 @@
             {
               "component": "checkbox",
               "id": "anios_participacion_correccion",
-              "extend":true,
+              "extend": true,
               "label": "¿En qué año participó? (puede seleccionar mas de uno)",
               "items": "get-anios-correccion-portafolios",
               "visible": false
@@ -3218,7 +3218,6 @@
               "items": "get-anios-trabajados"
             },
 
-
             {
               "component": "text",
               "id": "centro_postulacion",
@@ -3227,7 +3226,7 @@
               "info": "El área/asignatura y evidencia para la que postula será corregida en el centro",
               "editable": false
             },
-           
+
             {
               "component": "text",
               "id": "rbd",
@@ -3383,6 +3382,37 @@
               "id": "ACUERDO_CONFIDENCIALIDAD",
               "required": true,
               "label": "Acuerdo de confidencialidad\u200B (obligatorio) /aDescargue el formato obligatorio aquí /lhttps://devrrhh.iie.cl/rrhh_api/public/form_docs/edd/FORMATO_CONFIDENCIALIDAD_CORRECCIONES_2025.docx/a",
+              "allow": ["docx", "pdf", "png", "jpeg", "zip", "rar"],
+              "maxsize": 7,
+              "extend": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prueba",
+      "id_proyecto": "29",
+      "title": {
+        "text": "ACUERDO DE CONFIDENCIALIDAD - SEICEP 2025",
+        "logo": "junji"
+      },
+      "intro": "¡Bienvenido/a! Para avanzar en el proceso de contratación, es importante que cargues el Acuerdo de Confidencialidad. Por favor, ingrese su RUN para poder continuar",
+      "indication": "",
+      "access": "junji-docs",
+      "output": "junji-docs",
+      "schema": [
+        {
+          "component": "form-structure",
+          "id": "documentos",
+          "label": "Documentos",
+          "indication": "( Formatos soportados: doc, docx, pdf, png, jpg, zip o rar ) ( Tamaño máximo por archivo es de 7Mb )",
+          "content": [
+            {
+              "component": "file",
+              "id": "ACUERDO_CONFIDENCIALIDAD",
+              "required": true,
+              "label": "Acuerdo de Confidencialidad",
               "allow": ["docx", "pdf", "png", "jpeg", "zip", "rar"],
               "maxsize": 7,
               "extend": true

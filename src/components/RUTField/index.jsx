@@ -22,7 +22,8 @@ export function RUTField() {
     setModalContent,
     toggleModal,
     cleanForm,
-    form.id_proyecto
+    form.id_proyecto,
+    form?.access || "default"
   );
   return (
     <div className="rut-card">

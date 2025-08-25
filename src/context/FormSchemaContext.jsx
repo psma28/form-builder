@@ -124,6 +124,7 @@ export function FormSchemaProvider({ children }) {
     setLoading(true);
     const formData = formMapper(stagedFields);
     formData.append("id_proyecto", form.id_proyecto);
+        
     try {
       const res = await uploadForm(formData);
 
