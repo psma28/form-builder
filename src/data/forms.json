@@ -3413,7 +3413,7 @@
               "component": "file",
               "id": "ACUERDO_CONFIDENCIALIDAD",
               "required": true,
-              "label": "Acuerdo de Confidencialidad",
+              "label": "Acuerdo de Confidencialidad. /aDescargue el formato obligatorio aquí /lhttps://devrrhh.iie.cl/rrhh_api/public/form_docs/junji/ACUERDO_CONFIDENCIALIDAD_2025.pdf/a",
               "allow": ["docx", "pdf", "png", "jpeg", "zip", "rar"],
               "maxsize": 7,
               "extend": true
