@@ -35,7 +35,7 @@
 }
 
 .normal-radio {
-  cursor: pointer;
+  /* cursor: pointer; */
   background-color: var(--white);
 }
 
@@ -80,6 +80,7 @@
   width: 15px;
   border-radius: 100%;
   background-color: var(--white);
+  cursor: pointer;
 }
 
 .radio-item:hover input:enabled:not(:checked) ~ .radio-checkmark {

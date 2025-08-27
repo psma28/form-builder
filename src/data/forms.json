@@ -3022,12 +3022,12 @@
                 {
                   "id": "LENGSENASSI",
                   "label": "Si",
-                  "value": false
+                  "value": "true"
                 },
                 {
                   "id": "LENGSENASNO",
                   "label": "No",
-                  "value": false
+                  "value": "false"
                 }
               ]
             },
