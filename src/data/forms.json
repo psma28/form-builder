@@ -2140,6 +2140,12 @@
             },
             {
               "component": "text",
+              "id": "ciudad_residencia",
+              "label": "Ciudad de Residencia",
+              "validators": ["completion"]
+            },
+            {
+              "component": "text",
               "id": "domicilio",
               "label": "Dirección de Residencia",
               "validators": ["completion"]
@@ -2492,12 +2498,6 @@
                       }
                     },
                     {
-                      "target": "anio_titulacion",
-                      "payload": {
-                        "visible": true
-                      }
-                    },
-                    {
                       "target": "anios_especialidades",
                       "payload": {
                         "visible": true
@@ -2631,7 +2631,7 @@
               "items": "get-certificados-ingles",
               "subevents": [
                 {
-                  "item-value": 1396,
+                  "item-value": "Otra (especificar)",
                   "events": [
                     {
                       "target": "otro_certificado_ingles",
@@ -2691,14 +2691,6 @@
               "info": "Indique el sector económico al que postula",
               "visible": false,
               "items": "get-sectores-economicos-edd"
-            },
-            {
-              "component": "combobox",
-              "id": "anio_titulacion",
-              "label": "Año título",
-              "placeholder": "Seleccione un año",
-              "visible": false,
-              "items": "get-anios"
             },
             {
               "component": "checkandfill",
@@ -3032,9 +3024,23 @@
               ]
             },
             {
+              "component": "combobox",
+              "id": "anio_titulacion",
+              "label": "Año título",
+              "placeholder": "Seleccione un año",
+              "items": "get-anios"
+            },
+            {
+              "component": "text",
+              "id": "anios_experiencia",
+              "info": "¿Cuántos años de experiencia posee como docente de aula, contados desde la fecha de su titulación?",
+              "label": "Años de Experiencia",
+              "type": "number",
+              "validators": ["completion", "number"]
+            },
+            {
               "component": "radio",
               "id": "tipo_evidencia",
-              "info": "info random",
               "extend": true,
               "events": [
                 {
@@ -3062,14 +3068,6 @@
                   "value": "m3"
                 }
               ]
-            },
-            {
-              "component": "text",
-              "id": "anios_experiencia",
-              "info": "¿Cuántos años de experiencia posee como docente de aula, contados desde la fecha de su titulación?",
-              "label": "Años de Experiencia",
-              "type": "number",
-              "validators": ["completion", "number"]
             },
             {
               "component": "radio",
@@ -3119,6 +3117,7 @@
               "id": "centros_correccion_previos",
               "label": "¿En qué centro de Corrección ha participado? (puede seleccionar mas de uno)",
               "items": "get-centros-correccion-previos",
+              "extend": true,
               "visible": false
             },
             {
@@ -3127,6 +3126,7 @@
               "label": "Indique centro",
               "type": "text",
               "validators": ["completion"],
+              "extend": true,
               "visible": false
             },
             {
@@ -3223,7 +3223,7 @@
               "id": "centro_postulacion",
               "label": "Centro asignado",
               "validators": ["completion"],
-              "info": "El área/asignatura y evidencia para la que postula será corregida en el centro",
+              "info": "Cada especialidad y módulo se corrige en un centro específico. Según su selección, el área/asignatura y evidencia para la que postula será corregida en el centro:",
               "editable": false
             },
 
@@ -3316,7 +3316,7 @@
               "component": "file",
               "id": "CARNET_IDENTIDAD",
               "required": true,
-              "label": "Cédula de identidad\u200B (Vigente y por ambos lados)",
+              "label": "Cédula de identidad\u200B (Vigente y por ambos lados) (obligatorio)",
               "allow": ["docx", "pdf", "png", "jpeg", "zip", "rar"],
               "maxsize": 7,
               "extend": true
@@ -3362,7 +3362,7 @@
               "component": "file",
               "id": "CERTIFICADO_IDIOMA",
               "required": false,
-              "label": "Certificado de dominio de idioma\u200B (Opcional si postula a Inglés o a Sector Lengua Indígena)",
+              "label": "Certificado de dominio de idioma\u200B (Obligatorio si postula a Inglés, opcional si postula a Sector Lengua Indígena)",
               "info": "Si posee más de un certificado, súbalos como archivo comprimido.",
               "allow": ["docx", "pdf", "png", "jpeg", "zip", "rar"],
               "maxsize": 7,

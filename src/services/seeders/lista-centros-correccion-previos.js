@@ -12,7 +12,7 @@ const centrosCorreccion = [
   {
     id: "cc3",
     label: "ULS: Universidad de La Serena",
-    value: "UDP: Universidad Diego Portales",
+    value: "ULS: Universidad de La Serena",
   },
   {
     id: "cc4",
