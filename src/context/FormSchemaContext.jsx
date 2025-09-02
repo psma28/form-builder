@@ -22,7 +22,7 @@ export function FormSchemaProvider({ children }) {
   const { pushComponent, updateComponent, getComponent, getSchema, cleanForm } =
     useComponents();
   const { getEvents, collapseEvents, hasEvent, pushEvent } =
-    useEvents(updateComponent);
+    useEvents(updateComponent, getComponent);
   const { toggleModal, setModalContent } = useContext(ModalContext);
   const { setFieldAccess } = useContext(FieldAccessContext);
 
