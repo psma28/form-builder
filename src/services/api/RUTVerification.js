@@ -6,6 +6,9 @@ export async function RUTVerification(rut, projectId, accessType) {
     case "junji-docs":
       baseURL = baseURL + '-junji' 
       break;
+    case "edd":
+      baseURL = baseURL + '-edd' 
+      break;
     default:
       break;
   }
