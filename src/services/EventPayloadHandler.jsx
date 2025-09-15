@@ -14,6 +14,10 @@ export async function handlePayload(
   let payloadResults = {};
   if ("visible" in payload)
     payloadResults = { ...payloadResults, visible: payload.visible };
+  if ("label" in payload)
+    payloadResults = { ...payloadResults, label: payload.label };
+  if ("placeholder" in payload)
+    payloadResults = { ...payloadResults, placeholder: payload.placeholder };
   if ("value" in payload)
     payloadResults = { ...payloadResults, value: payload.value };
   if ("items" in payload && Array.isArray(payload.items))

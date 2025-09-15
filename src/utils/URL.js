@@ -2,7 +2,8 @@
 export const RUT_URL = "https://devrrhh.iie.cl/rrhh_api/form/buscar-persona";
 
 //Verificar persona - DOCS JUNJI
-export const RUT_JUNJI_DOCS_URL = "https://devrrhh.iie.cl/rrhh_api/form/buscar-persona-junji";
+export const RUT_JUNJI_DOCS_URL =
+  "https://devrrhh.iie.cl/rrhh_api/form/buscar-persona-junji";
 
 //Lista de bancos
 export const BANK_URL = "https://devrrhh.iie.cl/rrhh_api/item/bancos";
@@ -61,9 +62,13 @@ export const PROFESIONES_URL =
 export const PROFESIONES_EDD_URL =
   "https://devrrhh.iie.cl/rrhh_api/item/profesiones-edd";
 
-//Lista de profesiones EDD
+//Lista de asignaturas EDD
 export const ASIGNATURAS_EDD_URL =
-  "https://devrrhh.iie.cl/rrhh_api/item/asignaturas-postulacion-edd";
+  "https://devrrhh.iie.cl/rrhh_api/item/asignaturas-edd";
+
+//Lista de subareas EDD
+export const SUBAREAS_EDD_URL =
+  "https://devrrhh.iie.cl/rrhh_api/item/subareas-edd/";
 
 //Lista de profesiones EDD
 export const SECTOR_ECONOMICO_EDD_URL =

@@ -9,7 +9,7 @@ import { getListaPertenenciaPueblos } from "../services/seeders/lista-pertenenci
 import { getBancos } from "../services/seeders/lista-bancos";
 import { getTiposCuenta } from "../services/seeders/lista-tipo-cuenta";
 import { getInstituciones } from "../services/seeders/lista-instituciones";
-import { getAsignaturasEDD } from "../services/seeders/lista-asignaturas";
+import { getAsignaturasEDD, getSubareasEDD } from "../services/seeders/lista-asignaturas";
 import { getCertificadosIngles } from "../services/seeders/lista-certificados-ingles";
 import { getAsignaturasTecnicoEDD24 } from "../services/seeders/lista-asignaturas-tecnico";
 import { getEspecialidades } from "../services/seeders/lista-especialidades";
@@ -60,6 +60,7 @@ const APIFunctionsMap = {
     args: 0,
   },
   "get-asignaturas-edd": { function: getAsignaturasEDD, args: 0 },
+  "get-subareas-edd": { function: getSubareasEDD, args: 1 },
   "get-sectores-economicos-edd": { function: getSectorEconomicoEDD, args: 0 },
   "get-especialidades": { function: getEspecialidades, args: 0 },
   "get-asignaturas-tecnico": { function: getAsignaturasTecnicoEDD24, args: 0 },

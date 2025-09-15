@@ -2418,9 +2418,13 @@
                   "item-value": 1349,
                   "events": [
                     {
-                      "target": "area_postulacion_contexto_encierro",
+                      "target": "id_subarea_edd",
                       "payload": {
-                        "visible": true
+                        "visible": true,
+                        "seeder": "get-subareas-edd",
+                        "label": "Indique su área de postulación",
+                        "placeholder": "Seleccionar Área",
+                        "info": ""
                       }
                     },
                     {
@@ -2435,9 +2439,13 @@
                   "item-value": 1350,
                   "events": [
                     {
-                      "target": "area_postulacion_ed_especial_escuela_regular",
+                      "target": "id_subarea_edd",
                       "payload": {
-                        "visible": true
+                        "visible": true,
+                        "seeder": "get-subareas-edd",
+                        "label": "Indique su área de postulación",
+                        "placeholder": "Seleccione Área",
+                        "info": ""
                       }
                     },
                     {
@@ -2493,9 +2501,13 @@
                   "item-value": 1353,
                   "events": [
                     {
-                      "target": "id_sector_economico",
+                      "target": "id_subarea_edd",
                       "payload": {
-                        "visible": true
+                        "visible": true,
+                        "seeder": "get-subareas-edd",
+                        "label": "Sector Económico",
+                        "info": "Indique el sector económico al que postula",
+                        "placeholder": "Seleccione Sector"
                       }
                     },
                     {
@@ -2522,9 +2534,13 @@
                   "item-value": 1354,
                   "events": [
                     {
-                      "target": "modalidad_educacion_parvularia",
+                      "target": "id_subarea_edd",
                       "payload": {
-                        "visible": true
+                        "visible": true,
+                        "seeder": "get-subareas-edd",
+                        "label": "Indique a qué modalidad postula",
+                        "placeholder": "Seleccione una modalidad",
+                        "info": ""
                       }
                     },
                     {
@@ -2561,9 +2577,13 @@
                   "item-value": 1371,
                   "events": [
                     {
-                      "target": "asignatura_lengua",
+                      "target": "id_subarea_edd",
                       "payload": {
-                        "visible": true
+                        "visible": true,
+                        "seeder": "get-subareas-edd",
+                        "label": "¿Cuál es la lengua indígena que domina?",
+                        "placeholder": "Seleccione una lengua indígena",
+                        "info": ""
                       }
                     }
                   ]
@@ -2655,43 +2675,13 @@
             },
             {
               "component": "combobox",
-              "id": "asignatura_lengua",
-              "label": "¿Cuál es la lengua indígena que domina?",
-              "placeholder": "Seleccione una lengua indígena",
+              "id": "id_subarea_edd",
+              "label": "Seleccione subarea",
+              "placeholder": "Seleccione subarea",
               "visible": false,
               "extend": false,
               "single": true,
-              "items": [
-                {
-                  "id": "1371Aymara",
-                  "value": "Aymara",
-                  "label": "Aymara"
-                },
-                {
-                  "id": "1371Mapuzugun",
-                  "value": "Mapuzugun",
-                  "label": "Mapuzugun"
-                },
-                {
-                  "id": "1371Quechua",
-                  "value": "Quechua",
-                  "label": "Quechua"
-                },
-                {
-                  "id": "1371Rapanui",
-                  "value": "Rapanui",
-                  "label": "Rapanui"
-                }
-              ]
-            },
-            {
-              "component": "combobox",
-              "id": "id_sector_economico",
-              "placeholder": "Seleccione sector",
-              "label": "Sector Económico",
-              "info": "Indique el sector económico al que postula",
-              "visible": false,
-              "items": "get-sectores-economicos-edd"
+              "items": []
             },
             {
               "component": "checkandfill",
@@ -2743,26 +2733,6 @@
               ]
             },
             {
-              "component": "combobox",
-              "id": "modalidad_educacion_parvularia",
-              "visible": false,
-              "extend": true,
-              "label": "Indique a qué modalidad postula",
-              "placeholder": "Seleccione modalidad",
-              "items": [
-                {
-                  "id": "1354EDUJAR",
-                  "label": "Educación Parvularia en Jardines (Sala Cuna y Nivel Medio)",
-                  "value": "Educacion Parvularia en Jardines"
-                },
-                {
-                  "id": "1354EDUESC",
-                  "label": "Educación Parvularia en Escuelas (Nivel Transición)",
-                  "value": "Educacion Parvularia en Escuelas"
-                }
-              ]
-            },
-            {
               "component": "checkbox",
               "id": "niveles_experiencia_educacion_parvularia",
               "visible": false,
@@ -2783,41 +2753,6 @@
                   "id": "1354NIVELTRANSICION",
                   "label": "Nivel Transición",
                   "value": "Nivel Transicion"
-                }
-              ]
-            },
-            {
-              "component": "combobox",
-              "id": "area_postulacion_contexto_encierro",
-              "visible": false,
-              "extend": true,
-              "placeholder": "Seleccionar área",
-              "label": "Indique su área de postulación",
-              "items": [
-                {
-                  "id": "1349CIENCIASNATURALES",
-                  "label": "Ciencias Naturales (Biología, Química y/o Física)",
-                  "value": "Ciencias Naturales"
-                },
-                {
-                  "id": "1349ESTUDIOSSOCIALES",
-                  "label": "Estudios Sociales",
-                  "value": "Estudios Sociales"
-                },
-                {
-                  "id": "1349INGLES",
-                  "label": "Inglés",
-                  "value": "Ingles"
-                },
-                {
-                  "id": "1349LENGUACASTELLANACOMUNICACION",
-                  "label": "Lengua Castellana y Comunicación",
-                  "value": "Lengua Castellana y Comunicacion"
-                },
-                {
-                  "id": "1349MATEMATICA",
-                  "label": "Matemática",
-                  "value": "Matematica"
                 }
               ]
             },
@@ -2852,31 +2787,6 @@
                   "id": "1349MATEMATICACHECK",
                   "label": "Matemática",
                   "value": "Matematica"
-                }
-              ]
-            },
-            {
-              "component": "combobox",
-              "id": "area_postulacion_ed_especial_escuela_regular",
-              "visible": false,
-              "extend": true,
-              "placeholder": "Seleccionar área",
-              "label": "Indique su área de postulación",
-              "items": [
-                {
-                  "id": "1350DIFICULTADESAPRENDIZAJE",
-                  "label": "Dificultades Específicas del Aprendizaje",
-                  "value": "Dificultades Especificas del Aprendizaje"
-                },
-                {
-                  "id": "1350TRASTORNOLENGUAJE",
-                  "label": "Trastorno Específico del Lenguaje",
-                  "value": "Trastorno Especifico del Lenguaje"
-                },
-                {
-                  "id": "1350NEEP",
-                  "label": "Necesidades Educativas Especiales Permanentes (Discapacidad Auditiva, Intelectual, Múltiple, Visual, Espectro Autista, Disfasia Severa)",
-                  "value": "Necesidades Educativas Especiales Permanentes"
                 }
               ]
             },
