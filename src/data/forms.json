@@ -2679,7 +2679,7 @@
               "label": "Seleccione subarea",
               "placeholder": "Seleccione subarea",
               "visible": false,
-              "extend": false,
+              "extend": true,
               "single": true,
               "items": []
             },
@@ -2966,17 +2966,17 @@
                 {
                   "id": "tipo_evidencia1",
                   "label": "Módulo 1 (Evidencia escrita)",
-                  "value": "m1"
+                  "value": "M1"
                 },
                 {
                   "id": "tipo_evidencia2",
                   "label": "Módulo 2 (Clase grabada)",
-                  "value": "m2"
+                  "value": "M2"
                 },
                 {
                   "id": "tipo_evidencia3",
                   "label": "Módulo 3 (Trabajo colaborativo)",
-                  "value": "m3"
+                  "value": "M3"
                 }
               ]
             },

@@ -60,18 +60,19 @@ export function useRUT(
       projectId,
       accessType
     );
-    console.log("respuesta", response);
+    //console.log("respuesta", response);
     
     const data = response.data ?? {};
     const message = response?.message;
 
     //No está habilitado para subir forms
     if (data?.habilitado_form === false || !response.ok) {
+       const lines = message ? message.split("\n") : [];
       setModalContent({
         title: "Aviso",
         content: [
           "No puede subir una postulación por el momento.",
-          `${message ? "Motivo: " + message : ""}`,
+          ...lines,
         ],
       });
       toggleModal();
