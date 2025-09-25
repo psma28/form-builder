@@ -30,8 +30,8 @@ export function TextField({ id }) {
    */
   useEffect(() => {
     //if (value !== content) {
-      setContent(value);
-      handleInput(value);
+    setContent(value);
+    handleInput(value);
     //}
   }, [value]);
 
@@ -88,7 +88,13 @@ export function TextField({ id }) {
               disabled={!getFieldStatus() || !editable}
               value={content}
               className="font-roboto"
-              maxLength={{ ...props }.type === "tel" ? "8" : "50"}
+              maxLength={
+                { ...props }.type === "tel"
+                  ? "8"
+                  : { ...props }.type === "bank"
+                  ? "12"
+                  : "50"
+              }
               onChange={(e) => {
                 setContent(e.target.value);
               }}

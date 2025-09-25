@@ -6,3 +6,10 @@ export function numericInputValidator(input) {
   }
   return { valid: true };
 }
+
+export function minTelephoneLenghtValidator(input) {
+  if (input.length<8) {
+    return { valid: false, message: "Ingrese al menos 8 números" };
+  }
+  return { valid: true };
+}
