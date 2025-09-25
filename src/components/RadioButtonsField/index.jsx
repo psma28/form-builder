@@ -87,6 +87,9 @@ export function RadioButtonsField({ id }) {
                   />
                   <span className="radio-checkmark"></span>
                   <span>{item.label}</span>
+                  {item.info && (
+                    <InfoPopup key={`info${item.id}`} info={item.info} />
+                  )}
                 </label>
               </div>
             );
