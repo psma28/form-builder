@@ -80,8 +80,9 @@ export function RadioButtonsField({ id }) {
                     value={item.value}
                     disabled={!getFieldStatus()}
                     checked={selected === item.value}
-                    onChange={(event) => {
-                      handleSelection(event.target.value);
+                    onChange={() => {
+                      handleSelection(item.value);
+                      // handleSelection(event.target.value);
                     }}
                   />
                   <span className="radio-checkmark"></span>

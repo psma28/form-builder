@@ -3359,11 +3359,43 @@
           "label": "Datos Personales",
           "content": [
             {
-              "component": "checkbox",
+              "component": "radio",
               "id": "cargo_postulacion",
               "extend": true,
+              "single": true,
               "label": "Cargo(s) a postular",
-              "items": "cargos-endfid-2024"
+              "placeholder": "Seleccione un cargo a postular",
+              "items": [
+                {
+                  "id": "cargo_8",
+                  "value": [8],
+                  "label": "Examinador",
+                  "info": "Estudiante o titulado de alguna carrera universitaria o técnica, o bien,  personas con experiencia en el rol de examinador en otros instrumentos de evaluación masiva, pero en todos los casos, no deben ser profesores o estudiantes de la carrera de pedagogía. Debe contar con teléfono celular con internet móvil."
+                },
+                {
+                  "id": "cargo_9",
+                  "value": [9],
+                  "label": "Supervisor",
+                  "info": "Como mínimo, egresados de alguna carrera de educación superior, a excepción de la carrera de pedagogía; o bien, titulados de alguna carrera de educación superior; deben poseer habilidades de comunicación y contar con experiencia coordinando grupos de trabajo. Debe contar con teléfono celular con internet móvil."
+                },
+                {
+                  "id": "cargo_1013",
+                  "value": [1013],
+                  "label": "Apoyo técnico",
+                  "info": "Como mínimo deben tener títulos técnicos y/o profesionales relacionados con el uso de herramientas informáticas. Debe contar con teléfono celular con internet móvil."
+                },
+                {
+                  "id": "cargo_1028",
+                  "value": [1028],
+                  "label": "Técnico VT",
+                  "info": "Profesionales relacionados con el uso de herramientas informáticas, amplia experiencia en revisión de equipamiento computacional e infraestructura tecnológica."
+                },
+                {
+                  "id": "cargo_1028_1013",
+                  "value": [1028, 1013],
+                  "label": "Apoyo Técnico y Técnico VT"
+                }
+              ]
             },
             {
               "component": "text",
