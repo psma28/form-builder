@@ -10,13 +10,15 @@ import { ModalContext } from "./ModalContext";
 import { uploadForm } from "../services/api/uploadForm";
 import { formMapper } from "../mappings/form/FormMapper";
 import { FieldAccessContext } from "./FieldAccessContext";
+import { useState } from "react";
 // import { isProcessableComponent } from "../utils/stringTools";
 
 export const FormSchemaContext = createContext();
 
 export function FormSchemaProvider({ children }) {
   const { formId } = useParams();
-  const form = formBrowser(formId);
+  const [form, setForm] = useState(null);
+  const [loadingForm, setLoadingForm] = useState(true);
   const title = form?.title;
   const { setLoading } = useContext(LoadingContext);
   const { pushComponent, updateComponent, getComponent, getSchema, cleanForm } =
@@ -26,11 +28,46 @@ export function FormSchemaProvider({ children }) {
   const { toggleModal, setModalContent } = useContext(ModalContext);
   const { setFieldAccess } = useContext(FieldAccessContext);
 
-  useEffect(() => {
-    if (form) document.title = title?.text || "Formulario";
-  }, []);
+     function parseForm(element) {
+    const componentName = element.component;
+    if (componentName === "blank") return;
+    if (componentName === "form-structure") {
+      if (Array.isArray(element.content)) {
+        element.content.forEach(parseForm);
+      }
+      return;
+    }
+    let value = "";
+    if (componentName === "checkbox" || componentName === "checkandfill") {
+      value = [];
+    }
+    element = { ...element, value };
+    pushComponent(element);
+  }
 
-  if (!form) return <NotFoundPage message="No se encontró el formulario" />;
+  useEffect(() => {
+  const loadForm = async () => {
+    setLoadingForm(true);
+    const fetchedForm = await formBrowser(formId);
+    const parsedForm = fetchedForm?.data?.estructura || fetchedForm;
+      if (!parsedForm || !parsedForm.schema) {
+          setForm(null);
+          setLoadingForm(false);
+          return;
+        }
+    setForm(parsedForm);
+    setLoadingForm(false);
+    if (fetchedForm) document.title = fetchedForm.title?.text || "Formulario";
+     if (Array.isArray(parsedForm.schema)) {
+          parsedForm.schema.forEach((group) => parseForm(group));
+        }
+
+  };
+  loadForm();
+}, [formId]);
+
+if (loadingForm) return <p>Cargando formulario...</p>;
+if (!form) return <NotFoundPage message="No se encontró el formulario" />;
 
   const eventHandler = async (actorId, value, events) => {
     collapseEvents(actorId);
@@ -151,20 +188,7 @@ export function FormSchemaProvider({ children }) {
     }
   };
 
-  const parseForm = (element) => {
-    const componentName = element.component;
-    if (componentName === "blank") return;
-    if (componentName === "form-structure") {
-      element.content.forEach(parseForm);
-      return;
-    }
-    let value = "";
-    if (componentName === "checkbox" || componentName === "checkandfill") {
-      value = [];
-    }
-    element = { ...element, value };
-    pushComponent(element);
-  };
+
 
   form.schema.forEach((group) => parseForm(group));
 
