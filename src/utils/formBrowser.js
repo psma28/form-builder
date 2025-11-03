@@ -9,10 +9,10 @@ export async function formBrowser(id) {
     const response = await fetch(
       `https://devrrhh.iie.cl/rrhh_api/form/formularios/${id}/esquema`
     );
-
+      console.log("Fetching remote form with ID:", id);
     if (!response.ok) throw new Error("Error al obtener el formulario remoto");
     const json = await response.json();
-
+    console.log("Remote form data:", json);
     const remoteForm = json?.data?.estructura;
     if (!remoteForm) throw new Error("El formulario no tiene estructura válida");
 
