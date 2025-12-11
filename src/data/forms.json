@@ -3846,6 +3846,494 @@
           ]
         }
       ]
+    },
+    {
+      "id": "6edcfb36-dfeb-41cb-98c1-23dcc845be13",
+      "id_proyecto": "33",
+      "title": {
+        "text": "Postulación ENDFID CORRECTOR 2025",
+        "logo": "mineduc"
+      },
+      "intro": "Completa el siguiente formulario para postular.",
+      "indication": "Debes completar $toda la información requerida$ antes de enviar tu postulación.",
+      "schema": [
+        {
+          "component": "form-structure",
+          "id": "datos-personales",
+          "label": "Datos Personales",
+          "content": [
+            {
+              "component": "checkbox",
+              "id": "cargo_postulacion",
+              "extend": true,
+              "single": true,
+              "label": "Cargo(s) a postular",
+              "placeholder": "Seleccione un cargo a postular",
+              "items": [
+                {
+                  "id": "cargo_1011",
+                  "value": 1011,
+                  "label": "Corrector"
+                }
+              ]
+            },
+            {
+              "component": "text",
+              "id": "nombres",
+              "label": "Nombres",
+              "validators": ["letter-symbol", "completion"]
+            },
+            {
+              "component": "text",
+              "id": "nombre_social",
+              "label": "Nombre Social",
+              "required": false,
+              "validators": ["letter-symbol"]
+            },
+            {
+              "component": "text",
+              "id": "apellido_paterno",
+              "label": "Primer Apellido",
+              "validators": ["letter-symbol", "completion"]
+            },
+            {
+              "component": "text",
+              "id": "apellido_materno",
+              "label": "Segundo Apellido",
+              "required": false,
+              "validators": ["letter-symbol"]
+            },
+            {
+              "component": "combobox",
+              "id": "id_nacionalidad",
+              "label": "Nacionalidad",
+              "placeholder": "Seleccione nacionalidad",
+              "subevents": [
+                {
+                  "item-value": 1195,
+                  "events": [
+                    {
+                      "target": "id_region_nacimiento",
+                      "payload": {
+                        "visible": true
+                      }
+                    }
+                  ]
+                },
+                {
+                  "item-value": 1196,
+                  "events": [
+                    {
+                      "target": "otra_nacionalidad",
+                      "payload": {
+                        "visible": true
+                      }
+                    },
+                    {
+                      "target": "lugar_nacimiento",
+                      "payload": {
+                        "visible": true
+                      }
+                    }
+                  ]
+                }
+              ],
+              "items": "lista-nacionalidades"
+            },
+            {
+              "component": "text",
+              "id": "otra_nacionalidad",
+              "label": "Indique Nacionalidad",
+              "visible": false,
+              "validators": []
+            },
+            {
+              "component": "text",
+              "id": "lugar_nacimiento",
+              "label": "Lugar Nacimiento",
+              "visible": false,
+              "validators": []
+            },
+            {
+              "component": "combobox",
+              "id": "id_region_nacimiento",
+              "label": "Región de Nacimiento",
+              "placeholder": "Seleccione región",
+              "items": "get-regiones",
+              "visible": false,
+              "events": [
+                {
+                  "target": "id_comuna_nacimiento",
+                  "payload": {
+                    "visible": true,
+                    "seeder": "get-comunas"
+                  }
+                }
+              ]
+            },
+            {
+              "component": "combobox",
+              "id": "id_comuna_nacimiento",
+              "label": "Comuna de Nacimiento",
+              "placeholder": "Seleccione comuna",
+              "visible": false,
+              "items": [],
+              "events": []
+            },
+            {
+              "component": "combobox",
+              "id": "id_region_residencia",
+              "label": "Región de Residencia",
+              "placeholder": "Seleccione región",
+              "items": "get-regiones",
+              "events": [
+                {
+                  "target": "id_comuna_residencia",
+                  "payload": {
+                    "seeder": "get-comunas"
+                  }
+                }
+              ]
+            },
+            {
+              "component": "combobox",
+              "id": "id_comuna_residencia",
+              "label": "Comuna de Residencia",
+              "placeholder": "Seleccione comuna",
+              "items": [],
+              "events": []
+            },
+            {
+              "component": "text",
+              "id": "domicilio",
+              "label": "Dirección de Residencia",
+              "validators": ["completion"]
+            },
+            {
+              "component": "text",
+              "id": "domicilio_sector",
+              "label": "Sector/Villa/Población",
+              "validators": ["completion"]
+            },
+            {
+              "component": "text",
+              "id": "fecha_nacimiento",
+              "label": "Fecha de Nacimiento",
+              "type": "date",
+              "validators": ["completion", "mayor-edad"]
+            },
+            {
+              "component": "combobox",
+              "id": "id_sexo",
+              "label": "Sexo Registral",
+              "placeholder": "Seleccione Sexo Registral",
+              "items": "lista-sexos"
+            },
+            {
+              "component": "combobox",
+              "id": "id_estado_civil",
+              "placeholder": "Seleccione Estado Civil",
+              "label": "Estado Civil",
+              "items": "lista-estados-civiles"
+            },
+            {
+              "component": "combobox",
+              "id": "id_identidad_genero",
+              "label": "Identidad de Género",
+              "placeholder": "Seleccione su Identidad de Género",
+              "items": "lista-identidad-genero"
+            },
+            {
+              "component": "combobox",
+              "id": "id_situacion_discapacidad",
+              "label": "Situación Discapacidad",
+              "placeholder": "Seleccione Situación de Discapacidad",
+              "items": "lista-discapacidad"
+            },
+            {
+              "component": "combobox",
+              "id": "id_pertenencia_pueblo",
+              "label": "Pertenencia Pueblos",
+              "placeholder": "Seleccione Pertenencia Pueblos",
+              "items": "lista-pertenencia-pueblos"
+            },
+            {
+              "component": "text",
+              "id": "email",
+              "label": "Correo Electrónico",
+              "info": "Recuerde ingresar un correo electrónico válido y activo, ya que a esa dirección se enviarán todas las informaciones oficiales en el futuro. De preferencia use un correo Gmail.",
+              "validators": ["completion", "email"]
+            },
+            {
+              "component": "text",
+              "id": "telefono",
+              "label": "Celular",
+              "type": "tel",
+              "info": "Ingrese 8 números",
+              "validators": ["completion", "number", "min-telephone"]
+            }
+          ]
+        },
+        {
+          "component": "form-structure",
+          "id": "datos-academicos",
+          "label": "Datos Académicos",
+          "content": [
+            {
+              "component": "combobox",
+              "id": "id_nivel_estudio",
+              "label": "Nivel de Estudios",
+              "placeholder": "Seleccione su Nivel de Estudios",
+              "subevents": [
+                {
+                  "item-value": 1189,
+                  "events": [
+                    {
+                      "target": "otra_institucion",
+                      "payload": {
+                        "visible": true
+                      }
+                    }
+                  ]
+                },
+                {
+                  "item-value": 1190,
+                  "events": [
+                    {
+                      "target": "otra_institucion",
+                      "payload": {
+                        "visible": true
+                      }
+                    }
+                  ]
+                },
+                {
+                  "item-value": 1191,
+                  "events": [
+                    {
+                      "target": "id_institucion",
+                      "payload": {
+                        "visible": true
+                      }
+                    },
+                    {
+                      "target": "id_profesion",
+                      "payload": {
+                        "visible": true
+                      }
+                    }
+                  ]
+                },
+                {
+                  "item-value": 1192,
+                  "events": [
+                    {
+                      "target": "id_institucion",
+                      "payload": {
+                        "visible": true
+                      }
+                    },
+                    {
+                      "target": "id_profesion",
+                      "payload": {
+                        "visible": true
+                      }
+                    }
+                  ]
+                },
+                {
+                  "item-value": 1193,
+                  "events": [
+                    {
+                      "target": "id_institucion",
+                      "payload": {
+                        "visible": true
+                      }
+                    },
+                    {
+                      "target": "id_profesion",
+                      "payload": {
+                        "visible": true
+                      }
+                    }
+                  ]
+                },
+                {
+                  "item-value": 1194,
+                  "events": [
+                    {
+                      "target": "id_institucion",
+                      "payload": {
+                        "visible": true
+                      }
+                    },
+                    {
+                      "target": "id_profesion",
+                      "payload": {
+                        "visible": true
+                      }
+                    }
+                  ]
+                }
+              ],
+              "items": "lista-nivel-estudios"
+            },
+            {
+              "component": "combobox",
+              "placeholder": "Seleccione Institución",
+              "label": "Institución",
+              "id": "id_institucion",
+              "visible": false,
+              "items": "get-instituciones",
+              "subevents": [
+                {
+                  "item-value": 10001,
+                  "events": [
+                    {
+                      "target": "otra_institucion",
+                      "payload": {
+                        "visible": true
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "component": "text",
+              "label": "Indique institución",
+              "id": "otra_institucion",
+              "visible": false,
+              "validators": ["completion"]
+            },
+            {
+              "component": "combobox",
+              "placeholder": "Seleccione título",
+              "label": "Título/Carrera",
+              "id": "id_profesion",
+              "visible": false,
+              "items": "get-profesiones",
+              "subevents": [
+                {
+                  "item-value": 1310,
+                  "events": [
+                    {
+                      "target": "otra_profesion",
+                      "payload": {
+                        "visible": true
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "component": "text",
+              "label": "Indique titulo",
+              "id": "otra_profesion",
+              "visible": false,
+              "validators": ["completion"]
+            }
+          ]
+        },
+        {
+          "component": "form-structure",
+          "id": "otros-datos",
+          "label": "Otros Datos",
+          "indication": "Por favor, complete los siguientes campos. Estos datos solo se utilizarán en caso de que sea seleccionado y contratado para el proceso.",
+          "content": [
+            {
+              "component": "combobox",
+              "id": "id_banco",
+              "label": "Banco",
+              "placeholder": "Seleccione un Banco",
+              "items": "get-bancos",
+              "events": [
+                {
+                  "target": "id_banco_tipo_cuenta",
+                  "payload": {
+                    "visible": true,
+                    "seeder": "get-tipos-cuenta"
+                  }
+                }
+              ]
+            },
+            {
+              "component": "combobox",
+              "id": "id_banco_tipo_cuenta",
+              "label": "Tipo de Cuenta",
+              "placeholder": "Seleccione un tipo de cuenta",
+              "items": []
+            },
+            {
+              "component": "text",
+              "id": "banco_nro_cuenta",
+              "label": "Número de cuenta",
+              "type": "bank",
+              "validators": ["number", "completion"]
+            }
+          ]
+        },
+        {
+          "component": "form-structure",
+          "id": "documentos",
+          "label": "Documentos",
+          "indication": "( Formatos soportados: doc, docx, pdf, png, jpg, zip o rar ) ( Tamaño máximo por archivo es de 7Mb )",
+          "content": [
+            {
+              "component": "alert",
+              "id": "alerta-alimento",
+              "text": "Recuerde leer con detalle lo que se solicita completar y suba sus documentos completos.\n \nEn caso de ser seleccionado, junto con el contrato deberá firmar un anexo, en formato de Declaración Jurada Simple que comprende las siguientes normativas:\n \t• \\bInhabilidades e Incompatibilidades Administrativas\\b. Ley 18.575, Artículo 54.\n \t• \\bRequisitos de Ingreso\\b. Ley 18.834, Artículo 12 letras e), f).\n \t• \\bInhabilidades por parentesco.\\b Artículo 85.\n \t• \\bPrevención de delitos.\\b Ley 20.393.\n \nSi usted es deudor/a de Pensión de Alimentos, además, deberá firmar la Declaración Jurada Simple, correspondiente a la \\bPensión de Alimentos\\b (Ley 21.389). \n \n Si usted es de \\bprofesión abogado\\b, además, deberá firmar la Declaración Jurada Simple para Abogado, (Prohibición Artículo 61 Ley 20.000). \n \n El entregar información falsa lo hace incurrir en las penas establecidas en el Artículo 210 del Código Penal. \n \n \\bEn el caso de no firmar las declaraciones, deberá desistir de su participación en este proyecto.\\b"
+            },
+            {
+              "component": "file",
+              "id": "CARNET_IDENTIDAD",
+              "required": true,
+              "label": "Cédula de identidad (Vigente y por ambos lados)",
+              "allow": ["docx", "pdf", "png", "jpeg", "zip", "rar"],
+              "maxsize": 7,
+              "extend": true
+            },
+            {
+              "component": "file",
+              "id": "CV",
+              "required": true,
+              "label": "Currículum Vitae (Actualizado)",
+              "allow": ["docx", "pdf", "png", "jpeg", "zip", "rar"],
+              "maxsize": 7,
+              "extend": true
+            },
+            {
+              "component": "file",
+              "id": "CERTIFICADO_TITULO",
+              "required": true,
+              "label": "Certificado de Título y/o estudios",
+              "allow": ["docx", "pdf", "png", "jpeg", "zip", "rar"],
+              "maxsize": 7,
+              "extend": true
+            },
+            {
+              "component": "file",
+              "id": "CERTIFICADO_ANTECEDENTES",
+              "required": true,
+              "label": "Certificado de antecedentes (/aDescargue aquí/lhttps://www.registrocivil.cl/principal/servicios-en-linea/a)",
+              "info": "Para descargar, haz clic en el enlace y selecciona la opción \"Certificado Antecedentes Fines Particulares\". Este certificado es gratuito y requiere iniciar sesión con \"clave única\".",
+              "allow": ["docx", "pdf", "png", "jpeg", "zip", "rar"],
+              "maxsize": 7,
+              "extend": true
+            },
+            {
+              "component": "file",
+              "id": "CERTIFICADO_TRAMO",
+              "required": true,
+              "label": "Certificado de Tramo",
+              "allow": ["docx", "pdf", "png", "jpeg", "zip", "rar"],
+              "maxsize": 7,
+              "extend": true
+            }
+          ]
+        }
+      ]
     }
   ]
 }
