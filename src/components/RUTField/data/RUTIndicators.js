@@ -1,6 +1,6 @@
 export const RUTIndicators = {
   waiting: {
-    message: "Ingresa tu RUN por favor",
+    message: "Ingresa tu RUN por favor (luego pulsa la lupa)",
     color: "",
   },
   failed: {
