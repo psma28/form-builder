@@ -6,6 +6,7 @@ import { FormSchemaProvider } from "./context/FormSchemaContext";
 import { LoadingProvider } from "./context/LoadingContext";
 import { ModalProvider } from "./context/ModalContext";
 import { FieldAccessProvider } from "./context/FieldAccessContext";
+import { FormBlockProvider } from "./context/FormBlockContext";
 
 function App() {
   return (
@@ -15,13 +16,15 @@ function App() {
           path="/front/form/:formId"
           element={
             <LoadingProvider>
-              <FieldAccessProvider>
-                <ModalProvider>
-                  <FormSchemaProvider>
-                    <Form />
-                  </FormSchemaProvider>
-                </ModalProvider>
-              </FieldAccessProvider>
+              <FormBlockProvider>
+                <FieldAccessProvider>
+                  <ModalProvider>
+                    <FormSchemaProvider>
+                      <Form />
+                    </FormSchemaProvider>
+                  </ModalProvider>
+                </FieldAccessProvider>
+              </FormBlockProvider>
             </LoadingProvider>
           }
         />
