@@ -6686,15 +6686,6 @@
               "allow": ["docx", "pdf", "png", "jpeg", "zip", "rar"],
               "maxsize": 7,
               "extend": true
-            },
-            {
-              "component": "file",
-              "id": "ACUERDO_CONFIDENCIALIDAD",
-              "required": true,
-              "label": "Acuerdo de confidencialidad\u200B (obligatorio) /aDescargue el formato obligatorio aquí /lhttps://devrrhh.iie.cl/rrhh_api/public/form_docs/edd/COMPROMISO_CONFIDENCIALIDAD_EDS.pdf/a",
-              "allow": ["docx", "pdf", "png", "jpeg", "zip", "rar"],
-              "maxsize": 7,
-              "extend": true
             }
           ]
         }
