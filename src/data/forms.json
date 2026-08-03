@@ -1466,7 +1466,7 @@
               "component": "file",
               "id": "DECLARACION_PARENTESCO",
               "required": true,
-              "label": "Declaración Simple de NO parentesco ni vinculación con personal JUNJI\u200B /aDescargar formato/lhttps://devrrhh.iie.cl/rrhh_api/public/form_docs/junji/DECLARACION_SIMPLE_2025.pdf/a)",
+              "label": "Declaración Simple de NO parentesco ni vinculación con personal JUNJI\u200B /aDescargar formato/lhttps://postulaciones.iie.cl/back/api/public/form_docs/junji/DECLARACION_SIMPLE_2025.pdf/a)",
               "allow": ["docx", "pdf", "png", "jpeg", "zip", "rar"],
               "maxsize": 7,
               "extend": true
@@ -1979,7 +1979,7 @@
               "component": "file",
               "id": "DECLARACION_PARENTESCO",
               "required": true,
-              "label": "Declaración Simple de NO parentesco ni vinculación con personal JUNJI\u200B /aDescargar formato/lhttps://devrrhh.iie.cl/rrhh_api/public/form_docs/junji/DECLARACION_SIMPLE_2025.pdf/a)",
+              "label": "Declaración Simple de NO parentesco ni vinculación con personal JUNJI\u200B /aDescargar formato/lhttps://postulaciones.iie.cl/back/api/public/form_docs/junji/DECLARACION_SIMPLE_2025.pdf/a)",
               "allow": ["docx", "pdf", "png", "jpeg", "zip", "rar"],
               "maxsize": 7,
               "extend": true
@@ -3246,7 +3246,7 @@
               "component": "file",
               "id": "CV",
               "required": true,
-              "label": "Currículum Vitae\u200B (Actualizado y Obligatorio). /aDescargue el formato obligatorio aquí /lhttps://devrrhh.iie.cl/rrhh_api/public/form_docs/edd/FORMATO_CV_2025.docx/a o /adescargue el formato para Educadores Especiales aquí /lhttps://devrrhh.iie.cl/rrhh_api/public/form_docs/edd/FORMATO_CV_PROFESOR_DIFERENCIAL_2025.docx/a",
+              "label": "Currículum Vitae\u200B (Actualizado y Obligatorio). /aDescargue el formato obligatorio aquí /lhttps://postulaciones.iie.cl/back/api/public/form_docs/edd/FORMATO_CV_2025.docx/a o /adescargue el formato para Educadores Especiales aquí /lhttps://postulaciones.iie.cl/back/api/public/form_docs/edd/FORMATO_CV_PROFESOR_DIFERENCIAL_2025.docx/a",
               "allow": ["docx", "pdf", "png", "jpeg", "zip", "rar"],
               "maxsize": 7,
               "extend": true
@@ -3274,7 +3274,7 @@
               "component": "file",
               "id": "DECLARACION_AUSENCIA_INCOMPATIBILIDAD",
               "required": true,
-              "label": "Declaración de Ausencia de Incompatibilidad firmada\u200B (obligatorio) /aDescargue el formato obligatorio aquí /lhttps://devrrhh.iie.cl/rrhh_api/public/form_docs/edd/FORMATO_DECLARACION_AUSENCIA_INCOMPATIBILIDAD_2025.docx/a",
+              "label": "Declaración de Ausencia de Incompatibilidad firmada\u200B (obligatorio) /aDescargue el formato obligatorio aquí /lhttps://postulaciones.iie.cl/back/api/public/form_docs/edd/FORMATO_DECLARACION_AUSENCIA_INCOMPATIBILIDAD_2025.docx/a",
               "allow": ["docx", "pdf", "png", "jpeg", "zip", "rar"],
               "maxsize": 7,
               "extend": true
@@ -3293,7 +3293,7 @@
               "component": "file",
               "id": "CONTRATO_TRABAJO",
               "required": true,
-              "label": "Copia contrato de trabajo, Decreto de nombramiento o Certificado de Vigencia en aula\u200B (o último contrato que tuvo) (obligatorio) /aDescargue el formato certificado de vigencia en aula aquí /lhttps://devrrhh.iie.cl/rrhh_api/public/form_docs/edd/FORMATO_VIGENCIA_AULA_2025.docx/a",
+              "label": "Copia contrato de trabajo, Decreto de nombramiento o Certificado de Vigencia en aula\u200B (o último contrato que tuvo) (obligatorio) /aDescargue el formato certificado de vigencia en aula aquí /lhttps://postulaciones.iie.cl/back/api/public/form_docs/edd/FORMATO_VIGENCIA_AULA_2025.docx/a",
               "allow": ["docx", "pdf", "png", "jpeg", "zip", "rar"],
               "maxsize": 7,
               "extend": true
@@ -3302,7 +3302,7 @@
               "component": "file",
               "id": "ACUERDO_CONFIDENCIALIDAD",
               "required": true,
-              "label": "Acuerdo de confidencialidad\u200B (obligatorio) /aDescargue el formato obligatorio aquí /lhttps://devrrhh.iie.cl/rrhh_api/public/form_docs/edd/FORMATO_CONFIDENCIALIDAD_CORRECCIONES_2025.docx/a",
+              "label": "Acuerdo de confidencialidad\u200B (obligatorio) /aDescargue el formato obligatorio aquí /lhttps://postulaciones.iie.cl/back/api/public/form_docs/edd/FORMATO_CONFIDENCIALIDAD_CORRECCIONES_2025.docx/a",
               "allow": ["docx", "pdf", "png", "jpeg", "zip", "rar"],
               "maxsize": 7,
               "extend": true
@@ -3334,7 +3334,7 @@
               "component": "file",
               "id": "ACUERDO_CONFIDENCIALIDAD",
               "required": true,
-              "label": "Acuerdo de Confidencialidad. /aDescargue el formato obligatorio aquí /lhttps://devrrhh.iie.cl/rrhh_api/public/form_docs/junji/ACUERDO_CONFIDENCIALIDAD_2025.pdf/a",
+              "label": "Acuerdo de Confidencialidad. /aDescargue el formato obligatorio aquí /lhttps://postulaciones.iie.cl/back/api/public/form_docs/junji/ACUERDO_CONFIDENCIALIDAD_2025.pdf/a",
               "allow": ["docx", "pdf", "png", "jpeg", "zip", "rar"],
               "maxsize": 7,
               "extend": true
@@ -5743,7 +5743,7 @@
               "component": "file",
               "id": "ACUERDO_CONFIDENCIALIDAD",
               "required": true,
-              "label": "Acuerdo de confidencialidad\u200B (obligatorio) /aDescargue el formato obligatorio aquí /lhttps://devrrhh.iie.cl/rrhh_api/public/form_docs/edd/FORMATO_CONFIDENCIALIDAD.pdf/a",
+              "label": "Acuerdo de confidencialidad\u200B (obligatorio) /aDescargue el formato obligatorio aquí /lhttps://postulaciones.iie.cl/back/api/public/form_docs/edd/FORMATO_CONFIDENCIALIDAD.pdf/a",
               "allow": ["docx", "pdf", "png", "jpeg", "zip", "rar"],
               "maxsize": 7,
               "extend": true
@@ -6228,7 +6228,7 @@
               "component": "file",
               "id": "ACUERDO_CONFIDENCIALIDAD",
               "required": true,
-              "label": "Acuerdo de confidencialidad\u200B (obligatorio) /aDescargue el formato obligatorio aquí /lhttps://devrrhh.iie.cl/rrhh_api/public/form_docs/edd/COMPROMISO_CONFIDENCIALIDAD_EDS.pdf/a",
+              "label": "Acuerdo de confidencialidad\u200B (obligatorio) /aDescargue el formato obligatorio aquí /lhttps://postulaciones.iie.cl/back/api/public/form_docs/edd/COMPROMISO_CONFIDENCIALIDAD_EDS.pdf/a",
               "allow": ["docx", "pdf", "png", "jpeg", "zip", "rar"],
               "maxsize": 7,
               "extend": true

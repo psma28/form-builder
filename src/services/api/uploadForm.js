@@ -1,5 +1,5 @@
 export async function uploadForm(form, outputType) {
-  let BASE_URL = "https://devrrhh.iie.cl/rrhh_api/form";
+  let BASE_URL = "https://postulaciones.iie.cl/back/api/form";
   let url = BASE_URL;
   switch (outputType) {
     case "junji-docs":
